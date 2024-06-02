@@ -43,7 +43,7 @@ const Login = ({ toggleView }) => {
         <button>Facebook</button>
         <button>Google</button>
       </div>
-      <a href="#" onClick={() => toggleView('reset')}>
+      <a className="toggle-button" href="#" onClick={() => toggleView('reset')}>
         RESTABLECER CONTRASEÑA
       </a>
       <div className="terms">

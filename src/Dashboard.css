@@ -1,49 +1,66 @@
 .dashboard-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-  }
-  
-  .control-panel-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .dashboard-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  .dashboard-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-  }
-  
-  .user-profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Mueve el perfil a la derecha */
+  transform: translateX(0%); /* Inicialmente fuera de la pantalla */
+  transition: transform 0.3s ease; /* Efecto de transición */
+}
+
+.user-profile.visible {
+  transform: translateX(0); /* Muestra el perfil al desplazar */
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px; /* Ajusta este valor para juntar más las imágenes */
+}
+
+.control-panel {
+  display: flex;
+  align-items: center;
+}
+
+.control-panel-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button {
+  background-color: #fff; /* Color de fondo del botón de cierre de sesión */
+  color: #333; /* Color del texto del botón de cierre de sesión */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px; /* Espaciado interno del botón de cierre de sesión */
+  cursor: pointer;
+  transform: translateX(100%); /* Inicialmente fuera de la pantalla */
+  transition: transform 0.3s ease; /* Efecto de transición */
+}
+
+.logout-button.visible {
+  transform: translateX(0); /* Muestra el botón de cierre de sesión al desplazar */
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+}

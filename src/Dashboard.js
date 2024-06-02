@@ -2,28 +2,41 @@ import React from 'react';
 import './Dashboard.css';
 
 const Dashboard = () => {
+  const handleControlPanelClick = () => {
+    // Lógica para el panel de control
+  };
+
   return (
     <div className="dashboard-container">
+      <h1>Bienvenido al Dashboard</h1>
       <div className="dashboard-header">
-        <h1>Bienvenido a la Pagina Principal</h1>
-        {/* Agregar el botón para el panel de control */}
-        <button className="control-panel-button">Panel de Control</button>
+        {/* Agregar el panel de control */}
+        <div className="control-panel">
+          <button onClick={handleControlPanelClick} className="control-panel-button">Panel de Control</button>
+        </div>
+        {/* Aquí va el perfil de usuario */}
+        <div className="user-profile">
+          <img src="bandera.png" alt="Imagen de perfil" className="profile-picture" />
+          <p></p>
+        </div>
+        <div className="user-profile">
+          <img src="medalla.png" alt="Imagen de perfil" className="profile-picture" />
+          <p></p>
+        </div>
+        <div className="user-profile">
+          <img src="mensaje.png" alt="Imagen de perfil" className="profile-picture" />
+          <p></p>
+        </div>
+        <div className="user-profile">
+          <img src="AYUDA.jpeg" alt="Imagen de perfil" className="profile-picture" />
+          <p>Perfil</p>
+        </div>
       </div>
       <div className="dashboard-content">
-        {/* Aquí va el contenido del dashboard */}
         <p>Esta es tu área personal.</p>
-      </div>
-      <div className="dashboard-footer">
-        {/* Agregar el perfil de usuario */}
-        <div className="user-profile">
-          <img src="url_de_tu_imagen_de_perfil" alt="Imagen de perfil" className="profile-picture" />
-          <p>Nombre de usuario</p>
-        </div>
       </div>
     </div>
   );
 };
 
 export default Dashboard;
-
-
