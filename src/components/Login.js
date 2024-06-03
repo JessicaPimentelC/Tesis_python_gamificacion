@@ -15,7 +15,6 @@ const Login = ({ toggleView }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     toggleView('dashboard'); // Redirigir al dashboard después de un login exitoso
   };
 
@@ -50,11 +49,13 @@ const Login = ({ toggleView }) => {
       <div className="social-login">
 
         <FacebookLogin
-          appId="1799576823896770"
-          autoLoad={true}
-          fields="name,email,picture"
-          callback={responseFacebook} />,
-
+          appId="1088597931155576"
+          autoLoad
+          callback={responseFacebook}
+          render={renderProps => (
+            <button onClick={renderProps.onClick}>This is my custom FB button</button>
+          )}
+        />
 
         <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
           <main>

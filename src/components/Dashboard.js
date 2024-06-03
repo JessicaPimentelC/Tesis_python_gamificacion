@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Dashboard.css';
 import LoadingBar from './LoadingBar';
-import App from '../App';
 
 const Dashboard = ({ toggleView }) => {
   const [loadingProgress1, setLoadingProgress1] = React.useState(0);
@@ -85,6 +84,7 @@ const Dashboard = ({ toggleView }) => {
             </button>
             {dropdownOpen && (
               <div className="dropdown-menu">
+                {console.log("toggleView:", toggleView)}
                 <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button> {/* Cambia la vista a 'profile' */}
                 <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
               </div>

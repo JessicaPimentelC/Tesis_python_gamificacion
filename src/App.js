@@ -20,7 +20,7 @@ function App() {
       {view === 'register' && <Register toggleView={toggleView} />}
       {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
       {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
-      {view === 'dashboard' && <Dashboard />}
+      {view === 'dashboard' && <Dashboard toggleView={toggleView}/>}
       {view === 'profile' && <Profile toggleView={toggleView} />}
 
     </div>
