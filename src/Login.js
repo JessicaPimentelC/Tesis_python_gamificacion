@@ -41,7 +41,9 @@ const Login = ({ toggleView }) => {
       </button>
       <div className="social-login">
         <button>Facebook</button>
-        <button>Google</button>
+        <button className="toggle-button" onClick={() => toggleView('iniciogoogle')}>
+        Google
+        </button>
       </div>
       <a className="toggle-button" href="#" onClick={() => toggleView('reset')}>
         RESTABLECER CONTRASEÑA

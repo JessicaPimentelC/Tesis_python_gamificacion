@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import Register from './Register';
 import Dashboard from './Dashboard';
+import Iniciogoogle from './Iniciogoogle';
 import './App.css';
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
     <div className="App">
       {view === 'login' && <Login toggleView={toggleView} />}
       {view === 'register' && <Register toggleView={toggleView} />}
+      {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
+      {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
       {view === 'dashboard' && <Dashboard />}
     </div>
   );
