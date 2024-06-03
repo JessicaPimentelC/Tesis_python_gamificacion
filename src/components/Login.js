@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
-
-
+import FacebookLogin from 'react-facebook-login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import '../styles/Register.css';
-import Loginsesion from './Loginsesion'; 
+import Loginsesion from './Loginsesion';
 
 const Login = ({ toggleView }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí iría la lógica para validar el login
+
     toggleView('dashboard'); // Redirigir al dashboard después de un login exitoso
   };
 
@@ -45,7 +48,14 @@ const Login = ({ toggleView }) => {
         REGISTRARME
       </button>
       <div className="social-login">
-        <button>Facebook</button>
+
+        <FacebookLogin
+          appId="1088597931155576"
+          autoLoad={true}
+          fields="name,email,picture"
+          callback={responseFacebook} />,
+
+
         <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
           <main>
             <Loginsesion />
