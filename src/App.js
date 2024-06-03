@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
+import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
 import Iniciogoogle from './components/Iniciogoogle';
 import Loginsesion from './components/Loginsesion';
@@ -20,6 +21,8 @@ function App() {
       {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
       {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
       {view === 'dashboard' && <Dashboard />}
+      {view === 'profile' && <Profile toggleView={toggleView} />}
+
     </div>
   );
 }

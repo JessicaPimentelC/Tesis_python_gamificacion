@@ -50,7 +50,7 @@ const Login = ({ toggleView }) => {
       <div className="social-login">
 
         <FacebookLogin
-          appId="1088597931155576"
+          appId="1799576823896770"
           autoLoad={true}
           fields="name,email,picture"
           callback={responseFacebook} />,
