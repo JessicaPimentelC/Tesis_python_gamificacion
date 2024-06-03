@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import decodejson from "./utils/decodejson";
+import decodejson from "../utils/decodejson";
 
 export default function Loginsesion() {
     function handleError() {

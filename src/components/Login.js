@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import './Login.css';
+import '../styles/Login.css';
+
+
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import '../styles/Register.css';
+import Loginsesion from './Loginsesion'; 
 
 const Login = ({ toggleView }) => {
   const [email, setEmail] = useState('');
@@ -36,14 +41,16 @@ const Login = ({ toggleView }) => {
         </div>
         <button type="submit">INGRESAR</button>
       </form>
-      <button className="toggle-button" onClick={() => toggleView('register')}>
+      <button type='submit' className="toggle-button" onClick={() => toggleView('register')}>
         REGISTRARME
       </button>
       <div className="social-login">
         <button>Facebook</button>
-        <button className="toggle-button" onClick={() => toggleView('iniciogoogle')}>
-        Google
-        </button>
+        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
+          <main>
+            <Loginsesion />
+          </main>
+        </GoogleOAuthProvider>
       </div>
       <a className="toggle-button" href="#" onClick={() => toggleView('reset')}>
         RESTABLECER CONTRASEÑA

@@ -1,5 +1,5 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import './Register.css';
+import '../styles/Register.css';
 import Loginsesion from './Loginsesion'; 
 
 export default function Iniciogoogle() {

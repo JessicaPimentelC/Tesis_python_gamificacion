@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './Register.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import '../styles/Register.css';
+import Loginsesion from './Loginsesion'; 
 
 const Register = ({ toggleView }) => {
   const [name, setName] = useState('');
@@ -81,7 +83,11 @@ const Register = ({ toggleView }) => {
       </form>
       <div className="social-register">
         <button className="facebook-button">facebook</button>
-        <button className="google-button">google</button>
+        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
+          <main>
+            <Loginsesion />
+          </main>
+        </GoogleOAuthProvider>
       </div>
       <button onClick={() => toggleView('login')} className="toggle-button">Iniciar Sesión</button>
       <p className="terms">

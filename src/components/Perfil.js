@@ -1,6 +1,6 @@
 // Perfil.js
 import React from 'react';
-import './Perfil.css'; // Asegúrate de tener el archivo CSS correspondiente para los estilos
+import '../Perfil.css'; // Asegúrate de tener el archivo CSS correspondiente para los estilos
 
 const Perfil = () => {
   return (

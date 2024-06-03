@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Login from './Login';
-import Register from './Register';
-import Dashboard from './Dashboard';
-import Iniciogoogle from './Iniciogoogle';
-import './App.css';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import Iniciogoogle from './components/Iniciogoogle';
+import Loginsesion from './components/Loginsesion';
+import './styles/App.css';
 
 function App() {
   const [view, setView] = useState('login'); // 'login', 'register', 'dashboard', 'perfil'
@@ -19,7 +20,6 @@ function App() {
       {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
       {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
       {view === 'dashboard' && <Dashboard />}
-      {view === 'perfil' && <Perfil />} {/* Agrega el renderizado del Perfil */}
     </div>
   );
 }
