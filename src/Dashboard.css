@@ -1,66 +1,229 @@
 .dashboard-container {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: #FF6161;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Para ocultar cualquier desbordamiento horizontal */
 }
+
+/* Ajusta el ancho del contenedor interno para que no haya desbordamiento horizontal */
+.dashboard-header,
+.user-profiles,
+.dashboard-content,
+.info-boxes {
+  width: 100%;
+}
+
+/* Asegúrate de que los elementos internos no tengan márgenes adicionales */
+.user-profiles,
+.info-boxes {
+  margin: 0;
+}
+
+/* Si es necesario, ajusta el ancho de los elementos internos para evitar desbordamiento horizontal */
+.info-box {
+  width: calc(33% - 20px); /* Ajusta según sea necesario */
+}
+
+
+
+/* Si es necesario, asegúrate de que los elementos hijos también ocupen todo el espacio */
+.dashboard-header,
+.control-panel,
+.user-profiles,
+.dashboard-content,
+.info-boxes {
+  width: 120%;
+}
+
 
 .dashboard-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.control-panel {
+  margin-right: 20px;
+}
+.control-cerrar{
+  padding: 10px 20px;
+  color: rgb(2, 2, 2);
+  border: none;
+  cursor: pointer;
+}
+.control-panel-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-profile {
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* Mueve el perfil a la derecha */
-  transform: translateX(0%); /* Inicialmente fuera de la pantalla */
-  transition: transform 0.3s ease; /* Efecto de transición */
+  margin: 0 10px;
+  text-align: center;
 }
 
-.user-profile.visible {
-  transform: translateX(0); /* Muestra el perfil al desplazar */
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.dashboard-content {
+  margin-top: 20px;
+  text-align: center; /* Añade esto para centrar el contenido */
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Añade esto para que los cuadros se envuelvan si es necesario */
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin: 10px; /* Añade margen alrededor de cada cuadro */
+}
+
+.info-box img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+/* Dashboard.css */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.dashboard-content {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+/* Dashboard.css */
+.logout-button {
+  margin-top: 20px;
+  background-color: #ff6347; /* Cambia el color de fondo según sea necesario */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc4731; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+}
+
+/* En tu archivo Dashboard.css */
+.profile-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
 }
 
 .profile-picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 5px; /* Ajusta este valor para juntar más las imágenes */
 }
 
-.control-panel {
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.user-profiles {
   display: flex;
   align-items: center;
 }
+/* En tu archivo Dashboard.css */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.control-panel-button {
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin: 0 10px;
   padding: 10px 20px;
+  border: none;
   background-color: #007bff;
   color: #fff;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.logout-button {
-  background-color: #fff; /* Color de fondo del botón de cierre de sesión */
-  color: #333; /* Color del texto del botón de cierre de sesión */
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px; /* Espaciado interno del botón de cierre de sesión */
-  cursor: pointer;
-  transform: translateX(100%); /* Inicialmente fuera de la pantalla */
-  transition: transform 0.3s ease; /* Efecto de transición */
-}
-
-.logout-button.visible {
-  transform: translateX(0); /* Muestra el botón de cierre de sesión al desplazar */
-}
-
-.dashboard-content {
-  flex-grow: 1;
-  padding: 20px;
+.modal-content button:hover {
+  background-color: #0056b3;
 }

@@ -6,7 +6,7 @@ import Iniciogoogle from './Iniciogoogle';
 import './App.css';
 
 function App() {
-  const [view, setView] = useState('login'); // 'login', 'register', 'dashboard'
+  const [view, setView] = useState('login'); // 'login', 'register', 'dashboard', 'perfil'
 
   const toggleView = (newView) => {
     setView(newView);
@@ -19,6 +19,7 @@ function App() {
       {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
       {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
       {view === 'dashboard' && <Dashboard />}
+      {view === 'perfil' && <Perfil />} {/* Agrega el renderizado del Perfil */}
     </div>
   );
 }
