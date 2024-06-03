@@ -7,11 +7,11 @@ import Loginsesion from './components/Loginsesion';
 import './styles/App.css';
 
 function App() {
-  const [view, setView] = useState('login'); // 'login', 'register', 'dashboard', 'perfil'
+  const [view, setView] = useState('login'); // 'login', 'register', 'dashboard', 'profile'
 
   const toggleView = (newView) => {
     setView(newView);
-  };
+  }; 
 
   return (
     <div className="App">

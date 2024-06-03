@@ -21,7 +21,7 @@ const Login = ({ toggleView }) => {
 
   return (
     <div className="login-container">
-      <img src="/logo.png" alt="Logo" className="login-logo" />
+      <img src="/tesis.png" alt="Logo" className="login-logo" />
       <h2>Ingresa tus datos</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
