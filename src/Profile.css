@@ -60,7 +60,7 @@
 }
 
 .profile-info {
-    flex-grow: 1;
+    flex-grow: 10;
 }
 
 .edit-button {
@@ -162,3 +162,4 @@
 .achievement-box:active {
     transform: scale(0.9); /* Reducimos ligeramente el tamaño de los iconos de logros cuando se hace clic */
 }
+

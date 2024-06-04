@@ -20,6 +20,6 @@ function App() {
       {view === 'profile' && <Profile />}
     </div>
   );
-}
+} 
 
 export default App;
