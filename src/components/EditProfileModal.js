@@ -1,7 +1,7 @@
 // src/EditProfileModal.js
 
 import React from 'react';
-import './EditProfileModal.css';
+import '../styles/EditProfileModal.css';
 
 const EditProfileModal = ({ isOpen, onClose, profilePicture, onLogout }) => {
   if (!isOpen) {

@@ -1,7 +1,7 @@
 // src/Profile.js
 
 import React, { useState } from 'react';
-import './Profile.css';
+import '../styles/Profile.css';
 import EditProfileModal from './EditProfileModal';
 
 const Profile = () => {

@@ -1,6 +1,6 @@
 // LoadingBar.js
 import React from 'react';
-import './LoadingBar.css';
+import '../styles/LoadingBar.css';
 
 const LoadingBar = ({ progress }) => {
   return (

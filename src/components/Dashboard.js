@@ -84,8 +84,8 @@ const Dashboard = ({ toggleView }) => {
             </button>
             {dropdownOpen && (
               <div className="dropdown-menu">
-                <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button> {/* Cambia la vista a 'profile' */}
                 <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
+                <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button> {/* Cambia la vista a 'profile' */}
               </div>
             )}
           </div>

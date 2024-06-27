@@ -1,27 +1,53 @@
 import React, { useState } from 'react';
-import './Register.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import '../styles/Register.css';
+import Loginsesion from './Loginsesion'; 
 
 const Register = ({ toggleView }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Validación básica
     if (!name || !email || !password) {
       alert('Por favor, completa todos los campos.');
       return;
     }
-
-    // Simulación de registro exitoso
-    // Aquí deberías añadir la lógica para registrar al usuario (puede ser una llamada a una API)
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    // Redirigir al dashboard después de un registro exitoso
-    toggleView('dashboard');
+  
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+  
+    if (password.length <= 4) {
+      alert('La contraseña debe tener al menos 4 caracteres.');
+      return;
+    }
+  
+    const userData = { name, email, password };
+  
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log('Success:', data);
+      toggleView('dashboard');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Ocurrió un error al registrar. Por favor, intenta de nuevo.');
+    }
   };
 
   return (
@@ -57,7 +83,11 @@ const Register = ({ toggleView }) => {
       </form>
       <div className="social-register">
         <button className="facebook-button">facebook</button>
-        <button className="google-button">google</button>
+        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
+          <main>
+            <Loginsesion />
+          </main>
+        </GoogleOAuthProvider>
       </div>
       <button onClick={() => toggleView('login')} className="toggle-button">Iniciar Sesión</button>
       <p className="terms">
@@ -68,5 +98,4 @@ const Register = ({ toggleView }) => {
 };
 
 export default Register;
-
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Login from './Login';
-import Register from './Register';
-import Dashboard from './Dashboard';
-import Profile from './Profile'; // Importa el componente Profile
-import './App.css';
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import Dashboard from './components/Dashboard';
+import Iniciogoogle from './components/Iniciogoogle';
+import Loginsesion from './components/Loginsesion';
+import './styles/App.css';
 
 function App() {
   const [view, setView] = useState('login'); // 'login', 'register', 'dashboard', 'profile'
@@ -16,8 +18,11 @@ function App() {
     <div className="App">
       {view === 'login' && <Login toggleView={toggleView} />}
       {view === 'register' && <Register toggleView={toggleView} />}
-      {view === 'dashboard' && <Dashboard toggleView={toggleView} />}
-      {view === 'profile' && <Profile />}
+      {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
+      {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
+      {view === 'dashboard' && <Dashboard toggleView={toggleView}/>}
+      {view === 'profile' && <Profile toggleView={toggleView} />}
+
     </div>
   );
 } 
