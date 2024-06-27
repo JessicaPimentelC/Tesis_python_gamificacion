@@ -21,7 +21,8 @@ const Profile = () => {
         <img src="tesis.png" alt="Logo" className="logo" />
         <button className="sidebar-button">Panel de Control</button>
         <button className="sidebar-button">Configuración</button>
-        <button className="sidebar-button">Atras</button>
+        <button className="sidebar-button">Atrás</button>
+       
       </div>
       <div className="main-content">
         <div className="profile-header">
