@@ -87,6 +87,7 @@ const Dashboard = ({ toggleView }) => {
                 {console.log("toggleView:", toggleView)}
                 <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button> {/* Cambia la vista a 'profile' */}
                 <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
+                <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
               </div>
             )}
           </div>
