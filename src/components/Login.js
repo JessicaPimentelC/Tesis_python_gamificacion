@@ -2,20 +2,32 @@ import React, { useState } from 'react';
 import '../styles/Login.css';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import '../styles/Register.css';
-import Loginsesion from './Loginsesion';
 
 const Login = ({ toggleView }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const responseFacebook = (response) => {
-    console.log(response);
-  }
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    toggleView('dashboard'); // Redirigir al dashboard después de un login exitoso
+    try {
+      const response = await fetch('http://127.0.0.1:8000/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Login successful:', data);
+        toggleView('dashboard'); // Redirigir al dashboard después de un login exitoso
+      } else {
+        console.log('Login failed');
+        // Manejar el error de inicio de sesión
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -43,32 +55,9 @@ const Login = ({ toggleView }) => {
         </div>
         <button type="submit">INGRESAR</button>
       </form>
-      <button type='submit' className="toggle-button" onClick={() => toggleView('register')}>
+      <button type="button" className="toggle-button" onClick={() => toggleView('register')}>
         REGISTRARME
       </button>
-      <div className="social-login">
-
-        <FacebookLogin
-          appId="1088597931155576"
-          autoLoad
-          callback={responseFacebook}
-          render={renderProps => (
-            <button onClick={renderProps.onClick}>This is my custom FB button</button>
-          )}
-        />
-
-        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
-          <main>
-            <Loginsesion />
-          </main>
-        </GoogleOAuthProvider>
-      </div>
-      <a className="toggle-button" href="#" onClick={() => toggleView('reset')}>
-        RESTABLECER CONTRASEÑA
-      </a>
-      <div className="terms">
-        Al registrarte en XXX, aceptas nuestros <a href="#">Términos y Política de privacidad.</a>
-      </div>
     </div>
   );
 };

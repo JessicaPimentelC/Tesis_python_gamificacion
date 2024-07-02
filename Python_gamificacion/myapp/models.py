@@ -12,6 +12,9 @@ class Usuario(models.Model):
     fecha_registro = models.DateField()
     insignias_recolectadas = models.CharField(max_length=50)
 
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['nombre', 'apellidos','contrasena','vidas'] 
+
 class Nivel(models.Model):
     id_nivel = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     nombre = models.CharField(max_length=50)
