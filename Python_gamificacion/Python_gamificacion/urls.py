@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from myapp.views import login
 from myapp import views
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login, name='login'),
-    path('', views.home_view, name='index')
+    path('', TemplateView.as_view(template_name='index.html'))
+
 ]
