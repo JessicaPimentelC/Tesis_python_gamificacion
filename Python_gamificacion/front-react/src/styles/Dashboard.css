@@ -1,0 +1,225 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image:linear-gradient(#FF5858,rgb(197, 207, 244));
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Para ocultar cualquier desbordamiento horizontal */
+}
+
+/* Ajusta el ancho del contenedor interno para que no haya desbordamiento horizontal */
+.dashboard-header,
+.user-profiles,
+.dashboard-content,
+.info-boxes {
+  width: 100%;
+}
+
+/* Asegúrate de que los elementos internos no tengan márgenes adicionales */
+.user-profiles,
+.info-boxes {
+  margin: 0;
+}
+
+/* Si es necesario, ajusta el ancho de los elementos internos para evitar desbordamiento horizontal */
+.info-box {
+  width: calc(33% - 20px); /* Ajusta según sea necesario */
+}
+
+/* Si es necesario, asegúrate de que los elementos hijos también ocupen todo el espacio */
+.dashboard-header,
+.control-panel,
+.user-profiles,
+.dashboard-content,
+.info-boxes {
+  width: 120%;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.control-panel {
+  margin-right: 20px;
+}
+.control-cerrar {
+  padding: 10px 20px;
+  color: rgb(2, 2, 2);
+  border: none;
+  cursor: pointer;
+}
+.control-panel-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.dashboard-content {
+  margin-top: 20px;
+  text-align: center; /* Añade esto para centrar el contenido */
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Añade esto para que los cuadros se envuelvan si es necesario */
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #680000;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin: 10px; /* Añade margen alrededor de cada cuadro */
+  cursor: pointer; /* Cursor de puntero para los botones */
+  transition: transform 0.3s; /* Transición suave para el hover */
+  background-color: rgb(252, 243, 207); /* Fondo blanco para los cuadros de información */
+}
+
+.info-box:hover {
+  transform: scale(1.1); /* Agrandar ligeramente al pasar el mouse */
+}
+
+.info-box:active {
+  transform: scale(0.9); /* Reducir ligeramente al hacer clic */
+}
+
+.info-box img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  margin-top: 20px;
+  background-color: #ff6347; /* Cambia el color de fondo según sea necesario */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc4731; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+}
+
+.profile-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.user-profiles {
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
