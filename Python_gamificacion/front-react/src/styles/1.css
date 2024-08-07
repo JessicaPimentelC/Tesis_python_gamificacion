@@ -1,0 +1,351 @@
+/* Contenedor principal del Nivel1 */
+.nivel1-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Evita el desplazamiento del contenido */
+    flex-direction: column; /* Cambia la dirección del flex a columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px; /* Ancho de la barra lateral */
+    background-color: #FF5733; /* Color rojo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed; /* Fija la barra lateral para que ocupe toda la altura */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Asegura que la barra lateral esté por encima del contenido */
+}
+
+/* Logo en la barra lateral */
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Botones en la barra lateral */
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* Iconos en la barra lateral */
+.sidebar-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Contenedor de contenido */
+.content {
+    margin-left: 200px; /* Deja espacio para la barra lateral */
+    width: calc(100% - 200px); /* Ajusta el ancho del contenido */
+    padding: 20px;
+}
+
+/* Fondo blanco en el área de contenido */
+.white-background {
+    background-color: #fff; /* Color blanco */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 5px;
+    margin-top: 20px; /* Ajusta el espacio superior para separar del contenido de la tarjeta */
+    position: relative; /* Asegura que el fondo blanco se alinee correctamente */
+    z-index: 1; /* Asegura que el fondo blanco esté por debajo de otros elementos */
+}
+
+/* Encabezado del Nivel1 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; /* Añadir padding para crear espacio dentro del encabezado */
+    background-color: #fff; /* Fondo blanco para el encabezado */
+    border: 1px solid #ccc; /* Borde para distinguir el encabezado del fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    position: relative;
+    z-index: 2; /* Asegura que el encabezado esté por encima del fondo blanco */
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Iconos en el encabezado */
+.header .header-status img {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.header .header-status img:hover {
+    transform: scale(1.1);
+}
+
+/* Tarjeta del Nivel1 */
+.nivel1-card {
+    background-color: #ffb23f;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.7s ease-out;
+    position: relative;
+    z-index: 2; /* Asegura que la tarjeta esté por encima del fondo blanco */
+}
+
+/* Encabezado de la tarjeta del Nivel1 */
+.nivel1-card-header {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Cuerpo de la tarjeta del Nivel1 */
+.nivel1-card-body p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Contenedor del botón "Siguiente" en la tarjeta */
+.nivel1-card-button-container {
+    position: relative; /* Necesario para la animación */
+    overflow: hidden; /* Ocultar el botón mientras se desplaza */
+}
+
+/* Botón en la tarjeta del Nivel1 */
+.nivel1-card-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Animación de desaparición para cuando el botón se oculta */
+    animation: fadeOut 0.5s ease-out;
+}
+
+/* Cambios en el botón al pasar el ratón por encima */
+.nivel1-card-button:hover {
+    background-color: #0056b3;
+}
+
+/* Sección siguiente del Nivel1 */
+.nivel1-next-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.7s ease-out;
+    position: relative;
+    z-index: 2; /* Asegura que la sección esté por encima del fondo blanco */
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Contenedor para opciones arrastrables */
+.drag-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Opciones arrastrables */
+.drag-option {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center; /* Centra el texto dentro del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.drag-option:hover {
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el ratón */
+}
+
+/* Zona de suelta */
+.drop-zone {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f8ff;
+    margin-top: 10px;
+    text-align: center; /* Centra el texto dentro de la zona de suelta */
+    position: relative; /* Posicionamiento para efectos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+}
+
+/* Contenedor del resultado */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    margin-top: 20px;
+}
+
+/* Mensaje de resultado */
+.result {
+    font-size: 18px;
+    text-align: center; /* Centra el texto */
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #fff; /* Texto blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra de la caja */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Diseño cuando la respuesta es correcta */
+.correct {
+    background: linear-gradient(135deg, #6ee7b7, #b9fbc0); /* Gradiente verde */
+    border: 2px solid #28a745;
+    transform: scale(1.05); /* Efecto de escalado */
+    opacity: 1; /* Opacidad al máximo */
+}
+
+/* Diseño cuando la respuesta es incorrecta */
+.incorrect {
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb); /* Gradiente rojo */
+    border: 2px solid #dc3545;
+    transform: scale(1.05); /* Efecto de escalado */
+    opacity: 1; /* Opacidad al máximo */
+}
+
+/* Contenedor para los botones centrados */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente los botones */
+    align-items: center; /* Centra horizontalmente los botones */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    margin-top: 20px; /* Espacio arriba de los botones */
+}
+
+/* Botón "Siguiente" */
+.nivel1-card-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Cambios en el botón al pasar el ratón por encima */
+.nivel1-card-button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor del resultado */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    margin-top: 20px;
+}
+
+/* Mensaje de resultado */
+.result {
+    font-size: 18px;
+    text-align: center; /* Centra el texto */
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #fff; /* Texto blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra de la caja */
+    transition: transform 0.3s, opacity 0.3s;
+}
+/* Contenedor de los botones Verificar y Siguiente */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 15px;
+  }
+  
+  /* Botón Verificar y Siguiente */
+  .nivel1-card-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Animación de transformación */
+  }
+  
+  /* Cambios en el botón al pasar el ratón por encima */
+  .nivel1-card-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Animación de aparición para el botón Siguiente */
+  .next-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .next-button.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

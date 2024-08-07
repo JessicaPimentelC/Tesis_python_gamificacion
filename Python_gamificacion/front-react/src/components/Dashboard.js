@@ -1,27 +1,17 @@
 import React from 'react';
 import '../styles/Dashboard.css';
-import LoadingBar from './LoadingBar';
+import Lesson from './Lesson';
+import Positions from './Positions';
+import Challenges from './Challenges';
+import Timer from './Timer';
 
 const Dashboard = ({ toggleView }) => {
-  const [loadingProgress1, setLoadingProgress1] = React.useState(0);
   const [loadingProgress2, setLoadingProgress2] = React.useState(0);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
 
   React.useEffect(() => {
-    // Simula la progresión de la barra de carga 1
-    const interval1 = setInterval(() => {
-      setLoadingProgress1((oldProgress) => {
-        if (oldProgress === 100) {
-          clearInterval(interval1);
-          return 100;
-        }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
-      });
-    }, 500);
-
-    // Simula la progresión de la barra de carga 2
+    // Simulate the progress of loading bar 2
     const interval2 = setInterval(() => {
       setLoadingProgress2((oldProgress) => {
         if (oldProgress === 100) {
@@ -34,13 +24,12 @@ const Dashboard = ({ toggleView }) => {
     }, 500);
 
     return () => {
-      clearInterval(interval1);
       clearInterval(interval2);
     };
   }, []);
 
   const handleControlPanelClick = () => {
-    // Lógica para el panel de control
+    // Logic for the control panel
   };
 
   const handleCerrarSesionClick = () => {
@@ -48,9 +37,9 @@ const Dashboard = ({ toggleView }) => {
   };
 
   const handleConfirmCerrarSesion = () => {
-    // Lógica para cerrar sesión
+    // Logic to log out
     setShowModal(false);
-    window.location.href = 'http://localhost:3000/login'; // Redirige a la página de inicio de sesión
+    window.location.href = 'http://localhost:3000/login'; // Redirect to login page
   };
 
   const handleCancelCerrarSesion = () => {
@@ -59,6 +48,26 @@ const Dashboard = ({ toggleView }) => {
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleLessonClick = () => {
+    // Logic to handle click on lesson box
+    toggleView('lesson');
+  };
+
+  const handlePositionsClick = () => {
+    // Logic to handle click on positions box
+    toggleView('positions');
+  };
+
+  const handleChallengesClick = () => {
+    // Logic to handle click on challenges box
+    toggleView('challenges');
+  };
+
+  const handlePythonIconClick = () => {
+    // Logic to handle click on Python icon
+    toggleView('lecciones'); // Navigate to Lecciones component
   };
 
   return (
@@ -84,8 +93,12 @@ const Dashboard = ({ toggleView }) => {
             </button>
             {dropdownOpen && (
               <div className="dropdown-menu">
+<<<<<<< HEAD:Python_gamificacion/front-react/src/components/Dashboard.js
                 {console.log("toggleView:", toggleView)}
                 <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button> {/* Cambia la vista a 'profile' */}
+=======
+                <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button>
+>>>>>>> f0a7b88552b56522d4bcbfd592c8648e396a9f72:src/components/Dashboard.js
                 <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
                 <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
               </div>
@@ -94,32 +107,46 @@ const Dashboard = ({ toggleView }) => {
         </div>
       </div>
       <div className="dashboard-content">
-        <p>Progreso Nivel 1</p>
-        <div className="center">
-          <LoadingBar progress={loadingProgress1} />
+        <div className="dashboard-center">
+          <div className="info-box lesson-box">
+            <Lesson />
+          </div>
+          <div className="button-route">
+            <button className="route-button" onClick={handlePythonIconClick}>
+              <img src="python1.png" alt="Python Icon" className="icon-img" />
+            </button>
+            <button className="route-button">
+              <img src="libro.png" alt="Book Icon" className="icon-img" />
+            </button>
+            <button className="route-button">
+              <img src="estrella.png" alt="Star Icon" className="icon-img" />
+            </button>
+            <button className="route-button">
+              <img src="cohete.png" alt="Rocket Icon" className="icon-img" />
+            </button>
+            <button className="route-button">
+              <img src="tesoro.png" alt="Rocket Icon" className="icon-img" />
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="info-boxes">
-        <div className="info-box">
-          <img src="oro.png" alt="Logo 1" />
-          <p>¡¡Posiciones!!</p>
-          <p>Aspira a sobresalir entre nuestros usuarios destacados</p>
-        </div>
-        <div className="info-box">
-          <img src="diana.png" alt="Logo 2" />
-          <p>Desafíos del día</p>
-          <LoadingBar progress={loadingProgress2} /> <br></br>
-          <img src="tesoro.png" alt="Logo 2" />
+        <div className="dashboard-right">
+          <div className="info-box positions-box" onClick={handlePositionsClick}>
+            <Positions />
+          </div>
+          <div className="info-box challenges-box" onClick={handleChallengesClick}>
+            <Challenges progress={loadingProgress2} />
+          </div>
+          <div className="info-box timer-box">
+            <Timer time="4:30:41" />
+          </div>
         </div>
       </div>
       {showModal && (
         <div className="modal">
           <div className="modal-content">
             <p>¿Deseas cerrar sesión?</p>
-            <div>
-              <button onClick={handleConfirmCerrarSesion}>Sí</button>
-              <button onClick={handleCancelCerrarSesion}>No</button>
-            </div>
+            <button onClick={handleConfirmCerrarSesion}>Sí</button>
+            <button onClick={handleCancelCerrarSesion}>No</button>
           </div>
         </div>
       )}
@@ -128,4 +155,3 @@ const Dashboard = ({ toggleView }) => {
 };
 
 export default Dashboard;
-
