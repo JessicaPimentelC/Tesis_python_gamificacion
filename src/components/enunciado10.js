@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/enunciado10.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Enunciado10 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -19,14 +21,14 @@ const Enunciado10 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    toggleView('10');
+    navigate('/10');
   };
 
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('9')}>
+        <button className="sidebar-button" onClick={() => navigate('9')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>

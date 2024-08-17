@@ -4,10 +4,12 @@ import FacebookLogin from 'react-facebook-login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import '../styles/Register.css';
 import Loginsesion from './Loginsesion';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ toggleView }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const responseFacebook = (response) => {
     console.log(response);
@@ -15,7 +17,7 @@ const Login = ({ toggleView }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    toggleView('dashboard'); // Redirigir al dashboard después de un login exitoso
+    navigate('/dashboard'); // Redirigir al dashboard después de un login exitoso
   };
 
   return (
@@ -43,7 +45,7 @@ const Login = ({ toggleView }) => {
         </div>
         <button type="submit">INGRESAR</button>
       </form>
-      <button type='submit' className="toggle-button" onClick={() => toggleView('register')}>
+      <button type='submit' className="toggle-button" onClick={() => navigate('/register')}>
         REGISTRARME
       </button>
       <div className="social-login">
@@ -63,7 +65,7 @@ const Login = ({ toggleView }) => {
           </main>
         </GoogleOAuthProvider>
       </div>
-      <a className="toggle-button" href="#" onClick={() => toggleView('reset')}>
+      <a className="toggle-button" href="#" onClick={() => navigate('reset')}>
         RESTABLECER CONTRASEÑA
       </a>
       <div className="terms">

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/6.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Seis = ({ toggleView }) => {
   const [inputValue, setInputValue] = useState('');
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
   const [output, setOutput] = useState('');
+  const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
     // Compara si el número ingresado es 37
@@ -24,11 +26,11 @@ const Seis = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('enunciado6')}>
+        <button className="sidebar-button" onClick={() => navigate('/enunciado6')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -50,7 +52,7 @@ const Seis = ({ toggleView }) => {
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
+              <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
@@ -100,7 +102,7 @@ const Seis = ({ toggleView }) => {
                 {showNext && (
                   <button
                     className="nivel1-card-button"
-                    onClick={() => toggleView('enunciado7')} // Ajusta el número de vista siguiente si es necesario
+                    onClick={() => navigate('/enunciado7')} // Ajusta el número de vista siguiente si es necesario
                   >
                     Siguiente
                   </button>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/Enunciado3.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Enunciado3 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -20,18 +22,18 @@ const Enunciado3 = ({ toggleView }) => {
   const handleCloseModal = () => {
     setShowModal(false);
     // Navegar a 3.js en lugar de 1.js
-    toggleView('3');
+    navigate('/3');
   };
 
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('nivel1')}>
+        <button className="sidebar-button" onClick={() => navigate('/nivel1')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -53,7 +55,7 @@ const Enunciado3 = ({ toggleView }) => {
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
+              <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
@@ -124,3 +126,4 @@ const Enunciado3 = ({ toggleView }) => {
 };
 
 export default Enunciado3;
+

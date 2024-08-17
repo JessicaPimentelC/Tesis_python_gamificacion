@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/enunciado7.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Enunciado7 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const navigate = useNavigate(); // Hook para la redirección
   const handleShowGif = () => {
     setShowGif(true);
     setTimeout(() => {
@@ -19,7 +20,7 @@ const Enunciado7 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    toggleView('7');
+    navigate('/7');
   };
 
   return (

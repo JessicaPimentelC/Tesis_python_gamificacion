@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
+
 
 const Uno = ({ toggleView }) => {
   const [draggedItem, setDraggedItem] = useState(null);
   const [droppedItem, setDroppedItem] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false); // Estado para mostrar el botón "Siguiente"
+  const navigate = useNavigate(); // Hook para la redirección
+
 
   const options = ['Mundo', 'Hola', 'Eduardo'];
 
@@ -29,18 +33,18 @@ const Uno = ({ toggleView }) => {
   };
 
   const handleNext = () => {
-    toggleView('enunciado3'); // Navegar a enunciado3.js
+    navigate('/enunciado3'); // Navegar a enunciado3.js
   };
 
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('ejercicios1')}>
+        <button className="sidebar-button" onClick={() => navigate('/ejercicios1')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atras
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -62,7 +66,7 @@ const Uno = ({ toggleView }) => {
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
+              <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">

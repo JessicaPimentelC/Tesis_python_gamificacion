@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/enunciado11.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Enunciado11 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const navigate = useNavigate(); // Hook para la redirección
   const handleShowGif = () => {
     setShowGif(true);
     setTimeout(() => {
@@ -19,7 +20,7 @@ const Enunciado11 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    toggleView('11'); // Cambia la vista al siguiente componente
+    navigate('/11'); // Cambia la vista al siguiente componente
   };
 
   return (
@@ -62,18 +63,18 @@ const Enunciado11 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>¿Cómo Crear un Algoritmo para Ingresar y Mostrar tu Estatura en Python?</span>
+              <span>Crear un algoritmo que permita ingresar su estatura y mostrarlo en pantalla</span>
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, puedes crear un algoritmo que permita al usuario ingresar su estatura y luego mostrarla en pantalla. Utiliza la función input para capturar la estatura ingresada y la función print para mostrarla.
+              En este ejercicio, aprenderás a solicitar datos del usuario y mostrarlos en pantalla utilizando Python. El programa pedirá al usuario que ingrese su estatura en metros y, a continuación, mostrará la estatura ingresada.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                     {`por aca voyyyyyyyyyyyyyyyyyyyyyyyy
-
+                     {`estatura = float(input("Ingrese su estatura: "))
+            print(estatura)
 
                     `}
                   </code>
@@ -90,7 +91,7 @@ const Enunciado11 = ({ toggleView }) => {
 
               {showGif && (
                 <div className="gif-container">
-                  <img src=".gif" alt="GIF" className="gif-image" />
+                  <img src="gif11.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -114,7 +115,7 @@ const Enunciado11 = ({ toggleView }) => {
             🌟 ¡Fantástico! 🚀 Ahora aprenderás a crear un algoritmo que permita ingresar y mostrar un número. Usa `int` para convertir la entrada del usuario a un número entero y `print` para mostrarlo. ¡Adelante, lo estás haciendo genial!
             </p>
 
-            <img src="xy.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

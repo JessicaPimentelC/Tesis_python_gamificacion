@@ -1,7 +1,12 @@
 import React from 'react';
 import '../styles/Lecciones.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const Lecciones = ({ toggleView }) => {
+  const navigate = useNavigate(); // Hook para la redirección
+
+
   return (
     <div className="lecciones-container">
       <div className="sidebar">
@@ -27,7 +32,7 @@ const Lecciones = ({ toggleView }) => {
           </div>
           <h1>BIENVENIDOS AL CURSO DE LENGUAJE DE PROGRAMACION PYTHON</h1>
           <div className="levels">
-            <button className="level-button" onClick={() => toggleView('nivel1')}>
+            <button className="level-button" onClick={() => navigate('/nivel1')}>
               <img src="python1.png" alt="Level 1" />
               <span>NIVEL 1</span>
             </button>
@@ -46,4 +51,7 @@ const Lecciones = ({ toggleView }) => {
   );
 };
 
+
 export default Lecciones;
+
+

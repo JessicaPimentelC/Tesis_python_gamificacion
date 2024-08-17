@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
@@ -18,6 +19,8 @@ import Siete from './components/7';
 import Ocho from './components/8';
 import Nueve from './components/9';
 import Diez from './components/10';
+import Once from './components/11';
+import Examen from './components/Examen';
 import Condicionales from './components/Condicionales';
 import Enunciado3 from './components/enunciado3';
 import Enunciado4 from './components/enunciado4';
@@ -27,48 +30,50 @@ import Enunciado7 from './components/enunciado7';
 import Enunciado8 from './components/enunciado8';
 import Enunciado9 from './components/enunciado9';
 import Enunciado10 from './components/enunciado10';
-import Enunciado11 from './components/enunciado11'; // Importa el nuevo componente
+import Enunciado11 from './components/enunciado11';
+import Foro from './components/foro';
 import './styles/App.css';
 
 function App() {
-  const [view, setView] = useState('login');
-
-  const toggleView = (newView) => {
-    setView(newView);
-  };
-
   return (
-    <div className="App">
-      {view === 'login' && <Login toggleView={toggleView} />}
-      {view === 'register' && <Register toggleView={toggleView} />}
-      {view === 'iniciogoogle' && <Iniciogoogle toggleView={toggleView} />}
-      {view === 'loginsesion' && <Loginsesion toggleView={toggleView} />}
-      {view === 'dashboard' && <Dashboard toggleView={toggleView} />}
-      {view === 'profile' && <Profile toggleView={toggleView} />}
-      {view === 'lecciones' && <Lecciones toggleView={toggleView} />}
-      {view === 'nivel1' && <Nivel1 toggleView={toggleView} />}
-      {view === 'ejercicios1' && <Ejercicios1 toggleView={toggleView} />}
-      {view === '1' && <Uno toggleView={toggleView} />}
-      {view === '2' && <Dos toggleView={toggleView} />}
-      {view === '3' && <Tres toggleView={toggleView} />}
-      {view === '4' && <Cuatro toggleView={toggleView} />}
-      {view === '5' && <Cinco toggleView={toggleView} />}
-      {view === '6' && <Seis toggleView={toggleView} />}
-      {view === '7' && <Siete toggleView={toggleView} />}
-      {view === '8' && <Ocho toggleView={toggleView} />}
-      {view === '9' && <Nueve toggleView={toggleView} />}
-      {view === '10' && <Diez toggleView={toggleView} />}
-      {view === 'condicionales' && <Condicionales toggleView={toggleView} />}
-      {view === 'enunciado3' && <Enunciado3 toggleView={toggleView} />}
-      {view === 'enunciado4' && <Enunciado4 toggleView={toggleView} />}
-      {view === 'enunciado5' && <Enunciado5 toggleView={toggleView} />}
-      {view === 'enunciado6' && <Enunciado6 toggleView={toggleView} />}
-      {view === 'enunciado7' && <Enunciado7 toggleView={toggleView} />}
-      {view === 'enunciado8' && <Enunciado8 toggleView={toggleView} />}
-      {view === 'enunciado9' && <Enunciado9 toggleView={toggleView} />}
-      {view === 'enunciado10' && <Enunciado10 toggleView={toggleView} />}
-      {view === 'enunciado11' && <Enunciado11 toggleView={toggleView} />}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" exact element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/iniciogoogle" element={<Iniciogoogle/>} />
+          <Route path="/loginsesion" element={<Loginsesion/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/lecciones" element={<Lecciones/>} />
+          <Route path="/nivel1" element={<Nivel1/>} />
+          <Route path="/ejercicios1" element={<Ejercicios1/>} />
+          <Route path="/1" element={<Uno/>} />
+          <Route path="/2" element={<Dos/>} />
+          <Route path="/3" element={<Tres/>} />
+          <Route path="/4" element={<Cuatro/>} />
+          <Route path="/5" element={<Cinco/>} />
+          <Route path="/6" element={<Seis/>} />
+          <Route path="/7" element={<Siete/>} />
+          <Route path="/8" element={<Ocho/>} />
+          <Route path="/9" element={<Nueve/>} />
+          <Route path="/10" element={<Diez/>} />
+          <Route path="/11" element={<Once/>} />
+          <Route path="/examen" element={<Examen/>} />
+          <Route path="/condicionales" element={<Condicionales/>} />
+          <Route path="/enunciado3" element={<Enunciado3/>} />
+          <Route path="/enunciado4" element={<Enunciado4/>} />
+          <Route path="/enunciado5" element={<Enunciado5/>} />
+          <Route path="/enunciado6" element={<Enunciado6/>} />
+          <Route path="/enunciado7" element={<Enunciado7/>} />
+          <Route path="/enunciado8" element={<Enunciado8/>} />
+          <Route path="/enunciado9" element={<Enunciado9/>} />
+          <Route path="/enunciado10" element={<Enunciado10/>} />
+          <Route path="/enunciado11" element={<Enunciado11/>} />
+          <Route path="/foro" element={<Foro/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

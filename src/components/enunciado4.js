@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/enunciado4.css'; // Asegúrate de que la ruta sea correcta
-
+import { useNavigate } from 'react-router-dom';
 const Enunciado4 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -20,7 +21,7 @@ const Enunciado4 = ({ toggleView }) => {
   const handleCloseModal = () => {
     setShowModal(false);
     // Navegar a 3.js en lugar de 1.js
-    toggleView('4');
+    navigate('/4');
   };
 
   return (

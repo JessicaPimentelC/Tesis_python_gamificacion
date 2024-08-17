@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/enunciado5.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Enunciado5 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -19,7 +21,7 @@ const Enunciado5 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    toggleView('5');
+    navigate('/5');
   };
 
   return (

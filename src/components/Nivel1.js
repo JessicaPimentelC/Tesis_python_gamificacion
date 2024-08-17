@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/Nivel1.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
+
 
 const Nivel1 = ({ toggleView }) => {
   const [showNext, setShowNext] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleNextClick = () => {
     setShowNext(true);
@@ -14,7 +17,7 @@ const Nivel1 = ({ toggleView }) => {
   };
 
   const handleConfirmYes = () => {
-    toggleView('ejercicios1'); // Cambia la vista al módulo Ejercicios1
+    navigate('/ejercicios1'); // Cambia la vista al módulo Ejercicios1
   };
 
   const handleConfirmNo = () => {
@@ -25,11 +28,11 @@ const Nivel1 = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('lecciones')}>
+        <button className="sidebar-button" onClick={() => navigate('/lecciones')}>
           <img src="hogar.png" alt="Inicio" className="sidebar-icon" />
           INICIO
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>

@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Dashboard.css';
 import Lesson from './Lesson';
 import Positions from './Positions';
 import Challenges from './Challenges';
 import Timer from './Timer';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Dashboard = ({ toggleView }) => {
   const [loadingProgress2, setLoadingProgress2] = React.useState(0);
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
+  const navigate = useNavigate();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+
+
 
   React.useEffect(() => {
-    // Simulate the progress of loading bar 2
     const interval2 = setInterval(() => {
       setLoadingProgress2((oldProgress) => {
         if (oldProgress === 100) {
@@ -23,88 +29,154 @@ const Dashboard = ({ toggleView }) => {
       });
     }, 500);
 
+
     return () => {
       clearInterval(interval2);
     };
   }, []);
 
+
   const handleControlPanelClick = () => {
     // Logic for the control panel
   };
 
+
   const handleCerrarSesionClick = () => {
     setShowModal(true);
   };
+
 
   const handleConfirmCerrarSesion = () => {
     // Logic to log out
     setShowModal(false);
     window.location.href = 'http://localhost:3000/login'; // Redirect to login page
   };
+  //"http://localhost:8000/myapp/login/",
+
 
   const handleCancelCerrarSesion = () => {
     setShowModal(false);
   };
 
+
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+
   const handleLessonClick = () => {
-    // Logic to handle click on lesson box
-    toggleView('lesson');
+    navigate('/lesson');
   };
+
 
   const handlePositionsClick = () => {
     // Logic to handle click on positions box
-    toggleView('positions');
+    navigate('/positions');
   };
+
 
   const handleChallengesClick = () => {
     // Logic to handle click on challenges box
-    toggleView('challenges');
+    navigate('/challenges');
   };
+
 
   const handlePythonIconClick = () => {
     // Logic to handle click on Python icon
-    toggleView('lecciones'); // Navigate to Lecciones component
+    navigate('/lecciones'); // Navigate to Lecciones component
   };
+
+
+  const handleForoIconClick = () => {
+    // Logic to handle click on Python icon
+    navigate('/foro'); // Navigate to Lecciones component
+  };
+
+
+  const handleMouseEnter = () => {
+    setDropdownOpen(true);
+  };
+
+
+  const handleMouseLeave = () => {
+    setDropdownOpen(false);
+  };
+
 
   return (
     <div className="dashboard-container">
-      <h1>Bienvenido al Mundo de la Gamificación</h1>
+      <div className="sidebar">
+        <img className="sidebar-imagen" src="tesis.png" alt="Icono"  />
+      </div>
+     
       <div className="dashboard-header">
         <div className="control-panel">
-          <button onClick={handleControlPanelClick} className="control-panel-button">Panel de Control</button>
+          <button
+            onClick={handleControlPanelClick}
+            className="control-panel-button">
+            Panel de Control
+          </button>
         </div>
         <div className="user-profiles">
           <div className="user-profile">
-            <img src="bandera.png" alt="Imagen de perfil" className="profile-picture" />
+            <img
+              src="bandera.png"
+              alt="Imagen de perfil"
+              className="profile-picture"
+            />
           </div>
           <div className="user-profile">
-            <img src="medalla.png" alt="Imagen de perfil" className="profile-picture" />
+            <img
+              src="medalla.png"
+              alt="Imagen de perfil"
+              className="profile-picture"
+            />
           </div>
           <div className="user-profile">
-            <img src="mensaje.png" alt="Imagen de perfil" className="profile-picture" />
+            <img
+              src="mensaje.png"
+              alt="Imagen de perfil"
+              className="profile-picture"
+              onClick={handleForoIconClick}
+            />
           </div>
-          <div className="user-profile">
-            <button onClick={toggleDropdown} className="profile-button">
-              <img src="AYUDA.jpeg" alt="Imagen de perfil" className="profile-picture" />
-            </button>
+          <div
+            className="user-profile"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img
+              src="AYUDA.jpeg"
+              alt="Imagen de perfil"
+              className="profile-picture"
+            />
             {dropdownOpen && (
               <div className="dropdown-menu">
-                <button onClick={() => toggleView('profile')} className="dropdown-item">Perfil</button>
-                <button onClick={handleCerrarSesionClick} className="dropdown-item">Cerrar Sesión</button>
+                <button
+                  onClick={() => navigate("/profile")}
+                  className="dropdown-item"
+                >
+                  Perfil
+                </button>
+                <button
+                  onClick={handleCerrarSesionClick}
+                  className="dropdown-item"
+                >
+                  Cerrar Sesión
+                </button>
               </div>
             )}
           </div>
         </div>
       </div>
+
+
       <div className="dashboard-content">
-        <div className="dashboard-center">
-          <div className="info-box lesson-box">
-            <Lesson />
-          </div>
+        <div className="dashboard-right"  onClick={() => navigate('/lecciones')}>
+          <button className="info-box-lesson lesson-box">
+          <h1>NIVEL 1</h1>
+          Programa tu futuro hoy mismo
+          </button>
           <div className="button-route">
             <button className="route-button" onClick={handlePythonIconClick}>
               <img src="python1.png" alt="Python Icon" className="icon-img" />
@@ -119,21 +191,24 @@ const Dashboard = ({ toggleView }) => {
               <img src="cohete.png" alt="Rocket Icon" className="icon-img" />
             </button>
             <button className="route-button">
-              <img src="tesoro.png" alt="Rocket Icon" className="icon-img" />
+              <img src="tesoro.png" alt="Treasure Icon" className="icon-img" />
             </button>
           </div>
         </div>
-        <div className="dashboard-right">
-          <div className="info-box positions-box" onClick={handlePositionsClick}>
-            <Positions />
-          </div>
-          <div className="info-box challenges-box" onClick={handleChallengesClick}>
-            <Challenges progress={loadingProgress2} />
-          </div>
-          <div className="info-box timer-box">
-            <Timer time="4:30:41" />
-          </div>
-        </div>
+     
+      <div className="dashboard-right">
+        <button className="info-box positions-box" onClick={handlePositionsClick}>
+        <h2>¡¡Posiciones!!</h2>
+        Aspira a sobresalir entre nuestros usuarios destacados
+        </button>
+        <button className="info-box challenges-box"
+          onClick={handleChallengesClick} >
+          <Challenges progress={loadingProgress2} />
+        </button>
+        <button className="info-box timer-box">
+          <Timer time="4:30:41" />
+        </button>
+      </div>
       </div>
       {showModal && (
         <div className="modal">
@@ -147,5 +222,6 @@ const Dashboard = ({ toggleView }) => {
     </div>
   );
 };
+
 
 export default Dashboard;

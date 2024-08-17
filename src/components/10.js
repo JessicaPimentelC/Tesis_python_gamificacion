@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/10.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
 
 const Diez = ({ toggleView }) => {
   const [inputValue, setInputValue] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
     // Establece el valor de salida con el texto ingresado
@@ -16,11 +18,11 @@ const Diez = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('7')}>
+        <button className="sidebar-button" onClick={() => navigate('/ej7')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -42,7 +44,7 @@ const Diez = ({ toggleView }) => {
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
+              <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
@@ -81,7 +83,7 @@ const Diez = ({ toggleView }) => {
               {showNext && (
                 <button
                   className="nivel1-card-button"
-                  onClick={() => toggleView('enunciado11')} // Ajusta el número de vista siguiente si es necesario
+                  onClick={() => navigate('/enunciado11')} // Ajusta el número de vista siguiente si es necesario
                 >
                   Siguiente
                 </button>

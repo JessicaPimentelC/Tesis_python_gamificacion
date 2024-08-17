@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/3.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
+
 
 const Tres = ({ toggleView }) => {
   const [num1, setNum1] = useState('');
   const [num2, setNum2] = useState('');
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
+  const navigate = useNavigate(); // Hook para la redirección
+
 
   const checkAnswer = () => {
     if (parseInt(num1) === 56 && parseInt(num2) === 3) {
@@ -21,11 +25,11 @@ const Tres = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('enunciado3')}>
+        <button className="sidebar-button" onClick={() => navigate('/enunciado3')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atras
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -47,7 +51,7 @@ const Tres = ({ toggleView }) => {
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
+              <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
@@ -103,7 +107,7 @@ const Tres = ({ toggleView }) => {
                 {showNext && (
                   <button
                     className="nivel1-card-button"
-                    onClick={() => toggleView('enunciado4')} // Aquí puedes ajustar el número de vista siguiente
+                    onClick={() => navigate('/enunciado4')} // Aquí puedes ajustar el número de vista siguiente
                   >
                     Siguiente
                   </button>
