@@ -423,5 +423,24 @@
     background-color: #f8d7da; /* Fondo rojo claro */
   }
   
+/* Contenedor del puntaje */
+.score-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0; /* Ajusta el margen según el espacio disponible */
+}
+
+/* Icono del puntaje */
+.score-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Texto del puntaje */
+.score-text {
+  font-size: 18px;
+  font-weight: bold;
+}
 
   

@@ -32,6 +32,7 @@ import Enunciado9 from './components/enunciado9';
 import Enunciado10 from './components/enunciado10';
 import Enunciado11 from './components/enunciado11';
 import Foro from './components/foro';
+import Positions from './components/Positions';
 import './styles/App.css';
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
           <Route path="/enunciado10" element={<Enunciado10/>} />
           <Route path="/enunciado11" element={<Enunciado11/>} />
           <Route path="/foro" element={<Foro/>} />
+          <Route path="/positions" exact element={<Positions/>} />
         </Routes>
       </div>
     </Router>

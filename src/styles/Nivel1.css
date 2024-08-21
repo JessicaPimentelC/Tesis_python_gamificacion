@@ -305,3 +305,37 @@
     opacity: 1;
   }
 }
+/* Cuerpo de la tarjeta del nivel 1 */
+.nivel1-card-body p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify; /* Justifica el texto */
+}
+
+/* Texto en la sección siguiente */
+.nivel1-next-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify; /* Justifica el texto */
+}
+
+/* Títulos de la sección siguiente */
+.nivel1-next-section h2 {
+  margin-top: 0;
+  font-size: 22px;
+  text-align: center; /* Centra el título */
+}
+
+/* Encabezado de la tarjeta del nivel 1 */
+.nivel1-card-header {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center; /* Centra el texto */
+}
+
+/* Párrafo de confirmación */
+.confirmation-popup p {
+  text-align: justify; /* Justifica el texto */
+}

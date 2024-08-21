@@ -10,6 +10,7 @@ const Lecciones = ({ toggleView }) => {
   return (
     <div className="lecciones-container">
       <div className="sidebar">
+        
         <img src="tesis.png" alt="Logo" className="logo" />
         <div className="score">
         </div>

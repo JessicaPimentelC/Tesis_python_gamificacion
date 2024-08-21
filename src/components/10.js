@@ -6,12 +6,14 @@ const Diez = ({ toggleView }) => {
   const [inputValue, setInputValue] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
     // Establece el valor de salida con el texto ingresado
     setOutput(inputValue);
     setShowNext(true);
+    setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
   };
 
   return (
@@ -26,9 +28,6 @@ const Diez = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
       </div>
       <div className="content">
         <div className="white-background">
@@ -75,6 +74,12 @@ const Diez = ({ toggleView }) => {
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Ingrese un texto"
                 />
+              </div>
+
+              {/* Contenedor del puntaje */}
+              <div className="score-container">
+                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
+                <p className="score-text">Puntaje: {score}</p>
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>

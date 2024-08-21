@@ -348,4 +348,22 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
+  /* Contenedor del puntaje */
+.score-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Icono del puntaje */
+.score-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Texto del puntaje */
+.score-text {
+    font-size: 18px;
+    font-weight: bold;
+}

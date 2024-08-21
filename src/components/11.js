@@ -6,6 +6,7 @@ const Once = ({ toggleView }) => {
   const [inputValue, setInputValue] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
@@ -13,6 +14,7 @@ const Once = ({ toggleView }) => {
     const estatura = parseFloat(inputValue);
     setOutput(estatura);
     setShowNext(true);
+    setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
   };
 
   return (
@@ -76,6 +78,12 @@ const Once = ({ toggleView }) => {
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Ingrese su estatura"
                 />
+              </div>
+
+              {/* Contenedor del puntaje */}
+              <div className="score-container">
+                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
+                <p className="score-text">Puntaje: {score}</p>
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>

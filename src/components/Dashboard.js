@@ -71,7 +71,7 @@ const Dashboard = ({ toggleView }) => {
 
   const handlePositionsClick = () => {
     // Logic to handle click on positions box
-    navigate('/positions');
+    navigate('/Positions');
   };
 
 
@@ -134,7 +134,7 @@ const Dashboard = ({ toggleView }) => {
           </div>
           <div className="user-profile">
             <img
-              src="mensaje.png"
+              src="tres-amigos.gif"
               alt="Imagen de perfil"
               className="profile-picture"
               onClick={handleForoIconClick}

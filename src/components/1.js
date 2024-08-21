@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-
 const Uno = ({ toggleView }) => {
   const [draggedItem, setDraggedItem] = useState(null);
   const [droppedItem, setDroppedItem] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
-  const [showNextButton, setShowNextButton] = useState(false); // Estado para mostrar el botón "Siguiente"
-  const navigate = useNavigate(); // Hook para la redirección
-
+  const [showNextButton, setShowNextButton] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const navigate = useNavigate();
 
   const options = ['Mundo', 'Hola', 'Eduardo'];
 
@@ -25,15 +24,16 @@ const Uno = ({ toggleView }) => {
   const handleVerify = () => {
     if (droppedItem === 'Mundo') {
       setIsCorrect(true);
-      setShowNextButton(true); // Mostrar el botón "Siguiente" al verificar correctamente
+      setShowNextButton(true);
+      setScore(score + 10); // Incrementa el puntaje cuando sea correcto
     } else {
       setIsCorrect(false);
-      setShowNextButton(false); // Ocultar el botón "Siguiente" si la respuesta es incorrecta
+      setShowNextButton(false);
     }
   };
 
   const handleNext = () => {
-    navigate('/enunciado3'); // Navegar a enunciado3.js
+    navigate('/enunciado3');
   };
 
   return (
@@ -67,7 +67,7 @@ const Uno = ({ toggleView }) => {
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="mapas.gif" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
                 <img src="AYUDA.jpeg" alt="Icono Perfil" />
@@ -117,20 +117,22 @@ const Uno = ({ toggleView }) => {
                 <button className="nivel1-card-button" onClick={handleVerify}>
                   Verificar
                 </button>
-                {/* Botón "Siguiente" con animación de aparición */}
                 {showNextButton && (
                   <button className={`nivel1-card-button next-button show`} onClick={handleNext}>
                     Siguiente
                   </button>
                 )}
               </div>
-              {/* Contenedor del resultado */}
               <div className="result-container">
                 {isCorrect !== null && (
                   <p className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
                     {isCorrect ? '¡Correcto!' : 'Inténtalo de nuevo.'}
                   </p>
                 )}
+              </div>
+              <div className="score-container">
+                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
+                <p className="score-text">Puntaje: {score}</p>
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@ const Seis = ({ toggleView }) => {
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
   const [output, setOutput] = useState('');
+  const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
@@ -15,6 +16,7 @@ const Seis = ({ toggleView }) => {
       setResult('correct');
       setShowNext(true); // Muestra el botón "Siguiente"
       setOutput(inputValue); // Muestra el valor ingresado en la salida
+      setScore(score + 10); // Incrementa el puntaje cuando sea correcto
     } else {
       setResult('incorrect');
       setShowNext(false); // Oculta el botón "Siguiente"
@@ -113,6 +115,10 @@ const Seis = ({ toggleView }) => {
                   {result === 'correct' ? 'Correcto' : 'Inténtalo de nuevo'}
                 </div>
               )}
+              <div className="score-container">
+                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
+                <p className="score-text">Puntaje: {score}</p>
+              </div>
             </div>
           </div>
         </div>
