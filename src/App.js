@@ -21,6 +21,7 @@ import Nueve from './components/9';
 import Diez from './components/10';
 import Once from './components/11';
 import Examen from './components/Examen';
+import Examennivel1 from './components/Examennivel1'; // Importa el nuevo módulo
 import Condicionales from './components/Condicionales';
 import Enunciado3 from './components/enunciado3';
 import Enunciado4 from './components/enunciado4';
@@ -40,39 +41,40 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" exact element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/iniciogoogle" element={<Iniciogoogle/>} />
-          <Route path="/loginsesion" element={<Loginsesion/>} />
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/lecciones" element={<Lecciones/>} />
-          <Route path="/nivel1" element={<Nivel1/>} />
-          <Route path="/ejercicios1" element={<Ejercicios1/>} />
-          <Route path="/1" element={<Uno/>} />
-          <Route path="/2" element={<Dos/>} />
-          <Route path="/3" element={<Tres/>} />
-          <Route path="/4" element={<Cuatro/>} />
-          <Route path="/5" element={<Cinco/>} />
-          <Route path="/6" element={<Seis/>} />
-          <Route path="/7" element={<Siete/>} />
-          <Route path="/8" element={<Ocho/>} />
-          <Route path="/9" element={<Nueve/>} />
-          <Route path="/10" element={<Diez/>} />
-          <Route path="/11" element={<Once/>} />
-          <Route path="/examen" element={<Examen/>} />
-          <Route path="/condicionales" element={<Condicionales/>} />
-          <Route path="/enunciado3" element={<Enunciado3/>} />
-          <Route path="/enunciado4" element={<Enunciado4/>} />
-          <Route path="/enunciado5" element={<Enunciado5/>} />
-          <Route path="/enunciado6" element={<Enunciado6/>} />
-          <Route path="/enunciado7" element={<Enunciado7/>} />
-          <Route path="/enunciado8" element={<Enunciado8/>} />
-          <Route path="/enunciado9" element={<Enunciado9/>} />
-          <Route path="/enunciado10" element={<Enunciado10/>} />
-          <Route path="/enunciado11" element={<Enunciado11/>} />
-          <Route path="/foro" element={<Foro/>} />
-          <Route path="/positions" exact element={<Positions/>} />
+          <Route path="/" exact element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/iniciogoogle" element={<Iniciogoogle />} />
+          <Route path="/loginsesion" element={<Loginsesion />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/lecciones" element={<Lecciones />} />
+          <Route path="/nivel1" element={<Nivel1 />} />
+          <Route path="/ejercicios1" element={<Ejercicios1 />} />
+          <Route path="/1" element={<Uno />} />
+          <Route path="/2" element={<Dos />} />
+          <Route path="/3" element={<Tres />} />
+          <Route path="/4" element={<Cuatro />} />
+          <Route path="/5" element={<Cinco />} />
+          <Route path="/6" element={<Seis />} />
+          <Route path="/7" element={<Siete />} />
+          <Route path="/8" element={<Ocho />} />
+          <Route path="/9" element={<Nueve />} />
+          <Route path="/10" element={<Diez />} />
+          <Route path="/11" element={<Once />} />
+          <Route path="/examen" element={<Examen />} />
+          <Route path="/examennivel1" element={<Examennivel1 />} /> {/* Nueva ruta para el módulo Examennivel1 */}
+          <Route path="/condicionales" element={<Condicionales />} />
+          <Route path="/enunciado3" element={<Enunciado3 />} />
+          <Route path="/enunciado4" element={<Enunciado4 />} />
+          <Route path="/enunciado5" element={<Enunciado5 />} />
+          <Route path="/enunciado6" element={<Enunciado6 />} />
+          <Route path="/enunciado7" element={<Enunciado7 />} />
+          <Route path="/enunciado8" element={<Enunciado8 />} />
+          <Route path="/enunciado9" element={<Enunciado9 />} />
+          <Route path="/enunciado10" element={<Enunciado10 />} />
+          <Route path="/enunciado11" element={<Enunciado11 />} />
+          <Route path="/foro" element={<Foro />} />
+          <Route path="/positions" exact element={<Positions />} />
         </Routes>
       </div>
     </Router>

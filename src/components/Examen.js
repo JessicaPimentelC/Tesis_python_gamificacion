@@ -1,26 +1,34 @@
 import React from 'react';
-import '../styles/Examen.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
+import '../styles/Examen.css';
 
 function Examen() {
+  const navigate = useNavigate();
+
+  const startExam = () => {
+    navigate('/examennivel1'); // Navigate to Examennivel1 module
+  };
+
   return (
     <div className="app-container">
       <aside className="sidebar">
         <div className="logo">
-          {/* Aquí puedes colocar el logo de Python */}
-          <img src="path_to_logo.png" alt="Python Logo" />
+          <img src="logo.png" alt="Python Logo" className="python-logo" />
         </div>
         <nav>
           <ul>
-            <li>PANEL DE CONTROL</li>
-            {/* Otros elementos del panel */}
+            <li><img src="flecha.png" alt="Atrás" className="icon" /> ATRÁS</li>
+            <li><img src="configuracion.png" alt="Configuración" className="icon" /> CONFIGURACIÓN</li>
           </ul>
         </nav>
       </aside>
       <header className="header">
         <div className="user-info">
-          {/* Coloca aquí los iconos de usuario, notificaciones, etc. */}
-          <span>143 <img src="path_to_icon.png" alt="Diamond Icon" /></span>
-          {/* Otros iconos */}
+          <img src="python1.png" alt="Ayuda" className="icon" />
+          <span><img src="puntaje.png" alt="Diamond Icon" className="icon" />10</span>
+          <img src="informacion.png" alt="Ayuda" className="icon" />
+          <img src="ubicacion.png" alt="Mapa" className="icon" />
+          <img src="AYUDA.jpeg" alt="Usuario" className="avatar" />
         </div>
       </header>
       <main className="main-content">
@@ -28,7 +36,7 @@ function Examen() {
         <div className="exam-instructions">
           <p>Instrucciones para el examen...</p>
         </div>
-        <button className="start-exam">Iniciar Examen</button>
+        <button className="start-exam" onClick={startExam}>Iniciar Examen</button>
       </main>
     </div>
   );

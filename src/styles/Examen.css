@@ -1,56 +1,124 @@
 .app-container {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-  }
-  
-  .sidebar {
-    width: 15%;
-    background-color: #FF4B4B; /* Rojo */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-  }
-  
-  .header {
-    width: 85%;
-    height: 60px;
-    background-color: #D3D3D3; /* Gris */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    color: black;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f9f9f9; /* Blanco */
-  }
-  
-  .lesson-card {
-    background-color: #87CEEB; /* Azul */
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-  }
-  
-  .start-lesson {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
+  width: 100%;
+  background-color: #f04e3e; /* Color de fondo rojo, o el color que prefieras */
+  padding: 20px; /* Ajusta el padding según sea necesario */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra para separación */
+  margin-left: 300px; /* Ajusta el margen izquierdo para desplazar el contenedor hacia la derecha */
+  margin-right: 100px;
+}
+
+
+
+.sidebar {
+  width: 15%;
+  background-color: #FF4B4B; /* Rojo */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px 0;
+}
+
+.logo img.python-logo {
+  width: 80px; /* Ajusta el tamaño del logo */
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.sidebar nav ul li img.icon {
+  margin-right: 10px;
+  width: 24px; /* Ajusta el tamaño de los iconos */
+}
+
+.header {
+  width: 85%;
+  height: 60px;
+  background-color: #FF6F6F; /* Rojo más claro */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  color: black;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-info span {
+  font-size: 20px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.header .user-info img.icon {
+  margin-left: 15px;
+  width: 30px; /* Ajusta el tamaño de los iconos */
+  cursor: pointer;
+}
+
+.header .user-info img.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9; /* White background */
+  margin: 0 auto; /* Centers the container horizontally */
+  width: 100%;
+  max-width: 1200px; /* Optional: limits the container's maximum width */
+}
+
+.main-content h1 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.exam-instructions {
+  background-color: #FFF3F3;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: 80%;
+}
+
+.start-exam {
+  background-color: #FF4B4B;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-exam:hover {
+  background-color: #FF6F6F;
+}
