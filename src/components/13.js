@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/11.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/13.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Once = ({ toggleView }) => {
+const Enunciado13 = () => {
   const [inputValue, setInputValue] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
@@ -10,18 +10,23 @@ const Once = ({ toggleView }) => {
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Convierte el valor de entrada a un número de punto flotante y lo muestra como salida
-    const estatura = parseFloat(inputValue);
-    setOutput(estatura);
-    setShowNext(true);
-    setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    const [num1, num2] = inputValue.split('+').map(Number);
+    const correctAnswer = num1 + num2;
+
+    if (Number(inputValue) === correctAnswer) {
+      setOutput('¡Correcto!');
+      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    } else {
+      setOutput('Inténtalo de nuevo.');
+    }
+    setShowNext(true); // Muestra el botón de siguiente
   };
 
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('/enunciado10')}>
+        <button className="sidebar-button" onClick={() => navigate('/enunciado12')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
@@ -30,7 +35,8 @@ const Once = ({ toggleView }) => {
           CONFIGURACIÓN
         </button>
         <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
+          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
+          <p className="score-text">Puntaje: {score}</p>
         </div>
       </div>
       <div className="content">
@@ -40,7 +46,7 @@ const Once = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>EJERCICIO #11</h2>
+              <h2>EJERCICIO #13</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -57,16 +63,16 @@ const Once = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Entrada de Estatura</span>
-              <p>Ingrese su estatura en el campo de abajo y presione "Print".</p>
+              <span>Ejercicio de Suma Básica</span>
+              <p>Escribe la suma de los dos números en el campo de abajo y presiona "Verificar".</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    estatura = float(input("Ingrese su estatura: "))
-                    print(estatura)
+                    num1, num2 = map(int, input("Escribe la suma (num1+num2): ").split('+'))<br />
+                    print(num1 + num2)
                   </pre>
                 </div>
               </div>
@@ -76,23 +82,17 @@ const Once = ({ toggleView }) => {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese su estatura"
+                  placeholder="Escribe la suma"
                 />
               </div>
 
-              {/* Contenedor del puntaje */}
-              <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-                <p className="score-text">Puntaje: {score}</p>
-              </div>
-
               <button className="nivel1-card-button" onClick={checkAnswer}>
-                Print
+                Verificar
               </button>
               {showNext && (
                 <button
                   className="nivel1-card-button"
-                  onClick={() => navigate('/enunciado12')} // Ajusta la ruta según sea necesario
+                  onClick={() => navigate('/enunciado14')} // Ajusta la ruta según sea necesario
                 >
                   Siguiente
                 </button>
@@ -112,4 +112,4 @@ const Once = ({ toggleView }) => {
   );
 };
 
-export default Once;
+export default Enunciado13;

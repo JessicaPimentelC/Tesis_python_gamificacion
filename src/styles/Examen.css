@@ -3,11 +3,9 @@
   background-color: #f04e3e; /* Color de fondo rojo, o el color que prefieras */
   padding: 20px; /* Ajusta el padding según sea necesario */
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra para separación */
-  margin-left: 300px; /* Ajusta el margen izquierdo para desplazar el contenedor hacia la derecha */
-  margin-right: 100px;
+  margin-left: 220px; /* Ajusta el margen izquierdo para desplazar el contenedor hacia la derecha */
+  margin-right: 200px;
 }
-
-
 
 .sidebar {
   width: 15%;
@@ -91,6 +89,7 @@
   margin: 0 auto; /* Centers the container horizontally */
   width: 100%;
   max-width: 1200px; /* Optional: limits the container's maximum width */
+  text-align: center; /* Centers the text within the content */
 }
 
 .main-content h1 {
@@ -106,6 +105,7 @@
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
   width: 80%;
+  text-align: center; /* Center the text within the exam instructions */
 }
 
 .start-exam {
