@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/enunciado13.css'; // Asegúrate de que la ruta sea correcta
 
-const Enunciado13 = ({ toggleView }) => {
+const Trece = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -47,7 +47,7 @@ const Enunciado13 = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL 2</h2>
+              <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +64,7 @@ const Enunciado13 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 2: Suma Básica</span>
+              <span>Suma Básica</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +92,7 @@ print("La suma es:", num1 + num2)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif13.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado13.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -115,7 +115,7 @@ print("La suma es:", num1 + num2)
             <p>
               🌟 ¡Excelente! 🚀 Ahora has aprendido a realizar una suma básica en Python. Sigue practicando y fortaleciendo tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="X5NZ.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>
@@ -126,4 +126,4 @@ print("La suma es:", num1 + num2)
   );
 };
 
-export default Enunciado13;
+export default Trece;

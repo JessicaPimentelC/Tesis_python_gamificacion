@@ -3,7 +3,7 @@ import '../styles/9.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
 const Nueve = ({ toggleView }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [draggedNumber, setDraggedNumber] = useState('');
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
   const [output, setOutput] = useState('');
@@ -11,17 +11,30 @@ const Nueve = ({ toggleView }) => {
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Compara si el número ingresado es 46
-    if (inputValue === '46') {
+    // Compara si el número arrastrado es 46
+    if (draggedNumber === '46') {
       setResult('correct');
       setShowNext(true); // Muestra el botón "Siguiente"
-      setOutput(inputValue); // Muestra el valor ingresado en la salida
+      setOutput(draggedNumber); // Muestra el valor en la salida
       setScore(score + 10); // Incrementa el puntaje cuando sea correcto
     } else {
       setResult('incorrect');
       setShowNext(false); // Oculta el botón "Siguiente"
       setOutput(''); // Limpia la salida si la respuesta es incorrecta
     }
+  };
+
+  const handleDragStart = (number) => {
+    setDraggedNumber(number);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    checkAnswer();
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -70,18 +83,45 @@ const Nueve = ({ toggleView }) => {
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
-                <div className="code-content">
+                <div 
+                  className="code-content"
+                  onDrop={handleDrop}
+                  onDragOver={handleDragOver}
+                >
                   <pre>
-                    variable = "
-                    <input
-                      type="number"
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      className="code-input-inline"
-                      placeholder="Ingrese el número"
-                    />
-                    "
+                    variable = "<span className="drop-area">________</span>"
                   </pre>
+                </div>
+              </div>
+
+              <div className="options">
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('46')}
+                >
+                  46
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('23')}
+                >
+                  23
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('82')}
+                >
+                  82
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('59')}
+                >
+                  59
                 </div>
               </div>
 
@@ -98,9 +138,6 @@ const Nueve = ({ toggleView }) => {
               )}
 
               <div className="nivel1-card-button-container">
-                <button className="nivel1-card-button" onClick={checkAnswer}>
-                  Verificar
-                </button>
                 {showNext && (
                   <button
                     className="nivel1-card-button"

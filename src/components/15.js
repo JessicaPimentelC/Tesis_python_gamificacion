@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import '../styles/15.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado15 = () => {
-  const [inputValue, setInputValue] = useState('');
+const Quince = () => {
+  const [centimeters, setCentimeters] = useState('');
+  const [meters, setMeters] = useState('');
+  const [printFunction, setPrintFunction] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
@@ -11,11 +13,16 @@ const Enunciado15 = () => {
 
   const checkAnswer = () => {
     // Lógica del ejercicio: convierte centímetros a metros
-    const centimeters = parseFloat(inputValue);
-    const meters = centimeters / 100;
+    const centimetersValue = parseFloat(centimeters);
+    const correctMeters = centimetersValue / 100;
 
-    if (meters === 1) { // Suponiendo que la respuesta correcta es 1 metro
-      setOutput('¡Correcto!');
+    // Verifica si los campos son correctos
+    if (
+      centimeters === 'centimeters' &&
+      printFunction === 'print' &&
+      parseFloat(meters) === correctMeters
+    ) {
+      setOutput(`¡Correcto! La conversión es: ${correctMeters}`);
       setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
     } else {
       setOutput('Inténtalo de nuevo.');
@@ -65,27 +72,35 @@ const Enunciado15 = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Conversión de Unidades</span>
-              <p>Ingresa una medida en centímetros y conviértela a metros.</p>
+              <p>Llena los espacios en blanco para completar el código que convierte centímetros a metros.</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    centimeters = 100
-                    meters = centimeters / 100
-                    print(meters)
+                    <input
+                      type="text"
+                      value={centimeters}
+                      onChange={(e) => setCentimeters(e.target.value)}
+                      placeholder="centimeters"
+                    />
+                    = 100<br />
+                    meters = <input
+                      type="text"
+                      value={meters}
+                      onChange={(e) => setMeters(e.target.value)}
+                      placeholder="centimeters"
+                    /> / 100<br />
+                    <input
+                      type="text"
+                      value={printFunction}
+                      onChange={(e) => setPrintFunction(e.target.value)}
+                      placeholder="print"
+                    />
+                    (meters)
                   </pre>
                 </div>
-              </div>
-
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese centímetros"
-                />
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -114,4 +129,4 @@ const Enunciado15 = () => {
   );
 };
 
-export default Enunciado15;
+export default Quince;

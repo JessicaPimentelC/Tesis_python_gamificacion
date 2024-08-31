@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import '../styles/12.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado12 = () => {
-  const [inputValue, setInputValue] = useState('');
+const Doce = () => {
+  const [inputFunction, setInputFunction] = useState('');
+  const [printFunction, setPrintFunction] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    const correctGreeting = 'Hola, ¿cómo estás?';
-    if (inputValue === correctGreeting) {
-      setOutput('¡Correcto!');
+    if (inputFunction === 'input' && printFunction === 'print') {
+      setOutput(`¡Correcto! Hola, ${inputFunction}`);
       setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
     } else {
       setOutput('Inténtalo de nuevo.');
@@ -48,9 +48,6 @@ const Enunciado12 = () => {
             </div>
             <div className="header-status">
               <span></span>
-              <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
-              </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
                 <img src="ubicacion.png" alt="Icono Pregunta" />
               </button>
@@ -61,27 +58,31 @@ const Enunciado12 = () => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Saludo Básico</span>
-              <p>Escribe el saludo correcto en el campo de abajo y presiona "Verificar".</p>
+              <span>Completa el código de Python</span>
+              <p>Llena los espacios en blanco para completar el saludo.</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    saludo = "Hola, ¿cómo estás?"<br />
-                    print(saludo)
+                    nombre ={' '}
+                    <input
+                      type="text"
+                      value={inputFunction}
+                      onChange={(e) => setInputFunction(e.target.value)}
+                      placeholder="function"
+                    />
+                    ("¿Cómo te llamas?")<br />
+                    <input
+                      type="text"
+                      value={printFunction}
+                      onChange={(e) => setPrintFunction(e.target.value)}
+                      placeholder="function"
+                    />
+                    ("Hola, " + nombre)
                   </pre>
                 </div>
-              </div>
-
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Escribe tu saludo"
-                />
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -110,4 +111,4 @@ const Enunciado12 = () => {
   );
 };
 
-export default Enunciado12;
+export default Doce;

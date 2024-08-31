@@ -10,11 +10,16 @@ const Once = ({ toggleView }) => {
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Convierte el valor de entrada a un número de punto flotante y lo muestra como salida
+    // Verifica si el valor de entrada es un número válido
     const estatura = parseFloat(inputValue);
-    setOutput(estatura);
-    setShowNext(true);
-    setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    if (!isNaN(estatura)) {
+      setOutput(estatura);
+      setShowNext(true);
+      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    } else {
+      setOutput('Por favor, ingrese un número válido.');
+      setShowNext(false);
+    }
   };
 
   return (
@@ -65,22 +70,21 @@ const Once = ({ toggleView }) => {
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    estatura = float(input("Ingrese su estatura: "))
+                    estatura = float(input(<span className="input-text">"Ingrese su estatura: "</span>))<br />
                     print(estatura)
                   </pre>
                 </div>
+                <div className="input-container">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Ingrese su estatura"
+                    className="code-input"
+                  />
+                </div>
               </div>
 
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese su estatura"
-                />
-              </div>
-
-              {/* Contenedor del puntaje */}
               <div className="score-container">
                 <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
                 <p className="score-text">Puntaje: {score}</p>

@@ -225,3 +225,148 @@
         transform: translateY(0);
     }
 }
+.modal-close-button,
+.info-close-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.import-link,
+.datetime-link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* Modal de la ventana emergente */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3; /* Asegura que el modal esté por encima de todo el contenido */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    max-width: 90%; /* Para asegurar que el modal no sea demasiado ancho en pantallas pequeñas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Asegura que el contenido del modal esté bien posicionado */
+}
+
+/* Ventana emergente de información */
+.info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4; /* Asegura que la ventana de información esté por encima de todo */
+}
+
+.info-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    max-width: 90%; /* Para asegurar que la ventana de información no sea demasiado ancha en pantallas pequeñas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Asegura que el contenido de la ventana de información esté bien posicionado */
+}
+
+.info-close-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-close-button:hover {
+    background-color: #0056b3;
+}
+/* Modal para 'elif' */
+.elif-modal-overlay,
+.else-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; /* Asegura que el modal esté por encima de todo el contenido */
+}
+
+.elif-modal-content,
+.else-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.elif-modal-content h2,
+.else-modal-content h2 {
+  color: #ff5733; /* Color para el título del modal */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.elif-modal-content p,
+.else-modal-content p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-close-button {
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-close-button:hover {
+  background-color: #c70039;
+}
+/* Estilos para los elementos clicables en el código */
+.code-content .clickable {
+    color: #007bff; /* Color del texto clicable */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el texto */
+    text-decoration: underline; /* Subraya el texto para indicar que es clicable */
+    font-weight: bold; /* Hace el texto más destacable */
+  }
+  
+  .code-content .clickable:hover {
+    color: #0056b3; /* Cambia el color del texto al pasar el ratón por encima */
+  }
+  

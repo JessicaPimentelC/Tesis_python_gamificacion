@@ -2,22 +2,38 @@ import React, { useState } from 'react';
 import '../styles/4.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Cuatro = ({ toggleView }) => {
-  const [num1, setNum1] = useState('');
-  const [num2, setNum2] = useState('');
-  const [result, setResult] = useState(null);
+const Cuatro = () => {
+  const [droppedWords, setDroppedWords] = useState([]);
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
-  const navigate = useNavigate(); // Hook para la redirección
+  const [score, setScore] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleDragStart = (e) => {
+    e.dataTransfer.setData('text/plain', e.target.id);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text/plain');
+    // Añade la palabra soltada al array, asegurando que no se repita
+    if (!droppedWords.includes(data)) {
+      setDroppedWords([...droppedWords, data]);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
   const checkAnswer = () => {
-    if (parseInt(num1) === 70 && parseInt(num2) === 2) {
-      setResult('correct');
-      setShowNext(true); // Muestra el botón "Siguiente"
-      setScore(score + 10); // Incrementa el puntaje cuando sea correcto
+    if (droppedWords.includes('print')) {
+      setScore(score + 10);
+      setShowNext(true);
+      setErrorMessage("");
     } else {
-      setResult('incorrect');
-      setShowNext(false); // Oculta el botón "Siguiente"
+      setErrorMessage('Inténtalo de nuevo');
+      setShowNext(false);
     }
   };
 
@@ -62,44 +78,47 @@ const Cuatro = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
-              <p>Imprima el resultado de 70 dividido por 2</p> 
+              <p>Arrastra la palabra <strong>`print`</strong> al cuadro de código y verifica tu respuesta.</p>
             </div>
             <div className="nivel1-card-body">
-              <div className="code-box">
-                <div className="code-header">ENTRADA</div>
+              <div
+                className="code-box"
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+              >
+                <div className="code-header">Código:</div>
                 <div className="code-content">
-                  <pre>
-                    print ( 
-                    <input
-                      type="number"
-                      value={num1}
-                      onChange={(e) => setNum1(e.target.value)}
-                      className="code-input-inline"
-                      placeholder=""
-                    />
-                    {' '}
-                    /{' '}
-                    <input
-                      type="number"
-                      value={num2}
-                      onChange={(e) => setNum2(e.target.value)}
-                      className="code-input-inline"
-                      placeholder=""
-                    />
-                    )
-                  </pre>
+                  {droppedWords.includes('print') ? 'print("70 / 2")' : '______("70 / 2")'}
                 </div>
               </div>
-              
-              <div className="code-box">
-                <div className="code-header">SALIDA</div>
-                <input
-                  type="number"
-                  value={num1 / num2}
-                  className="code-input"
-                  readOnly
-                />
+
+              <div className="draggable-words">
+                <div
+                  id="print"
+                  className="draggable-word"
+                  draggable
+                  onDragStart={handleDragStart}
+                >
+                  print
+                </div>
+                <div
+                  id="else"
+                  className="draggable-word"
+                  draggable
+                  onDragStart={handleDragStart}
+                >
+                  else
+                </div>
+                <div
+                  id="customWord"
+                  className="draggable-word"
+                  draggable
+                  onDragStart={handleDragStart}
+                >
+                  customWord
+                </div>
               </div>
+
               <div className="nivel1-card-button-container">
                 <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
@@ -107,19 +126,21 @@ const Cuatro = ({ toggleView }) => {
                 {showNext && (
                   <button
                     className="nivel1-card-button"
-                    onClick={() => navigate('/enunciado5')} // Ajusta el número de vista siguiente si es necesario
+                    onClick={() => navigate('/enunciado5')}
                   >
                     Siguiente
                   </button>
                 )}
               </div>
-              {result && (
-                <div className={`result ${result}`}>
-                  {result === 'correct' ? 'Correcto' : 'Inténtalo de nuevo'}
+
+              {errorMessage && (
+                <div className="error-message">
+                  {errorMessage}
                 </div>
               )}
+
               <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
+                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
                 <p className="score-text">Puntaje: {score}</p>
               </div>
             </div>

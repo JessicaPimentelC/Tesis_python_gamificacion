@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
-import '../styles/16.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
+import '../styles/enunciado16.css'; // Asegúrate de que la ruta sea correcta
 
-const Enunciado16 = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [output, setOutput] = useState('');
+const Dieciséis = () => {
+  const [importAnswer, setImportAnswer] = useState('');
+  const [printAnswer, setPrintAnswer] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
-  const navigate = useNavigate(); // Hook para la redirección
+  const navigate = useNavigate();
 
-  const checkAnswer = () => {
-    // Lógica del ejercicio: calcula la edad
-    const birthYear = parseInt(inputValue);
-    const currentYear = new Date().getFullYear();
-    const age = currentYear - birthYear;
-
-    if (age === 25) { // Suponiendo que la respuesta correcta es 25 años
-      setOutput('¡Correcto!');
-      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+  const handleCheckAnswers = () => {
+    if (importAnswer === 'import' && printAnswer === 'print') {
+      setIsCorrect(true);
+      setShowNext(true); // Mostrar el botón Siguiente si la respuesta es correcta
     } else {
-      setOutput('Inténtalo de nuevo.');
+      setIsCorrect(false);
+      setShowNext(false); // Ocultar el botón Siguiente si la respuesta es incorrecta
     }
-    setShowNext(true); // Muestra el botón de siguiente
+    setShowResult(true);
   };
 
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('/enunciado15')}>
+        <button className="sidebar-button" onClick={() => navigate('/previous-route')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
@@ -37,8 +34,7 @@ const Enunciado16 = () => {
           CONFIGURACIÓN
         </button>
         <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
+          {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
       <div className="content">
@@ -48,7 +44,7 @@ const Enunciado16 = () => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>EJERCICIO #16</h2>
+              <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -65,47 +61,54 @@ const Enunciado16 = () => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Cálculo de Edad</span>
-              <p>Ingresa tu año de nacimiento para calcular tu edad.</p>
+              <span>Cálculo de Edad</span>
             </div>
             <div className="nivel1-card-body">
+              <p>
+                Completa el código para calcular la edad en Python rellenando los espacios en blanco.
+              </p>
               <div className="code-box">
-                <div className="code-header">PYTHON</div>
-                <div className="code-content">
-                  <pre>
-                    birth_year = 1998
-                    current_year = 2023
-                    age = current_year - birth_year
-                    print(age)
-                  </pre>
-                </div>
+                <div className="code-header">Python</div>
+                <pre className="code-content">
+                  <code>
+                    {'from datetime '}
+                    <input
+                      type="text"
+                      value={importAnswer}
+                      onChange={(e) => setImportAnswer(e.target.value)}
+                      placeholder="______"
+                      className="input-field"
+                    />
+                    {' datetime\n\nano_nacimiento = int(input("Ingresa tu año de nacimiento: "))\nano_actual = datetime.now().year\nedad = ano_actual - ano_nacimiento\n'}
+                    <input
+                      type="text"
+                      value={printAnswer}
+                      onChange={(e) => setPrintAnswer(e.target.value)}
+                      placeholder="______"
+                      className="input-field"
+                    />
+                    {'("Tu edad es:", edad)\n'}
+                  </code>
+                </pre>
               </div>
 
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese su año de nacimiento"
-                />
-              </div>
-
-              <button className="nivel1-card-button" onClick={checkAnswer}>
-                Verificar
-              </button>
-              {showNext && (
-                <button
-                  className="nivel1-card-button"
-                  onClick={() => navigate('/enunciado17')} // Ajusta la ruta según sea necesario
-                >
-                  Siguiente
+              <div className="nivel1-card-button-container">
+                <button className="nivel1-card-button" onClick={handleCheckAnswers}>
+                  Verificar
                 </button>
-              )}
+                {showNext && (
+                  <button
+                    className="nivel1-card-button"
+                    onClick={() => navigate('/enunciado17')} // Redirige a Enunciado17.js
+                  >
+                    Siguiente
+                  </button>
+                )}
+              </div>
 
-              {output && (
-                <div className="code-box">
-                  <div className="code-header">SALIDA</div>
-                  <pre>{output}</pre>
+              {showResult && (
+                <div className={`result-message ${isCorrect ? 'correct' : 'incorrect'}`}>
+                  {isCorrect ? '¡Correcto! 🎉' : 'Inténtalo de nuevo. 😕'}
                 </div>
               )}
             </div>
@@ -116,4 +119,4 @@ const Enunciado16 = () => {
   );
 };
 
-export default Enunciado16;
+export default Dieciséis;

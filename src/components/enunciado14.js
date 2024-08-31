@@ -47,7 +47,7 @@ const Enunciado14 = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL 3</h2>
+              <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +64,7 @@ const Enunciado14 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 3: Multiplicación Básica</span>
+              <span> Multiplicación Básica</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +92,7 @@ print("La multiplicación es:", num1 * num2)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif14.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado14.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -115,7 +115,7 @@ print("La multiplicación es:", num1 * num2)
             <p>
               🌟 ¡Fantástico! 🚀 Ahora has aprendido a realizar una multiplicación básica en Python. Sigue practicando para mejorar tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="ICU.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

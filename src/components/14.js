@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import '../styles/14.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/enunciado14.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado14 = () => {
-  const [inputValue, setInputValue] = useState('');
+const Catorce = () => {
+  const [num1Function, setNum1Function] = useState('');
+  const [num2Function, setNum2Function] = useState('');
+  const [operator, setOperator] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Lógica del ejercicio: verifica la multiplicación
-    const [num1, num2] = inputValue.split('*').map(Number);
-    const correctAnswer = num1 * num2;
-
-    if (inputValue === `${correctAnswer}`) {
-      setOutput('¡Correcto!');
+    if (num1Function === 'float' && num2Function === 'float' && operator === '*') {
+      setOutput('¡Correcto! La multiplicación es: ' + (parseFloat(prompt("Ingresa el primer número: ")) * parseFloat(prompt("Ingresa el segundo número: "))));
       setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
     } else {
       setOutput('Inténtalo de nuevo.');
@@ -65,27 +63,39 @@ const Enunciado14 = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Multiplicación Rápida</span>
-              <p>Escribe la multiplicación de los dos números en el campo de abajo y presiona "Verificar".</p>
+              <p>Llena los espacios en blanco para completar el código que realiza una multiplicación básica en Python.</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    num1 = 4
-                    num2 = 5
-                    print(num1 * num2)
+                    num1 = {' '}
+                    <input
+                      type="text"
+                      value={num1Function}
+                      onChange={(e) => setNum1Function(e.target.value)}
+                      placeholder="function"
+                    />
+                    (input("Ingresa el primer número: "))<br />
+                    num2 = {' '}
+                    <input
+                      type="text"
+                      value={num2Function}
+                      onChange={(e) => setNum2Function(e.target.value)}
+                      placeholder="function"
+                    />
+                    (input("Ingresa el segundo número: "))<br />
+                    print("La multiplicación es:", num1 {' '}
+                    <input
+                      type="text"
+                      value={operator}
+                      onChange={(e) => setOperator(e.target.value)}
+                      placeholder="operator"
+                    />
+                    num2)
                   </pre>
                 </div>
-              </div>
-
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Escribe la multiplicación"
-                />
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -114,4 +124,4 @@ const Enunciado14 = () => {
   );
 };
 
-export default Enunciado14;
+export default Catorce;

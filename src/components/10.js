@@ -10,7 +10,6 @@ const Diez = ({ toggleView }) => {
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Establece el valor de salida con el texto ingresado
     setOutput(inputValue);
     setShowNext(true);
     setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
@@ -51,6 +50,7 @@ const Diez = ({ toggleView }) => {
               </button>
             </div>
           </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Entrada de Texto</span>
@@ -61,25 +61,19 @@ const Diez = ({ toggleView }) => {
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    texto = input("Ingrese un texto: ")
+                    texto = input(<span className="input-text">"Ingrese un texto: "</span>)<br />
                     print(texto)
                   </pre>
                 </div>
-              </div>
-
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese un texto"
-                />
-              </div>
-
-              {/* Contenedor del puntaje */}
-              <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-                <p className="score-text">Puntaje: {score}</p>
+                <div className="input-container">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Ingrese un texto"
+                    className="code-input"
+                  />
+                </div>
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -97,7 +91,9 @@ const Diez = ({ toggleView }) => {
               {output && (
                 <div className="code-box">
                   <div className="code-header">SALIDA</div>
-                  <pre>{output}</pre>
+                  <div className="code-content">
+                    <pre>{output}</pre>
+                  </div>
                 </div>
               )}
             </div>

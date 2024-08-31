@@ -47,7 +47,7 @@ const Enunciado15 = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL 4</h2>
+              <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +64,7 @@ const Enunciado15 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 4: Conversión de Unidades</span>
+              <span>Conversión de Unidades</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +92,7 @@ print("El valor en kilómetros es:", kilometros)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif15.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado15.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -115,7 +115,7 @@ print("El valor en kilómetros es:", kilometros)
             <p>
               🌟 ¡Excelente trabajo! 🚀 Ahora has aprendido a realizar una conversión de unidades en Python. Sigue practicando y mejorando tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="hdt.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

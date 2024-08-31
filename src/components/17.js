@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
-import '../styles/17.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
+import '../styles/17.css'; // Asegúrate de que la ruta sea correcta
 
-const Enunciado17 = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [output, setOutput] = useState('');
+const Diecisiete = () => {
+  const [elifAnswer, setElifAnswer] = useState('');
+  const [elseAnswer, setElseAnswer] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
-  const navigate = useNavigate(); // Hook para la redirección
+  const navigate = useNavigate();
 
-  const checkAnswer = () => {
-    // Lógica del ejercicio: verifica si el número es par o impar
-    const number = parseInt(inputValue);
-    const isEven = number % 2 === 0;
+  const handleCheckAnswers = () => {
+    // Compara las respuestas ingresadas con los valores correctos
+    const isElifCorrect = elifAnswer.trim() === 'elif';
+    const isElseCorrect = elseAnswer.trim() === 'else';
 
-    if (isEven) {
-      setOutput('¡Correcto! El número es par.');
-      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    if (isElifCorrect && isElseCorrect) {
+      setIsCorrect(true);
+      setShowNext(true); // Muestra el botón Siguiente si la respuesta es correcta
     } else {
-      setOutput('Inténtalo de nuevo. El número es impar.');
+      setIsCorrect(false);
+      setShowNext(false); // Oculta el botón Siguiente si la respuesta es incorrecta
     }
-    setShowNext(true); // Muestra el botón de siguiente
+    setShowResult(true);
   };
 
   return (
@@ -36,8 +38,7 @@ const Enunciado17 = () => {
           CONFIGURACIÓN
         </button>
         <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
+          {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
       <div className="content">
@@ -64,48 +65,60 @@ const Enunciado17 = () => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Verificación de Números</span>
-              <p>Ingresa un número para verificar si es par.</p>
+              <span>Verificación de Números</span>
             </div>
             <div className="nivel1-card-body">
+              <p>
+                Completa el código para verificar si un número es positivo, negativo o cero. Rellena los espacios en blanco.
+              </p>
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
-                <div className="code-content">
-                  <pre>
-                    number = 4
-                    if number % 2 == 0:
-                        print("El número es par.")
-                    else:
-                        print("El número es impar.")
-                  </pre>
-                </div>
+                <pre className="code-content">
+                  <code>
+                    {'numero = float(input("Ingresa un número: "))\n'}
+                    {'if numero > 0:\n'}
+                    {'    print("El número es positivo")\n'}
+                    {' '}
+                    <input
+                      type="text"
+                      value={elifAnswer}
+                      onChange={(e) => setElifAnswer(e.target.value)}
+                      placeholder="______"
+                      className="input-field"
+                    />
+                    {'\n'}
+                    {'    print("El número es negativo")\n'}
+                    {' '}
+                    <input
+                      type="text"
+                      value={elseAnswer}
+                      onChange={(e) => setElseAnswer(e.target.value)}
+                      placeholder="______"
+                      className="input-field"
+                    />
+                    {'\n'}
+                    {'    print("El número es cero")\n'}
+                  </code>
+                </pre>
               </div>
 
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese un número"
-                />
-              </div>
-
-              <button className="nivel1-card-button" onClick={checkAnswer}>
-                Verificar
-              </button>
-              {showNext && (
-                <button
-                  className="nivel1-card-button"
-                  onClick={() => navigate('/enunciado18')} // Ajusta la ruta según sea necesario
-                >
-                  Siguiente
+              <div className="nivel1-card-button-container">
+                <button className="nivel1-card-button" onClick={handleCheckAnswers}>
+                  Verificar
                 </button>
-              )}
+                {showNext && (
+                  <button
+                    className="nivel1-card-button"
+                    onClick={() => navigate('/enunciado18')} // Redirige a Enunciado18.js
+                  >
+                    Siguiente
+                  </button>
+                )}
+              </div>
 
-              {output && (
-                <div className="code-box">
-                  <div className="code-header">SALIDA</div>
-                  <pre>{output}</pre>
+              {showResult && (
+                <div className={`result-message ${isCorrect ? 'correct' : 'incorrect'}`}>
+                  {isCorrect ? '¡Correcto! 🎉' : 'Inténtalo de nuevo. 😕'}
                 </div>
               )}
             </div>
@@ -116,4 +129,4 @@ const Enunciado17 = () => {
   );
 };
 
-export default Enunciado17;
+export default Diecisiete;

@@ -64,7 +64,7 @@ const Enunciado12 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 1: Saludo Simple</span>
+              <span>Saludo Simple</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -91,7 +91,7 @@ print("Hola, " + nombre)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif-saludo-simple.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado12.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -114,7 +114,7 @@ print("Hola, " + nombre)
             <p>
               🌟 ¡Fantástico! 🚀 Ahora has aprendido a crear un saludo simple en Python. Sigue practicando para mejorar tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="o6m.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

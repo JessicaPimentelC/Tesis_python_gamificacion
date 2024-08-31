@@ -117,7 +117,7 @@ print("La temperatura en Celsius es:", celsius)
             </p>
             <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
-              Ir al Examen
+              Siguiente
             </button>
           </div>
         </div>
