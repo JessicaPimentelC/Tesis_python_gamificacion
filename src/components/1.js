@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Uno = ({ toggleView }) => {
+const Uno = () => {
   const [draggedItem, setDraggedItem] = useState(null);
   const [droppedItem, setDroppedItem] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [score, setScore] = useState(0);
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
   const navigate = useNavigate();
 
   const options = ['Mundo', 'Hola', 'Eduardo'];
@@ -25,10 +26,18 @@ const Uno = ({ toggleView }) => {
     if (droppedItem === 'Mundo') {
       setIsCorrect(true);
       setShowNextButton(true);
-      setScore(score + 10); // Incrementa el puntaje cuando sea correcto
+      setScore(score + 10);
+      
+      // Reproducir el sonido de victoria
+      const winningAudio = new Audio('/ganar.mp3'); // Ruta desde la carpeta public
+      winningAudio.play().catch(error => console.error('Error al reproducir el audio:', error));
     } else {
       setIsCorrect(false);
       setShowNextButton(false);
+      
+      // Reproducir el sonido de derrota
+      const losingAudio = new Audio('/perder.mp3'); // Ruta desde la carpeta public
+      losingAudio.play().catch(error => console.error('Error al reproducir el audio:', error));
     }
   };
 
@@ -36,8 +45,17 @@ const Uno = ({ toggleView }) => {
     navigate('/enunciado3');
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="nivel1-container">
+      {/* Sección de la barra lateral */}
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
         <button className="sidebar-button" onClick={() => navigate('/ejercicios1')}>
@@ -48,11 +66,31 @@ const Uno = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información sin GIF */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
+        {/* Sección principal con el ejercicio */}
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -129,10 +167,6 @@ const Uno = ({ toggleView }) => {
                     {isCorrect ? '¡Correcto!' : 'Inténtalo de nuevo.'}
                   </p>
                 )}
-              </div>
-              <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
-                <p className="score-text">Puntaje: {score}</p>
               </div>
             </div>
           </div>

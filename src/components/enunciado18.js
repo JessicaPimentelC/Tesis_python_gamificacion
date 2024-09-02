@@ -47,7 +47,7 @@ const Enunciado18 = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL 7</h2>
+              <h2>NIVEL </h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +64,7 @@ const Enunciado18 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 7: Cálculo de Área de Cuadrado</span>
+              <span> Cálculo de Área de Cuadrado</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +92,7 @@ print("El área del cuadrado es:", area)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif18.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado18.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -115,7 +115,7 @@ print("El área del cuadrado es:", area)
             <p>
               🌟 ¡Increíble! 🚀 Ahora has aprendido a calcular el área de un cuadrado en Python. Sigue practicando y mejorando tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="fxSL.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

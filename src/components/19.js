@@ -1,34 +1,39 @@
-import React, { useState } from 'react';
-import '../styles/19.css'; // Asegúrate de que la ruta sea correcta
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/enunciado19.css'; // Asegúrate de que la ruta sea correcta
 
-const Enunciado19 = () => {
-  const [inputValue, setInputValue] = useState('');
+const Diecinueve = () => {
+  const [celsiusInput, setCelsiusInput] = useState('');
+  const [printInput, setPrintInput] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Hook para la redirección
+  const audioRef = useRef(null); // Referencia al elemento de audio
 
   const checkAnswer = () => {
-    // Lógica del ejercicio: saluda basado en la edad
-    const age = parseInt(inputValue);
-    let greeting;
+    const correctPrintInput = 'print';
 
-    if (age < 18) {
-      greeting = '¡Hola, joven!';
-    } else if (age < 60) {
-      greeting = '¡Hola, adulto!';
-    } else {
-      greeting = '¡Hola, senior!';
-    }
-
-    if (greeting) {
-      setOutput(greeting);
-      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+    if (printInput.trim() === correctPrintInput) {
+      const celsius = parseFloat(celsiusInput);
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      setOutput(`La temperatura en Fahrenheit es: ${fahrenheit.toFixed(2)}`);
+      setShowNext(true);
     } else {
       setOutput('Inténtalo de nuevo.');
     }
-    setShowNext(true); // Muestra el botón de siguiente
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true); // Muestra el modal
+    if (audioRef.current) {
+      audioRef.current.play(); // Reproduce el sonido cuando se muestra el modal
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/examen'); // Redirige al módulo Examen después de cerrar el modal
   };
 
   return (
@@ -43,10 +48,6 @@ const Enunciado19 = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
-        </div>
       </div>
       <div className="content">
         <div className="white-background">
@@ -55,50 +56,52 @@ const Enunciado19 = () => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>EJERCICIO #19</h2>
+              <h2>Nivel 1</h2>
             </div>
             <div className="header-status">
               <span></span>
               <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
+                <img src="informacion.png" alt="Icono Información" />
               </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Saludo Basado en Edad</span>
-              <p>Ingresa tu edad para recibir un saludo apropiado.</p>
+              <span>Conversión de Temperatura</span>
+              <p>En este ejercicio, debes completar el código para convertir una temperatura de grados Celsius a Fahrenheit. Completa el campo con la función correcta para imprimir el resultado.</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    age = 25
-                    if age &lt; 18:
-                        print("¡Hola, joven!")
-                    elif age &lt; 60:
-                        print("¡Hola, adulto!")
-                    else:
-                        print("¡Hola, senior!")
+                    celsius = float(input("Ingresa la temperatura en grados Celsius: "))<br />
+                    fahrenheit = (celsius * 9/5) + 32<br />
+                    <input
+                      type="text"
+                      value={printInput}
+                      onChange={(e) => setPrintInput(e.target.value)}
+                      placeholder="print"
+                      style={{ width: '100px', marginRight: '5px' }}
+                    />
+                    ("La temperatura en Fahrenheit es:", fahrenheit)
                   </pre>
                 </div>
               </div>
 
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese tu edad"
-                />
-              </div>
+              <input
+                type="number"
+                value={celsiusInput}
+                onChange={(e) => setCelsiusInput(e.target.value)}
+                placeholder="Ingresa grados Celsius"
+                style={{ width: '250px', marginTop: '10px' }}
+              />
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
                 Verificar
@@ -106,7 +109,7 @@ const Enunciado19 = () => {
               {showNext && (
                 <button
                   className="nivel1-card-button"
-                  onClick={() => navigate('/enunciado20')} // Ajusta la ruta según sea necesario
+                  onClick={handleShowModal} // Llama a la función que muestra el modal y reproduce el sonido
                 >
                   Siguiente
                 </button>
@@ -122,8 +125,25 @@ const Enunciado19 = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>¡Bien hecho!</h2>
+            <p>¡Excelente! Ahora que has completado este ejercicio, estás listo para pasar al siguiente. ¡Vamos al examen y demostremos lo que aprendimos!</p>
+            <img src="Ntx5.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <button className="modal-close-button" onClick={handleCloseModal}>
+              Continuar al Examen
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Audio */}
+      <audio ref={audioRef} src="examen.mp3" />
     </div>
   );
 };
 
-export default Enunciado19;
+export default Diecinueve;

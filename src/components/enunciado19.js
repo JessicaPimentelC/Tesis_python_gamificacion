@@ -47,7 +47,7 @@ const Enunciado19 = ({ toggleView }) => {
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL 8</h2>
+              <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +64,7 @@ const Enunciado19 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 8: Conversión de Temperatura</span>
+              <span>Conversión de Temperatura</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +92,7 @@ print("La temperatura en Fahrenheit es:", fahrenheit)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif19.gif" alt="GIF" className="gif-image" />
+                  <img src="enunciado.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -115,7 +115,7 @@ print("La temperatura en Fahrenheit es:", fahrenheit)
             <p>
               🌟 ¡Fantástico! 🚀 Ahora has aprendido a convertir temperaturas en Python. Sigue practicando y mejorando tus habilidades. ¡Adelante, lo estás haciendo genial!
             </p>
-            <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="4.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

@@ -62,10 +62,12 @@
 
 /* Contenedor de contenido */
 .content {
-  flex: 1; /* Asegura que el contenido ocupe el resto del espacio disponible */
+  flex: 1;
+  display: flex; /* Cambiado para usar flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
   padding: 20px;
   position: relative;
-  transition: transform 0.5s ease-out; /* Transición para el deslizamiento */
 }
 
 /* Fondo blanco en el área de contenido */
@@ -125,10 +127,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   animation: slideIn 0.7s ease-out;
   position: relative;
-  z-index: 2; /* Asegura que la tarjeta esté por encima del fondo blanco */
-  max-width: 800px; /* Limita el ancho máximo para mantener el contenido centrado */
+  z-index: 2;
+  max-width: 600px; /* Reduce el ancho máximo */
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del espacio disponible */
   margin: 20px auto; /* Centra la tarjeta en el contenedor */
+  box-sizing: border-box; /* Incluye padding y borde dentro del ancho */
 }
+
 
 /* Encabezado de la tarjeta del nivel 1 */
 .nivel1-card-header {

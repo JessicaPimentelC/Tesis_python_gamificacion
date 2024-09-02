@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import '../styles/18.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado18 = () => {
-  const [inputValue, setInputValue] = useState('');
+const Dieciocho = () => {
+  const [areaInput, setAreaInput] = useState('');
+  const [printInput, setPrintInput] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
   const navigate = useNavigate(); // Hook para la redirección
 
   const checkAnswer = () => {
-    // Lógica del ejercicio: calcula el área del cuadrado
-    const sideLength = parseFloat(inputValue);
-    const area = sideLength * sideLength;
+    // Lógica del ejercicio: verifica si los campos tienen los valores correctos
+    const correctAreaInput = 'lado ** 2';
+    const correctPrintInput = 'print';
 
-    if (!isNaN(area)) {
-      setOutput(`Área del cuadrado: ${area}`);
+    if (areaInput.trim() === correctAreaInput && printInput.trim() === correctPrintInput) {
+      setOutput('El área del cuadrado es: 25'); // Asumiendo que el lado es 5 en este ejemplo
       setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
     } else {
       setOutput('Inténtalo de nuevo.');
@@ -65,27 +66,36 @@ const Enunciado18 = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Cálculo del Área del Cuadrado</span>
-              <p>Ingresa la longitud del lado del cuadrado para calcular su área.</p>
+              <p>Completa el código para calcular el área del cuadrado. Usa los campos de entrada para ingresar las respuestas:</p>
+              <ul>
+                <li>Para calcular el área, escribe `lado ** 2` en el primer campo.</li>
+                <li>Para imprimir el resultado, escribe `print` en el segundo campo.</li>
+              </ul>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    side_length = 5
-                    area = side_length * side_length
-                    print(area)
+                    lado = float(input("Ingresa la longitud del lado del cuadrado: "))<br />
+                    <input
+                      type="text"
+                      value={areaInput}
+                      onChange={(e) => setAreaInput(e.target.value)}
+                      placeholder="lado ** 2"
+                      style={{ width: '150px', marginRight: '5px' }}
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      value={printInput}
+                      onChange={(e) => setPrintInput(e.target.value)}
+                      placeholder="print"
+                      style={{ width: '100px', marginRight: '5px' }}
+                    />
+                    ("El área del cuadrado es:", area)
                   </pre>
                 </div>
-              </div>
-
-              <div className="input-container">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ingrese la longitud del lado"
-                />
               </div>
 
               <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -114,4 +124,4 @@ const Enunciado18 = () => {
   );
 };
 
-export default Enunciado18;
+export default Dieciocho;
