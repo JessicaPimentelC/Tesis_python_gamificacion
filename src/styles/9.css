@@ -441,3 +441,23 @@
   font-size: 18px;
   font-weight: bold;
 }
+/* Estilo general para las opciones de números */
+.option {
+  background-color: #ffb752; /* Color de fondo */
+  color: #160707; /* Color del texto */
+  padding: 15px 250px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: grab; /* Cursor de arrastre */
+  font-size: 25px; /* Tamaño de fuente */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Sombra suave */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  display: flex;
+  align-items: center; /* Alineación vertical del texto */
+  justify-content: center; /* Alineación horizontal del texto */
+}
+
+/* Cambio de color y escala al pasar el ratón por encima */
+.option:hover {
+  background-color: #ff8502; /* Color de fondo al pasar el ratón */
+  transform: scale(1.05); /* Escala del cuadro */
+}

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import '../styles/9.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
+// Crea un objeto de audio global para su uso
+const audio = new Audio('/boton.mp3');
+audio.preload = 'auto';
+
 const Nueve = ({ toggleView }) => {
   const [draggedNumber, setDraggedNumber] = useState('');
   const [result, setResult] = useState(null);
@@ -35,6 +39,15 @@ const Nueve = ({ toggleView }) => {
 
   const handleDragOver = (e) => {
     e.preventDefault();
+  };
+
+  // Función para reproducir sonido
+  const playSound = () => {
+    audio.currentTime = 0; // Reinicia el tiempo de reproducción para reproducir desde el principio
+    audio.play().catch((error) => {
+      // Maneja errores si ocurren
+      console.error('Error reproduciendo el sonido:', error);
+    });
   };
 
   return (
@@ -99,6 +112,7 @@ const Nueve = ({ toggleView }) => {
                   className="option"
                   draggable
                   onDragStart={() => handleDragStart('46')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
                 >
                   46
                 </div>
@@ -106,6 +120,7 @@ const Nueve = ({ toggleView }) => {
                   className="option"
                   draggable
                   onDragStart={() => handleDragStart('23')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
                 >
                   23
                 </div>
@@ -113,6 +128,7 @@ const Nueve = ({ toggleView }) => {
                   className="option"
                   draggable
                   onDragStart={() => handleDragStart('82')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
                 >
                   82
                 </div>
@@ -120,6 +136,7 @@ const Nueve = ({ toggleView }) => {
                   className="option"
                   draggable
                   onDragStart={() => handleDragStart('59')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
                 >
                   59
                 </div>
