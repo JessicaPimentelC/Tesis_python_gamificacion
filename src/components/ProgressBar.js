@@ -1,16 +1,16 @@
 import React from 'react';
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = ({  }) => {
   return (
-    <div style={{ width: '100%', backgroundColor: '#ccc', borderRadius: '10px' }}>
-      <div style={{
-        width: `${progress}%`,
-        backgroundColor: progress === 100 ? 'green' : 'red',
-        height: '10px',
-        borderRadius: '10px'
-      }}></div>
+    <div style={{ width: '100%', backgroundColor: 'white' }}>
+        <div style={{
+            width: 30,
+            backgroundColor: 'green',
+            height: '24px',
+            transition: 'width 0.5s ease-in-out'
+        }}>
+        </div>
     </div>
-  );
-};
-
+);
+}
 export default ProgressBar;

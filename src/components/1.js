@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 const Uno = () => {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -112,10 +113,15 @@ const Uno = () => {
               </button>
             </div>
           </div>
+          <div className="nivel1-card">
+
+            <ProgressBar/>
+            </div>
           <div className={`nivel1-card`}>
             <div className="nivel1-card-header">
               <span>EJERCICIO #1</span>
             </div>
+        
             <div className="nivel1-card-body">
               <p>
                 A continuación, te presentamos nuestro primer ejercicio de nivel 1. El ejercicio consiste en identificar la palabra correcta en relación con el siguiente enunciado. ¡Buena suerte!
