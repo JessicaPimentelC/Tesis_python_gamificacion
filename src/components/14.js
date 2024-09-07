@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/enunciado14.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,26 @@ const Catorce = () => {
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
+  const [insignias, setInsignias] = useState(0); // Estado para las insignias
+  const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
+
+  // Función para actualizar la hora y fecha
+  const updateTime = () => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString()); // Ajusta el formato según tus necesidades
+  };
+
+  // Actualiza la hora y fecha al cargar el componente
+  useEffect(() => {
+    updateTime();
+
+    // Actualiza la hora y fecha cada minuto
+    const intervalId = setInterval(updateTime, 60000);
+
+    // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(intervalId);
+  }, []);
 
   const checkAnswer = () => {
     if (num1Function === 'float' && num2Function === 'float' && operator === '*') {
@@ -39,6 +58,26 @@ const Catorce = () => {
         </div>
       </div>
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>{insignias}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">

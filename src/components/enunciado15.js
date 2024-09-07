@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/enunciado15.css'; // Asegúrate de que la ruta sea correcta
 
-const Enunciado15 = ({ toggleView }) => {
+const Enunciado15 = ({ toggleView, score, currentTime }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -41,6 +41,26 @@ const Enunciado15 = ({ toggleView }) => {
         </div>
       </div>
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -127,4 +147,3 @@ print("El valor en kilómetros es:", kilometros)
 };
 
 export default Enunciado15;
-

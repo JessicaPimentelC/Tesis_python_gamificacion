@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Enunciado3.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado3 = ({ toggleView }) => {
+const Enunciado3 = ({ toggleView, score = 0 }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const formattedTime = now.toLocaleString();
+      setCurrentTime(formattedTime);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -41,7 +52,29 @@ const Enunciado3 = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información sin GIF */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -109,11 +142,10 @@ const Enunciado3 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Bien hecho avanzando en Python!</h2>
+            <h2>¡Bien hecho avanzando en Python!</h2>
             <p>
-          🌟 ¡Estás progresando muy bien en tu aprendizaje de Python! 🚀 Ahora es el momento de poner en práctica tus conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir avanzando.
-          </p>
-
+              🌟 ¡Estás progresando muy bien en tu aprendizaje de Python! 🚀 Ahora es el momento de poner en práctica tus conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir avanzando.
+            </p>
             <img src="ff.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
@@ -126,4 +158,3 @@ const Enunciado3 = ({ toggleView }) => {
 };
 
 export default Enunciado3;
-

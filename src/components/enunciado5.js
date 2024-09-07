@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/enunciado5.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +6,14 @@ const Enunciado5 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Hook para la redirección
+  const [score, setScore] = useState(0); // Suponiendo que hay un estado para el puntaje
+  const [currentTime, setCurrentTime] = useState(''); // Estado para la hora y fecha actual
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString()); // Actualiza la hora y fecha actual
+  }, []);
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -40,7 +47,37 @@ const Enunciado5 = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -62,19 +99,29 @@ const Enunciado5 = ({ toggleView }) => {
               </button>
             </div>
           </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>¿Para Qué Sirve la Función input en Python?</span>
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, la función input se utiliza para capturar datos ingresados por el usuario durante la ejecución del programa. Permite solicitar al usuario que introduzca información, que luego se almacena en una variable para su posterior uso. Esto es especialmente útil para crear programas interactivos que requieren la entrada del usuario para personalizar el comportamiento del programa.
+                En Python, la función input se utiliza para capturar datos ingresados por el usuario durante la ejecución del programa. Permite solicitar al usuario que introduzca información, que luego se almacena en una variable para su posterior uso. Esto es especialmente útil para crear programas interactivos que requieren la entrada del usuario para personalizar el comportamiento del programa.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                    {`cadena = input ("ingrese el texto:");`}
+                    {`cadena = input("ingrese el texto:")`}
+                  </code>
+                </pre>
+              </div>
+
+              <div className="code-box">
+                <div className="code-header">Ejemplo con print</div>
+                <pre className="code-content">
+                  <code>
+                    {`print("Hola, mundo!")`}
                   </code>
                 </pre>
               </div>
@@ -108,12 +155,10 @@ const Enunciado5 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Vamos por buen camino en Python!</h2>
+            <h2>¡Vamos por buen camino en Python!</h2>
             <p>
-        🌟 ¡Estás haciendo un excelente trabajo! 🚀 Ahora es el momento de aprender a capturar datos del usuario con la función `input`. Prepárate para interactuar con tu programa y obtener información directamente del usuario. ¡¡Sigue así!!
+              🌟 ¡Estás haciendo un excelente trabajo! 🚀 Ahora es el momento de aprender a capturar datos del usuario con la función `input`. Prepárate para interactuar con tu programa y obtener información directamente del usuario. ¡¡Sigue así!!
             </p>
-
-
             <img src="3hyC.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

@@ -6,7 +6,10 @@ const Enunciado8 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime] = useState(new Date().toLocaleString()); // Hora y Fecha actual
   const navigate = useNavigate(); // Hook para la redirección
+
   const handleShowGif = () => {
     setShowGif(true);
     setTimeout(() => {
@@ -39,7 +42,37 @@ const Enunciado8 = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -67,13 +100,13 @@ const Enunciado8 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, una variable es un contenedor que almacena datos que puedes usar y manipular en tu programa. Las variables te permiten guardar información, como cadenas de texto, números y más, para utilizarlas en distintas partes de tu código. Por ejemplo, puedes definir una variable para almacenar un texto y luego usarlo más adelante en tu programa.
+                En Python, una variable es un contenedor que almacena datos que puedes usar y manipular en tu programa. Las variables te permiten guardar información, como cadenas de texto, números y más, para utilizarlas en distintas partes de tu código. Por ejemplo, puedes definir una variable para almacenar un texto y luego usarlo más adelante en tu programa.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                    {`variable ="Programacion"  `}
+                    {`variable = "Programacion"`}
                   </code>
                 </pre>
               </div>
@@ -107,9 +140,9 @@ const Enunciado8 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Gran progreso en Python!</h2>
-              <p>
-            🌟 ¡Excelente trabajo! 🚀 Ahora aprenderás a usar variables en Python. Usa la variable `variable` para almacenar y mostrar el texto "programacion". ¡Sigue así!
+            <h2>¡Gran progreso en Python!</h2>
+            <p>
+              🌟 ¡Excelente trabajo! 🚀 Ahora aprenderás a usar variables en Python. Usa la variable `variable` para almacenar y mostrar el texto "programacion". ¡Sigue así!
             </p>
             <img src="3Hu.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>

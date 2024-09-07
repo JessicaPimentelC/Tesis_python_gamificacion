@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/enunciado11.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +6,26 @@ const Enunciado11 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleString()); // Ajusta el formato según tus necesidades
+    };
+
+    // Actualiza la hora y fecha al cargar el componente
+    updateTime();
+
+    // Actualiza la hora y fecha cada minuto
+    const intervalId = setInterval(updateTime, 60000);
+
+    // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(intervalId);
+  }, []);
+
   const handleShowGif = () => {
     setShowGif(true);
     setTimeout(() => {
@@ -27,11 +46,11 @@ const Enunciado11 = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('9')}>
+        <button className="sidebar-button" onClick={() => navigate('10')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
+        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
@@ -39,7 +58,36 @@ const Enunciado11 = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+      
+      {/* Contenedor de información arriba */}
       <div className="content">
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -67,14 +115,14 @@ const Enunciado11 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En este ejercicio, aprenderás a solicitar datos del usuario y mostrarlos en pantalla utilizando Python. El programa pedirá al usuario que ingrese su estatura en metros y, a continuación, mostrará la estatura ingresada.
+                En este ejercicio, aprenderás a solicitar datos del usuario y mostrarlos en pantalla utilizando Python. El programa pedirá al usuario que ingrese su estatura en metros y, a continuación, mostrará la estatura ingresada.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                     {`estatura = float(input("Ingrese su estatura: "))
-            print(estatura)
+                    {`estatura = float(input("Ingrese su estatura: "))
+print(estatura)
 
                     `}
                   </code>
@@ -110,11 +158,10 @@ const Enunciado11 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Sigue avanzando en Python!</h2>
+            <h2>¡Sigue avanzando en Python!</h2>
             <p>
-            🌟 ¡Fantástico! 🚀 Ahora aprenderás a crear un algoritmo que permita ingresar y mostrar un número. Usa `int` para convertir la entrada del usuario a un número entero y `print` para mostrarlo. ¡Adelante, lo estás haciendo genial!
+              🌟 ¡Fantástico! 🚀 Ahora aprenderás a crear un algoritmo que permita ingresar y mostrar un número. Usa `float` para convertir la entrada del usuario a un número decimal y `print` para mostrarlo. ¡Adelante, lo estás haciendo genial!
             </p>
-
             <img src="Aq.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

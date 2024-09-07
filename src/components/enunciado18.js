@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/enunciado18.css'; // Asegúrate de que la ruta sea correcta
 
@@ -6,7 +6,17 @@ const Enunciado18 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString()); // Estado para la hora y fecha actual
   const navigate = useNavigate(); // Hook para la redirección
+
+  useEffect(() => {
+    // Actualiza la hora y fecha cada minuto
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -28,7 +38,7 @@ const Enunciado18 = ({ toggleView }) => {
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('9')}>
+        <button className="sidebar-button" onClick={() => toggleView('17')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
@@ -36,18 +46,42 @@ const Enunciado18 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
+       
       </div>
       <div className="content">
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
               <img src="python1.png" alt="Icono Nivel" />
             </button>
             <div className="header-title">
-              <h2>NIVEL </h2>
+              <h2>NIVEL 7</h2>
             </div>
             <div className="header-status">
               <span></span>
@@ -64,7 +98,7 @@ const Enunciado18 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span> Cálculo de Área de Cuadrado</span>
+              <span>Cálculo de Área de Cuadrado</span>
             </div>
             <div className="nivel1-card-body">
               <p>

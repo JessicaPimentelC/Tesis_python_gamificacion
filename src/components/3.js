@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/3.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,18 @@ const Tres = ({ toggleView }) => {
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState(''); // Estado para la fecha y hora
   const navigate = useNavigate(); // Hook para la redirección
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const formattedTime = now.toLocaleString();
+      setCurrentTime(formattedTime);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const checkAnswer = () => {
     if (parseInt(num1) === 56 && parseInt(num2) === 3) {
@@ -27,7 +38,7 @@ const Tres = ({ toggleView }) => {
         <img src="tesis.png" alt="Logo" className="logo" />
         <button className="sidebar-button" onClick={() => navigate('/enunciado3')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-          Atras
+          Atrás
         </button>
         <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
@@ -37,7 +48,29 @@ const Tres = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -59,11 +92,13 @@ const Tres = ({ toggleView }) => {
               </button>
             </div>
           </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
               <p>Imprima el resultado de 56 multiplicado por 3</p> 
             </div>
+
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">ENTRADA</div>
@@ -113,15 +148,14 @@ const Tres = ({ toggleView }) => {
                   </button>
                 )}
               </div>
+
               {result && (
                 <div className={`result ${result}`}>
                   {result === 'correct' ? 'Correcto' : 'Inténtalo de nuevo'}
                 </div>
               )}
-              <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
-                <p className="score-text">Puntaje: {score}</p>
-              </div>
+
+              
             </div>
           </div>
         </div>

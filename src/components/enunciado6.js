@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/enunciado6.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +6,15 @@ const Enunciado6 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState(''); // Estado para la hora y fecha actual
   const navigate = useNavigate(); // Hook para la redirección
+
+  // Actualiza la hora y fecha al cargar el componente
+  useEffect(() => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString());
+  }, []);
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -40,7 +48,37 @@ const Enunciado6 = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -62,6 +100,7 @@ const Enunciado6 = ({ toggleView }) => {
               </button>
             </div>
           </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>¿Cómo se Utiliza la Función int para Trabajar con Números Enteros en Python?</span>
@@ -74,7 +113,7 @@ const Enunciado6 = ({ toggleView }) => {
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                    {`numero= int (input("ingrese el numero:"));`}
+                    {`numero = int(input("ingrese el numero:"));`}
                   </code>
                 </pre>
               </div>

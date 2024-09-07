@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/12.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,25 @@ const Doce = () => {
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
+
+  // Función para actualizar la hora y fecha
+  const updateTime = () => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString()); // Ajusta el formato según tus necesidades
+  };
+
+  // Actualiza la hora y fecha al cargar el componente
+  useEffect(() => {
+    updateTime();
+
+    // Actualiza la hora y fecha cada minuto
+    const intervalId = setInterval(updateTime, 60000);
+
+    // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(intervalId);
+  }, []);
 
   const checkAnswer = () => {
     if (inputFunction === 'input' && printFunction === 'print') {
@@ -32,12 +50,38 @@ const Doce = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
-        </div>
+       
       </div>
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>0</p> {/* Aquí deberías actualizar el puntaje si se usa una variable de estado */}
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p> {/* Aquí deberías actualizar el número de insignias si se usa una variable de estado */}
+          </div>
+
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">

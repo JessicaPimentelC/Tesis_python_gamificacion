@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/enunciado4.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
+
 const Enunciado4 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState(''); // Estado para la fecha y hora
   const navigate = useNavigate(); // Hook para la redirección
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const formattedTime = now.toLocaleString();
+      setCurrentTime(formattedTime);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleShowGif = () => {
     setShowGif(true);
     setTimeout(() => {
       setShowContinue(true);
+      setScore(score + 10); // Aumenta el puntaje cuando se muestra el GIF
     }, 2000); // Asume que el GIF tiene una duración de 2 segundos
   };
 
@@ -20,8 +34,7 @@ const Enunciado4 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    // Navegar a 3.js en lugar de 1.js
-    navigate('/4');
+    navigate('/4'); // Navegar a la siguiente vista
   };
 
   return (
@@ -36,11 +49,30 @@ const Enunciado4 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:</h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -50,7 +82,6 @@ const Enunciado4 = ({ toggleView }) => {
               <h2>NIVEL 1</h2>
             </div>
             <div className="header-status">
-              <span></span>
               <button className="icon-button">
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
@@ -62,6 +93,7 @@ const Enunciado4 = ({ toggleView }) => {
               </button>
             </div>
           </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Uso del Signo de División (/) en Python</span>
@@ -108,11 +140,10 @@ const Enunciado4 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Excelente progreso en Python!</h2>
+            <h2>¡Excelente progreso en Python!</h2>
             <p>
-             🌟 ¡Has hecho un gran trabajo aprendiendo hasta ahora! 🚀 Ahora es el momento de aplicar tus conocimientos en la operación de división. Prepárate para explorar cómo dividir números y obtener resultados precisos en tus cálculos. ¡Estamos emocionados de ver cómo avanzas con este nuevo desafío!
+              🌟 ¡Has hecho un gran trabajo aprendiendo hasta ahora! 🚀 Ahora es el momento de aplicar tus conocimientos en la operación de división. Prepárate para explorar cómo dividir números y obtener resultados precisos en tus cálculos. ¡Estamos emocionados de ver cómo avanzas con este nuevo desafío!
             </p>
-
             <img src="6oa.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

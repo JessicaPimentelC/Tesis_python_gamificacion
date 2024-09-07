@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/enunciado19.css'; // Asegúrate de que la ruta sea correcta
 
@@ -8,8 +8,23 @@ const Diecinueve = () => {
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [score, setScore] = useState(0); // Estado para el puntaje
+  const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
   const audioRef = useRef(null); // Referencia al elemento de audio
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formattedTime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+      setCurrentTime(formattedTime);
+    };
+
+    updateTime();
+    const intervalId = setInterval(updateTime, 1000); // Actualiza cada segundo
+
+    return () => clearInterval(intervalId); // Limpia el intervalo al desmontar
+  }, []);
 
   const checkAnswer = () => {
     const correctPrintInput = 'print';
@@ -19,6 +34,7 @@ const Diecinueve = () => {
       const fahrenheit = (celsius * 9 / 5) + 32;
       setOutput(`La temperatura en Fahrenheit es: ${fahrenheit.toFixed(2)}`);
       setShowNext(true);
+      setScore(score + 10); // Ejemplo: aumenta el puntaje en 10 puntos
     } else {
       setOutput('Inténtalo de nuevo.');
     }
@@ -50,6 +66,32 @@ const Diecinueve = () => {
         </button>
       </div>
       <div className="content">
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
         <div className="white-background">
           <div className="header">
             <button className="icon-button">

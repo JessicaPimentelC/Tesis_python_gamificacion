@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/5.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,14 @@ const Cinco = ({ toggleView }) => {
   const [showNext, setShowNext] = useState(false);
   const [output, setOutput] = useState('');
   const [score, setScore] = useState(0); // Estado para el puntaje
-  const navigate = useNavigate(); // Hook para la redirección
+  const [currentTime, setCurrentTime] = useState(''); // Estado para la hora y fecha actual
+  const navigate = useNavigate();
+
+  // Actualiza la hora y fecha al cargar el componente
+  useEffect(() => {
+    const now = new Date();
+    setCurrentTime(now.toLocaleString());
+  }, []);
 
   const checkAnswer = () => {
     if (inputValue.trim().toLowerCase() === 'python') {
@@ -29,7 +36,7 @@ const Cinco = ({ toggleView }) => {
         <img src="tesis.png" alt="Logo" className="logo" />
         <button className="sidebar-button" onClick={() => navigate('/enunciado5')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-          Atras
+          Atrás
         </button>
         <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
@@ -39,7 +46,37 @@ const Cinco = ({ toggleView }) => {
           {/* Aquí podrías añadir más elementos si los necesitas */}
         </div>
       </div>
+
+      {/* Contenedor principal con el cuadro de información y el contenido principal */}
       <div className="content">
+        {/* Contenedor de información */}
+        <div className="info-container">
+          <div className="info-item">
+            <h3>
+              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
+            </h3>
+            <p>Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+            </h3>
+            <p>{score}</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
+            </h3>
+            <p>0</p>
+          </div>
+          <div className="info-item">
+            <h3>
+              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
+            </h3>
+            <p>{currentTime}</p>
+          </div>
+        </div>
+
         <div className="white-background">
           <div className="header">
             <button className="icon-button">
@@ -95,6 +132,7 @@ const Cinco = ({ toggleView }) => {
                   />
                 </div>
               )}
+
               <div className="nivel1-card-button-container">
                 <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
@@ -113,10 +151,8 @@ const Cinco = ({ toggleView }) => {
                   {result === 'correct' ? 'Correcto' : 'Inténtalo de nuevo'}
                 </div>
               )}
-              <div className="score-container">
-                <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" /> {/* Añade tu icono aquí */}
-                <p className="score-text">Puntaje: {score}</p>
-              </div>
+
+              
             </div>
           </div>
         </div>
