@@ -52,6 +52,7 @@ import Enunciado19 from './components/enunciado19';
 import Enunciado20 from './components/enunciado20';
 import Foro from './components/foro';
 import Positions from './components/Positions';
+import Insignias from './components/Insignias'; // Agrega la importación aquí
 
 const App = () => {
   return (
@@ -109,6 +110,7 @@ const App = () => {
         <Route path="/enunciado20" element={<Enunciado20 />} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
+        <Route path="/insignias" element={<Insignias />} /> {/* Nueva ruta */}
       </Routes>
     </Router>
   );

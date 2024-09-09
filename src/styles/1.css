@@ -264,3 +264,39 @@
     height: 40px; /* Ajusta el tamaño según sea necesario */
     margin-right: 10px; /* Añade espacio entre los iconos y el texto */
 }
+/* Contenedor general de las insignias */
+.icons-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea los íconos hacia la izquierda */
+    gap: 10px; /* Espacio entre los íconos */
+    margin-left: 20px; /* Ajusta el margen izquierdo para que no queden tan pegados */
+  }
+
+/* 1.css */
+.circular-icon {
+    width: 50px; /* Tamaño del botón circular, ajusta según lo necesites */
+    height: 50px; /* Tamaño del botón circular, ajusta según lo necesites */
+    border-radius: 50%; /* Hace el botón circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Asegura que el contenido no se desborde del círculo */
+    background-color: #f0f0f0; /* Ajusta el color de fondo si es necesario */
+    border: 2px solid #ddd; /* Ajusta el borde si es necesario */
+    position: relative;
+  }
+  
+  .circular-icon img {
+    max-width: 800%; /* Tamaño máximo del GIF dentro del botón circular */
+    max-height: 200%; /* Tamaño máximo del GIF dentro del botón circular */
+    width: auto; /* Mantiene el tamaño original de la imagen */
+    height: auto; /* Mantiene el tamaño original de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+  }
+  
+  
+
+.circular-icon:hover {
+  transform: scale(1.1);
+  background-color: #e0e0e0;
+}

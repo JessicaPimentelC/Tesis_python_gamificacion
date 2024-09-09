@@ -108,7 +108,6 @@ const Dashboard = ({ toggleView }) => {
       <div className="sidebar">
         <img className="sidebar-imagen" src="tesis.png" alt="Icono"  />
       </div>
-     
       <div className="dashboard-header">
         <div className="control-panel">
           <button

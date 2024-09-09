@@ -46,6 +46,11 @@ const Uno = () => {
     navigate('/enunciado3');
   };
 
+  // Función para redirigir a la página de insignias
+  const handleInsigniaClick = () => {
+    navigate('/insignias');
+  };
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
@@ -83,7 +88,23 @@ const Uno = () => {
           </div>
           <div className="info-item">
             <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
@@ -114,14 +135,12 @@ const Uno = () => {
             </div>
           </div>
           <div className="nivel1-card">
-
             <ProgressBar/>
-            </div>
-          <div className={`nivel1-card`}>
+          </div>
+          <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>EJERCICIO #1</span>
             </div>
-        
             <div className="nivel1-card-body">
               <p>
                 A continuación, te presentamos nuestro primer ejercicio de nivel 1. El ejercicio consiste en identificar la palabra correcta en relación con el siguiente enunciado. ¡Buena suerte!
