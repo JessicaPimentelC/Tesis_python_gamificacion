@@ -103,6 +103,8 @@ const Dieciocho = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Cálculo del Área del Cuadrado</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Completa el código para calcular el área del cuadrado. Usa los campos de entrada para ingresar las respuestas:</p>
               <ul>
                 <li>Para calcular el área, escribe `lado ** 2` en el primer campo.</li>

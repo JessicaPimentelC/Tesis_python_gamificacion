@@ -52,10 +52,7 @@ const Catorce = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
-        </div>
+       
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -102,6 +99,8 @@ const Catorce = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Multiplicación Rápida</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Llena los espacios en blanco para completar el código que realiza una multiplicación básica en Python.</p>
             </div>
             <div className="nivel1-card-body">

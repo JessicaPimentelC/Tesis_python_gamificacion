@@ -99,7 +99,7 @@ const Enunciado7 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-                En Python, la función float se utiliza para convertir valores a números decimales. Esta función es fundamental cuando necesitas trabajar con datos que requieren precisión en la parte decimal, como en cálculos científicos o financieros. Con float, puedes convertir cadenas de texto y otros valores en números flotantes, permitiendo realizar operaciones aritméticas que involucren decimales.
+                En Python, la función float se utiliza para convertir valores a números decimales.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>

@@ -107,7 +107,7 @@ const Enunciado6 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, la función int se utiliza para convertir valores a enteros. Esta función es esencial cuando necesitas asegurarte de que los datos que estás manipulando son números enteros y no cadenas de texto u otros tipos de datos. Con int, puedes convertir números en formato de texto a enteros, lo que facilita realizar operaciones aritméticas y otras tareas que requieren valores numéricos.
+              En Python, la función int se utiliza para convertir valores a enteros.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>

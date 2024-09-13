@@ -84,7 +84,7 @@ const Nivel1 = ({ toggleView }) => {
             <div className="nivel1-next-section show">
               <h2>¿Por qué aprender Python?</h2>
               <p>
-                Python es uno de los lenguajes de programación más populares y versátiles del mundo. Es conocido por su sintaxis sencilla y legibilidad, lo que lo convierte en una excelente opción para principiantes y expertos por igual. Python es utilizado en una amplia variedad de campos, incluyendo desarrollo web, ciencia de datos, inteligencia artificial, automatización, y más. Aprender Python puede abrir numerosas oportunidades laborales y facilitar el aprendizaje de otros lenguajes de programación. Su extensa comunidad y recursos disponibles hacen que sea un lenguaje accesible y práctico para cualquier proyecto.
+              Python es un lenguaje de programación popular y versátil, conocido por su sintaxis sencilla y fácil de leer, ideal tanto para principiantes como para expertos. Se utiliza en diversos campos como desarrollo web, ciencia de datos, inteligencia artificial y automatización. Aprender Python abre muchas oportunidades laborales y facilita el aprendizaje de otros lenguajes. Además, su amplia comunidad y recursos lo hacen accesible y práctico para todo tipo de proyectos.
               </p>
               <div className="nivel1-next-button-container">
                 <button className="nivel1-next-button" onClick={handleContinueClick}>Continuar</button>

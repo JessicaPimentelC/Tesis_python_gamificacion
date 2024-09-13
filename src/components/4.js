@@ -101,8 +101,10 @@ const Cuatro = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Arrastra la palabra <strong>`print`</strong> al cuadro de código y verifica tu respuesta.</p>
-            </div>
+              </div>
             <div className="nivel1-card-body">
               <div
                 className="code-box"
@@ -138,7 +140,7 @@ const Cuatro = () => {
                   draggable
                   onDragStart={handleDragStart}
                 >
-                  customWord
+                  While
                 </div>
               </div>
 

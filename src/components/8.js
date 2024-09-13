@@ -96,6 +96,8 @@ const Ocho = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Cree una variable de tipo texto que almacene la palabra “programacion”</p>
             </div>
             <div className="nivel1-card-body">

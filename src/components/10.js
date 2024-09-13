@@ -100,6 +100,8 @@ const Diez = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Entrada de Texto</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Ingrese el nombre "EDUARDO" en el campo de abajo y presione "Print".</p>
             </div>
             <div className="nivel1-card-body">

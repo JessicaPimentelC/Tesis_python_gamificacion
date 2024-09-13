@@ -100,7 +100,7 @@ const Enunciado8 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-                En Python, una variable es un contenedor que almacena datos que puedes usar y manipular en tu programa. Las variables te permiten guardar información, como cadenas de texto, números y más, para utilizarlas en distintas partes de tu código. Por ejemplo, puedes definir una variable para almacenar un texto y luego usarlo más adelante en tu programa.
+                En Python, una variable es un contenedor que almacena datos que puedes usar y manipular en tu programa. 
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>

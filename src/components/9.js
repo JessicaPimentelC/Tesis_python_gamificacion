@@ -122,6 +122,8 @@ const Nueve = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Cree una variable de tipo numérico que almacene el número 46</p>
             </div>
             <div className="nivel1-card-body">
@@ -133,7 +135,7 @@ const Nueve = ({ toggleView }) => {
                   onDragOver={handleDragOver}
                 >
                   <pre>
-                    variable = "<span className="drop-area">________</span>"
+                    variable = <span className="drop-area">________</span>
                   </pre>
                 </div>
               </div>

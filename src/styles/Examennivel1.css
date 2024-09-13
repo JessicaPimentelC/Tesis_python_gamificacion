@@ -221,3 +221,79 @@ body {
   height: 24px; /* Mantiene la proporción del ícono */
   margin-right: 10px; /* Espacio entre el ícono y el texto */
 }
+/* ... (mantén los estilos existentes) ... */
+
+/* Estilos para los botones en horizontal */
+.exam-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para la pregunta de arrastrar y soltar */
+.drag-drop-question {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.drag-words {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.drag-word {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: move;
+  user-select: none;
+}
+
+.drop-zone {
+  width: 100%;
+  height: 60px;
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.drop-zone:hover {
+  background-color: #f9f9f9;
+}
+
+/* Estilos para los botones en horizontal */
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* ... (mantén el resto de los estilos existentes) ... */

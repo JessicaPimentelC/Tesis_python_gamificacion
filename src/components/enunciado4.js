@@ -100,7 +100,7 @@ const Enunciado4 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, el signo de división (/) se utiliza para realizar operaciones aritméticas de división. Permite dividir un número entre otro y obtener el cociente, representado como un número flotante. Este operador es esencial para realizar cálculos que involucran particiones o fracciones.
+              En Python, el signo de división (/) se utiliza para realizar operaciones aritméticas de división.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
@@ -142,8 +142,7 @@ const Enunciado4 = ({ toggleView }) => {
           <div className="modal-content">
             <h2>¡Excelente progreso en Python!</h2>
             <p>
-              🌟 ¡Has hecho un gran trabajo aprendiendo hasta ahora! 🚀 Ahora es el momento de aplicar tus conocimientos en la operación de división. Prepárate para explorar cómo dividir números y obtener resultados precisos en tus cálculos. ¡Estamos emocionados de ver cómo avanzas con este nuevo desafío!
-            </p>
+            🌟 ¡Excelente trabajo hasta ahora! 🚀 Ahora toca aplicar tus conocimientos en la división. Prepárate para dividir números y obtener resultados precisos. ¡Estamos emocionados por tu progreso con este desafío!            </p>
             <img src="6oa.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

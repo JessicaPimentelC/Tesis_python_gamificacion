@@ -69,7 +69,7 @@ const Ejercicios1 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              El comando 𝐩𝐫𝐢𝐧𝐭 en Python se utiliza para mostrar información en la consola. Permite imprimir texto, números, y resultados de expresiones, facilitando así la depuración y la visualización de datos durante la ejecución de un programa. Al utilizar 𝐩𝐫𝐢𝐧𝐭, puedes ver el contenido de variables, mensajes de error, o cualquier otra información que desees presentar al usuario o al desarrollador
+              El comando 𝐩𝐫𝐢𝐧𝐭 en Python se utiliza para mostrar información en la consola. Permite imprimir texto, números, y resultados de expresiones.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>

@@ -101,6 +101,8 @@ const Cinco = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Crea un algoritmo que permita ingresar el siguiente texto = 'Python'</p>
             </div>
             <div className="nivel1-card-body">

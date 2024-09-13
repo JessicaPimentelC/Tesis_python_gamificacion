@@ -106,7 +106,7 @@ const Enunciado5 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-                En Python, la función input se utiliza para capturar datos ingresados por el usuario durante la ejecución del programa. Permite solicitar al usuario que introduzca información, que luego se almacena en una variable para su posterior uso. Esto es especialmente útil para crear programas interactivos que requieren la entrada del usuario para personalizar el comportamiento del programa.
+                En Python, la función input se utiliza para capturar datos ingresados por el usuario durante la ejecución del programa.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
@@ -157,8 +157,7 @@ const Enunciado5 = ({ toggleView }) => {
           <div className="modal-content">
             <h2>¡Vamos por buen camino en Python!</h2>
             <p>
-              🌟 ¡Estás haciendo un excelente trabajo! 🚀 Ahora es el momento de aprender a capturar datos del usuario con la función `input`. Prepárate para interactuar con tu programa y obtener información directamente del usuario. ¡¡Sigue así!!
-            </p>
+            🌟 ¡Genial trabajo! 🚀 Ahora aprenderás a usar `input` para captar datos del usuario. ¡Sigue adelante!            </p>
             <img src="3hyC.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

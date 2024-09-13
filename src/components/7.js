@@ -94,7 +94,11 @@ const Siete = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio de Programación</span>
+            <span>Ejercicio de Programación</span>
+            </div>
+            
+             
+              <div className="nivel1-card-body">
               <p>Crea un algoritmo que permita ingresar un número con decimales = 45.78</p>
             </div>
             <div className="nivel1-card-body">

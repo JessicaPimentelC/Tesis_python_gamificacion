@@ -102,6 +102,9 @@ const Seis = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+
+              </div>
+              <div className="nivel1-card-body">
               <p>Crea un algoritmo que permita ingresar el número entero= 37</p>
             </div>
             <div className="nivel1-card-body">

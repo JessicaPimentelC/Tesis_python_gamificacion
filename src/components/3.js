@@ -96,8 +96,11 @@ const Tres = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Imprima el resultado de 56 multiplicado por 3</p> 
-            </div>
+              </div>
+            
 
             <div className="nivel1-card-body">
               <div className="code-box">

@@ -121,7 +121,7 @@ const Enunciado10 = ({ toggleView }) => {
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                     {`texto=input("Ingrese un texto: ")
+                                    {   `texto=input("Ingrese un texto: ")
 print(texto)
                     `}
                   </code>

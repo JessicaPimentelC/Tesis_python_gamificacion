@@ -103,6 +103,8 @@ const Doce = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Completa el código de Python</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Llena los espacios en blanco para completar el saludo.</p>
             </div>
             <div className="nivel1-card-body">

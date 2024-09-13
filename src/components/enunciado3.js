@@ -102,7 +102,7 @@ const Enunciado3 = ({ toggleView, score = 0 }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, el signo de multiplicación (*) se utiliza para realizar operaciones aritméticas de multiplicación. Permite multiplicar dos o más números y obtener el producto. Este operador es fundamental para una variedad de cálculos matemáticos y se emplea de manera similar a como se haría en una calculadora.
+              En Python, el signo de multiplicación (*) se utiliza para realizar operaciones aritméticas de multiplicación. 
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>

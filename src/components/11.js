@@ -109,6 +109,8 @@ const Once = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Entrada de Estatura</span>
+              </div>
+              <div className="nivel1-card-body">
               <p>Ingrese su estatura en el campo de abajo y presione "Print".</p>
             </div>
             <div className="nivel1-card-body">

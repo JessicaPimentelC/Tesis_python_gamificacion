@@ -300,3 +300,18 @@
   transform: scale(1.1);
   background-color: #e0e0e0;
 }
+/* Aplica la barra de desplazamiento solo al contenedor de nivel 1 */
+.nivel1-container::-webkit-scrollbar {
+    width: 12px;               /* Ancho de la barra de desplazamiento */
+  }
+  
+  .nivel1-container::-webkit-scrollbar-track {
+    background: orange;        /* Color del área de seguimiento */
+  }
+  
+  .nivel1-container::-webkit-scrollbar-thumb {
+    background-color: blue;    /* Color del control de la barra */
+    border-radius: 20px;       /* Redondez del control de la barra */
+    border: 3px solid orange;  /* Crea un borde alrededor del control */
+  }
+  

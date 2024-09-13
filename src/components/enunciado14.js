@@ -56,10 +56,7 @@ const Enunciado14 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
-        </div>
+       
       </div>
       <div className="content">
         {/* Contenedor de información */}

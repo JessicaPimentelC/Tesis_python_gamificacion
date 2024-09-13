@@ -7,9 +7,28 @@ function Examennivel1() {
   const [showModal, setShowModal] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
-  const [score, setScore] = useState(0); // Inicializa el puntaje como 0
-  const currentTime = new Date().toLocaleString(); // Define currentTime al inicio
-  const navigate = useNavigate(); // Hook para la redirección
+  const [score, setScore] = useState(0);
+  const currentTime = new Date().toLocaleString();
+  const navigate = useNavigate();
+
+  // Nuevo estado para la pregunta de arrastrar y soltar
+  const [dragWords, setDragWords] = useState(['**', '^', '^^', '^']);
+  const [droppedWord, setDroppedWord] = useState('');
+
+  const handleDragStart = (e, word) => {
+    e.dataTransfer.setData('text', word);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const word = e.dataTransfer.getData('text');
+    setDroppedWord(word);
+    setDragWords(dragWords.filter(w => w !== word));
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,9 +41,8 @@ function Examennivel1() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Respuestas correctas
     const correctAnswers = {
-      question1: 'A',
+      question1: '**',
       question2: 'B',
       question3: 'A',
       question4: 'C',
@@ -41,12 +59,19 @@ function Examennivel1() {
     let correct = 0;
     let incorrect = 0;
 
-    // Contar respuestas correctas e incorrectas
+    if (droppedWord === correctAnswers.question1) {
+      correct += 1;
+    } else {
+      incorrect += 1;
+    }
+
     for (let key in correctAnswers) {
-      if (answers[key] === correctAnswers[key]) {
-        correct += 1;
-      } else {
-        incorrect += 1;
+      if (key !== 'question1') {
+        if (answers[key] === correctAnswers[key]) {
+          correct += 1;
+        } else {
+          incorrect += 1;
+        }
       }
     }
 
@@ -57,30 +82,35 @@ function Examennivel1() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/Dashboard'); 
+    navigate('/Dashboard');
   };
-
-  const currentDateTime = new Date().toLocaleString();
 
   return (
     <div className="exam-container">
-        <h1>𝑬𝒙𝒂𝒎𝒆𝒏 𝑵𝒊𝒗𝒆𝒍 1</h1>
+      <h1>𝑬𝒙𝒂𝒎𝒆𝒏 𝑵𝒊𝒗𝒆𝒍 1</h1>
       <form className="exam-form" onSubmit={handleSubmit}>
-        {/* Ejercicio 1 */}
-        <div className="form-group">
-          <label htmlFor="question1">1. ¿Cuál es el operador de potencia en Python?</label>
-          <select
-            id="question1"
-            name="question1"
-            value={answers.question1 || ''}
-            onChange={handleChange}
+        {/* Pregunta 1 - Arrastrar y soltar */}
+        <div className="form-group drag-drop-question">
+          <label>1. ¿Cuál es el operador de potencia en Python?</label>
+          <div className="drag-words">
+            {dragWords.map((word, index) => (
+              <div
+                key={index}
+                draggable
+                onDragStart={(e) => handleDragStart(e, word)}
+                className="drag-word"
+              >
+                {word}
+              </div>
+            ))}
+          </div>
+          <div 
+            className="drop-zone"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
           >
-            <option value="" disabled>Selecciona una opción</option>
-            <option value="A">A) **</option>
-            <option value="B">B) ^</option>
-            <option value="C">C) ^^</option>
-            <option value="D">D) ^</option>
-          </select>
+            {droppedWord || 'Arrastra aquí'}
+          </div>
         </div>
 
         {/* Ejercicio 2 */}
@@ -272,6 +302,7 @@ function Examennivel1() {
 
         <button type="submit" className="submit-button">Enviar Examen</button>
       </form>
+
       <div className="info-box">
         <h3>Información del Usuario</h3>
         <div className="info-item">
@@ -311,13 +342,9 @@ function Examennivel1() {
               </div>
             </div>
             <img src="2dv.gif" alt="GIF de resultado" className="result-gif" />
-           
-
           </div>
         </div>
       )}
-
-      
     </div>
   );
 }

@@ -53,10 +53,7 @@ const Trece = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          <img src="puntaje.png" alt="Icono Puntaje" className="score-icon" />
-          <p className="score-text">Puntaje: {score}</p>
-        </div>
+       
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -110,7 +107,9 @@ const Trece = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
+            </div>
               <span>Suma Básica</span>
+              <div className="nivel1-card-body">
               <p>Llena los espacios en blanco para completar el código que realiza una suma básica en Python.</p>
             </div>
             <div className="nivel1-card-body">

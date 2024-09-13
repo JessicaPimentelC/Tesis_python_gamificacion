@@ -100,8 +100,7 @@ const Enunciado9 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-                En Python, crear una variable numérica es simple y directo. Las variables te permiten almacenar y manipular datos en tu programa, lo que es fundamental para cualquier tipo de cálculo o procesamiento de datos.
-              </p>
+              En Python, las variables te permiten guardar y manejar datos en tu programa, lo que es clave para cualquier cálculo o procesamiento de información.              </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
