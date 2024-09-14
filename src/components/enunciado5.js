@@ -31,6 +31,10 @@ const Enunciado5 = ({ toggleView }) => {
     navigate('/5');
   };
 
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la página de insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -43,9 +47,6 @@ const Enunciado5 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
       </div>
 
       {/* Contenedor principal con el cuadro de información y el contenido principal */}
@@ -68,7 +69,23 @@ const Enunciado5 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -157,7 +174,8 @@ const Enunciado5 = ({ toggleView }) => {
           <div className="modal-content">
             <h2>¡Vamos por buen camino en Python!</h2>
             <p>
-            🌟 ¡Genial trabajo! 🚀 Ahora aprenderás a usar `input` para captar datos del usuario. ¡Sigue adelante!            </p>
+              🌟 ¡Genial trabajo! 🚀 Ahora aprenderás a usar `input` para captar datos del usuario. ¡Sigue adelante!
+            </p>
             <img src="3hyC.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

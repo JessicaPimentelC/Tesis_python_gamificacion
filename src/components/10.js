@@ -32,6 +32,10 @@ const Diez = ({ toggleView }) => {
     setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
   };
 
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la página de insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -44,6 +48,9 @@ const Diez = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
+        <div className="score">
+          {/* Aquí podrías añadir más elementos si los necesitas */}
+        </div>
       </div>
 
       {/* Contenedor de información arriba */}
@@ -65,7 +72,23 @@ const Diez = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -100,11 +123,9 @@ const Diez = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Entrada de Texto</span>
-              </div>
-              <div className="nivel1-card-body">
-              <p>Ingrese el nombre "EDUARDO" en el campo de abajo y presione "Print".</p>
             </div>
             <div className="nivel1-card-body">
+              <p>Ingrese el nombre "EDUARDO" en el campo de abajo y presione "Print".</p>
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">

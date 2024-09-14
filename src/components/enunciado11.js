@@ -7,6 +7,7 @@ const Enunciado11 = ({ toggleView }) => {
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
+  const [insignias, setInsignias] = useState(0); // Estado para las insignias
   const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
 
@@ -35,6 +36,8 @@ const Enunciado11 = ({ toggleView }) => {
 
   const handleContinueClick = () => {
     setShowModal(true);
+    // Incrementa las insignias como ejemplo
+    setInsignias(prevInsignias => prevInsignias + 1); // Incrementa el número de insignias
   };
 
   const handleCloseModal = () => {
@@ -42,21 +45,25 @@ const Enunciado11 = ({ toggleView }) => {
     navigate('/11'); // Cambia la vista al siguiente componente
   };
 
+  const handleInsigniaClick = () => {
+    // Aquí puedes manejar lo que sucede al hacer clic en una insignia
+    // Por ejemplo, redirigir a una página de insignias, mostrar un modal, etc.
+    navigate('/insignias');
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('10')}>
-          <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
+        <button className="sidebar-button" onClick={() => navigate('/10')}>
+          <img src="flecha.png" alt="Atrás" className="sidebar-icon" />
           Atrás
         </button>
         <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
+       
       </div>
       
       {/* Contenedor de información arriba */}
@@ -78,7 +85,23 @@ const Enunciado11 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -99,13 +122,13 @@ const Enunciado11 = ({ toggleView }) => {
             <div className="header-status">
               <span></span>
               <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
+                <img src="informacion.png" alt="Icono Información" />
               </button>
               <button className="icon-button" onClick={() => toggleView('dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>
@@ -123,7 +146,6 @@ const Enunciado11 = ({ toggleView }) => {
                   <code>
                     {`estatura = float(input("Ingrese su estatura: "))
 print(estatura)
-
                     `}
                   </code>
                 </pre>

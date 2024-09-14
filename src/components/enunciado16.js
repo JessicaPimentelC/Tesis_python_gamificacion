@@ -52,6 +52,12 @@ const Enunciado16 = ({ toggleView }) => {
     setShowDatetimeInfo(false);
   };
 
+  const handleInsigniaClick = (e) => {
+    const insignia = e.target.alt; // Obtén el nombre de la insignia
+    // Aquí puedes agregar la lógica para redirigir a la página específica
+    navigate(`/${insignia}`); // Redirige basado en el nombre de la insignia
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -64,7 +70,6 @@ const Enunciado16 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         <div className="info-container">
@@ -84,7 +89,23 @@ const Enunciado16 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -130,11 +151,11 @@ const Enunciado16 = ({ toggleView }) => {
                     <span className="import-link" onClick={handleImportClick}>
                       import
                     </span>
-                    {` datetime\n\nano_nacimiento = int(input("Ingresa tu año de nacimiento: "))\nano_actual = `}
+                    {` datetime\n\nano_nacimiento = int(input("Ingresa tu año de nacimiento: "))\nano_actual = ` }
                     <span className="datetime-link" onClick={handleDatetimeClick}>
                       datetime
                     </span>
-                    {`.now().year\nedad = ano_actual - ano_nacimiento\nprint("Tu edad es:", edad)\n`}
+                    {`.now().year\nedad = ano_actual - ano_nacimiento\nprint("Tu edad es:", edad)\n` }
                   </code>
                 </pre>
               </div>

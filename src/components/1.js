@@ -10,6 +10,7 @@ const Uno = () => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
   const navigate = useNavigate();
 
   const options = ['Mundo', 'Hola', 'Eduardo'];
@@ -51,6 +52,15 @@ const Uno = () => {
     navigate('/insignias');
   };
 
+  // Manejo del modal al hacer clic en el pingüino
+  const handlePenguinClick = () => {
+    setShowModal(true); // Mostrar el modal cuando se haga clic en el pingüino
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Cerrar el modal
+  };
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
@@ -72,6 +82,20 @@ const Uno = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
+        
+        {/* Contenedor del pingüino */}
+        <div className="nivel1-container">
+          <div className="penguin-container" onClick={handlePenguinClick}>
+            <div className="penguin">
+              <div className="eye left"></div>
+              <div className="eye right"></div>
+              <div className="beak"></div>
+              <div className="foot left"></div>
+              <div className="foot right"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {/* Contenedor principal con el cuadro de información y el contenido principal */}
@@ -189,7 +213,7 @@ const Uno = () => {
               <div className="result-container">
                 {isCorrect !== null && (
                   <p className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
-                    {isCorrect ? '¡Correcto!' : 'Inténtalo de nuevo.'}
+                    {isCorrect ? '¡Correcto!' : 'Inténtalo de nuevo'}
                   </p>
                 )}
               </div>
@@ -197,6 +221,39 @@ const Uno = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+  <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <h2>¡Hola, soy pingui!</h2>
+      <p>Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios. ¡No dudes en consultarlo cuando lo necesites!</p>
+      
+      <div className="nivel1-card-header">
+        <p>Seleccione una Ayuda:</p>
+      </div>
+      
+      {/* Contenedor de los iconos en forma vertical */}
+      <div className="modal-icons">
+        <button className="modal-icon-button" onClick={() => alert('Ayuda 1: Idea')}>
+          <img src="idea.gif" alt="Icono 1" className="modal-icon" />
+        </button>
+        
+        <button className="modal-icon-button" onClick={() => alert('Ayuda 2: Apoyo')}>
+          <img src="apoyo.gif" alt="Icono 2" className="modal-icon" />
+        </button>
+
+        <button className="modal-icon-button" onClick={() => alert('Ayuda 3: Cuaderno')}>
+          <img src="cuaderno.gif" alt="Icono 3" className="modal-icon" />
+        </button>
+      </div>
+
+      <button onClick={closeModal}>Cerrar</button>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 };

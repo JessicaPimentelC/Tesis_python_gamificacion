@@ -53,19 +53,20 @@ const Lecciones = ({ toggleView }) => {
           </div>
           <h1>BIENVENIDOS AL CURSO DE LENGUAJE DE PROGRAMACION PYTHON</h1>
           <div className="levels">
-            <button className="level-button" onClick={() => navigate('/nivel1')}>
-              <img src="python1.png" alt="Level 1" />
-              <span>NIVEL 1</span>
-            </button>
-            <button className="level-button">
-              <img src="py.png" alt="Level 2" />
-              <span>NIVEL 2</span>
-            </button>
-            <button className="level-button">
-              <img src="python2.png" alt="Level 3" />
-              <span>NIVEL 3</span>
-            </button>
-          </div>
+  <button className="level-button nivel-1" onClick={() => navigate('/nivel1')}>
+    <img src="python1.png" alt="Level 1" />
+    <span>NIVEL 1</span>
+  </button>
+  <button className="level-button nivel-2" onClick={() => navigate('/nivel2')}>
+    <img src="py.png" alt="Level 2" />
+    <span>NIVEL 2</span>
+  </button>
+  <button className="level-button nivel-3" onClick={() => navigate('/nivel3')}>
+    <img src="python2.png" alt="Level 3" />
+    <span>NIVEL 3</span>
+  </button>
+</div>
+
         </div>
       </div>
     </div>

@@ -41,7 +41,11 @@ const Enunciado13 = ({ toggleView }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/13'); // Cambia la vista al siguiente componente
+    navigate('/13'); // Cambia la vista al siguiente componente (ajusta la ruta si es necesario)
+  };
+
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la ruta del módulo de insignias
   };
 
   return (
@@ -56,7 +60,6 @@ const Enunciado13 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -71,15 +74,30 @@ const Enunciado13 = ({ toggleView }) => {
             <h3>
               <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
             </h3>
-            <p>0</p> {/* Aquí deberías actualizar el puntaje si se usa una variable de estado */}
+            <p>{score}</p> {/* Muestra el puntaje dinámicamente */}
           </div>
           <div className="info-item">
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>{insignias}</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
-          
           <div className="info-item">
             <h3>
               <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
@@ -99,13 +117,13 @@ const Enunciado13 = ({ toggleView }) => {
             <div className="header-status">
               <span></span>
               <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
+                <img src="informacion.png" alt="Icono Información" />
               </button>
               <button className="icon-button" onClick={() => toggleView('dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>

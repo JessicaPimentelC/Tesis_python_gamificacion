@@ -34,6 +34,10 @@ const Enunciado18 = ({ toggleView }) => {
     navigate('/18'); // Cambia la vista al siguiente componente
   };
 
+  const handleInsigniaClick = () => {
+    // Función para manejar el clic en las insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -46,7 +50,6 @@ const Enunciado18 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         <div className="info-container">
@@ -66,7 +69,23 @@ const Enunciado18 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>

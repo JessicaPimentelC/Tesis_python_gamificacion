@@ -50,7 +50,6 @@ const Doce = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -65,15 +64,30 @@ const Doce = () => {
             <h3>
               <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
             </h3>
-            <p>0</p> {/* Aquí deberías actualizar el puntaje si se usa una variable de estado */}
+            <p>{score}</p> {/* Muestra el puntaje dinámicamente */}
           </div>
           <div className="info-item">
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p> {/* Aquí deberías actualizar el número de insignias si se usa una variable de estado */}
+            <div className="icons-container">
+              <button className="circular-icon">
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon">
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon">
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon">
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon">
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
-
           <div className="info-item">
             <h3>
               <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
@@ -93,18 +107,18 @@ const Doce = () => {
             <div className="header-status">
               <span></span>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Completa el código de Python</span>
-              </div>
-              <div className="nivel1-card-body">
+            </div>
+            <div className="nivel1-card-body">
               <p>Llena los espacios en blanco para completar el saludo.</p>
             </div>
             <div className="nivel1-card-body">

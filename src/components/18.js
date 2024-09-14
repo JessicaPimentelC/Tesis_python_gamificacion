@@ -50,7 +50,6 @@ const Dieciocho = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        
       </div>
       <div className="content">
         <div className="info-container">
@@ -70,7 +69,23 @@ const Dieciocho = () => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon">
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon">
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon">
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon">
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon">
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -103,15 +118,13 @@ const Dieciocho = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Cálculo del Área del Cuadrado</span>
-              </div>
-              <div className="nivel1-card-body">
+            </div>
+            <div className="nivel1-card-body">
               <p>Completa el código para calcular el área del cuadrado. Usa los campos de entrada para ingresar las respuestas:</p>
               <ul>
                 <li>Para calcular el área, escribe `lado ** 2` en el primer campo.</li>
                 <li>Para imprimir el resultado, escribe `print` en el segundo campo.</li>
               </ul>
-            </div>
-            <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">

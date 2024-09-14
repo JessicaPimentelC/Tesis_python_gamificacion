@@ -1,11 +1,13 @@
+/* Fondo solo para el módulo Lecciones */
 .lecciones-container {
   display: flex;
-  background-image: url('/public/122.jpg'); /* Imagen de fondo para toda la página */
+  background-image: url('/public/fondoweb.jpg'); /* Ruta de la imagen */
   background-size: cover; /* Asegura que la imagen cubra toda el área */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
-  height: 100vh; /* Asegura que el contenedor ocupe todo el alto de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
 }
+
 
 .sidebar {
   width: 15%;
@@ -32,12 +34,14 @@
 }
 
 .white-background {
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  background-color: transparent; /* O elimina el fondo blanco */
   padding: 20px;
   margin-top: 20px;
-  border: 1px solid #ccc; /* Borde opcional */
+  border: 1px solid #9c0000;
   border-radius: 5px;
 }
+
+
 
 .header {
   display: flex;
@@ -86,4 +90,55 @@
 
 .icon-button img {
   width: 40px;
+}
+/* Estilo base para los botones de nivel */
+.level-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición para suavizar el cambio de color y la animación */
+}
+
+/* Estilo de hover para animación */
+.level-button:hover {
+  transform: scale(1.1); /* Agranda el botón cuando el cursor pasa sobre él */
+  background-color: #4caf50; /* Cambia el color de fondo en hover */
+}
+
+/* Animación para el botón Nivel 1 (Color Azul) */
+.level-button.nivel-1 {
+  background-color: rgb(81, 81, 211);
+  color: white;
+  animation: slideIn 0.5s ease; /* Animación de entrada */
+}
+
+/* Animación para el botón Nivel 2 (Color Gris) */
+.level-button.nivel-2 {
+  background-color: grey;
+  color: white;
+  animation: slideIn 0.7s ease; /* Animación de entrada más lenta */
+}
+
+/* Animación para el botón Nivel 3 (Color Gris) */
+.level-button.nivel-3 {
+  background-color: grey;
+  color: white;
+  animation: slideIn 0.9s ease; /* Animación de entrada más lenta aún */
+}
+
+/* Keyframes para animar la entrada de los botones desde la izquierda */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

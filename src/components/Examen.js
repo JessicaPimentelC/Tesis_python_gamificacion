@@ -22,7 +22,7 @@ function Examen() {
           </ul>
         </nav>
       </aside>
-      <header className="header">
+      <header className="header header-examen"> {/* Aplicar la clase específica aquí */}
         <div className="user-info">
           <img src="python1.png" alt="Ayuda" className="icon" />
           <span><img src="puntaje.png" alt="Diamond Icon" className="icon" />10</span>

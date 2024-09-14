@@ -77,7 +77,23 @@ const Enunciado12 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p> {/* Aquí deberías actualizar el número de insignias si se usa una variable de estado */}
+            <div className="icons-container">
+              <button className="circular-icon">
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon">
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon">
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon">
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon">
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -98,13 +114,13 @@ const Enunciado12 = ({ toggleView }) => {
             <div className="header-status">
               <span></span>
               <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
+                <img src="informacion.png" alt="Icono Información" />
               </button>
               <button className="icon-button" onClick={() => toggleView('dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>

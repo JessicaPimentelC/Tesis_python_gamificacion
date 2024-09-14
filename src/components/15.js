@@ -39,6 +39,12 @@ const Quince = () => {
     setShowNext(true); // Muestra el botón de siguiente
   };
 
+  const handleInsigniaClick = (e) => {
+    const insignia = e.target.alt; // Obtén el nombre de la insignia
+    // Aquí puedes agregar la lógica para redirigir a la página específica
+    navigate(`/${insignia}`); // Redirige basado en el nombre de la insignia
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -51,7 +57,6 @@ const Quince = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -72,7 +77,23 @@ const Quince = () => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>

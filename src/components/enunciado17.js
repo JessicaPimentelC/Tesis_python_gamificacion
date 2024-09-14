@@ -52,6 +52,11 @@ const Enunciado17 = ({ toggleView }) => {
     setShowElseModal(false);
   };
 
+  const handleInsigniaClick = () => {
+    // Maneja la lógica cuando se hace clic en una insignia
+    console.log('Insignia clickeada');
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -64,7 +69,6 @@ const Enunciado17 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         <div className="info-container">
@@ -84,7 +88,23 @@ const Enunciado17 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -116,7 +136,7 @@ const Enunciado17 = ({ toggleView }) => {
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 1 6: Verificación de Números</span>
+              <span>Ejercicio 16: Verificación de Números</span>
             </div>
             <div className="nivel1-card-body">
               <p>

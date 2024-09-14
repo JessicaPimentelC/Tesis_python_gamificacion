@@ -35,6 +35,10 @@ const Diecisiete = () => {
     setShowResult(true);
   };
 
+  const handleInsigniaClick = () => {
+    // Función para manejar el clic en las insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -47,7 +51,6 @@ const Diecisiete = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-        
       </div>
       <div className="content">
         <div className="info-container">
@@ -59,7 +62,7 @@ const Diecisiete = () => {
           </div>
           <div className="info-item">
             <h3>
-              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
+              <img src="puntaje.png" className="info-icon" /> Puntaje:
             </h3>
             <p>{score}</p>
           </div>
@@ -67,7 +70,23 @@ const Diecisiete = () => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -112,7 +131,7 @@ const Diecisiete = () => {
                     {'numero = float(input("Ingresa un número: "))\n'}
                     {'if numero > 0:\n'}
                     {'    print("El número es positivo")\n'}
-                    {' '}
+                    {' ' }
                     <input
                       type="text"
                       value={elifAnswer}
@@ -122,7 +141,7 @@ const Diecisiete = () => {
                     />
                     {'\n'}
                     {'    print("El número es negativo")\n'}
-                    {' '}
+                    {' ' }
                     <input
                       type="text"
                       value={elseAnswer}

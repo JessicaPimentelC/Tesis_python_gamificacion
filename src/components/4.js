@@ -7,6 +7,7 @@ const Cuatro = () => {
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Estado para el mensaje de éxito
   const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate();
 
@@ -37,10 +38,16 @@ const Cuatro = () => {
       setScore(score + 10);
       setShowNext(true);
       setErrorMessage("");
+      setSuccessMessage("¡Correcto!"); // Mostrar mensaje de éxito
     } else {
       setErrorMessage('Inténtalo de nuevo');
       setShowNext(false);
+      setSuccessMessage(""); // Limpiar mensaje de éxito
     }
+  };
+
+  const handleInsigniaClick = () => {
+    navigate('/insignias');
   };
 
   return (
@@ -55,7 +62,11 @@ const Cuatro = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
+        <div className="score">
+          {/* Aquí podrías añadir más elementos si los necesitas */}
+        </div>
       </div>
+
       <div className="content">
         {/* Contenedor de información */}
         <div className="info-container">
@@ -69,7 +80,23 @@ const Cuatro = () => {
           </div>
           <div className="info-item">
             <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
@@ -101,10 +128,10 @@ const Cuatro = () => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
-              </div>
-              <div className="nivel1-card-body">
+            </div>
+            <div className="nivel1-card-body">
               <p>Arrastra la palabra <strong>`print`</strong> al cuadro de código y verifica tu respuesta.</p>
-              </div>
+            </div>
             <div className="nivel1-card-body">
               <div
                 className="code-box"
@@ -164,7 +191,11 @@ const Cuatro = () => {
                 </div>
               )}
 
-              
+              {successMessage && (
+                <div className="success-message">
+                  {successMessage}
+                </div>
+              )}
             </div>
           </div>
         </div>

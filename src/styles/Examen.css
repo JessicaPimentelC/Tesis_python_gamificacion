@@ -1,15 +1,28 @@
+/* Examen.css */
+
+/* Asegúrate de que el cuerpo del documento también tenga un fondo blanco */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Fondo blanco para el cuerpo del documento */
+  height: 100vh; /* Altura del 100% de la ventana del navegador */
+  overflow: hidden; /* Oculta el desbordamiento si es necesario */
+}
+
 .app-container {
   width: 100%;
-  background-color: #f04e3e; /* Color de fondo rojo, o el color que prefieras */
-  padding: 20px; /* Ajusta el padding según sea necesario */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra para separación */
-  margin-left: 220px; /* Ajusta el margen izquierdo para desplazar el contenedor hacia la derecha */
-  margin-right: 200px;
+  height: 100vh; /* Altura del 100% de la ventana del navegador */
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Quita el margen para que ocupe toda la pantalla */
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar {
   width: 15%;
-  background-color: #FF4B4B; /* Rojo */
+  background-color: #FF4B4B;
   color: white;
   display: flex;
   flex-direction: column;
@@ -19,7 +32,7 @@
 }
 
 .logo img.python-logo {
-  width: 80px; /* Ajusta el tamaño del logo */
+  width: 80px;
   margin-bottom: 20px;
 }
 
@@ -37,21 +50,25 @@
 
 .sidebar nav ul li img.icon {
   margin-right: 10px;
-  width: 24px; /* Ajusta el tamaño de los iconos */
+  width: 24px;
 }
 
 .header {
   width: 85%;
   height: 60px;
-  background-color: #FF6F6F; /* Rojo más claro */
+  background-color: #FF6F6F;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px;
   color: black;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 60px; /* Ajusta el margen para mover la barra más a la derecha */
 }
-
+/* Nueva clase específica para el módulo Examen */
+.header-examen {
+  margin-left: 200px; /* Ajusta el margen para el módulo Examen */
+}
 .header .user-info {
   display: flex;
   align-items: center;
@@ -66,7 +83,7 @@
 
 .header .user-info img.icon {
   margin-left: 15px;
-  width: 30px; /* Ajusta el tamaño de los iconos */
+  width: 30px;
   cursor: pointer;
 }
 
@@ -85,11 +102,11 @@
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background-color: #f9f9f9; /* White background */
-  margin: 0 auto; /* Centers the container horizontally */
+  background-color: #ffffff; /* Fondo blanco */
   width: 100%;
-  max-width: 1200px; /* Optional: limits the container's maximum width */
-  text-align: center; /* Centers the text within the content */
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .main-content h1 {
@@ -105,7 +122,7 @@
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
   width: 80%;
-  text-align: center; /* Center the text within the exam instructions */
+  text-align: center;
 }
 
 .start-exam {

@@ -32,6 +32,10 @@ const Enunciado6 = ({ toggleView }) => {
     navigate('/6');
   };
 
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la página de insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -69,7 +73,23 @@ const Enunciado6 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -107,7 +127,7 @@ const Enunciado6 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, la función int se utiliza para convertir valores a enteros.
+                En Python, la función int se utiliza para convertir valores a enteros.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
@@ -147,9 +167,9 @@ const Enunciado6 = ({ toggleView }) => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h2>¡Excelente avance en Python!</h2>
+            <h2>¡Excelente avance en Python!</h2>
             <p>
-            🌟 ¡Bien hecho! 🚀 Ahora aprenderás a usar la función `int` para trabajar con números enteros. Sigue así y sigue descubriendo más sobre Python.
+              🌟 ¡Bien hecho! 🚀 Ahora aprenderás a usar la función `int` para trabajar con números enteros. Sigue así y sigue descubriendo más sobre Python.
             </p>
 
             <img src="000.gif" alt="GIF de bienvenida" className="modal-gif" />

@@ -42,11 +42,15 @@ const Enunciado10 = ({ toggleView }) => {
     navigate('/10');
   };
 
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la página de insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
         <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('9')}>
+        <button className="sidebar-button" onClick={() => navigate('/9')}>
           <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
           Atrás
         </button>
@@ -78,7 +82,23 @@ const Enunciado10 = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -115,13 +135,13 @@ const Enunciado10 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-                En Python, puedes crear un algoritmo que permita al usuario ingresar un número y luego mostrarlo en pantalla. Utiliza la función input para capturar el número ingresado y la función int para convertirlo a un entero. Luego, usa print para mostrar el número. 
+                En Python, puedes crear un algoritmo que permita al usuario ingresar un número y luego mostrarlo en pantalla. Utiliza la función input para capturar el número ingresado y la función int para convertirlo a un entero. Luego, usa print para mostrar el número.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">
                   <code>
-                                    {   `texto=input("Ingrese un texto: ")
+                    {`texto=input("Ingrese un texto: ")
 print(texto)
                     `}
                   </code>

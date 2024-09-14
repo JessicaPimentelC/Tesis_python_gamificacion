@@ -37,6 +37,11 @@ const Enunciado4 = ({ toggleView }) => {
     navigate('/4'); // Navegar a la siguiente vista
   };
 
+  // Función para manejar el clic en insignias y redirigir a la página de insignias
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la ruta de las insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -49,6 +54,9 @@ const Enunciado4 = ({ toggleView }) => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
+        <div className="score">
+          {/* Aquí podrías añadir más elementos si los necesitas */}
+        </div>
       </div>
 
       {/* Contenedor principal con el cuadro de información y el contenido principal */}
@@ -65,7 +73,23 @@ const Enunciado4 = ({ toggleView }) => {
           </div>
           <div className="info-item">
             <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
@@ -100,7 +124,7 @@ const Enunciado4 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              En Python, el signo de división (/) se utiliza para realizar operaciones aritméticas de división.
+                En Python, el signo de división (/) se utiliza para realizar operaciones aritméticas de división.
               </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
@@ -142,7 +166,8 @@ const Enunciado4 = ({ toggleView }) => {
           <div className="modal-content">
             <h2>¡Excelente progreso en Python!</h2>
             <p>
-            🌟 ¡Excelente trabajo hasta ahora! 🚀 Ahora toca aplicar tus conocimientos en la división. Prepárate para dividir números y obtener resultados precisos. ¡Estamos emocionados por tu progreso con este desafío!            </p>
+              🌟 ¡Excelente trabajo hasta ahora! 🚀 Ahora toca aplicar tus conocimientos en la división. Prepárate para dividir números y obtener resultados precisos. ¡Estamos emocionados por tu progreso con este desafío!
+            </p>
             <img src="6oa.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar

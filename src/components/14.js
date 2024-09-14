@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/enunciado14.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
+import '../styles/enunciado14.css'; // Asegúrate de que la ruta sea correcta
 
 const Catorce = () => {
   const [num1Function, setNum1Function] = useState('');
@@ -40,6 +40,10 @@ const Catorce = () => {
     setShowNext(true); // Muestra el botón de siguiente
   };
 
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la ruta del módulo de insignias
+  };
+
   return (
     <div className="nivel1-container">
       <div className="sidebar">
@@ -52,7 +56,6 @@ const Catorce = () => {
           <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
           CONFIGURACIÓN
         </button>
-       
       </div>
       <div className="content">
         {/* Contenedor de información */}
@@ -67,7 +70,23 @@ const Catorce = () => {
           </div>
           <div className="info-item">
             <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
-            <p>{insignias}</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
@@ -86,21 +105,21 @@ const Catorce = () => {
             <div className="header-status">
               <span></span>
               <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
+                <img src="informacion.png" alt="Icono Información" />
               </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="ubicacion.png" alt="Icono Dashboard" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
               </button>
             </div>
           </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Multiplicación Rápida</span>
-              </div>
-              <div className="nivel1-card-body">
+            </div>
+            <div className="nivel1-card-body">
               <p>Llena los espacios en blanco para completar el código que realiza una multiplicación básica en Python.</p>
             </div>
             <div className="nivel1-card-body">
