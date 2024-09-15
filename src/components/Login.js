@@ -13,7 +13,7 @@ const Login = ({ toggleView }) => {
 
   const responseFacebook = (response) => {
     console.log(response);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,54 +22,41 @@ const Login = ({ toggleView }) => {
 
   return (
     <div className="login-container">
-      <img src="/tesis.png" alt="Logo" className="login-logo" />
-      <h2>Ingresa tus datos</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Usuario o Correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">INGRESAR</button>
-      </form>
-      <button type='submit' className="toggle-button" onClick={() => navigate('/register')}>
-        REGISTRARME
-      </button>
-      <div className="social-login">
-
-        <FacebookLogin
-          appId="1088597931155576"
-          autoLoad
-          callback={responseFacebook}
-          render={renderProps => (
-            <button onClick={renderProps.onClick}>This is my custom FB button</button>
-          )}
-        />
-
-        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
-          <main>
+      <div className="login-box">
+        <h1>¡Bienvenido a PythonLearner!</h1>
+        <p className="login-description">
+        "𝘿𝙚𝙨𝙘𝙪𝙗𝙧𝙚 𝙚𝙡 𝙥𝙤𝙙𝙚𝙧 𝙙𝙚 𝙡𝙖 𝙥𝙧𝙤𝙜𝙧𝙖𝙢𝙖𝙘𝙞ó𝙣 𝙚𝙣 𝙋𝙮𝙩𝙝𝙤𝙣 𝙮 𝙩𝙧𝙖𝙣𝙨𝙛𝙤𝙧𝙢𝙖 𝙩𝙪𝙨 𝙞𝙙𝙚𝙖𝙨 𝙚𝙣 𝙧𝙚𝙖𝙡𝙞𝙙𝙖𝙙."        </p>
+        <form onSubmit={handleSubmit} className="login-form">
+          <h2 className="login-title">USER LOGIN</h2>
+          <div className="form-group">
+            <input
+              type="email"
+              placeholder="Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">LOGIN</button>
+        </form>
+        <div className="social-login">
+          <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
             <Loginsesion />
-          </main>
-        </GoogleOAuthProvider>
-      </div>
-      <a className="toggle-button" href="#" onClick={() => navigate('reset')}>
-        RESTABLECER CONTRASEÑA
-      </a>
-      <div className="terms">
-        Al registrarte en XXX, aceptas nuestros <a href="#">Términos y Política de privacidad.</a>
+          </GoogleOAuthProvider>
+        </div>
+        <div className="login-footer">
+          <a href="#" onClick={() => navigate('/register')}>Create Account</a>
+          <a href="#" onClick={() => navigate('reset')}>Forgot Password?</a>
+        </div>
       </div>
     </div>
   );

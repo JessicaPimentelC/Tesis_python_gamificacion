@@ -1,88 +1,92 @@
 .login-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  background-color: #FF6161; /* Fondo rojo */
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
+  background: linear-gradient(to right, #f2709c, #ff9472);
 }
 
-.login-logo {
-  width: 100px;
+.login-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 60px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.login-description {
+  color: #666;
   margin-bottom: 20px;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.login-title {
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.form-group {
+.login-form .form-group {
   margin-bottom: 15px;
 }
 
-.form-group input {
+.login-form input {
+  width: 100%;
   padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  border: none;
-  width: 300px;
-  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: white; /* Botones blancos */
-  color: #333;
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6161;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-button:hover {
-  background-color: #ccc;
+.login-button:hover {
+  background-color: #ff4c4c;
 }
 
 .social-login {
-  display: flex;
-  justify-content: center;
   margin: 20px 0;
 }
 
-.social-login button {
-  margin: 0 10px;
-  background-color: white; /* Botones blancos */
-  color: #333;
-}
-
-.toggle-button {
-  background: none;
+.social-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4267B2;
+  color: white;
   border: none;
-  color: white;
+  border-radius: 5px;
   cursor: pointer;
-  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.social-button:hover {
+  background-color: #365899;
+}
+
+.login-footer {
   margin-top: 20px;
 }
 
-.toggle-button:hover {
+.login-footer a {
+  color: #ff6161;
   text-decoration: none;
+  margin: 0 10px;
 }
 
-.terms {
-  margin-top: 20px;
-  font-size: 12px;
-}
-
-.terms a {
-  color: white;
+.login-footer a:hover {
   text-decoration: underline;
 }
-
-.terms a:hover {
-  text-decoration: none;
-}
-
