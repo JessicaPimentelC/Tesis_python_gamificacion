@@ -460,4 +460,43 @@
     width: 50px; /* Ajusta el tamaño de los iconos según sea necesario */
     height: 50px;
   }
+  .nivel1-container {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    justify-content: flex-start; /* Alinea los elementos al inicio del contenedor */
+  }
+  
+  .loading-indicator-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente la barra de carga dentro del contenedor */
+    margin-right: 20px; /* Espacio entre la barra de carga y el contenido principal */
+  }
+  
+  .nivel1-card {
+    flex: 1; /* Toma el espacio restante en el contenedor */
+  }
+  
+  /* Otros estilos existentes */
+  .nivel1-page {
+    display: flex;
+    position: relative;
+  }
+  
+  /* Contenedor de la barra de carga */
+/* Contenedor de la barra de carga */
+.loading-indicator-outer {
+    position: fixed; /* Fija la posición de la barra de carga en la pantalla */
+    left: 400px; /* Mueve la barra de carga más a la derecha desde el borde izquierdo de la pantalla */
+    top: 450px; /* Mueve la barra de carga hacia abajo desde el borde superior de la pantalla */
+    padding: 0; /* Elimina el padding alrededor de la barra de carga */
+    z-index: 100; /* Asegura que la barra de carga esté por encima de otros elementos */
+}
+
+
+  .nivel1-container {
+    flex: 1;
+    margin-left: 20px; /* Ajusta el margen para dejar espacio para la barra de carga */
+  }
+  
+  /* Otros estilos existentes */
   
