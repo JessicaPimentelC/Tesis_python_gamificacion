@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/enunciado16.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/16.css'; // Asegúrate de que la ruta sea correcta
 
 const Dieciséis = () => {
   const [importAnswer, setImportAnswer] = useState('');

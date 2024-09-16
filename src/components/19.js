@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/enunciado19.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/19.css'; // Asegúrate de que la ruta sea correcta
 
 const Diecinueve = () => {
   const [celsiusInput, setCelsiusInput] = useState('');

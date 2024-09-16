@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/enunciado14.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/14.css'; // Asegúrate de que la ruta sea correcta
 
 const Catorce = () => {
   const [num1Function, setNum1Function] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/enunciado7.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/7.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
 const Siete = ({ toggleView }) => {

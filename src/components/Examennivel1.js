@@ -11,19 +11,29 @@ function Examennivel1() {
   const currentTime = new Date().toLocaleString();
   const navigate = useNavigate();
 
-  // Nuevo estado para la pregunta de arrastrar y soltar
+  // Estado para las palabras arrastrables
   const [dragWords, setDragWords] = useState(['**', '^', '^^', '^']);
-  const [droppedWord, setDroppedWord] = useState('');
+  // Estado para la palabra soltada y su índice original
+  const [droppedWord, setDroppedWord] = useState(null);
+  const [originalIndex, setOriginalIndex] = useState(null);
 
-  const handleDragStart = (e, word) => {
+  const handleDragStart = (e, word, index) => {
     e.dataTransfer.setData('text', word);
+    setOriginalIndex(index); // Guardar el índice original del elemento arrastrado
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
     const word = e.dataTransfer.getData('text');
-    setDroppedWord(word);
-    setDragWords(dragWords.filter(w => w !== word));
+
+    if (droppedWord) {
+      // Si ya hay una palabra soltada, agregarla de vuelta a la lista
+      setDragWords(prev => [...prev, droppedWord.word]);
+    }
+
+    // Establecer la nueva palabra soltada y eliminarla de la lista de palabras arrastrables
+    setDroppedWord({ word, index: originalIndex });
+    setDragWords(prev => prev.filter(w => w !== word));
   };
 
   const handleDragOver = (e) => {
@@ -59,7 +69,7 @@ function Examennivel1() {
     let correct = 0;
     let incorrect = 0;
 
-    if (droppedWord === correctAnswers.question1) {
+    if (droppedWord?.word === correctAnswers.question1) {
       correct += 1;
     } else {
       incorrect += 1;
@@ -85,6 +95,16 @@ function Examennivel1() {
     navigate('/Dashboard');
   };
 
+  // Define la función handleTextChange
+  const handleTextChange = (e) => {
+    const { name, value } = e.target;
+    // Actualiza el estado con la respuesta
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="exam-container">
       <h1>𝑬𝒙𝒂𝒎𝒆𝒏 𝑵𝒊𝒗𝒆𝒍 1</h1>
@@ -97,7 +117,7 @@ function Examennivel1() {
               <div
                 key={index}
                 draggable
-                onDragStart={(e) => handleDragStart(e, word)}
+                onDragStart={(e) => handleDragStart(e, word, index)}
                 className="drag-word"
               >
                 {word}
@@ -109,47 +129,82 @@ function Examennivel1() {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
           >
-            {droppedWord || 'Arrastra aquí'}
+            {droppedWord ? droppedWord.word : 'Arrastra aquí'}
           </div>
         </div>
 
-        {/* Ejercicio 2 */}
-        <div className="form-group">
-          <label htmlFor="question2">2. ¿Cuál es el símbolo de comentarios en Python?</label>
-          <select
-            id="question2"
-            name="question2"
-            value={answers.question2 || ''}
-            onChange={handleChange}
-          >
-            <option value="" disabled>Selecciona una opción</option>
-            <option value="A">A) //</option>
-            <option value="B">B) #</option>
-            <option value="C">C) &lt;!--</option>
-            <option value="D">D) %</option>
-          </select>
-        </div>
+       {/* Ejercicio 2 */}
+<div className="form-group">
+  <label htmlFor="question2" style={{ display: 'block', marginBottom: '10px' }}>
+    2. ¿Cuál es el símbolo de comentarios en Python?
+  </label>
+  
+  {/* Cuadro de texto con diseño personalizado */}
+  <input
+    type="text"
+    id="question2"
+    name="question2"
+    value={answers.question2 || ''}
+    onChange={(e) => handleTextChange(e)}
+    placeholder="Escribe tu respuesta aquí..."
+    className={`custom-textbox ${answers.question2 === '#' ? 'correct-answer' : ''}`}
+  />
+</div>
 
         {/* Ejercicio 3 */}
+<div className="form-group">
+  <label htmlFor="question3">3. ¿Cuál es la función para imprimir en Python?</label>
+  <div className="button-group">
+    <button
+      type="button"
+      className={`btn ${answers.question3 === 'A' ? 'primary' : 'secondary'}`}
+      onClick={() => handleChange({ target: { name: 'question3', value: 'A' } })}
+    >
+      A) print()
+    </button>
+    <button
+      type="button"
+      className={`btn ${answers.question3 === 'B' ? 'primary' : 'secondary'}`}
+      onClick={() => handleChange({ target: { name: 'question3', value: 'B' } })}
+    >
+      B) float()
+    </button>
+    <button
+      type="button"
+      className={`btn ${answers.question3 === 'C' ? 'primary' : 'secondary'}`}
+      onClick={() => handleChange({ target: { name: 'question3', value: 'C' } })}
+    >
+      C) console.log()
+    </button>
+    <button
+      type="button"
+      className={`btn ${answers.question3 === 'D' ? 'primary' : 'secondary'}`}
+      onClick={() => handleChange({ target: { name: 'question3', value: 'D' } })}
+    >
+      D) output()
+    </button>
+  </div>
+</div>
+
+                    {/* Ejercicio 8 */}
         <div className="form-group">
-          <label htmlFor="question3">3. ¿Cuál es la función para imprimir en Python?</label>
+          <label htmlFor="question8">4. ¿Cuál es el operador de igualdad en Python?</label>
           <select
-            id="question3"
-            name="question3"
-            value={answers.question3 || ''}
+            id="question8"
+            name="question8"
+            value={answers.question8 || ''}
             onChange={handleChange}
           >
             <option value="" disabled>Selecciona una opción</option>
-            <option value="A">A) print()</option>
-            <option value="B">B) echo()</option>
-            <option value="C">C) console.log()</option>
-            <option value="D">D) output()</option>
+            <option value="A">A) ==</option>
+            <option value="B">B) =</option>
+            <option value="C">C) ===</option>
+            <option value="D">D) !=</option>
           </select>
         </div>
-
         {/* Ejercicio 4 */}
         <div className="form-group">
-          <label htmlFor="question4">4. ¿Cuál es el resultado de 5 // 2 en Python?</label>
+          <label htmlFor="question4">5. ¿Cuál es el resultado de 5 // 2 en Python?</label>
           <select
             id="question4"
             name="question4"
@@ -166,7 +221,7 @@ function Examennivel1() {
 
         {/* Ejercicio 5 */}
         <div className="form-group">
-          <label htmlFor="question5">5. ¿Qué tipo de dato representa una cadena de texto en Python?</label>
+          <label htmlFor="question5">6. ¿Qué tipo de dato representa una cadena de texto en Python?</label>
           <select
             id="question5"
             name="question5"
@@ -183,7 +238,7 @@ function Examennivel1() {
 
         {/* Ejercicio 6 */}
         <div className="form-group">
-          <label htmlFor="question6">6. ¿Cómo se crea una lista en Python?</label>
+          <label htmlFor="question6">7. ¿Cómo se crea una lista en Python?</label>
           <select
             id="question6"
             name="question6"
@@ -200,7 +255,7 @@ function Examennivel1() {
 
         {/* Ejercicio 7 */}
         <div className="form-group">
-          <label htmlFor="question7">7. ¿Cómo se define una función en Python?</label>
+          <label htmlFor="question7">8. ¿Cómo se define una función en Python?</label>
           <select
             id="question7"
             name="question7"
@@ -215,22 +270,7 @@ function Examennivel1() {
           </select>
         </div>
 
-        {/* Ejercicio 8 */}
-        <div className="form-group">
-          <label htmlFor="question8">8. ¿Cuál es el operador de igualdad en Python?</label>
-          <select
-            id="question8"
-            name="question8"
-            value={answers.question8 || ''}
-            onChange={handleChange}
-          >
-            <option value="" disabled>Selecciona una opción</option>
-            <option value="A">A) ==</option>
-            <option value="B">B) =</option>
-            <option value="C">C) ===</option>
-            <option value="D">D) !=</option>
-          </select>
-        </div>
+
 
         {/* Ejercicio 9 */}
         <div className="form-group">
