@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/enunciado13.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/13.css'; // Asegúrate de que la ruta sea correcta
 
 const Trece = ({ toggleView }) => {
   const [num1Function, setNum1Function] = useState('');
