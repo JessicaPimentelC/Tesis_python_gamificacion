@@ -1,34 +1,60 @@
-import React, { useState, useEffect } from 'react';
+// 6.js
+
+import React, { useState } from 'react';
 import '../styles/6.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
+// Crea un objeto de audio global para su uso
+const audio = new Audio('/nivel6.mp3');
+audio.preload = 'auto';
+
 const Seis = ({ toggleView }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [draggedNumber, setDraggedNumber] = useState('');
   const [result, setResult] = useState(null);
   const [showNext, setShowNext] = useState(false);
   const [output, setOutput] = useState('');
-  const [score, setScore] = useState(0); // Estado para el puntaje
-  const [currentTime, setCurrentTime] = useState(''); // Estado para la hora y fecha actual
+  const [score, setScore] = useState(0); // Define el estado para el puntaje
+  const [currentTime] = useState(new Date().toLocaleString()); // Hora y Fecha actual
   const navigate = useNavigate(); // Hook para la redirección
 
-  // Actualiza la hora y fecha al cargar el componente
-  useEffect(() => {
-    const now = new Date();
-    setCurrentTime(now.toLocaleString());
-  }, []);
-
   const checkAnswer = () => {
-    // Compara si el número ingresado es 37
-    if (parseInt(inputValue) === 37) {
+    // Compara si el número arrastrado es 37
+    if (draggedNumber === '37') {
       setResult('correct');
       setShowNext(true); // Muestra el botón "Siguiente"
-      setOutput(inputValue); // Muestra el valor ingresado en la salida
+      setOutput(draggedNumber); // Muestra el valor en la salida
       setScore(score + 10); // Incrementa el puntaje cuando sea correcto
     } else {
       setResult('incorrect');
       setShowNext(false); // Oculta el botón "Siguiente"
       setOutput(''); // Limpia la salida si la respuesta es incorrecta
     }
+  };
+
+  const handleDragStart = (number) => {
+    setDraggedNumber(number);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    checkAnswer();
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  // Función para reproducir sonido
+  const playSound = () => {
+    audio.currentTime = 0; // Reinicia el tiempo de reproducción para reproducir desde el principio
+    audio.play().catch((error) => {
+      // Maneja errores si ocurren
+      console.error('Error reproduciendo el sonido:', error);
+    });
+  };
+
+  const handleInsigniaClick = () => {
+    navigate('/insignias'); // Redirige a la página de insignias
   };
 
   return (
@@ -68,7 +94,23 @@ const Seis = ({ toggleView }) => {
             <h3>
               <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
             </h3>
-            <p>0</p>
+            <div className="icons-container">
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="fugaz.gif" alt="Insignia 1" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="ganar.gif" alt="Insignia 2" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="gps.gif" alt="Insignia 3" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="caja.gif" alt="Insignia 4" />
+              </button>
+              <button className="circular-icon" onClick={handleInsigniaClick}>
+                <img src="medalla.gif" alt="Insignia 5" />
+              </button>
+            </div>
           </div>
           <div className="info-item">
             <h3>
@@ -102,26 +144,56 @@ const Seis = ({ toggleView }) => {
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Ejercicio de Programación</span>
-
-              </div>
-              <div className="nivel1-card-body">
-              <p>Crea un algoritmo que permita ingresar el número entero= 37</p>
+            </div>
+            <div className="nivel1-card-body">
+              <p>Crea una variable de tipo numérico que almacene el número 37</p>
             </div>
             <div className="nivel1-card-body">
               <div className="code-box">
                 <div className="code-header">PYTHON</div>
-                <div className="code-content">
+                <div 
+                  className="code-content"
+                  onDrop={handleDrop}
+                  onDragOver={handleDragOver}
+                >
                   <pre>
-                    numero = int(input(
-                      <input
-                        type="number"
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        className="code-input-inline"
-                        placeholder="Ingrese el número"
-                      />
-                    ))
+                    variable = <span className="drop-area">________</span>
                   </pre>
+                </div>
+              </div>
+
+              <div className="options">
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('37')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
+                >
+                  37
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('12')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
+                >
+                  12
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('29')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
+                >
+                  29
+                </div>
+                <div
+                  className="option"
+                  draggable
+                  onDragStart={() => handleDragStart('45')}
+                  onMouseEnter={playSound} // Reproduce el sonido cuando el cursor está sobre el número
+                >
+                  45
                 </div>
               </div>
 
@@ -138,9 +210,6 @@ const Seis = ({ toggleView }) => {
               )}
 
               <div className="nivel1-card-button-container">
-                <button className="nivel1-card-button" onClick={checkAnswer}>
-                  Verificar
-                </button>
                 {showNext && (
                   <button
                     className="nivel1-card-button"
