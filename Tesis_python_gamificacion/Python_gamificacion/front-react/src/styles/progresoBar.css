@@ -1,0 +1,11 @@
+/* styles.css */
+.progress-container {
+    width: 100%;
+    background-color: #e0e0de;
+}
+
+.progress-bar {
+    background-color: #76c7c0;
+    height: 24px;
+    transition: width 0.5s ease-in-out;
+}

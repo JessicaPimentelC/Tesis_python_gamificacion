@@ -1,0 +1,227 @@
+/* Contenedor principal del Nivel1 */
+.nivel1-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Evita el desplazamiento del contenido */
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px; /* Ancho de la barra lateral */
+    background-color: #FF5733; /* Color rojo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed; /* Fija la barra lateral para que ocupe toda la altura */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Asegura que la barra lateral esté por encima del contenido */
+}
+
+/* Logo en la barra lateral */
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Botones en la barra lateral */
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.sidebar-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Contenedor de contenido */
+.content {
+    margin-left: 200px; /* Deja espacio para la barra lateral */
+    width: calc(100% - 200px); /* Ajusta el ancho del contenido */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Fondo blanco en el área de contenido */
+.white-background {
+    background-color: #fff; /* Color blanco */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 5px;
+    margin-top: 20px; /* Ajusta el espacio superior para separar del contenido de la tarjeta */
+    position: relative; /* Asegura que el fondo blanco se alinee correctamente */
+    width: 100%; /* Asegura que el fondo blanco ocupe el ancho completo del contenedor */
+    max-width: 800px; /* Opcional: ajusta el máximo ancho del fondo blanco */
+    text-align: center; /* Centra el texto dentro del fondo blanco */
+}
+
+/* Encabezado del Nivel1 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; /* Añadir padding para crear espacio dentro del encabezado */
+    background-color: #fff; /* Fondo blanco para el encabezado */
+    border: 1px solid #ccc; /* Borde para distinguir el encabezado del fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    position: relative;
+    z-index: 2; /* Asegura que el encabezado esté por encima del fondo blanco */
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Iconos en el encabezado */
+.header .header-status img {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.header .header-status img:hover {
+    transform: scale(1.1);
+}
+
+/* Tarjeta del Nivel1 */
+.nivel1-card {
+    background-color: #ffb23f;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.7s ease-out;
+    position: relative;
+    z-index: 2; /* Asegura que la tarjeta esté por encima del fondo blanco */
+    width: 100%; /* Asegura que la tarjeta ocupe el ancho completo del contenedor */
+    max-width: 800px; /* Opcional: ajusta el máximo ancho de la tarjeta */
+}
+
+/* Encabezado de la tarjeta del Nivel1 */
+.nivel1-card-header {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Centra el texto en el encabezado de la tarjeta */
+}
+
+/* Cuerpo de la tarjeta del Nivel1 */
+.nivel1-card-body p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center; /* Centra el texto en el cuerpo de la tarjeta */
+}
+
+/* Contenedor del botón "Siguiente" en la tarjeta */
+.nivel1-card-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botón en la tarjeta del Nivel1 */
+.nivel1-card-button {
+    background-color: #ff5733; /* Color rojo */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Imagen GIF */
+.gif-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gif-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Modal de la ventana emergente */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3; /* Asegura que el modal esté por encima de todo el contenido */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    max-width: 90%; /* Para asegurar que el modal no sea demasiado ancho en pantallas pequeñas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    color: #ff5733; /* Color para el título del modal */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-gif {
+    width: 100%;
+    max-width: 250px; /* Ajusta el tamaño del GIF según sea necesario */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.modal-close-button {
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-close-button:hover {
+    background-color: #c70039;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
