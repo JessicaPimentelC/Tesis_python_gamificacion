@@ -53,7 +53,7 @@ const Register = ({ toggleView }) => {
   return (
     <div className="register-container">
       <div className="register-box">
-        <img src="/logo.png" alt="Logo" className="register-logo" />
+        <img src="tesis.png" alt="Logo" className="register-logo" />
         <h2 className="register-title">Completa los siguientes espacios</h2>
         <form onSubmit={handleRegister} className="register-form">
           <div className="form-group">

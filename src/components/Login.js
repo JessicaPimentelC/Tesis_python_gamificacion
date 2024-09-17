@@ -27,7 +27,7 @@ const Login = ({ toggleView }) => {
         <p className="login-description">
         "𝘿𝙚𝙨𝙘𝙪𝙗𝙧𝙚 𝙚𝙡 𝙥𝙤𝙙𝙚𝙧 𝙙𝙚 𝙡𝙖 𝙥𝙧𝙤𝙜𝙧𝙖𝙢𝙖𝙘𝙞ó𝙣 𝙚𝙣 𝙋𝙮𝙩𝙝𝙤𝙣 𝙮 𝙩𝙧𝙖𝙣𝙨𝙛𝙤𝙧𝙢𝙖 𝙩𝙪𝙨 𝙞𝙙𝙚𝙖𝙨 𝙚𝙣 𝙧𝙚𝙖𝙡𝙞𝙙𝙖𝙙."        </p>
         <form onSubmit={handleSubmit} className="login-form">
-          <h2 className="login-title">USER LOGIN</h2>
+          <h2 className="login-title">LOGIN</h2>
           <div className="form-group">
             <input
               type="email"

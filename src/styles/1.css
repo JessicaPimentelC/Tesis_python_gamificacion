@@ -288,7 +288,7 @@
   }
   
   .circular-icon img {
-    max-width: 800%; /* Tamaño máximo del GIF dentro del botón circular */
+    max-width: 120%; /* Tamaño máximo del GIF dentro del botón circular */
     max-height: 200%; /* Tamaño máximo del GIF dentro del botón circular */
     width: auto; /* Mantiene el tamaño original de la imagen */
     height: auto; /* Mantiene el tamaño original de la imagen */
