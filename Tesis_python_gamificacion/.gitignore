@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /Python_gamificacion/front-react/node_modules
+/Python_gamificacion/backend/node_modules
 /.pnp
 .pnp.js
 
