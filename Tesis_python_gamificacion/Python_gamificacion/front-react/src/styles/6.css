@@ -422,4 +422,22 @@
     color: #dc3545; /* Rojo para resultados incorrectos */
     background-color: #f8d7da; /* Fondo rojo claro */
   }
-  
+ /* Contenedor del puntaje */
+.score-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Icono del puntaje */
+.score-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Texto del puntaje */
+.score-text {
+  font-size: 18px;
+  font-weight: bold;
+}

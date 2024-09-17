@@ -22,7 +22,7 @@ const Ejercicios1 = ({ toggleView }) => {
   const handleCloseModal = () => {
     setShowModal(false);
     // Puedes realizar otras acciones si es necesario, como cambiar la vista
-    navigate('/Ej1');
+    navigate('/1');
   };
 
   return (
@@ -56,7 +56,7 @@ const Ejercicios1 = ({ toggleView }) => {
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
+                <img src="mapas.gif" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
                 <img src="AYUDA.jpeg" alt="Icono Perfil" />
@@ -69,7 +69,8 @@ const Ejercicios1 = ({ toggleView }) => {
             </div>
             <div className="nivel1-card-body">
               <p>
-              El comando 𝐩𝐫𝐢𝐧𝐭 en Python se utiliza para mostrar información en la consola. Permite imprimir texto, números, y resultados de expresiones.              </p>
+              El comando 𝐩𝐫𝐢𝐧𝐭 en Python se utiliza para mostrar información en la consola. Permite imprimir texto, números, y resultados de expresiones.
+              </p>
               <div className="code-box">
                 <div className="code-header">Python</div>
                 <pre className="code-content">

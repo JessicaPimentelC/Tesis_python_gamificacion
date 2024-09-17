@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBar from './ProgresoBar';
+import ProgressBar from './ProgressBar';
 import '../styles/Dashboard.css';
 
 const Challenges = ({ progress }) => {
@@ -7,6 +7,7 @@ const Challenges = ({ progress }) => {
     <div className="challenges-box info-box">
       <h2>Desafíos del día</h2>
       <p>Gana 41 puntos</p>
+      <ProgressBar progress={progress} />
     </div>
   );
 };

@@ -62,14 +62,14 @@ const Nivel1 = ({ toggleView }) => {
               </button>
             </div>
           </div>
-          <p>¡El primer paso está dado, comencemos juntos este nivel!</p>
+          <p>¡𝙀𝙡 𝙥𝙧𝙞𝙢𝙚𝙧 𝙥𝙖𝙨𝙤 𝙚𝙨𝙩á 𝙙𝙖𝙙𝙤, 𝙘𝙤𝙢𝙚𝙣𝙘𝙚𝙢𝙤𝙨 𝙟𝙪𝙣𝙩𝙤𝙨 𝙚𝙨𝙩𝙚 𝙣𝙞𝙫𝙚𝙡!</p>
           <div className={`nivel1-card ${showNext ? 'fade-out' : ''}`}>
             <div className="nivel1-card-header">
-              <span>HISTORIA DEL LENGUAJE DE PROGRAMACION PYTHON</span>
+              <span>Python: Un Lenguaje de Programación Innovador y Versátil</span>
             </div>
             <div className="nivel1-card-body">
               <p>
-                Guido van Rossum, un programador holandés, creó Python en la década de 1980 y lo lanzó por primera vez en 1991. Van Rossum trabajaba en el Centrum Wiskunde & Informatica (CWI) en los Países Bajos cuando comenzó a desarrollar Python como un proyecto secundario para mantenerse ocupado durante las vacaciones de Navidad. Nombró el lenguaje en honor al grupo de comedia británico Monty Python, no por la serpiente. Python fue diseñado con una filosofía que enfatiza la legibilidad del código y la simplicidad. Van Rossum quería crear un lenguaje que fuera fácil de entender y escribir, reduciendo la cantidad de código necesario para expresar conceptos complejos. Los principios subyacentes de Python están resumidos en el documento "The Zen of Python" por Tim Peters, que incluye aforismos como "Beautiful is better than ugly" (lo bello es mejor que lo feo) y "Simple is better than complex" (lo simple es mejor que lo complejo).
+              Python es un lenguaje de programación de alto nivel, conocido por su simplicidad y claridad. Facilita el desarrollo de soluciones eficientes y es ampliamente utilizado en áreas como desarrollo web e inteligencia artificial, gracias a su versatilidad y una comunidad activa que impulsa su evolución.
               </p>
               <div className="nivel1-card-button-container">
                 {!showNext && (
@@ -84,7 +84,8 @@ const Nivel1 = ({ toggleView }) => {
             <div className="nivel1-next-section show">
               <h2>¿Por qué aprender Python?</h2>
               <p>
-              Python es un lenguaje de programación popular y versátil, conocido por su sintaxis sencilla y fácil de leer, ideal tanto para principiantes como para expertos. Se utiliza en diversos campos como desarrollo web, ciencia de datos, inteligencia artificial y automatización. Aprender Python abre muchas oportunidades laborales y facilita el aprendizaje de otros lenguajes. Además, su amplia comunidad y recursos lo hacen accesible y práctico para todo tipo de proyectos.              </p>
+              Python es un lenguaje de programación popular y versátil, conocido por su sintaxis sencilla y fácil de leer, ideal tanto para principiantes como para expertos. Se utiliza en diversos campos como desarrollo web, ciencia de datos, inteligencia artificial y automatización. Aprender Python abre muchas oportunidades laborales y facilita el aprendizaje de otros lenguajes. Además, su amplia comunidad y recursos lo hacen accesible y práctico para todo tipo de proyectos.
+              </p>
               <div className="nivel1-next-button-container">
                 <button className="nivel1-next-button" onClick={handleContinueClick}>Continuar</button>
               </div>

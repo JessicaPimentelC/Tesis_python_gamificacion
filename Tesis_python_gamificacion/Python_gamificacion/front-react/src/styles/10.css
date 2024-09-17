@@ -94,17 +94,11 @@
   border-radius: 8px 8px 0 0;
   font-weight: bold;
 }
-.code-center {
-  display: flex;
-  justify-content: center; /* Esto centra el contenido horizontalmente */
-  margin: 0 auto;
-}
+
 .code-content {
   padding: 10px;
   white-space: pre-wrap;
-  text-align: left;
 }
-
 
 .input-text {
   color: #007BFF; /* Puedes cambiar este color según tus preferencias */
