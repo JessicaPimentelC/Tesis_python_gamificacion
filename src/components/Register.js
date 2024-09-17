@@ -52,50 +52,49 @@ const Register = ({ toggleView }) => {
 
   return (
     <div className="register-container">
-      <img src="/logo.png" alt="Logo" className="register-logo" />
-      <h2>Completa los siguientes espacios</h2>
-      <form onSubmit={handleRegister} className="register-form">
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Nombre y Apellido"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">REGISTRARME</button>
-      </form>
-      <div className="social-register">
-        <button className="facebook-button">facebook</button>
-        <GoogleOAuthProvider clientId="567858506235-sd9fvbkheo3rnggdfpmnfjp63t6rgej3.apps.googleusercontent.com">
-          <main>
+      <div className="register-box">
+        <img src="/logo.png" alt="Logo" className="register-logo" />
+        <h2 className="register-title">Completa los siguientes espacios</h2>
+        <form onSubmit={handleRegister} className="register-form">
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Nombre y Apellido"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="register-button">REGISTRARME</button>
+        </form>
+        <div className="social-register">
+          
+          <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
             <Loginsesion />
-          </main>
-        </GoogleOAuthProvider>
+          </GoogleOAuthProvider>
+        </div>
+        <button onClick={() => toggleView('login')} className="toggle-button">Iniciar Sesión</button>
+        <p className="terms">
+          Al registrarte en XXX, aceptas nuestros <a href="">Términos y Política de privacidad</a>.
+        </p>
       </div>
-      <button onClick={() => toggleView('login')} className="toggle-button">Iniciar Sesión</button>
-      <p className="terms">
-        Al registrarte en XXX, aceptas nuestros <a href="">Términos y Política de privacidad</a>.
-      </p>
     </div>
   );
 };
 
 export default Register;
-

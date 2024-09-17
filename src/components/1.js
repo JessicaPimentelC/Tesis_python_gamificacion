@@ -230,7 +230,7 @@ const Uno = () => {
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>¡Hola, soy pingui!</h2>
+            <h2>¡Hola, soy pingui jessica!</h2>
             <p>Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios. ¡No dudes en consultarlo cuando lo necesites!</p>
             
             <div className="nivel1-card-header">
