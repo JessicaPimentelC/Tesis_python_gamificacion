@@ -32,20 +32,38 @@ class User(AbstractBaseUser):
 class Nivel(models.Model):
     id_nivel = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=50)
+    descripcion = models.TextField(max_length=50)
 
 class Ejercicio(models.Model):
     id_ejercicio = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    descripcion = models.CharField(max_length=50)
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField(max_length=50)
     nivel_id = models.ForeignKey(Nivel, on_delete=models.CASCADE, related_name='ejercicios')
-    tipo = models.EmailField(max_length=50)
+    codigo = models.TextField()  
+    salida_esperada = models.TextField(blank=True, null=True)  
+    terminado = models.BooleanField(default=False)  
     puntos = models.IntegerField()
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usuario')
+
     
 class Foro(models.Model):
     id_foro = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     tema = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=50)
     fecha_creacion = models.DateField()
+
+class Foro(models.Model):
+    id_foro = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    tema = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=50)
+    fecha_creacion = models.DateField()
+
+class Foro_respuesta(models.Model):
+    id_respuesta = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    foro = models.ForeignKey(Foro, related_name='respuestas', on_delete=models.CASCADE)
+    contenido = models.TextField()
+    autor = models.CharField(max_length=50)
+    fecha_respuesta = models.DateTimeField(auto_now_add=True)
 
 class Insignia(models.Model):
     id_insignia = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
