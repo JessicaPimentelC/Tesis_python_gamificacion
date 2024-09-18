@@ -3,8 +3,7 @@ import '../styles/15.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
 const Quince = () => {
-  const [centimeters, setCentimeters] = useState('');
-  const [meters, setMeters] = useState('');
+  const [centimetros, setCentimetros] = useState('');
   const [printFunction, setPrintFunction] = useState('');
   const [output, setOutput] = useState('');
   const [showNext, setShowNext] = useState(false);
@@ -22,26 +21,32 @@ const Quince = () => {
 
   const checkAnswer = () => {
     // Lógica del ejercicio: convierte centímetros a metros
-    const centimetersValue = parseFloat(centimeters);
-    const correctMeters = centimetersValue / 100;
+    const centimetrosValue = parseFloat(centimetros);
+
+    // Validar que el valor ingresado en centímetros sea un número válido
+    if (isNaN(centimetrosValue) || centimetrosValue === '') {
+      setOutput('1.0');
+      return;
+    }
+
+    // Realizar la conversión de centímetros a metros
+    const correctMeters = centimetrosValue / 100;
 
     // Verifica si los campos son correctos
     if (
-      centimeters === 'centimeters' &&
-      printFunction === 'print' &&
-      parseFloat(meters) === correctMeters
+      printFunction.trim() === 'print' && // Verificar que se haya ingresado 'print'
+      centimetrosValue === 100 // Verificar que el valor de centímetros es 100
     ) {
-      setOutput(`¡Correcto! La conversión es: ${correctMeters}`);
+      setOutput(`¡Correcto! La conversión es: ${correctMeters} metros`);
       setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+      setShowNext(true); // Muestra el botón de siguiente
     } else {
-      setOutput('Inténtalo de nuevo.');
+      setOutput('Inténtalo de nuevo. Asegúrate de que la función y el valor son correctos.');
     }
-    setShowNext(true); // Muestra el botón de siguiente
   };
 
   const handleInsigniaClick = (e) => {
     const insignia = e.target.alt; // Obtén el nombre de la insignia
-    // Aquí puedes agregar la lógica para redirigir a la página específica
     navigate(`/${insignia}`); // Redirige basado en el nombre de la insignia
   };
 
@@ -59,7 +64,6 @@ const Quince = () => {
         </button>
       </div>
       <div className="content">
-        {/* Contenedor de información */}
         <div className="info-container">
           <div className="info-item">
             <h3>
@@ -133,26 +137,21 @@ const Quince = () => {
                 <div className="code-header">PYTHON</div>
                 <div className="code-content">
                   <pre>
-                    <input
+                    centimetros = <input
                       type="text"
-                      value={centimeters}
-                      onChange={(e) => setCentimeters(e.target.value)}
-                      placeholder="centimeters"
+                      value={centimetros}
+                      onChange={(e) => setCentimetros(e.target.value)}
+                      placeholder="centímetros"
                     />
-                    = 100<br />
-                    meters = <input
-                      type="text"
-                      value={meters}
-                      onChange={(e) => setMeters(e.target.value)}
-                      placeholder="centimeters"
-                    /> / 100<br />
+                    <br />
+                    metros = centimetros / 100<br />
                     <input
                       type="text"
                       value={printFunction}
                       onChange={(e) => setPrintFunction(e.target.value)}
                       placeholder="print"
                     />
-                    (meters)
+                    (metros)
                   </pre>
                 </div>
               </div>
@@ -169,6 +168,7 @@ const Quince = () => {
                 </button>
               )}
 
+              {/* Mostrar el resultado aquí */}
               {output && (
                 <div className="code-box">
                   <div className="code-header">SALIDA</div>

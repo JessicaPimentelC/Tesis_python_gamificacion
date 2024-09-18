@@ -5,12 +5,14 @@ import '../styles/17.css'; // Asegúrate de que la ruta sea correcta
 const Diecisiete = () => {
   const [elifAnswer, setElifAnswer] = useState('');
   const [elseAnswer, setElseAnswer] = useState('');
+  const [result, setResult] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [showNext, setShowNext] = useState(false);
   const [score, setScore] = useState(0); // Estado para el puntaje
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString()); // Estado para la hora y fecha actual
   const navigate = useNavigate();
+  const [input1, setInput1] = useState('');
 
   useEffect(() => {
     // Actualiza la hora y fecha cada minuto
@@ -21,19 +23,14 @@ const Diecisiete = () => {
   }, []);
 
   const handleCheckAnswers = () => {
-    // Compara las respuestas ingresadas con los valores correctos
-    const isElifCorrect = elifAnswer.trim() === 'elif';
-    const isElseCorrect = elseAnswer.trim() === 'else';
-
-    if (isElifCorrect && isElseCorrect) {
-      setIsCorrect(true);
-      setShowNext(true); // Muestra el botón Siguiente si la respuesta es correcta
+    if (input1.trim().toLowerCase() === 'float') {
+        setResult('correct');
+      setShowNext(true); // Muestra el botón "Siguiente"
     } else {
-      setIsCorrect(false);
-      setShowNext(false); // Oculta el botón Siguiente si la respuesta es incorrecta
+        setResult('incorrect');
+      setShowNext(false); // Oculta el botón "Siguiente"
     }
-    setShowResult(true);
-  };
+};
 
   const handleInsigniaClick = () => {
     // Función para manejar el clic en las insignias
@@ -121,39 +118,27 @@ const Diecisiete = () => {
               <span>Verificación de Números</span>
             </div>
             <div className="nivel1-card-body">
-              <p>
-                Completa el código para verificar si un número es positivo, negativo o cero. Rellena los espacios en blanco.
-              </p>
-              <div className="code-box">
-                <div className="code-header">PYTHON</div>
+                <p>
+                Completa el siguiente código en Python para que funcione correctamente.
+                </p>
+                <div className="code-box">
+                <div className="code-header">Python</div>
                 <pre className="code-content">
-                  <code>
-                    {'numero = float(input("Ingresa un número: "))\n'}
-                    {'if numero > 0:\n'}
-                    {'    print("El número es positivo")\n'}
-                    {' ' }
-                    <input
-                      type="text"
-                      value={elifAnswer}
-                      onChange={(e) => setElifAnswer(e.target.value)}
-                      placeholder="______"
-                      className="input-field"
+                    <code>
+                    <div className="code-content">
+                    <pre>
+                    decimal = <input
+                        type="text"
+                        value={input1}
+                        onChange={(e) => setInput1(e.target.value)}
+                        placeholder="Ingrese el número"
                     />
-                    {'\n'}
-                    {'    print("El número es negativo")\n'}
-                    {' ' }
-                    <input
-                      type="text"
-                      value={elseAnswer}
-                      onChange={(e) => setElseAnswer(e.target.value)}
-                      placeholder="______"
-                      className="input-field"
-                    />
-                    {'\n'}
-                    {'    print("El número es cero")\n'}
-                  </code>
+                    (input("Ingrese el decimal"))
+                    </pre>
+                </div>  
+                    </code>
                 </pre>
-              </div>
+                </div>
 
               <div className="nivel1-card-button-container">
                 <button className="nivel1-card-button" onClick={handleCheckAnswers}>
