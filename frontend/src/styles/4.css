@@ -1,0 +1,167 @@
+/* 4.css */
+
+/* Estilos generales */
+
+.nivel1-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.sidebar-button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #28a745; /* Color verde atractivo */
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.score {
+  margin-top: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.white-background {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header-title h2 {
+  margin: 0;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+}
+
+.nivel1-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nivel1-card-header {
+  margin-bottom: 20px;
+}
+
+.nivel1-card-body {
+  margin-bottom: 20px;
+}
+
+.code-box {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #e9ecef;
+  min-height: 100px;
+  position: relative;
+}
+
+.code-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.code-content {
+  font-family: monospace;
+  font-size: 16px;
+  text-align: center;
+}
+
+.draggable-words {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Centra las palabras arrastrables */
+  margin-bottom: 20px;
+}
+
+.draggable-word {
+  background-color: #007bff; /* Color azul más vibrante */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: move;
+  user-select: none;
+}
+
+.nivel1-card-button-container {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.nivel1-card-button {
+  background-color: #28a745; /* Color verde atractivo */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nivel1-card-button:hover {
+  background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.score-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}

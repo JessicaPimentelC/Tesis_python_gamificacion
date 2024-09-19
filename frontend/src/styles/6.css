@@ -1,0 +1,444 @@
+/* Contenedor principal del Nivel1 */
+.nivel1-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Evita el desplazamiento del contenido */
+  }
+  
+  /* Barra lateral */
+  .sidebar {
+    width: 200px; /* Ancho de la barra lateral */
+    background-color: #FF5733; /* Color rojo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed; /* Fija la barra lateral para que ocupe toda la altura */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Asegura que la barra lateral esté por encima del contenido */
+  }
+  
+  /* Logo en la barra lateral */
+  .logo {
+    width: 80px;
+    margin-bottom: 20px;
+  }
+  
+  /* Botones en la barra lateral */
+  .sidebar-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Contenedor de contenido */
+  .content {
+    margin-left: 200px; /* Deja espacio para la barra lateral */
+    width: calc(100% - 200px); /* Ajusta el ancho del contenido */
+    padding: 20px;
+  }
+  
+  /* Fondo blanco en el área de contenido */
+  .white-background {
+    background-color: #fff; /* Color blanco */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 5px;
+    margin-top: 20px; /* Ajusta el espacio superior para separar del contenido de la tarjeta */
+    position: relative; /* Asegura que el fondo blanco se alinee correctamente */
+    z-index: 1; /* Asegura que el fondo blanco esté por debajo de otros elementos */
+  }
+  
+  /* Encabezado del Nivel1 */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; /* Añadir padding para crear espacio dentro del encabezado */
+    background-color: #fff; /* Fondo blanco para el encabezado */
+    border: 1px solid #ccc; /* Borde para distinguir el encabezado del fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    position: relative;
+    z-index: 2; /* Asegura que el encabezado esté por encima del fondo blanco */
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  /* Iconos en el encabezado */
+  .header .header-status img {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .header .header-status img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Tarjeta del Nivel1 */
+  .nivel1-card {
+    background-color: #ffb23f;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.7s ease-out;
+    position: relative;
+    z-index: 2; /* Asegura que la tarjeta esté por encima del fondo blanco */
+  }
+  
+  /* Encabezado de la tarjeta del Nivel1 */
+  .nivel1-card-header {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Cuerpo de la tarjeta del Nivel1 */
+  .nivel1-card-body p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Contenedor del botón "Verificar" y "Siguiente" */
+  .nivel1-card-button-container {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 15px;
+  }
+  
+  /* Botón en la tarjeta del Nivel1 */
+  .nivel1-card-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Cambios en el botón al pasar el ratón por encima */
+  .nivel1-card-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Botón "Siguiente" */
+  .next-button {
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Asegura que el botón sea visible */
+  }
+  
+  /* Cambios en el botón "Siguiente" al pasar el ratón por encima */
+  .next-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Contenedor del cuadro de código */
+  .code-box {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 10px;
+    color: #dcdcdc;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Encabezado del cuadro de código */
+  .code-header {
+    background-color: #3c3c3c;
+    padding: 5px 10px;
+    border-radius: 5px 5px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Contenido del cuadro de código */
+  .code {
+    text-align: center;
+    padding: 10px;
+    overflow-x: auto;
+  }
+  
+  /* Animación de desvanecimiento */
+  @keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+  }
+  
+  /* Animación de aparición */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  
+  /* Animación de deslizamiento */
+  @keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  
+  /* Contenedor de opciones arrastrables */
+  .drag-container {
+    display: flex;
+    justify-content: center; /* Centra las opciones horizontalmente */
+    gap: 10px; /* Espacio entre las opciones */
+    margin-top: 20px;
+  }
+  
+  /* Opciones arrastrables */
+  .drag-option {
+    background-color: #ffb23f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: grab;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Cambios en la opción arrastrable al pasar el ratón por encima */
+  .drag-option:hover {
+    background-color: #5c3700;
+    transform: scale(1.05);
+  }
+  
+  /* Zona de drop */
+  .drop-zone {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e3e3e3;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Contenedor del resultado */
+  .result-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Texto del resultado */
+  .result {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Resultado correcto */
+  .result.correct {
+    color: black;
+  }
+  
+  /* Resultado incorrecto */
+  .result.incorrect {
+    color: black;
+  }
+  
+  
+  /* Contenedor del botón "Verificar" y "Siguiente" */
+  .nivel1-card-button-container {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 15px;
+  }
+  
+  /* Botón en la tarjeta del Nivel1 */
+  .nivel1-card-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Cambios en el botón al pasar el ratón por encima */
+  .nivel1-card-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Botón "Siguiente" sin animación */
+  .next-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Asegura que el botón sea visible */
+  }
+  
+  /* Cambios en el botón "Siguiente" al pasar el ratón por encima */
+  .next-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para el resultado */
+  .result.correct {
+    color: black;
+  }
+  
+  .result.incorrect {
+    color: black;
+  }
+  
+  /* Estilo para los cuadros de entrada de código */
+  .code-box {
+    background-color: #282c34; /* Color oscuro para el fondo del código */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px 0;
+    padding: 20px; /* Padding para el espacio interior */
+    color: #dcdcdc; /* Color del texto */
+    font-family: 'Courier New', Courier, monospace; /* Fuente del código */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  /* Encabezado del cuadro de código */
+  .code-header {
+    background-color: #1e1e1e; /* Fondo oscuro para el encabezado */
+    padding: 10px;
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+    font-size: 18px;
+    font-weight: bold;
+    color: #61dafb; /* Color del texto del encabezado */
+  }
+  
+  /* Contenido del cuadro de código */
+  .code-content {
+    padding: 10px;
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+  }
+  
+  /* Botón en la tarjeta del Nivel1 */
+  .nivel1-card-button {
+    padding: 12px 24px;
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color del texto */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  }
+  
+  /* Cambios en el botón al pasar el ratón por encima */
+  .nivel1-card-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+  }
+  
+  /* Botón "Siguiente" */
+  .next-button {
+    padding: 12px 24px;
+    background-color: #28a745; /* Color verde para el botón "Siguiente" */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 10px; /* Espacio entre el botón "Verificar" y el botón "Siguiente" */
+  }
+  
+  /* Cambios en el botón "Siguiente" al pasar el ratón por encima */
+  .next-button:hover {
+    background-color: #218838; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05);
+  }
+  
+  /* Contenedor del resultado */
+  .result-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Texto del resultado */
+  .result {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Resultado correcto */
+  .result.correct {
+    color: #28a745; /* Verde para resultados correctos */
+    background-color: #e8f5e9; /* Fondo verde claro */
+  }
+  
+  /* Resultado incorrecto */
+  .result.incorrect {
+    color: #dc3545; /* Rojo para resultados incorrectos */
+    background-color: #f8d7da; /* Fondo rojo claro */
+  }
+ /* Contenedor del puntaje */
+.score-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Icono del puntaje */
+.score-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Texto del puntaje */
+.score-text {
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -1,0 +1,505 @@
+/* Contenedor principal del Nivel1 */
+.nivel1-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px;
+    background-color: #FF5733;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* Logo en la barra lateral */
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Botones en la barra lateral */
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* Iconos en la barra lateral */
+.sidebar-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Ajuste adicional para el contenedor principal si es necesario */
+.content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding esté dentro del ancho total */
+}
+
+/* Fondo blanco en el área de contenido */
+.white-background {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Encabezado del Nivel1 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Botón de icono en el encabezado */
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Título del encabezado */
+.header-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF5733;
+}
+
+/* Estado del encabezado */
+.header-status {
+    display: flex;
+    align-items: center;
+}
+
+/* Cuadro de información en la parte superior */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #ffab9b;
+    color: #000000;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    width: 100%; /* Asegura que el cuadro ocupe el 100% del contenedor */
+    max-width: 100%; /* Limita el ancho máximo para que no desborde */
+    box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho total */
+    margin-left: 0; /* Elimina cualquier margen a la izquierda */
+    margin-right: 0; /* Elimina cualquier margen a la derecha */
+}
+
+/* Ajuste adicional para el contenedor principal si es necesario */
+.content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding esté dentro del ancho total */
+}
+
+
+/* Elemento individual en el cuadro de información */
+.info-item {
+    flex-basis: 22%; /* Ajusta el ancho de cada elemento */
+}
+
+/* Iconos en el cuadro de información */
+.info-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Tarjeta de Nivel1 */
+.nivel1-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tarjeta de Nivel1 */
+.nivel1-card-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000; /* Restaurado el color de las letras a negro */
+    margin-bottom: 10px;
+}
+
+/* Cuerpo de la tarjeta de Nivel1 */
+.nivel1-card-body {
+    font-size: 16px;
+    color: #000; /* Restaurado el color de las letras a negro */
+}
+
+/* Caja de código en el ejercicio */
+.code-box {
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contenido del código */
+.code {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Opciones de arrastre */
+.drag-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Estilo de opción de arrastre */
+.drag-option {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Zona de colocación de la palabra correcta */
+.drop-zone {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+
+/* Botón de la tarjeta de Nivel1 */
+.nivel1-card-button {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contenedor para los botones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Botón de siguiente (oculto inicialmente) */
+.next-button {
+    display: none;
+}
+
+/* Muestra el botón de siguiente cuando se cumple la condición */
+.show {
+    display: inline-block;
+}
+
+/* Contenedor de resultados */
+.result-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Mensaje de resultado correcto */
+.result.correct {
+    color: green;
+    font-weight: bold;
+}
+
+/* Mensaje de resultado incorrecto */
+.result.incorrect {
+    color: red;
+    font-weight: bold;
+}
+/* Cuadro de ejercicio (cuadro amarillo) */
+.exercise-box {
+    width: 100%;
+    padding: 20px;
+    background-color: #FFC107; /* Amarillo */
+    border-radius: 10px;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    margin: 0 auto; /* Centra el cuadro */
+    max-width: 800px; /* Ancho máximo para evitar que se expanda demasiado */
+}
+/* Iconos en la parte superior */
+.info-container img {
+    width: 40px; /* Ajusta el tamaño según sea necesario */
+    height: 40px; /* Ajusta el tamaño según sea necesario */
+    margin-right: 10px; /* Añade espacio entre los iconos y el texto */
+}
+/* Contenedor general de las insignias */
+.icons-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea los íconos hacia la izquierda */
+    gap: 10px; /* Espacio entre los íconos */
+    margin-left: 20px; /* Ajusta el margen izquierdo para que no queden tan pegados */
+  }
+
+/* 1.css */
+.circular-icon {
+    width: 50px; /* Tamaño del botón circular, ajusta según lo necesites */
+    height: 50px; /* Tamaño del botón circular, ajusta según lo necesites */
+    border-radius: 50%; /* Hace el botón circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Asegura que el contenido no se desborde del círculo */
+    background-color: #f0f0f0; /* Ajusta el color de fondo si es necesario */
+    border: 2px solid #ddd; /* Ajusta el borde si es necesario */
+    position: relative;
+  }
+  
+  .circular-icon img {
+    max-width: 120%; /* Tamaño máximo del GIF dentro del botón circular */
+    max-height: 200%; /* Tamaño máximo del GIF dentro del botón circular */
+    width: auto; /* Mantiene el tamaño original de la imagen */
+    height: auto; /* Mantiene el tamaño original de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+  }
+  
+  
+
+.circular-icon:hover {
+  transform: scale(1.1);
+  background-color: #e0e0e0;
+}
+/* Icono del pingüino */
+.sidebar-button .sidebar-icon {
+    width: 40px;
+    height: 40px;
+  }
+  /* Contenedor para el pingüino */
+/* Contenedor del pingüino */
+.penguin-container {
+    position: fixed; /* Fija el contenedor al viewport */
+    right: 0; /* Alinea a la derecha */
+    top: 50%; /* Alinea verticalmente al centro */
+    transform: translateY(-50%) translateX(-200px); /* Ajusta el centro verticalmente y mueve a la izquierda */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+  }
+  
+/* Estilos para el pingüino */
+.penguin {
+    position: relative;
+    width: 120px;
+    height: 160px;
+    background-color: #2c3e50;
+    border-radius: 50% 50% 40% 40%;
+    animation: bounce 2s infinite;
+}
+
+/* Vientre del pingüino */
+.penguin::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Ojos */
+.eye {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 30px;
+}
+.eye.left {
+    left: 35px;
+}
+.eye.right {
+    right: 35px;
+}
+
+/* Pico */
+.beak {
+    position: absolute;
+    width: 20px;
+    height: 12px;
+    background-color: #f1c40f;
+    border-radius: 0 0 50% 50%;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Pies */
+.foot {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    bottom: -10px;
+}
+.foot.left {
+    left: 20px;
+}
+.foot.right {
+    right: 20px;
+}
+
+/* Animación del pingüino */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Otros estilos existentes */
+.sidebar {
+    width: 200px;
+    background-color: #FF5733;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+/* Estilos para el modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  
+  .modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #9dd8ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .modal-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1px;
+  }
+  
+  .modal-icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .modal-icon-button:hover {
+    transform: scale(1.2);
+  }
+  
+  .modal-icon {
+    width: 50px; /* Ajusta el tamaño de los iconos según sea necesario */
+    height: 50px;
+  }
+  .nivel1-container {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    justify-content: flex-start; /* Alinea los elementos al inicio del contenedor */
+  }
+  
+  .loading-indicator-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente la barra de carga dentro del contenedor */
+    margin-right: 20px; /* Espacio entre la barra de carga y el contenido principal */
+  }
+  
+  .nivel1-card {
+    flex: 1; /* Toma el espacio restante en el contenedor */
+  }
+  
+  /* Otros estilos existentes */
+  .nivel1-page {
+    display: flex;
+    position: relative;
+  }
+  
+  /* Contenedor de la barra de carga */
+/* Contenedor de la barra de carga */
+.loading-indicator-outer {
+    position: fixed; /* Fija la posición de la barra de carga en la pantalla */
+    left: 400px; /* Mueve la barra de carga más a la derecha desde el borde izquierdo de la pantalla */
+    top: 450px; /* Mueve la barra de carga hacia abajo desde el borde superior de la pantalla */
+    padding: 0; /* Elimina el padding alrededor de la barra de carga */
+    z-index: 100; /* Asegura que la barra de carga esté por encima de otros elementos */
+}
+
+
+  .nivel1-container {
+    flex: 1;
+    margin-left: 20px; /* Ajusta el margen para dejar espacio para la barra de carga */
+  }
+  
+  /* Otros estilos existentes */
+  
