@@ -11,6 +11,9 @@ const Uno = () => {
   const [score, setScore] = useState(0);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
   const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
+  const [isOpen, setIsOpen] = useState(false); // Estado para la barra lateral
+  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
+  
   const navigate = useNavigate();
 
   const options = ['Mundo', 'Hola', 'Eduardo'];
@@ -23,7 +26,21 @@ const Uno = () => {
     e.preventDefault();
     setDroppedItem(draggedItem);
   };
-
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Si se hace clic fuera de los iconos, se oculta el nombre
+      if (!event.target.closest('.circular-icon-container')) {
+        setHoveredInsignia(null);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+  
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
   const handleVerify = () => {
     if (droppedItem === 'Mundo') {
       setIsCorrect(true);
@@ -61,6 +78,14 @@ const Uno = () => {
     setShowModal(false); // Cerrar el modal
   };
 
+  const handleMouseEnter = (name) => {
+    setHoveredInsignia(name); // Establece el nombre inmediatamente
+  };
+
+  const handleMouseLeave = () => {
+    // No hacemos nada aquí para evitar el parpadeo
+  };
+  
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
@@ -68,6 +93,10 @@ const Uno = () => {
 
     return () => clearInterval(intervalId);
   }, []);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen); // Definición de la función
+  };
 
   return (
     <div className="nivel1-page">
@@ -77,9 +106,12 @@ const Uno = () => {
       </div>
 
       <div className="nivel1-container">
-        {/* Sección de la barra lateral */}
-        <div className="sidebar">
-          <img src="tesis.png" alt="Logo" className="logo" />
+        <button className="btn-nav" onClick={toggleSidebar}>
+          {isOpen ? '✖' : '☰'} {/* Cambia el ícono del botón */}
+        </button>
+
+        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+          <img src="menu.png" alt="Logo" className="logo" />
           <button className="sidebar-button" onClick={() => navigate('/ejercicios1')}>
             <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
             Atras
@@ -119,21 +151,25 @@ const Uno = () => {
             <div className="info-item">
               <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
               <div className="icons-container">
-                <button className="circular-icon" onClick={handleInsigniaClick}>
-                  <img src="fugaz.gif" alt="Insignia 1" />
-                </button>
-                <button className="circular-icon" onClick={handleInsigniaClick}>
-                  <img src="ganar.gif" alt="Insignia 2" />
-                </button>
-                <button className="circular-icon" onClick={handleInsigniaClick}>
-                  <img src="gps.gif" alt="Insignia 3" />
-                </button>
-                <button className="circular-icon" onClick={handleInsigniaClick}>
-                  <img src="caja.gif" alt="Insignia 4" />
-                </button>
-                <button className="circular-icon" onClick={handleInsigniaClick}>
-                  <img src="medalla.gif" alt="Insignia 5" />
-                </button>
+                {[
+                  { src: "estrella-3d.png", name: "Insignia 1" },
+                  { src: "1222.png", name: "Insignia 2" },
+                  { src: "altavoz-3d.png", name: "Insignia 3" },
+                  { src: "cohete-3d.png", name: "Insignia 4" },
+                  { src: "fuego-3d.png", name: "Insignia 5  " },
+                ].map((insignia, index) => (
+                  <div key={index} className="circular-icon-container">
+                    <button
+                      className="circular-icon"
+                      onClick={handleInsigniaClick}
+                      onMouseEnter={() => handleMouseEnter(insignia.name)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <img src={insignia.src} alt={insignia.name} />
+                    </button>
+                    {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="info-item">

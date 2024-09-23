@@ -133,7 +133,7 @@ const Dashboard = ({ toggleView }) => {
           </div>
           <div className="user-profile">
             <img
-              src="tres-amigos.gif"
+              src="discusion.png"
               alt="Imagen de perfil"
               className="profile-picture"
               onClick={handleForoIconClick}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/Insignias.css";
 
 const Insignias = () => {
-  const navigate = useNavigate(); // Hook para la redirección
+  const navigate = useNavigate();
 
   // Estado para controlar el modal
   const [selectedInsignia, setSelectedInsignia] = useState(null);
@@ -12,10 +12,12 @@ const Insignias = () => {
     nombreCompleto: "Eduardo Jose Daza Palencia",
     nombreUsuario: "Eduardo223804",
     insignias: [
-      { id: 1, nombre: "Insignia 1", icono: "fugaz.gif", descripcion: "La insignia fugaz se gana por completar una tarea rápidamente." },
-      { id: 2, nombre: "Insignia 2", icono: "medalla.gif", descripcion: "Medalla por cumplir con todas las tareas asignadas durante la semana." },
-      { id: 3, nombre: "Insignia 3", icono: "gps.gif", descripcion: "Se obtiene por haber asistido a todas las reuniones en un mes." },
-      { id: 4, nombre: "Insignia 4", icono: "caja.gif", descripcion: "Insignia por creatividad al resolver problemas complejos." },
+      { id: 1, nombre: "insignia", icono: "estrella-3d.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 2, nombre: "insignia", icono: "1222.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 3, nombre: "insignia", icono: "altavoz-3d.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 4, nombre: "insignia", icono: "cohete-3d.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 5, nombre: "insignia", icono: "fuego-3d.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 6, nombre: "insignia", icono: "navegacion-3d.png", descripcion: "xxxxxxxxxxxxx" },
     ],
   };
 
@@ -42,21 +44,19 @@ const Insignias = () => {
       </div>
 
       <div className="profile-container">
-        {/* Cuadro alrededor del nombre y el icono */}
         <div className="profile-header">
           <div className="profile-box">
             <img src="hombre.png" alt="Icono" className="profile-box-icon" />
             <div className="profile-info">
               <h2>{user.nombreCompleto}</h2>
               <p>{user.nombreUsuario}</p>
-              {/* Número 4 fijo debajo del nombre de usuario */}
-              <p className="insignia-number">Insignia: 4</p>
+              <p className="insignia-number">Insignias: 6</p>
             </div>
           </div>
         </div>
 
-        {/* Lista de insignias */}
-        <div className="insignias-list">
+        {/* Lista de insignias en grid */}
+        <div className="insignias-grid">
           {user.insignias.map((insignia) => (
             <div key={insignia.id} className="insignia-item" onClick={() => openModal(insignia)}>
               <div className="insignia-icon">
