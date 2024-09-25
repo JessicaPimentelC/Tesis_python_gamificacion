@@ -5,8 +5,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import '../styles/Register.css';
 import Loginsesion from './Loginsesion';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
-const Login = ({ toggleView }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,9 +16,51 @@ const Login = ({ toggleView }) => {
     console.log(response);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate('/dashboard'); // Redirigir al dashboard después de un login exitoso
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/myapp/login/",
+        { email, password }
+      );
+
+      alert(response.data.message);
+      navigate('/dashboard'); 
+    }catch (error) {
+        console.error(error);
+        if (error.response && error.response.data) {
+          alert(error.response.data.error || "Credenciales incorrectas");
+        } else {
+          alert("Credenciales incorrectas");
+        }
+      }
+  };
+
+  const handleGoogleLoginSuccess = async (response) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/myapp/accounts/google/login/token/",
+        { token: response.credential }
+      );
+
+      if (res.data.message) {
+        console.error('Error:', res.data.message);
+        alert(`ERROR: ${res.data.message}`);
+      } 
+      else {
+      console.log('Inicio de sesión exitoso:', res.data);
+      navigate('/dashboard')
+      }}
+
+      catch (error) {
+      console.error(error);
+      alert("Error al iniciar sesión con Google.");
+    }
+  };
+  const handleGoogleLoginFailure = (error) => {
+    console.error(error);
+    alert("Error al autenticar con Google.");
   };
 
   return (

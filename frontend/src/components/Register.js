@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import '../styles/Register.css';
 import Loginsesion from './Loginsesion'; 
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Register = ({ toggleView }) => {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password) {
+    if (!username || !email || !password) {
       alert('Por favor, completa todos los campos.');
       return;
     }
@@ -25,30 +28,25 @@ const Register = ({ toggleView }) => {
       alert('La contraseña debe tener al menos 4 caracteres.');
       return;
     }
-  
-    const userData = { name, email, password };
-  
+    
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await axios.post(
+        "http://localhost:8000/myapp/registro/",
+        { email, username, password});
+
   
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      console.log('Success:', data);
-      toggleView('dashboard');
-    } catch (error) {
+      //const data = await response.json();
+      alert('Registro exitoso.');
+      console.log('Success:', response.data);
+      navigate('/login');
+    } 
+
+    catch (error) {
       console.error('Error:', error);
       alert('Ocurrió un error al registrar. Por favor, intenta de nuevo.');
     }
   };
+
 
   return (
     <div className="register-container">
@@ -59,9 +57,9 @@ const Register = ({ toggleView }) => {
           <div className="form-group">
             <input
               type="text"
-              placeholder="Nombre y Apellido"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="form-group">

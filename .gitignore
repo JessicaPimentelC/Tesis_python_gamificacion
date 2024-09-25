@@ -4,6 +4,7 @@
 /frontend/node_modules
 /backend/myapp/__pycache__
 /backend/Python_gamificacion/__pycache__
+/backend/venv
 /node_modules
 /.pnp
 .pnp.js
