@@ -315,7 +315,7 @@
     position: fixed; /* Fija el contenedor al viewport */
     right: 0; /* Alinea a la derecha */
     top: 50%; /* Alinea verticalmente al centro */
-    transform: translateY(-50%) translateX(-200px); /* Ajusta el centro verticalmente y mueve a la izquierda */
+    transform: translateY(-50%) translateX(-150px); /* Ajusta el centro verticalmente y mueve a la izquierda */
     z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
   }
   
