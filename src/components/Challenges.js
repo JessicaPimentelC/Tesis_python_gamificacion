@@ -4,10 +4,9 @@ import '../styles/Dashboard.css';
 
 const Challenges = ({ progress }) => {
   return (
-    <div className="challenges-box info-box">
+    <div >
       <h2>Desafíos del día</h2>
-      <p>Gana 41 puntos</p>
-      <ProgressBar progress={progress} />
+    {/**  <ProgressBar progress={progress} />*/} 
     </div>
   );
 };

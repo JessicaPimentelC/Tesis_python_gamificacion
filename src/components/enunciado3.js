@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Enunciado3.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 
-const Enunciado3 = ({ toggleView, score = 0 }) => {
+const Enunciado3 = ({ score = 0 }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);

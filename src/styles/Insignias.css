@@ -10,7 +10,7 @@
 /* Barra lateral */
 .sidebar {
   width: 11%;
-  background-color: #ed61ff;
+  background-color: #a783ad;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -174,16 +174,6 @@
   height: 100vh;
 }
 
-/* Barra lateral */
-.sidebar {
-  width: 11%;
-  background-color: #ff6f61;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-}
 
 .sidebar-btn {
   background-color: #fff;

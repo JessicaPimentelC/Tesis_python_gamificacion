@@ -1,0 +1,15 @@
+.sidebar {
+    background-color: #FF8787; /* Color de fondo del sidebar */
+    width: 150px; /* Ancho del sidebar */
+    position: fixed; /* Sidebar fijo */
+    top: 0; /* Posiciona en la parte superior */
+    bottom: 0; /* Extiende hasta la parte inferior */
+    font-family: 'Helvetica', sans-serif;
+
+}
+
+.sidebar-imagen {
+    width: 100px; 
+    height: 100px;
+
+}
