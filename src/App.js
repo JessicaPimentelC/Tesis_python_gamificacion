@@ -3,32 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import Dashboard from './components/Dashboard';
 import Iniciogoogle from './components/Iniciogoogle';
 import Loginsesion from './components/Loginsesion';
 import Lecciones from './components/Lecciones';
+import Positions from './components/Positions';
+import Insignias from './components/Insignias'; 
 import Nivel1 from './components/Nivel1';
 import Ejercicios1 from './components/Ejercicios1';
-import Uno from './components/1';
-import Dos from './components/2';
-import Tres from './components/3';
-import Cuatro from './components/4';
-import Cinco from './components/5';
-import Seis from './components/6';
-import Siete from './components/7';
-import Ocho from './components/8';
-import Nueve from './components/9';
-import Diez from './components/10';
-import Once from './components/11';
-import Doce from './components/12';
-import Trece from './components/13';
-import Catorce from './components/14';
-import Quince from './components/15';
-import Dieciséis from './components/16';
-import Diecisiete from './components/17';
-import Dieciocho from './components/18';
-import Diecinueve from './components/19';
-import Veinte from './components/20';
 import Examen from './components/Examen';
 import Examennivel1 from './components/Examennivel1';
 import Condicionales from './components/Condicionales';
@@ -50,9 +31,30 @@ import Enunciado17 from './components/enunciado17';
 import Enunciado18 from './components/enunciado18';
 import Enunciado19 from './components/enunciado19';
 import Enunciado20 from './components/enunciado20';
+import Dos from './components/2';
+import Tres from './components/3';
+import Cuatro from './components/4';
+import Cinco from './components/5';
+import Seis from './components/6';
+import Siete from './components/7';
+import Ocho from './components/8';
+import Nueve from './components/9';
+import Diez from './components/10';
+import Once from './components/11';
+import Doce from './components/12';
+import Trece from './components/13';
+import Catorce from './components/14';
+import Quince from './components/15';
+import Dieciséis from './components/16';
+import Diecisiete from './components/17';
+import Dieciocho from './components/18';
+import Diecinueve from './components/19';
+import Veinte from './components/20';
+import Uno from './components/1';
 import Foro from './components/foro';
-import Positions from './components/Positions';
-import Insignias from './components/Insignias'; // Agrega la importación aquí
+import Sidebar from './components/Sidebar'; 
+import Dashboard from './components/Dashboard';
+import Header from './components/Header'; 
 
 const App = () => {
   return (
@@ -110,7 +112,10 @@ const App = () => {
         <Route path="/enunciado20" element={<Enunciado20 />} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
-        <Route path="/insignias" element={<Insignias />} /> {/* Nueva ruta */}
+        <Route path="/insignias" element={<Insignias />} /> 
+        <Route path="/sidebar" element={<Sidebar />} /> 
+        <Route path="/header" element={<Header />} /> 
+
       </Routes>
     </Router>
   );

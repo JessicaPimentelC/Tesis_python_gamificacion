@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/Tesis_python_gamificacion/node_modules
 /.pnp
 .pnp.js
 
