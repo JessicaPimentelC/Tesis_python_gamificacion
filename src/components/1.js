@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import LoadingIndicator from './LoadingIndicator'; // Importa el nuevo componente
+import Sidebar from './Sidebar';
+import HeaderBody from './HeaderBody';
 
 const Uno = () => {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -100,84 +102,15 @@ const Uno = () => {
 
   return (
     <div className="nivel1-page">
+      <Sidebar></Sidebar>
       {/* Barra de carga alineada a la izquierda de la pantalla */}
-      <div className="loading-indicator-outer">
-        <LoadingIndicator /> {/* Reemplaza ProgressBar con LoadingIndicator */}
-      </div>
-
+      {/**<div className="loading-indicator-outer">
+        <LoadingIndicator /> {/* Reemplaza ProgressBar con LoadingIndicator </div>**/}
       <div className="nivel1-container">
-        <button className="btn-nav" onClick={toggleSidebar}>
-          {isOpen ? '✖' : '☰'} {/* Cambia el ícono del botón */}
-        </button>
-
-        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-          <img src="menu.png" alt="Logo" className="logo" />
-          <button className="sidebar-button" onClick={() => navigate('/ejercicios1')}>
-            <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-            Atras
-          </button>
-          <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
-            <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
-            CONFIGURACIÓN
-          </button>
-          
-          {/* Contenedor del pingüino */}
-          <div className="nivel1-container">
-            <div className="penguin-container" onClick={handlePenguinClick}>
-              <div className="penguin">
-                <div className="eye left"></div>
-                <div className="eye right"></div>
-                <div className="beak"></div>
-                <div className="foot left"></div>
-                <div className="foot right"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
         {/* Contenedor principal con el cuadro de información y el contenido principal */}
         <div className="content">
           {/* Contenedor de información sin GIF */}
-          <div className="info-container">
-            <div className="info-item">
-              <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
-              <p>Eduardo Jose Daza</p>
-            </div>
-            <div className="info-item">
-              <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
-              <p>{score}</p>
-            </div>
-            <div className="info-item">
-              <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
-              <div className="icons-container">
-                {[
-                  { src: "estrella-3d.png", name: "Insignia 1" },
-                  { src: "1222.png", name: "Insignia 2" },
-                  { src: "altavoz-3d.png", name: "Insignia 3" },
-                  { src: "cohete-3d.png", name: "Insignia 4" },
-                  { src: "fuego-3d.png", name: "Insignia 5  " },
-                ].map((insignia, index) => (
-                  <div key={index} className="circular-icon-container">
-                    <button
-                      className="circular-icon"
-                      onClick={handleInsigniaClick}
-                      onMouseEnter={() => handleMouseEnter(insignia.name)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <img src={insignia.src} alt={insignia.name} />
-                    </button>
-                    {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="info-item">
-              <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
-              <p>{currentTime}</p>
-            </div>
-          </div>
-
+          <HeaderBody></HeaderBody>
           {/* Sección principal con el ejercicio */}
           <div className="white-background">
             <div className="header">
@@ -204,7 +137,7 @@ const Uno = () => {
               <div className="nivel1-card-header">
                 <span>EJERCICIO #1</span>
               </div>
-              <div className="nivel1-card-body">
+              <div className="nivel1-card-body-ejer1">
                 <p>
                   A continuación, te presentamos nuestro primer ejercicio de nivel 1. El ejercicio consiste en identificar la palabra correcta en relación con el siguiente enunciado. ¡Buena suerte!
                   <br /><br />
@@ -212,13 +145,13 @@ const Uno = () => {
                 </p>
                 <div className="code-box">
                   <div className="code-header">Python</div>
-                  <div className="code-content">
-                    <pre>
-                      <code>
-                        print("Hola, ________!")
-                      </code>
-                    </pre>
-                  </div>
+                    <div className="code-content">
+                      <pre>
+                        <code>
+                          print("Hola, ________!")
+                        </code>
+                      </pre>
+                    </div>
                 </div>
                 <div className="drag-container">
                   {options.map((option) => (

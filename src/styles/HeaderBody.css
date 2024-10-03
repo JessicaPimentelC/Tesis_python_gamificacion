@@ -1,0 +1,51 @@
+.dashboard-header {
+    margin-left: 150px; /* Espacio para el sidebar */
+    display: flex; /* Alinea el contenido interno */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alineación vertical */
+    height: 100px; /* Altura del encabezado */
+    width: 100%; /* Ancho completo */
+    background-color: #F8C4B4; /* Color de fondo del encabezado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
+}
+/* Cuadro de información en la parte superior */
+.info-container {
+    font-family: Helvetica;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #F8C4B4;
+    color: #000000;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    width: 100%; /* Asegura que el cuadro ocupe el 100% del contenedor */
+    max-width: 100%; /* Limita el ancho máximo para que no desborde */
+    box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho total */
+    margin-left: 0; /* Elimina cualquier margen a la izquierda */
+    margin-right: 0; /* Elimina cualquier margen a la derecha */
+}
+.info-container img {
+    width: 40px; /* Ajusta el tamaño según sea necesario */
+    height: 40px; /* Ajusta el tamaño según sea necesario */
+    margin-right: 10px; /* Añade espacio entre los iconos y el texto */
+}
+
+/* Elemento individual en el cuadro de información */
+.info-item {
+    flex-basis: 22%; /* Ajusta el ancho de cada elemento */
+}
+
+.hovered-insignia {
+    position: absolute; /* Asegúrate de que esté posicionado correctamente */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}

@@ -1,0 +1,14 @@
+.dashboard-header {
+    margin-left: 150px; /* Espacio para el sidebar */
+    font-family: Helvetica;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #F8C4B4;
+    color: #000000;
+    border-radius: 50px;
+    margin-top: 25px;
+    width: 90%; /* Asegura que el cuadro ocupe el 100% del contenedor */
+    max-width: 100%; /* Limita el ancho máximo para que no desborde */
+    box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho total */
+}

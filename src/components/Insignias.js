@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../styles/Insignias.css";
+import Sidebar from './Sidebar';
+import Header from './Header';
 
 const Insignias = () => {
   const navigate = useNavigate();
@@ -12,12 +14,12 @@ const Insignias = () => {
     nombreCompleto: "Eduardo Jose Daza Palencia",
     nombreUsuario: "Eduardo223804",
     insignias: [
-      { id: 1, nombre: "insignia", icono: "estrella-3d.png", descripcion: "xxxxxxxxxxxxx" },
-      { id: 2, nombre: "insignia", icono: "1222.png", descripcion: "xxxxxxxxxxxxx" },
-      { id: 3, nombre: "insignia", icono: "altavoz-3d.png", descripcion: "xxxxxxxxxxxxx" },
-      { id: 4, nombre: "insignia", icono: "cohete-3d.png", descripcion: "xxxxxxxxxxxxx" },
-      { id: 5, nombre: "insignia", icono: "fuego-3d.png", descripcion: "xxxxxxxxxxxxx" },
-      { id: 6, nombre: "insignia", icono: "navegacion-3d.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 1, nombre: "insignia", icono: "tres.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 2, nombre: "insignia", icono: "bombillo.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 3, nombre: "insignia", icono: "megafono.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 4, nombre: "insignia", icono: "cohetee.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 5, nombre: "insignia", icono: "fuego.png", descripcion: "xxxxxxxxxxxxx" },
+      { id: 6, nombre: "insignia", icono: "ruta.png", descripcion: "xxxxxxxxxxxxx" },
     ],
   };
 
@@ -38,10 +40,9 @@ const Insignias = () => {
 
   return (
     <div className="container">
-      <div className="sidebar">
-        <button className="sidebar-btn" onClick={() => handleRedirect('/1')}>ATRÁS</button>
-        <button className="sidebar-btn" onClick={() => handleRedirect('/configuracion')}>CONFIGURACIÓN</button>
-      </div>
+      <div className="dashboard-container">
+      <Sidebar/>
+     
 
       <div className="profile-container">
         <div className="profile-header">
@@ -78,6 +79,7 @@ const Insignias = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

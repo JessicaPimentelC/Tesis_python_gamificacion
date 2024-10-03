@@ -1,28 +1,14 @@
-/* Contenedor principal del Nivel1 */
-.nivel1-container {
+
+  .nivel1-container {
+    background-color: white;
+    overflow-y: auto; /* Permite el scroll si el contenido es demasiado largo */
     display: flex;
-    height: 100vh;
-    overflow: hidden;
     flex-direction: column;
-    align-items: center;
-    background-color: #fff; /* Fondo blanco */
+    flex-grow: 1; /* Hace que el contenedor crezca con el contenido */
+    width: 150%;
+    box-sizing: border-box;
 }
 
-/* Barra lateral */
-.sidebar {
-    width: 200px; /* Ancho de la barra lateral */
-    background-color: #FF5733; /* Color de fondo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    transition: width 0.3s; /* Transición suave al cambiar el ancho */
-}
 /* Barra lateral colapsada */
 .sidebar.collapsed {
     width: 60px; /* Ancho cuando está colapsada */
@@ -51,23 +37,11 @@
     height: 24px;
     margin-right: 10px;
 }
-
-/* Ajuste adicional para el contenedor principal si es necesario */
-.content {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-    padding: 20px;
-    box-sizing: border-box; /* Asegura que el padding esté dentro del ancho total */
-}
-
 .white-background {
-    background-color: #fff; /* Fondo blanco */
+    background-color: white;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 20px;
-    position: relative;
-    z-index: 1;
+    flex-grow: 1; /* Hace que el contenido crezca con el contenedor */
+    box-sizing: border-box;
 }
 
 /* Encabezado del Nivel1 */
@@ -120,12 +94,16 @@
     margin-right: 0; /* Elimina cualquier margen a la derecha */
 }
 
-/* Ajuste adicional para el contenedor principal si es necesario */
 .content {
-    margin-left: 200px;
-    width: calc(100% - 200px);
+    margin-left: 150px;
+    width: calc(100% - 200px); /* Ajusta el ancho para que tome el espacio restante */
     padding: 20px;
     box-sizing: border-box; /* Asegura que el padding esté dentro del ancho total */
+    background-color: white; /* Fondo blanco */
+    min-height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
+    display: flex; /* Flexbox para organizar el contenido */
+    flex-direction: column; /* Los elementos hijos se apilan verticalmente */
+    justify-content: flex-start; /* Empieza los hijos desde el inicio */
 }
 
 
@@ -141,13 +119,15 @@
     margin-right: 10px;
 }
 
-/* Tarjeta de Nivel1 */
+
 .nivel1-card {
-    background-color: #fff;
+    
+    width: 100%; /* Asegura que la tarjeta ocupe el ancho completo */
+    background-color: white;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
 /* Encabezado de la tarjeta de Nivel1 */
@@ -159,14 +139,15 @@
 }
 
 /* Cuerpo de la tarjeta de Nivel1 */
-.nivel1-card-body {
+.nivel1-card-body-ejer1 {
+    font-family: Helvetica;
     font-size: 16px;
     color: #000; /* Restaurado el color de las letras a negro */
 }
 
 /* Caja de código en el ejercicio */
 .code-box {
-    background-color: #f0f0f0;
+    background-color: #000000;
     border: 1px solid #ffffff;
     border-radius: 5px;
     padding: 10px;
@@ -189,7 +170,7 @@
 
 /* Estilo de opción de arrastre */
 .drag-option {
-    background-color: #FF5733;
+    background-color: gray;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -209,7 +190,7 @@
 
 /* Botón de la tarjeta de Nivel1 */
 .nivel1-card-button {
-    background-color: #FF5733;
+    background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -464,28 +445,21 @@
     width: 50px; /* Ajusta el tamaño de los iconos según sea necesario */
     height: 50px;
   }
-  .nivel1-container {
-    display: flex;
-    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
-    justify-content: flex-start; /* Alinea los elementos al inicio del contenedor */
-  }
+
   
   .loading-indicator-container {
     display: flex;
     align-items: center; /* Centra verticalmente la barra de carga dentro del contenedor */
     margin-right: 20px; /* Espacio entre la barra de carga y el contenido principal */
-  }
-  
-  .nivel1-card {
-    flex: 1; /* Toma el espacio restante en el contenedor */
-  }
-  
-  /* Otros estilos existentes */
-  .nivel1-page {
-    display: flex;
-    position: relative;
-  }
-  
+}
+
+
+/* Otros estilos existentes */
+.nivel1-page {
+height: 100vh; /* Asegura que la página ocupa el 100% de la ventana */
+display: flex;
+  flex-direction: row; /* Mantiene la barra lateral alineada */}
+
   /* Contenedor de la barra de carga */
 /* Contenedor de la barra de carga */
 .loading-indicator-outer {
@@ -497,10 +471,6 @@
 }
 
 
-  .nivel1-container {
-    flex: 1;
-    margin-left: 20px; /* Ajusta el margen para dejar espacio para la barra de carga */
-  }
   
   .hovered-insignia {
     position: absolute; /* Asegúrate de que esté posicionado correctamente */

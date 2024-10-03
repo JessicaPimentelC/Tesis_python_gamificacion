@@ -31,7 +31,7 @@ const Login = ({ toggleView }) => {
           <div className="form-group">
             <input
               type="email"
-              placeholder="Username"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -40,7 +40,7 @@ const Login = ({ toggleView }) => {
           <div className="form-group">
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -54,8 +54,8 @@ const Login = ({ toggleView }) => {
           </GoogleOAuthProvider>
         </div>
         <div className="login-footer">
-          <a href="#" onClick={() => navigate('/register')}>Create Account</a>
-          <a href="#" onClick={() => navigate('reset')}>Forgot Password?</a>
+          <a href="#" onClick={() => navigate('/register')}>Crear una cuenta</a>
+          <a href="#" onClick={() => navigate('reset')}>Olvidó la contraseña?</a>
         </div>
       </div>
     </div>

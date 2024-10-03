@@ -55,6 +55,8 @@ import Foro from './components/foro';
 import Sidebar from './components/Sidebar'; 
 import Dashboard from './components/Dashboard';
 import Header from './components/Header'; 
+import Challenges from './components/Challenges'; 
+import Avances from './components/Avances'; 
 
 const App = () => {
   return (
@@ -114,7 +116,9 @@ const App = () => {
         <Route path="/positions" exact element={<Positions />} />
         <Route path="/insignias" element={<Insignias />} /> 
         <Route path="/sidebar" element={<Sidebar />} /> 
-        <Route path="/header" element={<Header />} /> 
+        <Route path="/header" element={<Header />} />
+        <Route path="/challenges" element={<Challenges />} /> 
+        <Route path="/avances" element={<Avances />} /> 
 
       </Routes>
     </Router>

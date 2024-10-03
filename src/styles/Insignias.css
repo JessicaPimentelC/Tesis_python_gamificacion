@@ -10,7 +10,7 @@
 /* Barra lateral */
 .sidebar {
   width: 11%;
-  background-color: #ed61ff;
+  background-color: #a783ad;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,18 +102,7 @@
   font-size: 16px;
   font-weight: bold;
 }
-/* Contenedor principal */
-.container {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  background-image: url('/public/fondo2.jpg'); /* Ruta desde public */
 
-
-  background-size: cover; /* Asegura que el fondo cubra todo el contenedor */
-  background-position: center; /* Centra la imagen de fondo */
-  height: 100vh;
-}
 
 /* Otros estilos... */
 /* Modal */
@@ -148,7 +137,7 @@
 }
 
 .close-btn:hover {
-  color: rgb(230, 102, 102);
+  color: rgb(255, 167, 167);
 }
 /* Efecto de escalado para las insignias */
 .insignia-item {
@@ -174,16 +163,6 @@
   height: 100vh;
 }
 
-/* Barra lateral */
-.sidebar {
-  width: 11%;
-  background-color: #ff6f61;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-}
 
 .sidebar-btn {
   background-color: #fff;
@@ -203,7 +182,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ff6f61;
+  background-color: #F8C4B4;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
