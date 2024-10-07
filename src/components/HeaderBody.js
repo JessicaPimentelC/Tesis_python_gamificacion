@@ -59,13 +59,8 @@ const HeaderBody = ({ nombre, puntaje, insignias }) => {
     return (
         <div className="info-container">
             <div className="info-item">
-            <h3><img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:</h3>
-            <p>Eduardo Jose Daza</p>
             </div>
-            <div className="info-item">
-            <h3><img src="puntaje.png" className="info-icon" /> Puntaje:</h3>
-            <p>{score}</p>
-            </div>
+            
             <div className="info-item">
             <h3><img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:</h3>
             <div className="icons-container">
@@ -90,10 +85,7 @@ const HeaderBody = ({ nombre, puntaje, insignias }) => {
                 ))}
             </div>
             </div>
-            <div className="info-item">
-            <h3><img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:</h3>
-            <p>{currentTime}</p>
-            </div>
+           
         </div>
 
     );

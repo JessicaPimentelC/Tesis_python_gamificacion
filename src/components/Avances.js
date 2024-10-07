@@ -78,7 +78,7 @@ const Avances = () => {
           <div className="contenido">
             <div className="bloqueado-texto">Bloqueado</div>
           </div>
-          <div className="icono">
+          <div className="icono">   
             <img src="candado.png" alt="Bloqueado" />
           </div>
         </div>

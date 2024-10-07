@@ -77,7 +77,60 @@
     display: flex;
     align-items: center;
 }
-
+.player-info {
+    position: absolute;
+    top: 300px; /* Ajusta este valor para controlar la posición vertical */
+    right: 200px; /* Ajusta este valor para controlar la posición horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .icon-background {
+    background-color: #F8C4B4; /* Color del fondo del círculo */
+    padding: 20px; /* Ajusta este valor según el tamaño del círculo */
+    border-radius: 100%; /* Esto hace que sea un círculo perfecto */
+    width: 100px; /* Ajusta el ancho del círculo */
+    height: 100px; /* Ajusta la altura del círculo para que sea igual al ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease; /* Transición suave */
+  }
+  
+  .info-icon {
+    width: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    height: 50px;
+    transition: transform 0.5s ease; /* Añadir transición para una animación suave */
+  }
+  
+  /* Efecto al pasar el mouse */
+  .icon-background:hover {
+    transform: rotate(360deg); /* Rotación completa del círculo */
+  }
+  
+  /* Animación del ícono al hacer hover */
+  .icon-background:hover .info-icon {
+    transform: rotate(-360deg); /* Rotación inversa del ícono */
+  }
+  
+  .text-content h3 {
+    margin: 10px 0 0;
+    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #333;
+  }
+  
+  .text-content p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .text-content p strong {
+    font-weight: bold;
+  }
+  
+  
 /* Cuadro de información en la parte superior */
 .info-container {
     display: flex;
@@ -379,8 +432,8 @@
 
 /* Otros estilos existentes */
 .sidebar {
-    width: 200px;
-    background-color: #FF5733;
+    width: 160px;
+    background-color: #FF8787;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -481,4 +534,48 @@ display: flex;
     z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
   }
   
-  
+  .circles-container {
+    position: absolute;
+    bottom: 700px; /* Aumenta este valor para subir los círculos, disminúyelo para bajarlos */
+    left: 50%;
+    transform: translateX(-60%); /* Cambia a -50% para centrar correctamente */
+    display: flex;
+    justify-content: space-around; /* Espacio uniforme entre círculos */
+    width: 80%; /* Ajusta según el diseño deseado */
+}
+.circles-container {
+    position: absolute;
+    bottom: 700px; /* Ajusta la posición vertical según sea necesario */
+    left: 50%;
+    transform: translateX(-60%); /* Centra los círculos horizontalmente */
+    display: flex;
+    justify-content: space-around; /* Espacio uniforme entre círculos */
+    width: 80%; /* Ajusta según el diseño deseado */
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(158, 158, 158);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Agrega transiciones */
+}
+
+.circle:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    background-color: darkgray; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.circle img {
+    width: 30px; /* Tamaño del ícono */
+    height: 30px; /* Tamaño del ícono */
+    transition: transform 0.3s ease; /* Agrega transiciones al ícono */
+}
+
+.circle:hover img {
+    transform: rotate(360deg); /* Rota el ícono al pasar el mouse */
+}

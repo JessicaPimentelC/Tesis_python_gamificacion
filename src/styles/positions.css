@@ -133,10 +133,14 @@
     width: 30px;
   }
   
-.info-text {
+  .info-text {
     margin-top: 10px;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif; /* Cambia Pangolin por Poppins */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Centrar el texto */
 }
+
   .info-box-lesson {
     display: flex;
     flex-direction: column;
@@ -311,30 +315,44 @@
     transition: background-color 0.3s, color 0.3s;
   }
   .medals {
-    font-size: 2em;
+    font-size: 1em;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 200px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    transition: transform 0.3s; /* Añade una animación suave al hover */
+}
+.medal-icon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+.medal-icon {
+    width: 300px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    transition: transform 0.3s; /* Añade una animación suave al hover */
 }
   .dropdown-item:hover {
     background-color: #FF7E79;
     color: #ffffff;
   }
-  .leaderboard {
-    width: 80%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    font-size: 1.2em;
+/* O con margen negativo */
+.leaderboard {
+  width: 80%;
+  position: relative; /* Cambia la posición a relativa */
+  top: -300px; /* Ajusta este valor según sea necesario */
+  border-collapse: collapse;
+  font-size: 1.2em;
 }
 
 .leaderboard th, .leaderboard td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
+
 .leaderboard th {
-    background-color: #f4f4f4;
+    background-color: #F8C4B4;
 }
 
 .leaderboard tr:nth-child(even) {

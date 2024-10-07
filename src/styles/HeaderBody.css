@@ -1,10 +1,10 @@
 .dashboard-header {
-    margin-left: 150px; /* Espacio para el sidebar */
+    margin-left: 100px; /* Espacio para el sidebar */
     display: flex; /* Alinea el contenido interno */
     justify-content: space-between; /* Espacio entre los elementos */
     align-items: center; /* Alineación vertical */
     height: 100px; /* Altura del encabezado */
-    width: 100%; /* Ancho completo */
+    width: 90%; /* Ancho completo */
     background-color: #F8C4B4; /* Color de fondo del encabezado */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
 }
@@ -13,7 +13,7 @@
     font-family: Helvetica;
     display: flex;
     justify-content: space-between;
-    padding: 12px;
+    padding: 10px;
     background-color: #F8C4B4;
     color: #000000;
     border-radius: 50px;
@@ -32,7 +32,7 @@
 
 /* Elemento individual en el cuadro de información */
 .info-item {
-    flex-basis: 22%; /* Ajusta el ancho de cada elemento */
+    flex-basis: 100%; /* Ajusta el ancho de cada elemento */
 }
 
 .hovered-insignia {
@@ -45,7 +45,7 @@
 }
 
 .info-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+    display: block; /* Asegura que el elemento esté centrado */
 }

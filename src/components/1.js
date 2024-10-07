@@ -99,6 +99,22 @@ const Uno = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen); // Definición de la función
   };
+  const positions = [
+    { top: 50, left: 50, icon: "colombia.png" }, // Posición 1
+    { top: 50, left: 100, icon: "cohetee.png" }, // Posición 2
+    { top: 50, left: 150, icon: "empresario.png" }, // Posición 3
+    { top: 50, left: 200, icon: "tres.png" }, // Posición 4
+    { top: 100, left: 50, icon: "libero.png" }, // Posición 5
+    { top: 150, left: 50, icon: "ed.png" }, // Posición 6
+    { top: 200, left: 50, icon: "geometrico.png" }, // Posición 7
+    { top: 200, left: 100, icon: "41.png" }, // Posición 8
+    { top: 200, left: 150, icon: "42.png" }, // Posición 9
+    { top: 200, left: 200, icon: "43.png" }, // Posición 10
+    { top: 250, left: 200, icon: "44.png" }, // Posición 11
+    { top: 300, left: 200, icon: "45.png" }, // Posición 12
+    { top: 350, left: 200, icon: "46.png" }, // Posición 13
+    
+  ];
 
   return (
     <div className="nivel1-page">
@@ -112,30 +128,35 @@ const Uno = () => {
           {/* Contenedor de información sin GIF */}
           <HeaderBody></HeaderBody>
           {/* Sección principal con el ejercicio */}
+    
           <div className="white-background">
             <div className="header">
-              <button className="icon-button">
-                <img src="python1.png" alt="Icono Nivel" />
-              </button>
-              <div className="header-title">
+           
+              {/*aquui es donde van la insignias*/}
+             
+              
+            </div>
+            <div className="header-title">
                 <h2>NIVEL 1</h2>
-              </div>
-              <div className="header-status">
+                <div className="header-status">
                 <span></span>
                 <button className="icon-button">
                   <img src="informacion.png" alt="Icono Moneda" />
                 </button>
                 <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                  <img src="mapas.gif" alt="Icono Pregunta" />
+                  <img src="colombia.png" alt="Icono Pregunta" />
                 </button>
                 <button className="icon-button">
-                  <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                  <img src="persona.png" alt="Icono Perfil" />
                 </button>
+                
               </div>
-            </div>
+            
+              </div>
             <div className="nivel1-card">
               <div className="nivel1-card-header">
                 <span>EJERCICIO #1</span>
+               
               </div>
               <div className="nivel1-card-body-ejer1">
                 <p>
@@ -188,13 +209,52 @@ const Uno = () => {
                       {isCorrect ? '¡Correcto!' : 'Inténtalo de nuevo'}
                     </p>
                   )}
+                  
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
+
+          </div>
+          
+          <div className="player-info">
+            <div className="icon-background">
+              <img src="empresario.png" alt="Icono Nombre" className="info-icon" />
+            </div>
+            <div className="text-content">
+              <h3>¡Bienvenido!</h3>
+              <p><strong>Eduardo José Daza</strong></p>
+            </div>
+            <div className="icon-background">
+              <img src="baa.png" alt="Icono Nombre" className="info-icon" />
+             
+            </div>
+            <h3>Puntaje:</h3>
+            <p>{score}</p>
+              </div>
+                  
+
+            
+              <div className="circles-container">
+          {positions.map((pos, index) => (
+            <div
+              key={index}
+              className="circle"
+              style={{
+                position: 'absolute',
+                top: `${pos.top}px`,
+                left: `${pos.left}px`,
+              }}
+            >
+              <img src={pos.icon} alt={`Icon ${index}`} /> {/* Icono individual para cada círculo */}
+            </div>
+          ))}
+        </div>
+      
+    </div>
+    
+      </div>
+                  
       {/* Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>

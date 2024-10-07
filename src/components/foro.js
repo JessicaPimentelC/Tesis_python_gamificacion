@@ -120,10 +120,10 @@ const Foro = ({ toggleView }) => {
           onChange={handleSearchChange}
         />
         <div className="icon-group">
-          <img src="ubicacion.png" alt="Icon 1" className="header-icon" />
+          <img src="colombia.png" alt="Icon 1" className="header-icon" />
           <img src="informacion.png" alt="Icon 2" className="header-icon" />
-          <img src="mensaje.png" alt="Icon 3" className="header-icon" />
-          <img src="AYUDA.jpeg" alt="Profile" className="header-icon" />
+          <img src="conversacion.png" alt="Icon 3" className="header-icon" />
+          <img src="persona.png" alt="Profile" className="header-icon" />
         </div>
       </div>
       <div className="foro-content">

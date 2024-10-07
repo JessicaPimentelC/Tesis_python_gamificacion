@@ -56,21 +56,21 @@ const Header = ({ nombre, puntaje, insignias }) => {
             <div className="user-profiles">
             <div className="user-profile">
                 <img
-                src="bandera.png"
+                src="banderin.png"
                 alt="Imagen de perfil"
                 className="profile-picture"
                 />
             </div>
             <div className="user-profile">
                 <img
-                src="medalla.png"
+                src="cinta.png"
                 alt="Imagen de perfil"
                 className="profile-picture"
                 />
             </div>
             <div className="user-profile">
                 <img
-                src="discusion.png"
+                src="conversacion.png"
                 alt="Imagen de perfil"
                 className="profile-picture"
                 onClick={handleForoIconClick}

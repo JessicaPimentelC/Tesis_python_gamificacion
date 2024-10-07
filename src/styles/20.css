@@ -77,14 +77,15 @@
     animation: slideIn 0.5s ease-out;
   }
   
-  /* Iconos en el encabezado */
   .header .header-status img {
     width: 40px;
     height: 40px;
     margin-left: 5px;
     cursor: pointer;
     transition: transform 0.3s;
+    float: right; /* Mueve los íconos hacia la derecha */
   }
+  
   
   .header .header-status img:hover {
     transform: scale(1.1);

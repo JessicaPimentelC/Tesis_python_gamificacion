@@ -9,12 +9,13 @@ const Positions = ({ toggleView }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const users = [
-        { id: 1, avatar: '👩', name: 'Usuario01', points: 120 },
-        { id: 2, avatar: '👩‍🦰', name: 'Usuario02', points: 100 },
-        { id: 3, avatar: '👨‍💼', name: 'Usuario03', points: 80 },
-        { id: 4, avatar: '👩‍🦳', name: 'Usuario04', points: 60 },
-        { id: 5, avatar: '🐲', name: 'Usuario05', points: 44 },
+        { id: 1, avatar: '11.png', name: 'Usuario01', points: 120 },
+        { id: 2, avatar: '12.png', name: 'Usuario02', points: 100 },
+        { id: 3, avatar: '13.png', name: 'Usuario03', points: 80 },
+        { id: 4, avatar: '14.png', name: 'Usuario04', points: 60 },
+        { id: 5, avatar: '15.png', name: 'Usuario05', points: 44 },
     ];
+    
     React.useEffect(() => {
         const interval2 = setInterval(() => {
         setLoadingProgress2((oldProgress) => {
@@ -90,11 +91,9 @@ const Positions = ({ toggleView }) => {
         
         <div className="dashboard-header">
             <div className="control-panel">
-            <button
-                onClick={handleControlPanelClick}
-                className="control-panel-button">
-                Panel de Control
-            </button>
+            <div className="info-text">
+                    <span>POSICIONES</span>
+                </div>
             </div>
             <div className="user-profiles">
             <div className="user-profile">
@@ -148,37 +147,33 @@ const Positions = ({ toggleView }) => {
         </div>
 
         <div className="dashboard-content">
-                <div className="medals">
-                    <span role="img" aria-label="gold">🥇</span>
-                    <span role="img" aria-label="silver">🥈</span>
-                    <span role="img" aria-label="bronze">🥉</span>
-                </div>
-                <div className="info-text">
-                    <span>Texto 1</span>
-                    <span>Frase Informativa</span>
-                </div>
-        
+        <div className="medals">
+    <img src="medalla2.png" alt="Medalla de Oro" className="medal-icon" />
+    <img src="medalla1.png" alt="Medalla de Plata" className="medal-icon" />
+    <img src="medalla3.png" alt="Medalla de Bronce" className="medal-icon" />
+</div>
+
         </div>
         <table className="leaderboard">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Avatar</th>
-                        <th>Nombre</th>
-                        <th>Puntos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user, index) => (
-                        <tr key={user.id}>
-                            <td>{index + 1}</td>
-                            <td>{user.avatar}</td>
-                            <td>{user.name}</td>
-                            <td>{user.points}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Avatar</th>
+            <th>Nombre</th>
+            <th>Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        {users.map((user, index) => (
+            <tr key={user.id}>
+                <td>{index + 1}</td>
+                <td><img src={user.avatar} alt={`Avatar de ${user.name}`} style={{ width: '35px', height: '35px' }} /></td>
+                <td>{user.name}</td>
+                <td>{user.points}</td>
+            </tr>
+        ))}
+    </tbody>
+</table>
         {showModal && (
             <div className="modal">
             <div className="modal-content">

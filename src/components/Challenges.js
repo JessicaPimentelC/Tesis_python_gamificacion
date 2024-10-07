@@ -23,7 +23,7 @@ const Challenges = () => {
       <Header />
 
 {/* Componente de Desafíos del día */}
-<div className="desafios-container">
+      <div className="desafios-container">
         <div className="header">
           <h2>Desafíos del día</h2>
           <div className="tiempo-restante">

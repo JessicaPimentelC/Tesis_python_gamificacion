@@ -81,16 +81,19 @@
   font-weight: bold;
 }
 
-/* Estilo para los botones de icono */
 .icon-button {
-  background: none;
-  border: none;
-  cursor: pointer;
+  margin-left: 10px; /* Añade margen entre los botones */
+}
+
+/* Para empujar todos los iconos hacia la derecha */
+.icon-button:last-child {
+  margin-left: auto; /* Empuja el último botón a la derecha */
 }
 
 .icon-button img {
-  width: 40px;
+  width: 40px; /* Ajusta el tamaño de los íconos según sea necesario */
 }
+
 /* Estilo base para los botones de nivel */
 .level-button {
   display: flex;

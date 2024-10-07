@@ -1,6 +1,6 @@
 .sidebar {
-    background-color: #FF8787; /* Color de fondo del sidebar */
-    width: 160px; /* Ancho del sidebar */
+    background-color: #ee6565; /* Color de fondo del sidebar */
+    width: 10px; /* Ancho del sidebar */
     position: fixed; /* Sidebar fijo */
     top: 0; /* Posiciona en la parte superior */
     bottom: 0; /* Extiende hasta la parte inferior */
@@ -13,3 +13,4 @@
     height: 100px;
 
 }
+

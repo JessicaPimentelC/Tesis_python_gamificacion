@@ -61,7 +61,7 @@ const Dashboard = () => {
 
   const handlePositionsClick = () => {
     // Logic to handle click on positions box
-    navigate('/posiciones');
+    navigate('/positions');
   };
 
   const handleChallengesClick = () => {
@@ -106,24 +106,27 @@ const Dashboard = () => {
               <img src="python1.png" alt="Python Icon" className="icon-img" />
             </button> 
             <button className="route-button">
-              <img src="libro.png" alt="Book Icon" className="icon-img" />
+              <img src="libero.png" alt="Book Icon" className="icon-img" />
             </button>
             <button className="route-button">
-              <img src="estrella.png" alt="Star Icon" className="icon-img" />
+              <img src="bombillo.png" alt="Star Icon" className="icon-img" />
             </button>
             <button className="route-button">
-              <img src="cohete.png" alt="Rocket Icon" className="icon-img" />
+              <img src="cohetee.png" alt="Rocket Icon" className="icon-img" />
             </button>
             <button className="route-button">
-              <img src="tesoro.png" alt="Treasure Icon" className="icon-img" />
+              <img src="cofre.png" alt="Treasure Icon" className="icon-img" />
             </button>
           </div>
         </div>
           <div className="dashboard-right">
-            <button className="info-box-lesson lesson-box" onClick={handlePositionsClick}>
-              <h2>Posiciones</h2>
-              Aspira a sobresalir entre nuestros usuarios destacados
-            </button>
+          <button className="info-box-lesson lesson-box" onClick={handlePositionsClick}>
+            <div className="icon-container">
+              <img src="personas.png" alt="Icono" className="icon" />
+            </div>
+            <h2>Posiciones</h2>
+            <p>Aspira a sobresalir entre nuestros usuarios destacados</p>
+          </button>
             <button className="info-box-lesson lesson-box" >
               <h2>Progreso</h2>
               <ProgressBar/>
