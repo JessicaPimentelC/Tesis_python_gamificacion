@@ -82,7 +82,7 @@ const Header = ({ nombre, puntaje, insignias }) => {
                 onMouseLeave={handleMouseLeave}
             >
                 <img
-                src="AYUDA.jpeg"
+                src="persona.png"
                 alt="Imagen de perfil"
                 className="profile-picture"
                 />

@@ -305,9 +305,10 @@
 /* Contenedor general de las insignias */
 .icons-container {
     display: flex;
-    justify-content: flex-start; /* Alinea los íconos hacia la izquierda */
+    justify-content: center; /* Alinea los íconos hacia la izquierda */
     gap: 10px; /* Espacio entre los íconos */
     margin-left: 20px; /* Ajusta el margen izquierdo para que no queden tan pegados */
+    align-items: center;
   }
 
 /* 1.css */
@@ -329,7 +330,7 @@
     max-height: 200%; /* Tamaño máximo del GIF dentro del botón circular */
     width: auto; /* Mantiene el tamaño original de la imagen */
     height: auto; /* Mantiene el tamaño original de la imagen */
-    display: block; /* Elimina el espacio adicional debajo de la imagen */
+    display: flex; /* Elimina el espacio adicional debajo de la imagen */
   }
   
   

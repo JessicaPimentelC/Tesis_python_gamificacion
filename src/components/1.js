@@ -126,12 +126,37 @@ const Uno = () => {
         {/* Contenedor principal con el cuadro de información y el contenido principal */}
         <div className="content">
           {/* Contenedor de información sin GIF */}
-          <HeaderBody></HeaderBody>
+        
           {/* Sección principal con el ejercicio */}
     
           <div className="white-background">
             <div className="header">
-           
+            <div className="icons-container">
+                {[
+                { src: "tres.png", name: "Insignia 1" },
+                { src: "bombillo.png", name: "Insignia 2" },
+                { src: "megafono.png", name: "Insignia 3" },
+                { src: "cohetee.png", name: "Insignia 4" },
+                { src: "accion.png", name: "Insignia 6  " },
+                { src: "25.png", name: "Insignia 7  " },
+                { src: "26.png", name: "Insignia 8  " },
+                { src: "22.png", name: "Insignia 9  " },
+                { src: "23.png", name: "Insignia 10  " },
+                { src: "24.png", name: "Insignia 5  " },
+                ].map((insignia, index) => (
+                <div key={index} className="circular-icon-container">
+                    <button
+                    className="circular-icon"
+                    onClick={handleInsigniaClick}
+                    onMouseEnter={() => handleMouseEnter(insignia.name)}
+                    onMouseLeave={handleMouseLeave}
+                    >
+                    <img src={insignia.src} alt={insignia.name} />
+                    </button>
+                    {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
+                </div>
+                ))}
+            </div>
               {/*aquui es donde van la insignias*/}
              
               
