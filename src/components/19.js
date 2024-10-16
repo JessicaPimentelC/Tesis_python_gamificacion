@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/19.css'; // Asegúrate de que la ruta sea correcta
+import Sidebar from './Sidebar';
 
 const Diecinueve = () => {
   const [celsiusInput, setCelsiusInput] = useState('');
@@ -12,6 +13,7 @@ const Diecinueve = () => {
   const [currentTime, setCurrentTime] = useState('');
   const navigate = useNavigate(); // Hook para la redirección
   const audioRef = useRef(null); // Referencia al elemento de audio
+  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
 
   useEffect(() => {
     const updateTime = () => {
@@ -51,84 +53,70 @@ const Diecinueve = () => {
     setShowModal(false);
     navigate('/examen'); // Redirige al módulo Examen después de cerrar el modal
   };
+  const handleMouseEnter = (name) => {
+    setHoveredInsignia(name); // Establece el nombre inmediatamente
+  };
 
+  const handleMouseLeave = () => {
+    // No hacemos nada aquí para evitar el parpadeo
+  };
+  const handleInsigniaClick = () => {
+    navigate('/insignias');
+  };
   return (
     <div className="nivel1-container">
-      <div className="sidebar">
-        <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('/enunciado18')}>
-          <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-          Atrás
-        </button>
-        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
-          <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
-          CONFIGURACIÓN
-        </button>
-      </div>
+     <Sidebar></Sidebar>
       <div className="content">
-        <div className="info-container">
-          <div className="info-item">
-            <h3>
-              <img src="jugador.png" alt="Icono Nombre" className="info-icon" /> Nombre:
-            </h3>
-            <p>Eduardo Jose Daza</p>
-          </div>
-          <div className="info-item">
-            <h3>
-              <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" /> Puntaje:
-            </h3>
-            <p>{score}</p>
-          </div>
-          <div className="info-item">
-            <h3>
-              <img src="insignia.png" alt="Icono Insignias" className="info-icon" /> Insignias:
-            </h3>
+      <div className="white-background">
+            <div className="header">
             <div className="icons-container">
-              <button className="circular-icon">
-                <img src="fugaz.gif" alt="Insignia 1" />
-              </button>
-              <button className="circular-icon">
-                <img src="ganar.gif" alt="Insignia 2" />
-              </button>
-              <button className="circular-icon">
-                <img src="gps.gif" alt="Insignia 3" />
-              </button>
-              <button className="circular-icon">
-                <img src="caja.gif" alt="Insignia 4" />
-              </button>
-              <button className="circular-icon">
-                <img src="medalla.gif" alt="Insignia 5" />
-              </button>
+                {[
+                { src: "tres.png", name: "Insignia 1" },
+                { src: "bombillo.png", name: "Insignia 2" },
+                { src: "megafono.png", name: "Insignia 3" },
+                { src: "cohetee.png", name: "Insignia 4" },
+                { src: "accion.png", name: "Insignia 6  " },
+                { src: "25.png", name: "Insignia 7  " },
+                { src: "26.png", name: "Insignia 8  " },
+                { src: "22.png", name: "Insignia 9  " },
+                { src: "23.png", name: "Insignia 10  " },
+                { src: "24.png", name: "Insignia 5  " },
+                ].map((insignia, index) => (
+                <div key={index} className="circular-icon-container">
+                    <button
+                    className="circular-icon"
+                    onClick={handleInsigniaClick}
+                    onMouseEnter={() => handleMouseEnter(insignia.name)}
+                    onMouseLeave={handleMouseLeave}
+                    >
+                    <img src={insignia.src} alt={insignia.name} />
+                    </button>
+                    {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
+                </div>
+                ))}
             </div>
-          </div>
-          <div className="info-item">
-            <h3>
-              <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" /> Hora y Fecha:
-            </h3>
-            <p>{currentTime}</p>
-          </div>
-        </div>
-        <div className="white-background">
-          <div className="header">
-            <button className="icon-button">
-              <img src="python1.png" alt="Icono Nivel" />
-            </button>
+              {/*aquui es donde van la insignias*/}
+             
+              
+            </div>
             <div className="header-title">
-              <h2>Nivel 1</h2>
-            </div>
-            <div className="header-status">
-              <span></span>
-              <button className="icon-button">
-                <img src="informacion.png" alt="Icono Información" />
-              </button>
-              <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="ubicacion.png" alt="Icono Dashboard" />
-              </button>
-              <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Ayuda" />
-              </button>
-            </div>
-          </div>
+                <h2>NIVEL 1</h2>
+                <div className="header-status">
+                <span></span>
+                <button className="icon-button">
+                  <img src="informacion.png" alt="Icono Moneda" />
+                </button>
+                <button className="icon-button" onClick={() => navigate('/dashboard')}>
+                  <img src="colombia.png" alt="Icono Pregunta" />
+                </button>
+                <button className="icon-button">
+                  <img src="persona.png" alt="Icono Perfil" />
+                </button>
+                
+              </div>
+            
+              </div>
+
           <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>Conversión de Temperatura</span>

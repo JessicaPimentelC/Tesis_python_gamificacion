@@ -56,10 +56,10 @@ const Ejercicios1 = ({ toggleView }) => {
                 <img src="informacion.png" alt="Icono Moneda" />
               </button>
               <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="mapas.gif" alt="Icono Pregunta" />
+                <img src="colombia.png" alt="Icono Pregunta" />
               </button>
               <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                <img src="persona.png" alt="Icono Perfil" />
               </button>
             </div>
           </div>

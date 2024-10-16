@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Examen.css';
+import Sidebar from './Sidebar';
 
 function Examen() {
   const navigate = useNavigate();
@@ -11,17 +12,7 @@ function Examen() {
 
   return (
     <div className="app-container">
-      <aside className="sidebar">
-        <div className="logo">
-          <img src="logo.png" alt="Python Logo" className="python-logo" />
-        </div>
-        <nav>
-          <ul>
-            <li><img src="flecha.png" alt="Atrás" className="icon" /> ATRÁS</li>
-            <li><img src="configuracion.png" alt="Configuración" className="icon" /> CONFIGURACIÓN</li>
-          </ul>
-        </nav>
-      </aside>
+      <Sidebar></Sidebar>
       <header className="header header-examen"> {/* Aplicar la clase específica aquí */}
         <div className="user-info">
           <img src="python1.png" alt="Ayuda" className="icon" />
