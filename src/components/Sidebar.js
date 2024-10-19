@@ -29,11 +29,8 @@ const Sidebar = () => {
                 style={{ cursor: 'pointer' }} 
             />
             {/* Info Item para Hora y Fecha */}
-            <div className="info-item">
-                <h3>
-                    <img src="reloj-circular.png" alt="Icono Hora y Fecha" className="info-icon" /> 
-                    
-                </h3>
+            <div className="reloj">
+                <img  className="info-icon" src="reloj-circular.png" alt="Icono Hora y Fecha" /> 
                 <p>{currentTime}</p>
             </div>
             {/**<button className="sidebar-button" onClick={() => navigate('/configuracion')}>
