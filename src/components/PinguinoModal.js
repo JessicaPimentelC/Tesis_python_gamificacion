@@ -3,11 +3,16 @@ import '../styles/PinguinoModal.css';
 import { useNavigate } from 'react-router-dom';
 
 const PinguinoModal = () => {
-    const navigate = useNavigate(); // Hook para la redirección
-    const [showPenguinModal, setShowPenguinModal] = useState(false); // Estado para controlar el modal
+    const navigate = useNavigate();
+    const [showPenguinModal, setShowPenguinModal] = useState(false);
+    const [showWelcomeMessage, setShowWelcomeMessage] = useState(false); // Estado para el mensaje de bienvenida
 
     const handlePenguinClick = () => {
         setShowPenguinModal(true);
+        setShowWelcomeMessage(true); // Mostrar el mensaje de bienvenida
+        setTimeout(() => {
+            setShowWelcomeMessage(false); // Ocultar después de 3 segundos
+        }, 3000); // Duración del mensaje
     };
 
     const closeModal = () => {
@@ -26,6 +31,13 @@ const PinguinoModal = () => {
                 </div>
             </div>
 
+            {/* Mensaje de bienvenida */}
+            {showWelcomeMessage && (
+                <div className="welcome-message">
+                    <p>Hola Usuario, Bienvenido a nuestra app</p>
+                </div>
+            )}
+
             {showPenguinModal && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -36,18 +48,17 @@ const PinguinoModal = () => {
                             <p>Seleccione una Ayuda:</p>
                         </div>
                         
-                        {/* Contenedor de los iconos en forma vertical */}
                         <div className="modal-icons">
                             <button className="modal-icon-button" onClick={() => alert('Ayuda 1: Idea')}>
-                                <img src="idea.gif" alt="Icono 1" className="modal-icon" />
+                                <img src="74.png" alt="Icono 1" className="modal-icon" />
                             </button>
                             
                             <button className="modal-icon-button" onClick={() => alert('Ayuda 2: Apoyo')}>
-                                <img src="apoyo.gif" alt="Icono 2" className="modal-icon" />
+                                <img src="apoyo.png" alt="Icono 2" className="modal-icon" />
                             </button>
 
                             <button className="modal-icon-button" onClick={() => alert('Ayuda 3: Cuaderno')}>
-                                <img src="cuaderno.gif" alt="Icono 3" className="modal-icon" />
+                                <img src="dibujo.png" alt="Icono 3" className="modal-icon" />
                             </button>
                         </div>
 

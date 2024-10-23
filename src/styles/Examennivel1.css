@@ -195,10 +195,10 @@ body {
 
 /* Estilo específico para los GIFs en modales */
 .modal-content img {
-  max-width: 100%; /* Ajusta el GIF al 100% del ancho del contenedor modal */
+  max-width: 90%; /* Ajusta el GIF al 100% del ancho del contenedor modal */
   height: auto; /* Mantiene la proporción del GIF */
   transform: scale(1); /* Escala el GIF a su tamaño original */
-  margin-top: 20px; /* Ajusta el margen superior para el GIF */
+  margin-top: 5px; /* Ajusta el margen superior para el GIF */
 }
 
 /* Estilo específico para GIFs en componentes */

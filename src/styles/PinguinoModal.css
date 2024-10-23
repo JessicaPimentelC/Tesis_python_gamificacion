@@ -132,10 +132,38 @@
     margin: 0 10px;
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #bbdcff;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  
+  .welcome-message {
+    position: fixed;
+    top: 20px; /* Ajusta según tu diseño */
+    right: 20px; /* Ajusta según tu diseño */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    animation: slide-in 0.10s ease-out forwards, fade-out 0.5s ease-out forwards 2.5s; /* Animaciones */
+    z-index: 2000; /* Asegúrate de que esté encima de otros elementos */
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%); /* Empieza fuera de la pantalla */
+    }
+    to {
+        transform: translateX(0); /* Termina en su lugar */
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1; /* Totalmente visible */
+    }
+    100% {
+        opacity: 0; /* Totalmente invisible */
+    }
+}
