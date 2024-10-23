@@ -30,9 +30,12 @@
     margin-right: 10px; /* Añade espacio entre los iconos y el texto */
 }
 
+
+
 /* Elemento individual en el cuadro de información */
 .info-item {
-    flex-basis: 100%; /* Ajusta el ancho de cada elemento */
+    width: 100px; 
+    height: 100px;
 }
 
 .hovered-insignia {
@@ -45,7 +48,6 @@
 }
 
 .info-icon {
-    width: 60px;
+    width: 60px; 
     height: 60px;
-    display: block; /* Asegura que el elemento esté centrado */
 }

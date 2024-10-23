@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "../styles/1.css"; // Asegúrate de que la ruta sea correcta
-import { useNavigate } from "react-router-dom";
-import LoadingIndicator from "./LoadingIndicator"; // Importa el nuevo componente
-import Sidebar from "./Sidebar";
-import HeaderBody from "./HeaderBody";
-import PinguinoModal from "./PinguinoModal";
+import React, { useState, useEffect } from 'react';
+import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from 'react-router-dom';
+import LoadingIndicator from './LoadingIndicator'; // Importa el nuevo componente
+import Sidebar from './Sidebar';
+import HeaderBody from './HeaderBody';
 
 const Uno = () => {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -16,17 +15,18 @@ const Uno = () => {
   const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
   const [isOpen, setIsOpen] = useState(false); // Estado para la barra lateral
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para manejar la visibilidad del modal
-  const handleButtonClick = () => {
-    setIsModalOpen(true); // Abre el modal al hacer clic en el botón
-  };
-
+  
   const navigate = useNavigate();
 
   const options = ["Mundo", "Hola", "Eduardo"];
 
   const handleDragStart = (e, item) => {
     setDraggedItem(item);
+  };
+
+  // Función para abrir el modal
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
   const handleDrop = (e) => {
@@ -90,7 +90,7 @@ const Uno = () => {
   };
 
   const closeModal = () => {
-    setShowModal(false); // Cerrar el modal
+    setIsModalOpen(false); // Cerrar el modal
   };
   const handlePythonIconClick = () => {
     console.log("Botón de Python clickeado"); // Para verificar el clic
@@ -143,7 +143,7 @@ const Uno = () => {
           {/* Contenedor de información sin GIF */}
 
           {/* Sección principal con el ejercicio */}
-
+    
           <div className="white-background">
             <div className="header">
               <div className="icons-container">
@@ -173,9 +173,12 @@ const Uno = () => {
                     )}
                   </div>
                 ))}
-              </div>
-              {/*aquui es donde van la insignias*/}
             </div>
+              {/*aquui es donde van la insignias*/}
+             
+              
+            </div>
+
             <div className="header-title">
               <h2>NIVEL 1</h2>
               <div className="header-status">
@@ -183,12 +186,7 @@ const Uno = () => {
                 <button className="icon-button" onClick={handlePythonIconClick}>
                   <img src="muñeco.png" alt="Icono Moneda" />
                 </button>
-                {isModalOpen && <PinguinoModal onClose={closeModal} />}{" "}
-                {/* Renderiza el modal si está abierto */}
-                <button
-                  className="icon-button"
-                  onClick={() => navigate("/dashboard")}
-                >
+                <button className="icon-button" onClick={() => navigate('/dashboard')}>
                   <img src="colombia.png" alt="Icono Pregunta" />
                 </button>
                 <button className="icon-button">
@@ -287,25 +285,28 @@ const Uno = () => {
             </div>
             <h3>Puntaje:</h3>
             <p>{score}</p>
-          </div>
-
-          <div className="circles-container">
-            {positions.map((pos, index) => (
-              <div
-                key={index}
-                className="circle"
-                style={{
-                  position: "absolute",
-                  top: `${pos.top}px`,
-                  left: `${pos.left}px`,
-                }}
-              >
-                <img src={pos.icon} alt={`Icon ${index}`} />{" "}
-                {/* Icono individual para cada círculo */}
               </div>
-            ))}
-          </div>
+                  
+
+            
+              <div className="circles-container">
+          {positions.map((pos, index) => (
+            <div
+              key={index}
+              className="circle"
+              style={{
+                position: 'absolute',
+                top: `${pos.top}px`,
+                left: `${pos.left}px`,
+              }}
+            >
+              <img src={pos.icon} alt={`Icon ${index}`} /> {/* Icono individual para cada círculo */}
+            </div>
+          ))}
         </div>
+      
+    </div>
+    
       </div>
 
       {/* Modal */}

@@ -10,11 +10,12 @@ html, body {
 
 /* Imagen de fondo para toda la página */
 body {
-  background-image: url('/public/122.jpg'); /* Imagen de fondo para toda la página */
+  background-color: #f8c4b4; /* Imagen de fondo para toda la página */
   background-size: cover; /* Asegura que la imagen cubra toda el área */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen de fondo */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Estilo general para el contenedor del examen */
