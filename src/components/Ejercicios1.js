@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import '../styles/Ejercicios1.css'; // Asegúrate de que la ruta sea correcta
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "../styles/Ejercicios1.css"; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const Ejercicios1 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Hook para la redirección
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -14,58 +18,91 @@ const Ejercicios1 = ({ toggleView }) => {
       setShowContinue(true);
     }, 2000); // Asume que el GIF tiene una duración de 2 segundos
   };
-
   const handleContinueClick = () => {
-    setShowModal(true);
+    setShowConfirmation(true);
   };
-
   const handleCloseModal = () => {
     setShowModal(false);
-    // Puedes realizar otras acciones si es necesario, como cambiar la vista
     navigate('/1');
   };
 
+  const closeModal = () => {
+    setShowModal(false); // Cerrar el modal
+  };
+
+  const handleMouseEnter = (name) => {
+    setHoveredInsignia(name); // Establece el nombre inmediatamente
+  };
+  const handleMouseLeave = () => {
+    // No hacemos nada aquí para evitar el parpadeo
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
-    <div className="nivel1-container">
-      <div className="sidebar">
-        <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('/nivel1')}>
-          <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-          Atrás
-        </button>
-        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
-          <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
-          CONFIGURACIÓN
-        </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
-      </div>
-      <div className="content">
-        <div className="white-background">
-          <div className="header">
-            <button className="icon-button">
-              <img src="python1.png" alt="Icono Nivel" />
-            </button>
+    <div className="nivel1-page">
+      <Sidebar></Sidebar>
+      {/* Barra de carga alineada a la izquierda de la pantalla */}
+      {/**<div className="loading-indicator-outer">
+        <LoadingIndicator /> {/* Reemplaza ProgressBar con LoadingIndicator </div>**/}
+      <div className="nivel1-container">
+        {/* Contenedor principal con el cuadro de información y el contenido principal */}
+        <div className="content">
+          {/* Contenedor de información sin GIF */}
+
+          {/* Sección principal con el ejercicio */}
+
+          <div className="white-background">
+            <div className="header">
+              <button className="icon-button">
+                <img src="python1.png" alt="Icono Nivel" />
+              </button>
+              <div className="header-title">
+                <h2>NIVEL 1</h2>
+              </div>
+              <div className="header-status">
+                <span></span>
+                <button className="icon-button">
+                  <img src="informacion.png" alt="Icono Moneda" />
+                </button>
+                <button
+                  className="icon-button"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  <img src="colombia.png" alt="Icono Pregunta" />
+                </button>
+                <button className="icon-button">
+                  <img src="persona.png" alt="Icono Perfil" />
+                </button>
+              </div>
+            </div>
             <div className="header-title">
               <h2>NIVEL 1</h2>
+              <div className="header-status">
+                <span></span>
+                <button className="icon-button">
+                  <img src="informacion.png" alt="Icono Moneda" />
+                </button>
+                <button
+                  className="icon-button"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  <img src="colombia.png" alt="Icono Pregunta" />
+                </button>
+                <button className="icon-button">
+                  <img src="persona.png" alt="Icono Perfil" />
+                </button>
+              </div>
             </div>
-            <div className="header-status">
-              <span></span>
-              <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
-              </button>
-              <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                <img src="colombia.png" alt="Icono Pregunta" />
-              </button>
-              <button className="icon-button">
-                <img src="persona.png" alt="Icono Perfil" />
-              </button>
-            </div>
-          </div>
-          <div className="nivel1-card">
+            <div className="nivel1-card">
             <div className="nivel1-card-header">
               <span>¿COMO FUNCIONA EL COMANDO PRINT EN PYTHON?</span>
+            </div>
             </div>
             <div className="nivel1-card-body">
               <p>

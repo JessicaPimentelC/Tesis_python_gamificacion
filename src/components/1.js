@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/1.css'; // Asegúrate de que la ruta sea correcta
-import { useNavigate } from 'react-router-dom';
-import LoadingIndicator from './LoadingIndicator'; // Importa el nuevo componente
-import Sidebar from './Sidebar';
-import HeaderBody from './HeaderBody';
+import React, { useState, useEffect } from "react";
+import "../styles/1.css"; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from "react-router-dom";
+import LoadingIndicator from "./LoadingIndicator"; // Importa el nuevo componente
+import Sidebar from "./Sidebar";
+import HeaderBody from "./HeaderBody";
+import ProgressBar from "./ProgressBar";
+import Mapa from "./Mapa";
+import PinguinoModal from "./PinguinoModal";
 
 const Uno = () => {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -15,7 +18,9 @@ const Uno = () => {
   const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
   const [isOpen, setIsOpen] = useState(false); // Estado para la barra lateral
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenPinguino, setIsModalOpenPinguino] = useState(false);
+
   const navigate = useNavigate();
 
   const options = ["Mundo", "Hola", "Eduardo"];
@@ -28,7 +33,9 @@ const Uno = () => {
   const openModal = () => {
     setIsModalOpen(true);
   };
-
+  const openModalPinguino = () => {
+    setIsModalOpenPinguino(true);
+  };
   const handleDrop = (e) => {
     e.preventDefault();
     setDroppedItem(draggedItem);
@@ -84,17 +91,11 @@ const Uno = () => {
     navigate("/insignias");
   };
 
-  // Manejo del modal al hacer clic en el pingüino
-  const handlePenguinClick = () => {
-    setShowModal(true); // Mostrar el modal cuando se haga clic en el pingüino
-  };
-
   const closeModal = () => {
     setIsModalOpen(false); // Cerrar el modal
   };
-  const handlePythonIconClick = () => {
-    console.log("Botón de Python clickeado"); // Para verificar el clic
-    setIsModalOpen((prevState) => !prevState); // Alterna el estado del modal
+  const closeModalPinguino = () => {
+    setIsModalOpenPinguino(false); // Cerrar el modal
   };
   const handleMouseEnter = (name) => {
     setHoveredInsignia(name); // Establece el nombre inmediatamente
@@ -115,22 +116,11 @@ const Uno = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen); // Definición de la función
   };
-  const positions = [
-    { top: 50, left: 50, icon: "colombia.png" }, // Posición 1
-    { top: 50, left: 100, icon: "cohetee.png" }, // Posición 2
-    { top: 50, left: 150, icon: "empresario.png" }, // Posición 3
-    { top: 50, left: 200, icon: "tres.png" }, // Posición 4
-    { top: 100, left: 50, icon: "libero.png" }, // Posición 5
-    { top: 150, left: 50, icon: "ed.png" }, // Posición 6
-    { top: 200, left: 50, icon: "geometrico.png" }, // Posición 7
-    { top: 200, left: 100, icon: "41.png" }, // Posición 8
-    { top: 200, left: 150, icon: "42.png" }, // Posición 9
-    { top: 200, left: 200, icon: "43.png" }, // Posición 10
-    { top: 250, left: 200, icon: "44.png" }, // Posición 11
-    { top: 300, left: 200, icon: "45.png" }, // Posición 12
-    { top: 350, left: 200, icon: "46.png" }, // Posición 13
-  ];
 
+  const handlePythonIconClick = () => {
+    console.log("Botón de Python clickeado"); // Para verificar el clic
+    setIsModalOpenPinguino((prevState) => !prevState); // Alterna el estado del modal
+  };
   return (
     <div className="nivel1-page">
       <Sidebar></Sidebar>
@@ -143,7 +133,6 @@ const Uno = () => {
           {/* Contenedor de información sin GIF */}
 
           {/* Sección principal con el ejercicio */}
-    
           <div className="white-background">
             <div className="header">
               <div className="icons-container">
@@ -153,11 +142,7 @@ const Uno = () => {
                   { src: "megafono.png", name: "Insignia 3" },
                   { src: "cohetee.png", name: "Insignia 4" },
                   { src: "accion.png", name: "Insignia 6  " },
-                  { src: "25.png", name: "Insignia 7  " },
-                  { src: "26.png", name: "Insignia 8  " },
-                  { src: "22.png", name: "Insignia 9  " },
-                  { src: "23.png", name: "Insignia 10  " },
-                  { src: "24.png", name: "Insignia 5  " },
+                
                 ].map((insignia, index) => (
                   <div key={index} className="circular-icon-container">
                     <button
@@ -173,10 +158,7 @@ const Uno = () => {
                     )}
                   </div>
                 ))}
-            </div>
-              {/*aquui es donde van la insignias*/}
-             
-              
+              </div>
             </div>
 
             <div className="header-title">
@@ -186,12 +168,27 @@ const Uno = () => {
                 <button className="icon-button" onClick={handlePythonIconClick}>
                   <img src="muñeco.png" alt="Icono Moneda" />
                 </button>
-                <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                  <img src="colombia.png" alt="Icono Pregunta" />
+                {isModalOpenPinguino && (
+                  <PinguinoModal onClick={handlePythonIconClick} />
+                )}
+                <button className="icon-button-mapa" onClick={openModal}>
+                  <img
+                    src="colombia.png"
+                    alt="Icono Mapa"
+                    className="info-icon"
+                  />
                 </button>
-                <button className="icon-button">
-                  <img src="persona.png" alt="Icono Perfil" />
-                </button>
+                {isModalOpen && (
+                  <div className="modal-mapa">
+                    <div className="modal-content-mapa">
+                      <h2 style={{ textAlign: "center" }}>Mapa</h2>
+                      <button className="close-button" onClick={closeModal}>
+                        Cerrar
+                      </button>
+                      <Mapa /> {/* Aquí se muestra el mapa dentro del modal */}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="nivel1-card">
@@ -285,28 +282,8 @@ const Uno = () => {
             </div>
             <h3>Puntaje:</h3>
             <p>{score}</p>
-              </div>
-                  
-
-            
-              <div className="circles-container">
-          {positions.map((pos, index) => (
-            <div
-              key={index}
-              className="circle"
-              style={{
-                position: 'absolute',
-                top: `${pos.top}px`,
-                left: `${pos.left}px`,
-              }}
-            >
-              <img src={pos.icon} alt={`Icon ${index}`} /> {/* Icono individual para cada círculo */}
-            </div>
-          ))}
+          </div>
         </div>
-      
-    </div>
-    
       </div>
 
       {/* Modal */}
