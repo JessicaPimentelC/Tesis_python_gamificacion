@@ -10,7 +10,7 @@ function Examennivel1() {
   const [score, setScore] = useState(0);
   const currentTime = new Date().toLocaleString();
   const navigate = useNavigate();
-
+  const [isModalVisible, setModalVisible] = useState(false);
   // Estado para las palabras arrastrables
   const [dragWords, setDragWords] = useState(['**', '^', '^^', '^']);
   // Estado para la palabra soltada y su índice original
@@ -104,10 +104,13 @@ function Examennivel1() {
       [name]: value,
     }));
   };
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   return (
     <div className="exam-container">
-      <h1>𝑬𝒙𝒂𝒎𝒆𝒏 𝑵𝒊𝒗𝒆𝒍 1</h1>
+      <h1>EXAMEN NIVEL 1</h1>
       <form className="exam-form" onSubmit={handleSubmit}>
         {/* Pregunta 1 - Arrastrar y soltar */}
         <div className="form-group drag-drop-question">
@@ -342,27 +345,40 @@ function Examennivel1() {
 
         <button type="submit" className="submit-button">Enviar Examen</button>
       </form>
-
-      <div className="info-box">
-        <h3>Información del Usuario</h3>
-        <div className="info-item">
-          <img src="jugador.png" alt="Icono Nombre" className="info-icon" />
-          <p><strong>Nombre:</strong> Eduardo Jose Daza</p>
+      
+      <div className="player-info" onClick={toggleModal}>
+        <div className="icon-background">
+          <img src="empresario.png" alt="Icono Nombre" className="info-icon" />
         </div>
-        <div className="info-item">
-          <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" />
-          <p><strong>Puntaje:</strong> {score}</p>
-        </div>
-        <div className="info-item">
-          <img src="insignia.png" alt="Icono Insignias" className="info-icon" />
-          <p><strong>Insignias:</strong> 0</p>
-        </div>
-        <div className="info-item">
-          <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" />
-          <p><strong>Hora y Fecha:</strong> {currentTime}</p>
+        <div className="text-content">
         </div>
       </div>
 
+      {/* Modal de información del usuario */}
+      {isModalVisible && (
+        <div className="info-box">
+          <h3>Información del Usuario</h3>
+          <div className="info-item">
+            <img src="jugador.png" alt="Icono Nombre" className="info-icon" />
+            <p><strong>Nombre:</strong> Eduardo Jose Daza</p>
+          </div>
+          <div className="info-item">
+            <img src="puntaje.png" alt="Icono Puntaje" className="info-icon" />
+            <p><strong>Puntaje:</strong> {score}</p>
+          </div>
+          <div className="info-item">
+            <img src="insignia.png" alt="Icono Insignias" className="info-icon" />
+            <p><strong>Insignias:</strong> 0</p>
+          </div>
+          <div className="info-item">
+            <img src="calendario.png" alt="Icono Hora y Fecha" className="info-icon" />
+            <p><strong>Hora y Fecha:</strong> {currentTime}</p>
+          </div>
+          <button onClick={toggleModal} className="close-button">Cerrar</button>
+        </div>
+      )}
+
+      {/* Modal de confirmación de examen */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
@@ -387,6 +403,6 @@ function Examennivel1() {
       )}
     </div>
   );
-}
+};
 
 export default Examennivel1;

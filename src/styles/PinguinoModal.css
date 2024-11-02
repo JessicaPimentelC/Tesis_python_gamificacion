@@ -132,7 +132,7 @@
     margin: 0 10px;
     padding: 10px 20px;
     border: none;
-    background-color: #bbdcff;
+    background-color: #007bff;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -146,7 +146,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
-    animation: slide-in 0.10s ease-out forwards, fade-out 0.5s ease-out forwards 2.5s; /* Animaciones */
+    animation: slide-in 0.s ease-out forwards, fade-out 0.5s ease-out forwards 2.5s; /* Animaciones */
     z-index: 2000; /* Asegúrate de que esté encima de otros elementos */
 }
 

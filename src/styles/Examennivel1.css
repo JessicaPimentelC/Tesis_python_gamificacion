@@ -211,6 +211,7 @@ body {
 
 /* Cuadro de información fijo en la pantalla */
 .info-box {
+  font-family: 'Poppins', sans-serif; /* Aplica la fuente Poppins */
   position: fixed; /* Asegura que el cuadro se mantenga en la pantalla */
   bottom: 200px; /* Ajusta la distancia desde el borde inferior de la pantalla */
   left: 20px; /* Ajusta la distancia desde el borde izquierdo de la pantalla */
