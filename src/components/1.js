@@ -298,11 +298,12 @@ const Uno = () => {
                 <strong>Eduardo José Daza</strong>
               </p>
             </div>
-            <div className="icon-background">
-              <img src="baa.png" alt="Icono Nombre" className="info-icon" />
-            </div>
-            <h3>Puntaje:</h3>
-            <p>{score}</p>
+
+            <div class="score-container">
+            <img src="baa.png" alt="Icono Nombre" className="info-icon" />
+            <h3 class="score-title">Puntaje:</h3>
+            <p class="score-value">{score}</p>
+          </div>
           </div>
         </div>
       </div>

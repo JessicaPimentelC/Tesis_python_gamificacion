@@ -3,7 +3,7 @@ import "../styles/20.css"; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-const Enunciado20 = () => {
+const Veinte = () => {
   const [inputValue, setInputValue] = useState("");
   const [output, setOutput] = useState("");
   const [showNext, setShowNext] = useState(false);
@@ -135,7 +135,7 @@ const Enunciado20 = () => {
                 {showNext && (
                   <button
                     className="nivel1-card-button"
-                    onClick={() => navigate("/examen")} // Ajusta la ruta según sea necesario
+                    onClick={() => navigate("/enunciado21")} // Ajusta la ruta según sea necesario
                   >
                     Finalizar
                   </button>
@@ -200,4 +200,4 @@ const Enunciado20 = () => {
   );
 };
 
-export default Enunciado20;
+export default Veinte;

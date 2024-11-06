@@ -31,6 +31,14 @@ import Enunciado17 from './components/enunciado17';
 import Enunciado18 from './components/enunciado18';
 import Enunciado19 from './components/enunciado19';
 import Enunciado20 from './components/enunciado20';
+import Enunciado21 from './components/enunciado21';
+import Enunciado22 from './components/enunciado22';
+import Enunciado23 from './components/enunciado23';
+import Enunciado24 from './components/enunciado24';
+import Enunciado25 from './components/enunciado25';
+import Enunciado26 from './components/enunciado26';
+import Enunciado27 from './components/enunciado27';
+import Enunciado28 from './components/enunciado28';
 import Dos from './components/2';
 import Tres from './components/3';
 import Cuatro from './components/4';
@@ -50,6 +58,14 @@ import Diecisiete from './components/17';
 import Dieciocho from './components/18';
 import Diecinueve from './components/19';
 import Veinte from './components/20';
+import Veintiuno from './components/21';
+import Veintidos  from './components/22';
+import Veintitres from './components/23';
+import Veinticuatro from './components/24';
+import Veinticinco from './components/25';
+import Veintiseis from './components/26';
+import Veintisiete from './components/27';
+import Veintiocho from './components/28';
 import Uno from './components/1';
 import Foro from './components/foro';
 import Sidebar from './components/Sidebar'; 
@@ -91,6 +107,14 @@ const App = () => {
         <Route path="/18" element={<Dieciocho />} />
         <Route path="/19" element={<Diecinueve />} />
         <Route path="/20" element={<Veinte />} />
+        <Route path="/21" element={<Veintiuno />} />
+        <Route path="/22" element={<Veintidos />} />
+        <Route path="/23" element={<Veintitres/>} />
+        <Route path="/24" element={<Veinticuatro/>} />
+        <Route path="/25" element={<Veinticinco/>} />
+        <Route path="/26" element={<Veintiseis/>} />
+        <Route path="/27" element={<Veintisiete/>} />
+        <Route path="/28" element={<Veintiocho/>} />
         <Route path="/examen" element={<Examen />} />
         <Route path="/examennivel1" element={<Examennivel1 />} />
         <Route path="/condicionales" element={<Condicionales />} />
@@ -112,6 +136,14 @@ const App = () => {
         <Route path="/enunciado18" element={<Enunciado18 />} />
         <Route path="/enunciado19" element={<Enunciado19 />} />
         <Route path="/enunciado20" element={<Enunciado20 />} />
+        <Route path="/enunciado21" element={<Enunciado21 />} />
+        <Route path="/enunciado22" element={<Enunciado22 />} />
+        <Route path="/enunciado23" element={<Enunciado23 />} />
+        <Route path="/enunciado24" element={<Enunciado24 />} />
+        <Route path="/enunciado25" element={<Enunciado25 />} />
+        <Route path="/enunciado26" element={<Enunciado26 />} />
+        <Route path="/enunciado27" element={<Enunciado27 />} />
+        <Route path="/enunciado28" element={<Enunciado28 />} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
         <Route path="/insignias" element={<Insignias />} /> 
