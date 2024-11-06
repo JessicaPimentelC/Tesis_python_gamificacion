@@ -1,12 +1,41 @@
-import React, { useState } from 'react';
-import '../styles/Nivel1.css'; // Asegúrate de que la ruta sea correcta
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import '../styles/Nivel1.css'; 
+import { useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
-
-const Nivel1 = ({ toggleView }) => {
+const Nivel1 = () => {
+  const [input1, setInput1] = useState("");
+  const [result, setResult] = useState(null);
+  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
   const [showNext, setShowNext] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate(); // Hook para la redirección
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+
+  const checkAnswer = () => {
+    if (input1.trim().toLowerCase() === "75") {
+      setResult("correct");
+      setShowNext(true); // Muestra el botón "Siguiente"
+    } else {
+      setResult("incorrect");
+      setShowNext(false); // Oculta el botón "Siguiente"
+    }
+  };
+  const closeModal = () => {
+    setShowModal(false); // Cerrar el modal
+  };
+
+  const handleMouseLeave = () => {
+    // No hacemos nada aquí para evitar el parpadeo
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleNextClick = () => {
     setShowNext(true);
@@ -25,44 +54,40 @@ const Nivel1 = ({ toggleView }) => {
   };
 
   return (
-    <div className="nivel1-container">
-      <div className="sidebar">
-        <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => navigate('/lecciones')}>
-          <img src="hogar.png" alt="Inicio" className="sidebar-icon" />
-          INICIO
-        </button>
-        <button className="sidebar-button" onClick={() => navigate('/configuracion')}>
-          <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
-          CONFIGURACIÓN
-        </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
-      </div>
-      <div className="content">
-        <div className="white-background">
-          <div className="header">
-            <button className="icon-button">
-              <img src="python1.png" alt="Icono Nivel" />
-            </button>
-            <div className="header-title">
-              <h2>NIVEL 1</h2>
+    <div className="nivel1-page">
+      <Sidebar></Sidebar>
+      {/* Barra de carga alineada a la izquierda de la pantalla */}
+      {/**<div className="loading-indicator-outer">
+        <LoadingIndicator /> {/* Reemplaza ProgressBar con LoadingIndicator </div>**/}
+      <div className="nivel1-container">
+        {/* Contenedor principal con el cuadro de información y el contenido principal */}
+        <div className="content">
+          {/* Contenedor de información sin GIF */}
+
+          {/* Sección principal con el ejercicio */}
+
+          <div className="white-background">
+            <div className="header">
+              <button className="icon-button">
+                <img src="python1.png" alt="Icono Nivel" />
+              </button>
+              <div className="header-title">
+                <h2>NIVEL 1</h2>
+              </div>
+              <div className="header-status">
+                <span></span>
+                <button className="icon-button">
+                  <img src="informacion.png" alt="Icono Moneda" />
+                </button>
+                <button className="icon-button">
+                  <img src="ubicacion.png" alt="Icono Pregunta" />
+                </button>
+                <button className="icon-button">
+                  <img src="AYUDA.jpeg" alt="Icono Perfil" />
+                </button>
+              </div>
             </div>
-            <div className="header-status">
-              <span></span>
-              <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
-              </button>
-              <button className="icon-button">
-                <img src="ubicacion.png" alt="Icono Pregunta" />
-              </button>
-              <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
-              </button>
-            </div>
-          </div>
-          <p>¡𝙀𝙡 𝙥𝙧𝙞𝙢𝙚𝙧 𝙥𝙖𝙨𝙤 𝙚𝙨𝙩á 𝙙𝙖𝙙𝙤, 𝙘𝙤𝙢𝙚𝙣𝙘𝙚𝙢𝙤𝙨 𝙟𝙪𝙣𝙩𝙤𝙨 𝙚𝙨𝙩𝙚 𝙣𝙞𝙫𝙚𝙡!</p>
+            <p>¡𝙀𝙡 𝙥𝙧𝙞𝙢𝙚𝙧 𝙥𝙖𝙨𝙤 𝙚𝙨𝙩á 𝙙𝙖𝙙𝙤, 𝙘𝙤𝙢𝙚𝙣𝙘𝙚𝙢𝙤𝙨 𝙟𝙪𝙣𝙩𝙤𝙨 𝙚𝙨𝙩𝙚 𝙣𝙞𝙫𝙚𝙡!</p>
           <div className={`nivel1-card ${showNext ? 'fade-out' : ''}`}>
             <div className="nivel1-card-header">
               <span>Python: Un Lenguaje de Programación Innovador y Versátil</span>
@@ -78,7 +103,6 @@ const Nivel1 = ({ toggleView }) => {
                   </button>
                 )}
               </div>
-            </div>
           </div>
           {showNext && !showConfirmation && (
             <div className="nivel1-next-section show">
@@ -100,8 +124,56 @@ const Nivel1 = ({ toggleView }) => {
               </div>
             </div>
           )}
+            
+            </div>
+            
+          </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>¡Hola, soy pingui jessica!</h2>
+            <p>
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios. ¡No dudes en consultarlo cuando lo
+              necesites!
+            </p>
+
+            <div className="nivel1-card-header">
+              <p>Seleccione una Ayuda:</p>
+            </div>
+
+            {/* Contenedor de los iconos en forma vertical */}
+            <div className="modal-icons">
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 1: Idea")}
+              >
+                <img src="idea.gif" alt="Icono 1" className="modal-icon" />
+              </button>
+
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 2: Apoyo")}
+              >
+                <img src="apoyo.gif" alt="Icono 2" className="modal-icon" />
+              </button>
+
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 3: Cuaderno")}
+              >
+                <img src="cuaderno.gif" alt="Icono 3" className="modal-icon" />
+              </button>
+            </div>
+
+            <button onClick={closeModal}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
