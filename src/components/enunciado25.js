@@ -110,9 +110,9 @@ const Enunciado25 = ({ score = 0 }) => {
   <div className="code-box">
     <div className="code-header">Python</div>
     <code>
-      {`base = int(input("Ingrese la base: "))\n
-exponente = int(input("Ingrese el exponente: "))\n
-resultado = base ** exponente\n
+      {`base = int(input("Ingrese la base: "))
+exponente = int(input("Ingrese el exponente: "))
+resultado = base ** exponente
 print("El resultado es:", resultado)`}
     </code>
   </div>
@@ -129,7 +129,7 @@ print("El resultado es:", resultado)`}
 
               {showGif && (
                 <div className="gif-container">
-                  <img src=".gif" alt="GIF" className="gif-image" />
+                  <img src="25.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -154,7 +154,7 @@ print("El resultado es:", resultado)`}
               conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir
               avanzando.
             </p>
-            <img src=".gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="1111.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

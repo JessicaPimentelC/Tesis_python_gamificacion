@@ -99,7 +99,7 @@ const Enunciado26 = ({ score = 0 }) => {
               </div>
           <div className="nivel1-card">
           <div className="nivel1-card-header">
-  <span>Crear un algoritmo que le permita al usuario ingresar el radio de un círculo y calcular el área</span>
+  <span>Crea un algoritmo para ingresar el radio y calcular el área de un círculo</span>
 </div>
 <div className="nivel1-card-body">
   <p>
@@ -110,8 +110,8 @@ const Enunciado26 = ({ score = 0 }) => {
     <div className="code-header">Python</div>
     <code>
       {`import math\n
-radio = float(input("Ingresa el radio del círculo: "))\n
-area = math.pi * radio**2\n
+radio = float(input("Ingresa el radio del círculo: "))
+area = math.pi * radio**2
 print("El área del círculo con radio", radio, "es:", area)`}
     </code>
   </div>
@@ -130,7 +130,7 @@ print("El área del círculo con radio", radio, "es:", area)`}
 
               {showGif && (
                 <div className="gif-container">
-                  <img src=".gif" alt="GIF" className="gif-image" />
+                  <img src="26.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -155,7 +155,7 @@ print("El área del círculo con radio", radio, "es:", area)`}
               conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir
               avanzando.
             </p>
-            <img src=".gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="CCF.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

@@ -135,7 +135,7 @@ const Veintiuno = () => {
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado22")}
                   >
-                    Finalizar
+                    Siguiente
                   </button>
                 )}
 

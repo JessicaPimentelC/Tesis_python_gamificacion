@@ -121,7 +121,7 @@ const Enunciado22 = ({ score = 0 }) => {
 
               {showGif && (
                 <div className="gif-container">
-                  <img src=".gif" alt="GIF" className="gif-image" />
+                  <img src="23.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -145,7 +145,7 @@ const Enunciado22 = ({ score = 0 }) => {
               🌟 ¡Estás progresando muy bien en tu aprendizaje de Python! 🚀 Ahora es el momento de poner en práctica
               tus conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir avanzando.
             </p>
-            <img src=".gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="1FNJ.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

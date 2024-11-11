@@ -108,9 +108,9 @@ const Veintiseis = () => {
                     <div className="code-header">Python</div>
                     <div className="code-content">
                     <pre>
-                        {`import math{"\n"}
-                radio = float(input("Ingresa el radio del círculo: ")){"\n"}
-                area = math.pi * radio**2{"\n"}
+                        {`import math
+                radio = float(input("Ingresa el radio del círculo: "))
+                area = math.pi * radio**2
                 print("El área del círculo con radio", radio, "es:", area)`}
                     </pre>
                     </div>
@@ -140,7 +140,7 @@ const Veintiseis = () => {
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado27")}
                   >
-                    Finalizar
+                   Siguiente
                   </button>
                 )}
 

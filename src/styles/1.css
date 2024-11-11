@@ -1,14 +1,10 @@
-
-  .nivel1-container {
-    background-color: white;
-    overflow-y: auto; /* Permite el scroll si el contenido es demasiado largo */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Hace que el contenedor crezca con el contenido */
-    width: 150%;
-    box-sizing: border-box;
+.nivel1-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta el contenedor para que ocupe toda la altura de la pantalla */
+  box-sizing: border-box;
 }
-
 /* Barra lateral colapsada */
 .sidebar.collapsed {
     width: 60px; /* Ancho cuando está colapsada */

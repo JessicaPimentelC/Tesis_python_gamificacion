@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/enunciado20.css'; // Asegúrate de que la ruta sea correcta
+import Sidebar from "./Sidebar";
 
 const Enunciado20 = ({ toggleView }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Hook para la redirección
+  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
 
   const handleShowGif = () => {
     setShowGif(true);
@@ -18,7 +20,17 @@ const Enunciado20 = ({ toggleView }) => {
   const handleContinueClick = () => {
     setShowModal(true);
   };
-
+  const handleInsigniaClick = () => {
+    // Maneja la lógica cuando se hace clic en una insignia
+    console.log('Insignia clickeada');
+  };
+  const handleMouseEnter = (name) => {
+    setHoveredInsignia(name); // Establece el nombre inmediatamente
+  };
+  const handleMouseLeave = () => {
+    // No hacemos nada aquí para evitar el parpadeo
+  };
+  
   const handleCloseModal = () => {
     setShowModal(false);
     navigate('/20'); // Cambia la vista al examen final
@@ -26,45 +38,61 @@ const Enunciado20 = ({ toggleView }) => {
 
   return (
     <div className="nivel1-container">
-      <div className="sidebar">
-        <img src="tesis.png" alt="Logo" className="logo" />
-        <button className="sidebar-button" onClick={() => toggleView('9')}>
-          <img src="flecha.png" alt="Inicio" className="sidebar-icon" />
-          Atrás
-        </button>
-        <button className="sidebar-button" onClick={() => toggleView('configuracion')}>
-          <img src="configuracion.png" alt="Configuración" className="sidebar-icon" />
-          CONFIGURACIÓN
-        </button>
-        <div className="score">
-          {/* Aquí podrías añadir más elementos si los necesitas */}
-        </div>
-      </div>
+      <Sidebar></Sidebar>
+     
       <div className="content">
-        <div className="white-background">
-          <div className="header">
-            <button className="icon-button">
-              <img src="python1.png" alt="Icono Nivel" />
-            </button>
+      <div className="white-background">
+            <div className="header">
+            <div className="icons-container">
+                {[
+                { src: "tres.png", name: "Insignia 1" },
+                { src: "bombillo.png", name: "Insignia 2" },
+                { src: "megafono.png", name: "Insignia 3" },
+                { src: "cohetee.png", name: "Insignia 4" },
+                { src: "accion.png", name: "Insignia 6  " },
+                { src: "25.png", name: "Insignia 7  " },
+                { src: "26.png", name: "Insignia 8  " },
+                { src: "22.png", name: "Insignia 9  " },
+                { src: "23.png", name: "Insignia 10  " },
+                { src: "24.png", name: "Insignia 5  " },
+                ].map((insignia, index) => (
+                <div key={index} className="circular-icon-container">
+                    <button
+                    className="circular-icon"
+                    onClick={handleInsigniaClick}
+                    onMouseEnter={() => handleMouseEnter(insignia.name)}
+                    onMouseLeave={handleMouseLeave}
+                    >
+                    <img src={insignia.src} alt={insignia.name} />
+                    </button>
+                    {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
+                </div>
+                ))}
+            </div>
+              {/*aquui es donde van la insignias*/}
+             
+              
+            </div>
             <div className="header-title">
-              <h2>NIVEL 9</h2>
-            </div>
-            <div className="header-status">
-              <span></span>
-              <button className="icon-button">
-                <img src="informacion.png" alt="Icono Moneda" />
-              </button>
-              <button className="icon-button" onClick={() => toggleView('dashboard')}>
-                <img src="ubicacion.png" alt="Icono Pregunta" />
-              </button>
-              <button className="icon-button">
-                <img src="AYUDA.jpeg" alt="Icono Perfil" />
-              </button>
-            </div>
-          </div>
+                <h2>NIVEL 1</h2>
+                <div className="header-status">
+                <span></span>
+                <button className="icon-button">
+                  <img src="informacion.png" alt="Icono Moneda" />
+                </button>
+                <button className="icon-button" onClick={() => navigate('/dashboard')}>
+                  <img src="colombia.png" alt="Icono Pregunta" />
+                </button>
+                <button className="icon-button">
+                  <img src="persona.png" alt="Icono Perfil" />
+                </button>
+                
+              </div>
+            
+              </div>
           <div className="nivel1-card">
             <div className="nivel1-card-header">
-              <span>Ejercicio 9: Conversión de Temperatura</span>
+              <span>Conversión de Temperatura</span>
             </div>
             <div className="nivel1-card-body">
               <p>
@@ -92,7 +120,7 @@ print("La temperatura en Celsius es:", celsius)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="gif20.gif" alt="GIF" className="gif-image" />
+                  <img src="20.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 

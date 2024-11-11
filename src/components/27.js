@@ -49,9 +49,7 @@ const Veintisiete = () => {
           <div className="white-background">
             <div className="header">
               <div className="icons-container">
-                {/* Renderiza insignias */}
-                {[
-                  { src: "tres.png", name: "Insignia 1" },
+                {[{ src: "tres.png", name: "Insignia 1" },
                   { src: "bombillo.png", name: "Insignia 2" },
                   { src: "megafono.png", name: "Insignia 3" },
                   { src: "cohetee.png", name: "Insignia 4" },
@@ -97,38 +95,29 @@ const Veintisiete = () => {
               </div>
             </div>
             <div className="level21-card">
-            <div className="nivel1-card-header">
-                <span>Ejercicio de Cálculo del Área de un Círculo</span>
-                </div>
-                <div className="nivel1-card-body">
+              <div className="nivel1-card-header">
+                <span>Ejercicio de Potencia de un Número</span>
+              </div>
+              <div className="nivel1-card-body">
                 <p>
-                    Ingresa el radio de un círculo para calcular su área.
+                  Ingresa un número para calcular su potencia al cuadrado.
                 </p>
                 <div className="code-box">
-                    <div className="code-header">Python</div>
-                    <div className="code-content">
-                    <pre>
-                        {`import math{"\n"}
-                radio = float(input("Ingresa el radio del círculo: ")){"\n"}
-                area = math.pi * radio**2{"\n"}
-                print("El área del círculo con radio", radio, "es:", area)`}
-                    </pre>
-                    </div>
+                  <div className="code-header">Python</div>
+                  <pre>
+                    {`import math\n
+numero = int(input("numero:"))\n
+potencia = math.pow(numero, 2)\n
+print("La potencia es:", potencia)`}
+                  </pre>
                 </div>
-
 
                 <div className="input-container">
                   <input
                     type="text"
                     value={primerNum}
                     onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
+                    placeholder="Ingrese el número"
                   />
                 </div>
 
@@ -140,7 +129,7 @@ const Veintisiete = () => {
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado28")}
                   >
-                    Finalizar
+                    Siguiente
                   </button>
                 )}
 
@@ -172,4 +161,3 @@ const Veintisiete = () => {
 };
 
 export default Veintisiete;
-

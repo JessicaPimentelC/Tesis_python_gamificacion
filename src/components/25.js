@@ -108,9 +108,9 @@ const Veinticuatro = () => {
     <div className="code-header">PYTHON</div>
     <div className="code-content">
       <pre>
-        {`base = int(input("Ingrese la base: ")){"\n"}
-exponente = int(input("Ingrese el exponente: ")){"\n"}
-resultado = base ** exponente{"\n"}
+        {`base = int(input("Ingrese la base: "))
+exponente = int(input("Ingrese el exponente: "))
+resultado = base ** exponente
 print("El resultado es:", resultado)`}
       </pre>
     </div>
@@ -141,7 +141,7 @@ print("El resultado es:", resultado)`}
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado26")}
                   >
-                    Finalizar
+                    Siguiente
                   </button>
                 )}
 

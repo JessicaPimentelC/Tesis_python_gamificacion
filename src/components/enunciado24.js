@@ -110,12 +110,9 @@ const Enunciado24 = ({ score = 0 }) => {
   <div className="code-box">
     <div className="code-header">Python</div>
     <code>
-      {`# Solicitar la tasa de cambio al usuario\n
-tasa_cambio = float(input("Ingrese la tasa de cambio (moneda local por dólar): "))\n\n
-# Solicitar la cantidad en dólares\n
-dolar = float(input("Ingrese la cantidad en dólares: "))\n\n
-# Calcular y mostrar la cantidad en moneda local\n
-moneda_local = dolar * tasa_cambio\n
+      {`tasa_cambio = float(input("Ingrese la tasa de cambio (moneda local por dólar): "))
+dolar = float(input("Ingrese la cantidad en dólares: "))
+moneda_local = dolar * tasa_cambio
 print("La cantidad en moneda local es:", moneda_local)`}
     </code>
   </div>
@@ -132,7 +129,7 @@ print("La cantidad en moneda local es:", moneda_local)`}
 
               {showGif && (
                 <div className="gif-container">
-                  <img src=".gif" alt="GIF" className="gif-image" />
+                  <img src="24.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -157,7 +154,7 @@ print("La cantidad en moneda local es:", moneda_local)`}
               conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir
               avanzando.
             </p>
-            <img src=".gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="3Qrp.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>

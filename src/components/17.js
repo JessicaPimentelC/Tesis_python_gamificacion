@@ -30,14 +30,21 @@ const Diecisiete = () => {
   }, []);
 
   const handleCheckAnswers = () => {
-    if (input1.trim().toLowerCase() === "float") {
+    // Usamos una expresión regular para verificar si es un número decimal
+    const decimalRegex = /^[0-9]*\.[0-9]+$/;
+  
+    if (decimalRegex.test(input1.trim())) {
       setResult("correct");
+      setIsCorrect(true);
       setShowNext(true); // Muestra el botón "Siguiente"
     } else {
       setResult("incorrect");
+      setIsCorrect(false);
       setShowNext(false); // Oculta el botón "Siguiente"
     }
+    setShowResult(true); // Asegúrate de que el mensaje de resultado se muestre
   };
+  
 
   const handleInsigniaClick = () => {
     // Función para manejar el clic en las insignias

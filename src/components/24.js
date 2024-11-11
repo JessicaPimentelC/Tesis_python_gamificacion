@@ -106,9 +106,9 @@ const Veinticuatro = () => {
   <div className="code-header">PYTHON</div>
   <div className="code-content">
     <pre>
-      {`tasa_cambio = float(input("Ingrese la tasa de cambio (moneda local por dólar): ")){"\n"}
-dolar = float(input("Ingrese la cantidad en dólares: ")){"\n"}
-moneda_local = dolar * tasa_cambio{"\n"}
+      {`tasa_cambio = float(input("Ingrese la tasa de cambio (moneda local por dólar): "))
+dolar = float(input("Ingrese la cantidad en dólares: "))
+moneda_local = dolar * tasa_cambio
 print("La cantidad en moneda local es:", moneda_local)`}
     </pre>
   </div>
@@ -138,7 +138,7 @@ print("La cantidad en moneda local es:", moneda_local)`}
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado25")}
                   >
-                    Finalizar
+                    Siguiente
                   </button>
                 )}
 

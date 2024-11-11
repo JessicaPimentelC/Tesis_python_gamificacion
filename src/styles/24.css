@@ -61,9 +61,10 @@
   }
   
   .gif-image {
-    width: 100px;
-    height: auto;
-  }
+    width: 900px;  /* Cambia el ancho según tu necesidad */
+    height: 500px; /* Cambia la altura según tu necesidad */
+}
+
   
   .nivel1-card-button-container {
     display: flex;

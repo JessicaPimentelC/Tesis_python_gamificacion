@@ -172,12 +172,12 @@ const Diecinueve = () => {
                   Verificar
                 </button>
                 {showNext && (
-                  <button
-                    className="nivel1-card-button"
-                    onClick={handleShowModal} // Llama a la función que muestra el modal y reproduce el sonido
-                  >
-                    Siguiente
-                  </button>
+                 <button
+                 className="nivel1-card-button"
+                 onClick={() => navigate("/enunciado20")} // Redirige a Enunciado18.js
+               >
+                 Siguiente
+               </button>
                 )}
 
                 {output && (

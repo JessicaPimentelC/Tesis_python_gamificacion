@@ -140,7 +140,7 @@ print("La raíz cuadrada es:", raiz)`}
                     className="level21-card-button"
                     onClick={() => navigate("/examen")}
                   >
-                    Finalizar
+                    Siguiente
                   </button>
                 )}
 
