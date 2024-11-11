@@ -299,11 +299,27 @@ const Uno = () => {
               </p>
             </div>
            
-            <div class="score-container">
-            <img src="baa.png" alt="Icono Nombre" className="info-icon" />
-            <h3 class="score-title">Puntaje:</h3>
-            <p class="score-value">{score}</p>
+            <div className="score-container">
+            {/* Encabezado del puntaje */}
+            <div className="score-header">
+                <h3 className="score-title">PUNTAJE</h3>
             </div>
+
+            {/* Contenedor de puntaje y vidas */}
+            <div className="score-content">
+                <div className="icon-text">
+                    <img src="corazon.png" alt="Icono Diamante" className="info-icon" />
+                    <p>5 Vidas</p>
+                </div>
+                <div className="icon-text">
+                    <img src="baa.png" alt="Icono Mundo" className="info-icon" />
+                    <p className="score-value">{score}</p>
+
+           
+                </div>
+            </div>
+
+        </div>
           </div>
         </div>
       </div>

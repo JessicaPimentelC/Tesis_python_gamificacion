@@ -16,6 +16,7 @@ function Examennivel1() {
   // Estado para la palabra soltada y su índice original
   const [droppedWord, setDroppedWord] = useState(null);
   const [originalIndex, setOriginalIndex] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState(1);  // Estado para la pregunta actual
 
   const handleDragStart = (e, word, index) => {
     e.dataTransfer.setData('text', word);

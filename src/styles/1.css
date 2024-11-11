@@ -689,4 +689,51 @@ display: flex;
 html, body {
   height: 100%;
 }
+.score-container {
+  width: 150px;
+  background-color: #f8c4b4; /* Fondo azul */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
 
+.score-header {
+  background-color: #ff9900; /* Fondo naranja */
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  text-align: center;
+}
+
+.score-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #020202; /* Texto negro */
+}
+
+.score-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.icon-text {
+  text-align: center;
+}
+
+.info-icon {
+  width: 60px; /* Tamaño del icono */
+  height: 60px;
+  margin-right: 20px; /* Espacio entre los iconos (ajústalo según lo necesites) */
+}
+.score-value {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 5px; /* Ajuste de espacio entre el ícono y el puntaje */
+}

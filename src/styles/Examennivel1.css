@@ -398,3 +398,33 @@ body {
 .drag-btn:active {
   background-color: #B34F19;
 }
+.exam-form {
+  position: relative;
+}
+.exam-form {
+  transition: transform 0.5s ease;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.next-button {
+  margin-top: 20px;
+}
+
+.drop-zone {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.drag-word {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+
