@@ -12,7 +12,26 @@ const Veinticuatro = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "input") {
+      const tasa_cambio = 20; // ejemplo, puedes hacerlo interactivo con input del usuario
+      const dolar = 100; // ejemplo de monto en dólares
+      const moneda_local = dolar * tasa_cambio;
+      setOutput(
+        "Respuesta correcta: La cantidad en moneda local es: " + moneda_local
+      );
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -99,38 +118,44 @@ const Veinticuatro = () => {
             <div className="level21-card">
               <div className="nivel1-card-header">
                 <span>Ejercicio de Promedio de Números</span>
-                <p>Ingresa dos números para calcular su promedio.</p>
+                <p>
+                  ¿Cuál es la palabra que falta para que el código realice
+                  correctamente la conversión?
+                </p>
               </div>
               <div className="level21-card-body">
-              <div className="code-box">
-  <div className="code-header">PYTHON</div>
-  <div className="code-content">
-    <pre>
-      {`tasa_cambio = float(input("Ingrese la tasa de cambio (moneda local por dólar): "))
-dolar = float(input("Ingrese la cantidad en dólares: "))
-moneda_local = dolar * tasa_cambio
-print("La cantidad en moneda local es:", moneda_local)`}
-    </pre>
-  </div>
-</div>
-
-
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
-                  />
+                <div className="code-box">
+                  <div className="code-header">PYTHON</div>
+                  <div className="code-content">
+                    <pre>
+                      tasa_cambio = float(_______("Ingrese la tasa de cambio
+                      (moneda local por dólar): ")) {"\n"}
+                      dolar = float(_______("Ingrese la cantidad en dólares: ")){" "}
+                      {"\n"}
+                      moneda_local = dolar * tasa_cambio {"\n"}
+                      print("La cantidad en moneda local es:", moneda_local)
+                      {"\n"}
+                    </pre>
+                  </div>
                 </div>
 
-                <button className="level21-card-button" onClick={calculateAverage}>
+                {/* Opciones de respuesta */}
+                <div className="options">
+                  {["input", "int", "str", "float"].map((option) => (
+                    <div
+                      key={option}
+                      className={`option ${
+                        selectedAnswer === option ? "selected" : ""
+                      }`}
+                      onClick={() => handleSelectAnswer(option)}
+                    >
+                      {option}
+                    </div>
+                  ))}
+                </div>
+
+                <button className="nivel1-card-button" onClick={checkAnswer}>
+
                   Verificar
                 </button>
                 {showNext && (
@@ -159,7 +184,8 @@ print("La cantidad en moneda local es:", moneda_local)`}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>¡Hola, soy pingui jessica!</h2>
             <p>
-              Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios.
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios.
             </p>
             <button onClick={closeModal}>Cerrar</button>
           </div>
@@ -170,4 +196,3 @@ print("La cantidad en moneda local es:", moneda_local)`}
 };
 
 export default Veinticuatro;
-

@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import "../styles/21.css"; // Ensure the path is correct
+import "../styles/21.css";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 const Veintiuno = () => {
-  const [base, setBase] = useState("");
-  const [height, setHeight] = useState("");
   const [output, setOutput] = useState("");
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Score state
+  const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [hoveredInsignia, setHoveredInsignia] = useState(null);
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false); // Modal control
-  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Hover state for badges
 
   const handleInsigniaClick = () => {
     navigate("/insignias");
@@ -20,45 +19,50 @@ const Veintiuno = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
   const handleMouseEnter = (name) => {
     setHoveredInsignia(name);
   };
-  const handleMouseLeave = () => {};
 
-  const calculateArea = () => {
-    const baseValue = parseFloat(base);
-    const heightValue = parseFloat(height);
-    const area = baseValue * heightValue;
+  const handleMouseLeave = () => {
+    setHoveredInsignia(null);
+  };
 
-    if (!isNaN(area) && area > 0) {
-      setOutput(`El área del rectángulo es: ${area}`);
-      setScore(score + 10); // Increment score if answer is correct
+  const checkAnswer = () => {
+    if (selectedAnswer === "float") {
+      setOutput("Respuesta correcta: El área del rectángulo es 50");
+      setScore(score + 10);
+      setShowNext(true);
     } else {
-      setOutput("Inténtalo de nuevo.");
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false); // Asegura que el botón "Siguiente" solo aparezca con la respuesta correcta
     }
-    setShowNext(true); // Show "Finalizar" button
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
   };
 
   return (
-    <div className="level21-page">
-      <Sidebar></Sidebar>
-      <div className="level21-container">
+    <div className="nivel1-page">
+      <Sidebar />
+      <div className="nivel1-container">
         <div className="content">
           <div className="white-background">
             <div className="header">
               <div className="icons-container">
-                {/* Render badges */}
+                {/* Aquí van los íconos, similares al módulo anterior */}
                 {[
-                  { src: "tres.png", name: "Insignia 1" },
-                  { src: "bombillo.png", name: "Insignia 2" },
-                  { src: "megafono.png", name: "Insignia 3" },
-                  { src: "cohetee.png", name: "Insignia 4" },
-                  { src: "accion.png", name: "Insignia 6" },
-                  { src: "25.png", name: "Insignia 7" },
-                  { src: "26.png", name: "Insignia 8" },
-                  { src: "22.png", name: "Insignia 9" },
-                  { src: "23.png", name: "Insignia 10" },
-                  { src: "24.png", name: "Insignia 5" },
+                   { src: "tres.png", name: "Insignia 1" },
+                   { src: "bombillo.png", name: "Insignia 2" },
+                   { src: "megafono.png", name: "Insignia 3" },
+                   { src: "cohetee.png", name: "Insignia 4" },
+                   { src: "accion.png", name: "Insignia 6" },
+                   { src: "25.png", name: "Insignia 7" },
+                   { src: "26.png", name: "Insignia 8" },
+                   { src: "22.png", name: "Insignia 9" },
+                   { src: "23.png", name: "Insignia 10" },
+                   { src: "24.png", name: "Insignia 5" },
                 ].map((insignia, index) => (
                   <div key={index} className="circular-icon-container">
                     <button
@@ -76,63 +80,60 @@ const Veintiuno = () => {
                 ))}
               </div>
             </div>
+
             <div className="header-title">
-              <h2>NIVEL 1</h2>
+              <h2>NIVEL 21</h2>
               <div className="header-status">
-                <span></span>
                 <button className="icon-button">
-                  <img src="informacion.png" alt="Icono Moneda" />
+                  <img src="informacion.png" alt="Icono Información" />
                 </button>
                 <button
                   className="icon-button"
                   onClick={() => navigate("/dashboard")}
                 >
-                  <img src="colombia.png" alt="Icono Pregunta" />
+                  <img src="colombia.png" alt="Icono País" />
                 </button>
                 <button className="icon-button">
                   <img src="persona.png" alt="Icono Perfil" />
                 </button>
               </div>
             </div>
-            <div className="level21-card">
-            <div className="nivel1-card-header">
-                <span>Ejercicio de Cálculo de Área</span>
-                <p>Ingresa la base y la altura del rectángulo para calcular su área.</p>
-              </div>
-              <div className="level21-card-body">
+
+            <div className="nivel1-card">
+              <div className="nivel1-card-body">
+                <span>Ejercicio de Cálculo del Área de un Rectángulo</span>
+                <p>¿Cuál es la palabra que falta para que el código imprima el área correctamente?</p>
                 <div className="code-box">
                   <div className="code-header">PYTHON</div>
                   <div className="code-content">
                     <pre>
-                      base = float(input("Ingresa la base del rectángulo: ")){"\n"}
-                      altura = float(input("Ingresa la altura del rectángulo: ")){"\n"}
+                      base = _____(input("Ingresa la base del rectángulo: ")){"\n"}
+                      altura = ______(input("Ingresa la altura del rectángulo: ")){"\n"}
                       area = base * altura{"\n"}
                       print("El área del rectángulo es", area)
                     </pre>
                   </div>
                 </div>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={base}
-                    onChange={(e) => setBase(e.target.value)}
-                    placeholder="Ingrese la base"
-                  />
-                  <input
-                    type="text"
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    placeholder="Ingrese la altura"
-                  />
+                {/* Opciones de respuesta */}
+                <div className="options">
+                  {["float", "int", "input", "str"].map((option) => (
+                    <div
+                      key={option}
+                      className={`option ${selectedAnswer === option ? "selected" : ""}`}
+                      onClick={() => handleSelectAnswer(option)}
+                    >
+                      {option}
+                    </div>
+                  ))}
                 </div>
 
-                <button className="level21-card-button" onClick={calculateArea}>
+                <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
                 </button>
                 {showNext && (
                   <button
-                    className="level21-card-button"
+                    className="nivel1-card-button"
                     onClick={() => navigate("/enunciado22")}
                   >
                     Siguiente
@@ -156,8 +157,32 @@ const Veintiuno = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>¡Hola, soy pingui jessica!</h2>
             <p>
-              Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios.
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios. ¡No dudes en consultarlo cuando lo
+              necesites!
             </p>
+
+            <div className="modal-icons">
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 1: Idea")}
+              >
+                <img src="idea.gif" alt="Icono 1" className="modal-icon" />
+              </button>
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 2: Apoyo")}
+              >
+                <img src="apoyo.gif" alt="Icono 2" className="modal-icon" />
+              </button>
+              <button
+                className="modal-icon-button"
+                onClick={() => alert("Ayuda 3: Cuaderno")}
+              >
+                <img src="cuaderno.gif" alt="Icono 3" className="modal-icon" />
+              </button>
+            </div>
+
             <button onClick={closeModal}>Cerrar</button>
           </div>
         </div>

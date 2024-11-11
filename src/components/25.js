@@ -12,7 +12,24 @@ const Veinticuatro = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "exponente") {
+      const base = 2; // ejemplo
+      const exponente = 3; // ejemplo
+      const resultado = base ** exponente;
+      setOutput("Respuesta correcta: El resultado es: " + resultado);
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -97,43 +114,43 @@ const Veinticuatro = () => {
               </div>
             </div>
             <div className="level21-card">
-            <div className="nivel1-card-header">
-  <span>Ejercicio de Potencia de Números</span>
-</div>
-<div className="nivel1-card-body">
-  <p>
-    Ingresa una base y un exponente para calcular el resultado de elevar la base al exponente.
-  </p>
-  <div className="code-box">
-    <div className="code-header">PYTHON</div>
-    <div className="code-content">
-      <pre>
-        {`base = int(input("Ingrese la base: "))
-exponente = int(input("Ingrese el exponente: "))
-resultado = base ** exponente
-print("El resultado es:", resultado)`}
-      </pre>
-    </div>
-  </div>
-
-
-
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
-                  />
+              <div className="nivel1-card-header">
+                <span>Ejercicio de Potencia de Números</span>
+              </div>
+              <div className="nivel1-card-body">
+                <p>
+                  <p>
+                    ¿Cuál es la palabra que falta para que el código realice
+                    correctamente el cálculo de la potencia?
+                  </p>
+                </p>
+                <div className="code-box">
+                  <div className="code-header">PYTHON</div>
+                  <div className="code-content">
+                  <pre>
+              base = int(input("Ingrese la base: ")) {"\n"}
+              _________ = int(input("Ingrese el exponente: ")) {"\n"}
+              resultado = base ** _________ {"\n"}
+              print("El resultado es:", resultado){"\n"}
+            </pre>
+                  </div>
                 </div>
 
-                <button className="level21-card-button" onClick={calculateAverage}>
+               {/* Opciones de respuesta */}
+        <div className="options">
+          {["base", "exponente", "potencia", "int"].map((option) => (
+            <div
+              key={option}
+              className={`option ${selectedAnswer === option ? "selected" : ""}`}
+              onClick={() => handleSelectAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+
+
+        <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
                 </button>
                 {showNext && (
@@ -162,7 +179,8 @@ print("El resultado es:", resultado)`}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>¡Hola, soy pingui jessica!</h2>
             <p>
-              Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios.
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios.
             </p>
             <button onClick={closeModal}>Cerrar</button>
           </div>
@@ -173,4 +191,3 @@ print("El resultado es:", resultado)`}
 };
 
 export default Veinticuatro;
-

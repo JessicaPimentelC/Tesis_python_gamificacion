@@ -11,7 +11,21 @@ const Veintidos = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "kilometros") {
+      setOutput("Respuesta correcta: El valor en kilómetros es: " + (parseFloat(selectedAnswer) / 1000));
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -28,10 +42,10 @@ const Veintidos = () => {
 
   const convertToKilometers = () => {
     const metrosValue = parseFloat(metros);
-    const kilometers = metrosValue / 1000;
+    const kilometros = metrosValue / 1000;
 
-    if (!isNaN(kilometers) && metrosValue > 0) {
-      setOutput(`El valor en kilómetros es: ${kilometers}`);
+    if (!isNaN(kilometros) && metrosValue > 0) {
+      setOutput(`El valor en kilómetros es: ${kilometros}`);
       setScore(score + 10); // Incrementa la puntuación si la respuesta es correcta
     } else {
       setOutput("Inténtalo de nuevo.");
@@ -48,8 +62,7 @@ const Veintidos = () => {
             <div className="header">
               <div className="icons-container">
                 {/* Renderiza insignias */}
-                {[
-                  { src: "tres.png", name: "Insignia 1" },
+                {[{ src: "tres.png", name: "Insignia 1" },
                   { src: "bombillo.png", name: "Insignia 2" },
                   { src: "megafono.png", name: "Insignia 3" },
                   { src: "cohetee.png", name: "Insignia 4" },
@@ -77,7 +90,7 @@ const Veintidos = () => {
               </div>
             </div>
             <div className="header-title">
-              <h2>NIVEL 1</h2>
+              <h2>NIVEL 22</h2>
               <div className="header-status">
                 <span></span>
                 <button className="icon-button">
@@ -103,24 +116,28 @@ const Veintidos = () => {
                 <div className="code-box">
                   <div className="code-header">PYTHON</div>
                   <div className="code-content">
-                    <pre>
-                      metros = float(input("Ingresa el valor en metros: ")){"\n"}
-                      kilometros = metros / 1000{"\n"}
-                      print("El valor en kilómetros es:", kilometros)
-                    </pre>
+                     <pre>
+              metros = float(input("Ingresa el valor en metros: ")){"\n"}
+              ________ = metros / 1000 {"\n"}
+              print("El valor en kilómetros es:", kilometros){"\n"}
+            </pre>
                   </div>
                 </div>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={metros}
-                    onChange={(e) => setMetros(e.target.value)}
-                    placeholder="Ingrese el valor en metros"
-                  />
-                </div>
+                {/* Opciones de respuesta */}
+        <div className="options">
+          {["kilometros", "float", "int", "input"].map((option) => (
+            <div
+              key={option}
+              className={`option ${selectedAnswer === option ? "selected" : ""}`}
+              onClick={() => handleSelectAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
 
-                <button className="level21-card-button" onClick={convertToKilometers}>
+        <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
                 </button>
                 {showNext && (

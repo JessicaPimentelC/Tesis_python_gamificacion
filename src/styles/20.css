@@ -444,4 +444,9 @@
   font-weight: bold;
 }
 
-  
+.option.selected {
+  background-color: #4caf50; /* Cambia a tu color preferido */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #2e7d32; /* Resalta con un borde si deseas */
+}

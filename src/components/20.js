@@ -1,57 +1,54 @@
 import React, { useState } from "react";
-import "../styles/20.css"; // Asegúrate de que la ruta sea correcta
+import "../styles/20.css";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 const Veinte = () => {
-  const [inputValue, setInputValue] = useState("");
   const [output, setOutput] = useState("");
   const [showNext, setShowNext] = useState(false);
-  const [score, setScore] = useState(0); // Estado para el puntaje
-  const navigate = useNavigate(); // Hook para la redirección
-  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
-  const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado para mostrar los nombres al hacer hover
+  const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [hoveredInsignia, setHoveredInsignia] = useState(null);
+  const navigate = useNavigate();
 
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
 
   const closeModal = () => {
-    setShowModal(false); // Cerrar el modal
+    setShowModal(false);
   };
-  const handleMouseEnter = (name) => {
-    setHoveredInsignia(name); // Establece el nombre inmediatamente
-  };
-  const handleMouseLeave = () => {
-    // No hacemos nada aquí para evitar el parpadeo
-  };
-  const checkAnswer = () => {
-    // Lógica del ejercicio: convierte la temperatura de Celsius a Fahrenheit
-    const celsius = parseFloat(inputValue);
-    const fahrenheit = (celsius * 9) / 5 + 32;
 
-    if (!isNaN(fahrenheit)) {
-      setOutput(`Temperatura en Fahrenheit: ${fahrenheit}`);
-      setScore(score + 10); // Incrementa el puntaje si la respuesta es correcta
+  const handleMouseEnter = (name) => {
+    setHoveredInsignia(name);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredInsignia(null);
+  };
+
+  const checkAnswer = () => {
+    if (selectedAnswer === "print") {
+      setOutput("Respuesta correcta: Temperatura en Fahrenheit: 77");
+      setScore(score + 10);
+      setShowNext(true);
     } else {
-      setOutput("Inténtalo de nuevo.");
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false); // Asegura que el botón "Siguiente" solo aparezca con la respuesta correcta
     }
-    setShowNext(true); // Muestra el botón de siguiente
+  };
+  
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
   };
 
   return (
     <div className="nivel1-page">
-      <Sidebar></Sidebar>
-      {/* Barra de carga alineada a la izquierda de la pantalla */}
-      {/**<div className="loading-indicator-outer">
-        <LoadingIndicator /> {/* Reemplaza ProgressBar con LoadingIndicator </div>**/}
+      <Sidebar />
       <div className="nivel1-container">
-        {/* Contenedor principal con el cuadro de información y el contenido principal */}
         <div className="content">
-          {/* Contenedor de información sin GIF */}
-
-          {/* Sección principal con el ejercicio */}
-
           <div className="white-background">
             <div className="header">
               <div className="icons-container">
@@ -60,12 +57,12 @@ const Veinte = () => {
                   { src: "bombillo.png", name: "Insignia 2" },
                   { src: "megafono.png", name: "Insignia 3" },
                   { src: "cohetee.png", name: "Insignia 4" },
-                  { src: "accion.png", name: "Insignia 6  " },
-                  { src: "25.png", name: "Insignia 7  " },
-                  { src: "26.png", name: "Insignia 8  " },
-                  { src: "22.png", name: "Insignia 9  " },
-                  { src: "23.png", name: "Insignia 10  " },
-                  { src: "24.png", name: "Insignia 5  " },
+                  { src: "accion.png", name: "Insignia 6" },
+                  { src: "25.png", name: "Insignia 7" },
+                  { src: "26.png", name: "Insignia 8" },
+                  { src: "22.png", name: "Insignia 9" },
+                  { src: "23.png", name: "Insignia 10" },
+                  { src: "24.png", name: "Insignia 5" },
                 ].map((insignia, index) => (
                   <div key={index} className="circular-icon-container">
                     <button
@@ -83,50 +80,51 @@ const Veinte = () => {
                 ))}
               </div>
             </div>
+
             <div className="header-title">
               <h2>NIVEL 1</h2>
               <div className="header-status">
-                <span></span>
                 <button className="icon-button">
-                  <img src="informacion.png" alt="Icono Moneda" />
+                  <img src="informacion.png" alt="Icono Información" />
                 </button>
                 <button
                   className="icon-button"
                   onClick={() => navigate("/dashboard")}
                 >
-                  <img src="colombia.png" alt="Icono Pregunta" />
+                  <img src="colombia.png" alt="Icono País" />
                 </button>
                 <button className="icon-button">
                   <img src="persona.png" alt="Icono Perfil" />
                 </button>
               </div>
             </div>
+
             <div className="nivel1-card">
               <div className="nivel1-card-body">
                 <span>Ejercicio de Conversión de Temperatura</span>
-                <p>
-                  Ingresa la temperatura en Celsius para convertirla a
-                  Fahrenheit.
-                </p>
-              </div>
-              <div className="nivel1-card-body">
+                <p>¿Cuál es la palabra que falta para que el código imprima?</p>
                 <div className="code-box">
                   <div className="code-header">PYTHON</div>
                   <div className="code-content">
                     <pre>
-                      celsius = 25 fahrenheit = (celsius * 9/5) + 32
-                      print(fahrenheit)
+                      celsius = 25{"\n"}
+                      fahrenheit = (celsius * 9/5) + 32{"\n"}
+                      _____(fahrenheit)
                     </pre>
                   </div>
                 </div>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Ingrese la temperatura en Celsius"
-                  />
+                {/* Opciones de respuesta */}
+                <div className="options">
+  {["print", "input", "if", "def"].map((option) => (
+    <div
+      key={option}
+      className={`option ${selectedAnswer === option ? "selected" : ""}`}
+      onClick={() => handleSelectAnswer(option)}
+    >
+                      {option}
+                    </div>
+                  ))}
                 </div>
 
                 <button className="nivel1-card-button" onClick={checkAnswer}>
@@ -135,7 +133,7 @@ const Veinte = () => {
                 {showNext && (
                   <button
                     className="nivel1-card-button"
-                    onClick={() => navigate("/enunciado21")} // Ajusta la ruta según sea necesario
+                    onClick={() => navigate("/enunciado21")}
                   >
                     Siguiente
                   </button>
@@ -153,7 +151,6 @@ const Veinte = () => {
         </div>
       </div>
 
-      {/* Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -164,11 +161,6 @@ const Veinte = () => {
               necesites!
             </p>
 
-            <div className="nivel1-card-header">
-              <p>Seleccione una Ayuda:</p>
-            </div>
-
-            {/* Contenedor de los iconos en forma vertical */}
             <div className="modal-icons">
               <button
                 className="modal-icon-button"
@@ -176,14 +168,12 @@ const Veinte = () => {
               >
                 <img src="idea.gif" alt="Icono 1" className="modal-icon" />
               </button>
-
               <button
                 className="modal-icon-button"
                 onClick={() => alert("Ayuda 2: Apoyo")}
               >
                 <img src="apoyo.gif" alt="Icono 2" className="modal-icon" />
               </button>
-
               <button
                 className="modal-icon-button"
                 onClick={() => alert("Ayuda 3: Cuaderno")}

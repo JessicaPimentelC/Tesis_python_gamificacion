@@ -12,7 +12,28 @@ const Veintiseis = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "import") {
+      const radio = 5; // ejemplo
+      const area = Math.PI * radio ** 2;
+      setOutput(
+        "Respuesta correcta: El área del círculo con radio " +
+          radio +
+          " es: " +
+          area
+      );
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -97,42 +118,46 @@ const Veintiseis = () => {
               </div>
             </div>
             <div className="level21-card">
-            <div className="nivel1-card-header">
+              <div className="nivel1-card-header">
                 <span>Ejercicio de Cálculo del Área de un Círculo</span>
-                </div>
-                <div className="nivel1-card-body">
+              </div>
+              <div className="nivel1-card-body">
                 <p>
-                    Ingresa el radio de un círculo para calcular su área.
+                  ¿Cuál es la palabra que falta para que el código calcule
+                  correctamente el área del círculo?
                 </p>
+
                 <div className="code-box">
-                    <div className="code-header">Python</div>
-                    <div className="code-content">
+                  <div className="code-header">Python</div>
+                  <div className="code-content">
                     <pre>
-                        {`import math
-                radio = float(input("Ingresa el radio del círculo: "))
-                area = math.pi * radio**2
-                print("El área del círculo con radio", radio, "es:", area)`}
+                      ________ math {"\n"}
+                      radio = float(input("Ingresa el radio del círculo: ")){" "}
+                      {"\n"}
+                      area = math.pi * radio**2 {"\n"}
+                      print("El área del círculo con radio", radio, "es:", area)
+                      {"\n"}
                     </pre>
+                  </div>
+                </div>
+
+                {/* Opciones de respuesta */}
+                <div className="options">
+                  {["import", "from", "as", "include"].map((option) => (
+                    <div
+                      key={option}
+                      className={`option ${
+                        selectedAnswer === option ? "selected" : ""
+                      }`}
+                      onClick={() => handleSelectAnswer(option)}
+                    >
+                      {option}
                     </div>
+                  ))}
                 </div>
 
+                <button className="nivel1-card-button" onClick={checkAnswer}>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
-                  />
-                </div>
-
-                <button className="level21-card-button" onClick={calculateAverage}>
                   Verificar
                 </button>
                 {showNext && (
@@ -140,7 +165,7 @@ const Veintiseis = () => {
                     className="level21-card-button"
                     onClick={() => navigate("/enunciado27")}
                   >
-                   Siguiente
+                    Siguiente
                   </button>
                 )}
 
@@ -161,7 +186,8 @@ const Veintiseis = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>¡Hola, soy pingui jessica!</h2>
             <p>
-              Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios.
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios.
             </p>
             <button onClick={closeModal}>Cerrar</button>
           </div>
@@ -172,4 +198,3 @@ const Veintiseis = () => {
 };
 
 export default Veintiseis;
-

@@ -12,7 +12,23 @@ const Veintisiete = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "math") {
+      const numero = 4; // ejemplo
+      const potencia = Math.pow(numero, 2);
+      setOutput("Respuesta correcta: La potencia es: " + potencia);
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -99,29 +115,33 @@ const Veintisiete = () => {
                 <span>Ejercicio de Potencia de un Número</span>
               </div>
               <div className="nivel1-card-body">
-                <p>
-                  Ingresa un número para calcular su potencia al cuadrado.
-                </p>
+              <p>¿Cuál es la palabra que falta para que el código calcule correctamente la potencia de un número?</p>
+
                 <div className="code-box">
                   <div className="code-header">Python</div>
                   <pre>
-                    {`import math\n
-numero = int(input("numero:"))\n
-potencia = math.pow(numero, 2)\n
-print("La potencia es:", potencia)`}
-                  </pre>
+              import _______ {"\n"}
+              numero = int(input("numero:")) {"\n"}
+              potencia = math.pow(numero, 2) {"\n"}
+              print("La potencia es:", potencia){"\n"}
+            </pre>
                 </div>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el número"
-                  />
-                </div>
+                {/* Opciones de respuesta */}
+        <div className="options">
+          {["math", "cmath", "random", "os"].map((option) => (
+            <div
+              key={option}
+              className={`option ${selectedAnswer === option ? "selected" : ""}`}
+              onClick={() => handleSelectAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
 
-                <button className="level21-card-button" onClick={calculateAverage}>
+        <button className="nivel1-card-button" onClick={checkAnswer}>
+
                   Verificar
                 </button>
                 {showNext && (

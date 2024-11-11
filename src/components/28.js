@@ -12,6 +12,23 @@ const Veintiocho = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+
+  const checkAnswer = () => {
+    if (selectedAnswer === "numero") {
+      const numero = 16; // ejemplo
+      const raiz = Math.sqrt(numero);
+      setOutput("Respuesta correcta: La raíz cuadrada es: " + raiz);
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
 
   const handleInsigniaClick = () => {
     navigate("/insignias");
@@ -97,42 +114,40 @@ const Veintiocho = () => {
               </div>
             </div>
             <div className="level21-card">
-            <div className="nivel1-card-header">
-  <span>Cálculo de la Raíz Cuadrada</span>
-</div>
-<div className="nivel1-card-body">
-  <p>
-    En Python, podemos calcular la raíz cuadrada de un número de manera sencilla. En esta actividad, crearás un
-    algoritmo que le permita al usuario ingresar un número y calcular su raíz cuadrada.
-  </p>
-  <div className="code-box">
-    <div className="code-header">Python</div>
-    <code>
-      {`import math\n
-numero = int(input("numero:"))\n
-raiz = math.sqrt(numero)\n
-print("La raíz cuadrada es:", raiz)`}
-    </code>
-  </div>
+              <div className="nivel1-card-header">
+                <span>Cálculo de la Raíz Cuadrada</span>
+              </div>
+              <div className="nivel1-card-body">
+                <p>
+                  ¿Cuál es la palabra que falta para que el código calcule
+                  correctamente la raíz cuadrada de un número?
+                </p>
 
-
-
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
-                  />
+                <div className="code-box">
+                  <div className="code-header">Python</div>
+                  <pre>
+              import math {"\n"}
+              _______ = int(input("numero:")) {"\n"}
+              raiz = math.sqrt(_______) {"\n"}
+              print("La raíz cuadrada es:", raiz){"\n"}
+            </pre>
                 </div>
 
-                <button className="level21-card-button" onClick={calculateAverage}>
+                {/* Opciones de respuesta */}
+        <div className="options">
+          {["numero", "valor", "input", "variable"].map((option) => (
+            <div
+              key={option}
+              className={`option ${selectedAnswer === option ? "selected" : ""}`}
+              onClick={() => handleSelectAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+
+        <button className="nivel1-card-button" onClick={checkAnswer}>
+
                   Verificar
                 </button>
                 {showNext && (
@@ -161,7 +176,8 @@ print("La raíz cuadrada es:", raiz)`}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>¡Hola, soy pingui jessica!</h2>
             <p>
-              Aquí podrás encontrar todas las ayudas que necesites para completar los ejercicios.
+              Aquí podrás encontrar todas las ayudas que necesites para
+              completar los ejercicios.
             </p>
             <button onClick={closeModal}>Cerrar</button>
           </div>
@@ -172,4 +188,3 @@ print("La raíz cuadrada es:", raiz)`}
 };
 
 export default Veintiocho;
-

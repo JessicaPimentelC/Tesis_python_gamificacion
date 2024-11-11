@@ -12,7 +12,21 @@ const Veintidos = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // Control del modal
   const [hoveredInsignia, setHoveredInsignia] = useState(null); // Estado de hover para insignias
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
+  const checkAnswer = () => {
+    if (selectedAnswer === "int") {
+      setOutput("Respuesta correcta: El promedio de los números es: " + (parseInt("10") + parseInt("20")) / 2);
+      setShowNext(true);
+    } else {
+      setOutput("Respuesta incorrecta. Inténtalo de nuevo.");
+      setShowNext(false);
+    }
+  };
+
+  const handleSelectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+  };
   const handleInsigniaClick = () => {
     navigate("/insignias");
   };
@@ -99,36 +113,32 @@ const Veintidos = () => {
             <div className="level21-card">
               <div className="nivel1-card-header">
                 <span>Ejercicio de Promedio de Números</span>
-                <p>Ingresa dos números para calcular su promedio.</p>
-              </div>
+                <p>¿Cuál es la palabra que falta para que el código imprima el promedio correctamente?</p>
+                </div>
               <div className="level21-card-body">
                 <div className="code-box">
                   <div className="code-header">PYTHON</div>
                   <div className="code-content">
-                    <pre>
-                      primerNum = int(input("Ingrese el primer número")){"\n"}
-                      segundoNum = int(input("Ingrese el segundo número")){"\n"}
-                      print("El promedio de los números es:", (primerNum + segundoNum) / 2)
-                    </pre>
+                  <pre>
+              primerNum = ______(input("Ingrese el primer número")) {"\n"}
+              segundoNum = ______(input("Ingrese el segundo número")) {"\n"}
+              print("El promedio de los números es:", (primerNum + segundoNum) / 2){"\n"}
+            </pre>
                   </div>
                 </div>
+                <div className="options">
+          {["int", "float", "str", "input"].map((option) => (
+            <div
+              key={option}
+              className={`option ${selectedAnswer === option ? "selected" : ""}`}
+              onClick={() => handleSelectAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
 
-                <div className="input-container">
-                  <input
-                    type="text"
-                    value={primerNum}
-                    onChange={(e) => setPrimerNum(e.target.value)}
-                    placeholder="Ingrese el primer número"
-                  />
-                  <input
-                    type="text"
-                    value={segundoNum}
-                    onChange={(e) => setSegundoNum(e.target.value)}
-                    placeholder="Ingrese el segundo número"
-                  />
-                </div>
-
-                <button className="level21-card-button" onClick={calculateAverage}>
+        <button className="nivel1-card-button" onClick={checkAnswer}>
                   Verificar
                 </button>
                 {showNext && (
