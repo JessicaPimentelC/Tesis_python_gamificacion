@@ -113,7 +113,7 @@ const Veintiocho = () => {
                 </button>
               </div>
             </div>
-            <div className="level21-card">
+            <div className="nivel1-card">
               <div className="nivel1-card-header">
                 <span>Cálculo de la Raíz Cuadrada</span>
               </div>
@@ -153,7 +153,7 @@ const Veintiocho = () => {
                 {showNext && (
                   <button
                     className="level21-card-button"
-                    onClick={() => navigate("/examen")}
+                    onClick={() => navigate("/enunciado29")}
                   >
                     Siguiente
                   </button>

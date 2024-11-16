@@ -39,6 +39,16 @@ import Enunciado25 from './components/enunciado25';
 import Enunciado26 from './components/enunciado26';
 import Enunciado27 from './components/enunciado27';
 import Enunciado28 from './components/enunciado28';
+import Enunciado29 from './components/enunciado29';
+import Enunciado30 from './components/enunciado30';
+import Enunciado31 from './components/enunciado31';
+import Enunciado32 from './components/enunciado32';
+import Enunciado33 from './components/enunciado33';
+import Enunciado34 from './components/enunciado34';
+import Enunciado35 from './components/enunciado35';
+import Enunciado36 from './components/enunciado36';
+import Enunciado37 from './components/enunciado37';
+import Enunciado38 from './components/enunciado38';
 import Dos from './components/2';
 import Tres from './components/3';
 import Cuatro from './components/4';
@@ -66,6 +76,16 @@ import Veinticinco from './components/25';
 import Veintiseis from './components/26';
 import Veintisiete from './components/27';
 import Veintiocho from './components/28';
+import Veintinueve from './components/29';
+import Treinta from './components/30';
+import Trientauno from './components/31';
+import Trientados from './components/32';
+import Trientatres from './components/33';
+import Trientacuatro from './components/34';
+import Trientacinco from './components/35';
+import Trientaseis from './components/36';
+import Trientasiete from './components/37';
+import Trientaocho from './components/38';
 import Uno from './components/1';
 import Foro from './components/foro';
 import Sidebar from './components/Sidebar'; 
@@ -115,6 +135,16 @@ const App = () => {
         <Route path="/26" element={<Veintiseis/>} />
         <Route path="/27" element={<Veintisiete/>} />
         <Route path="/28" element={<Veintiocho/>} />
+        <Route path="/29" element={<Veintinueve/>} />
+        <Route path="/30" element={<Treinta/>} />
+        <Route path="/31" element={<Trientauno/>} />
+        <Route path="/32" element={<Trientados/>} />
+        <Route path="/33" element={<Trientatres/>} />
+        <Route path="/34" element={<Trientacuatro/>} />
+        <Route path="/35" element={<Trientacinco/>} />
+        <Route path="/36" element={<Trientaseis/>} />
+        <Route path="/37" element={<Trientasiete/>} />
+        <Route path="/38" element={<Trientaocho/>} />
         <Route path="/examen" element={<Examen />} />
         <Route path="/examennivel1" element={<Examennivel1 />} />
         <Route path="/condicionales" element={<Condicionales />} />
@@ -144,6 +174,16 @@ const App = () => {
         <Route path="/enunciado26" element={<Enunciado26 />} />
         <Route path="/enunciado27" element={<Enunciado27 />} />
         <Route path="/enunciado28" element={<Enunciado28 />} />
+        <Route path="/enunciado29" element={<Enunciado29 />} />
+        <Route path="/enunciado30" element={<Enunciado30 />} />
+        <Route path="/enunciado31" element={<Enunciado31 />} />
+        <Route path="/enunciado32" element={<Enunciado32 />} />
+        <Route path="/enunciado33" element={<Enunciado33 />} />
+        <Route path="/enunciado34" element={<Enunciado34/>} />
+        <Route path="/enunciado35" element={<Enunciado35/>} />
+        <Route path="/enunciado36" element={<Enunciado36/>} />
+        <Route path="/enunciado37" element={<Enunciado37/>} />
+        <Route path="/enunciado38" element={<Enunciado38/>} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
         <Route path="/insignias" element={<Insignias />} /> 

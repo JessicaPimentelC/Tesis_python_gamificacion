@@ -110,7 +110,7 @@ const Veintisiete = () => {
                 </button>
               </div>
             </div>
-            <div className="level21-card">
+            <div className="nivel1-card">
               <div className="nivel1-card-header">
                 <span>Ejercicio de Potencia de un Número</span>
               </div>

@@ -19,7 +19,11 @@ const Ejercicios1 = ({ toggleView }) => {
     }, 2000); // Asume que el GIF tiene una duración de 2 segundos
   };
   const handleContinueClick = () => {
+    // Aquí pones la lógica para mostrar la confirmación si la tienes
     setShowConfirmation(true);
+  
+    // Rediriges a enunciado3.js
+    navigate('/enunciado3');
   };
   const handleCloseModal = () => {
     setShowModal(false);
