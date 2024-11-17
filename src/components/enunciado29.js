@@ -152,7 +152,7 @@ print ("El promedio de los números es: ", (num1+num2)/2)
               conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir
               avanzando.
             </p>
-            <img src=".gif" alt="GIF de bienvenida" className="modal-gif" />
+            <img src="1.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
               Continuar
             </button>
