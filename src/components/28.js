@@ -113,7 +113,7 @@ const Veintiocho = () => {
                 </button>
               </div>
             </div>
-            <div className="nivel1-card">
+            <div className="nivel1-card"> 
               <div className="nivel1-card-header">
                 <span>Cálculo de la Raíz Cuadrada</span>
               </div>

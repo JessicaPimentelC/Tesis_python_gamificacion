@@ -6,7 +6,7 @@ import PinguinoModal from "./PinguinoModal";
 import Mapa from "./Mapa";
 
 const Treintaocho = () => {
-  const [options, setOptions] = useState(["", "math", "import", "float"]);
+  const [options, setOptions] = useState(["If", "math", "import", "float"]);
   const [hoveredInsignia, setHoveredInsignia] = useState(null);
   const [isModalOpenPinguino, setIsModalOpenPinguino] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +42,7 @@ const Treintaocho = () => {
   };
 
   const handleNext = () => {
-    navigate("/enunciado40");
+    navigate("/enunciado39");
   };
 
   const handleMouseEnter = (name) => {

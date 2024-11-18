@@ -49,6 +49,8 @@ import Enunciado35 from './components/enunciado35';
 import Enunciado36 from './components/enunciado36';
 import Enunciado37 from './components/enunciado37';
 import Enunciado38 from './components/enunciado38';
+import Enunciado39 from './components/enunciado39';
+import Enunciado40 from './components/enunciado40';
 import Dos from './components/2';
 import Tres from './components/3';
 import Cuatro from './components/4';
@@ -86,6 +88,8 @@ import Trientacinco from './components/35';
 import Trientaseis from './components/36';
 import Trientasiete from './components/37';
 import Trientaocho from './components/38';
+import Trientanueve from './components/39';
+import Cuarenta from './components/40';
 import Uno from './components/1';
 import Foro from './components/foro';
 import Sidebar from './components/Sidebar'; 
@@ -145,6 +149,8 @@ const App = () => {
         <Route path="/36" element={<Trientaseis/>} />
         <Route path="/37" element={<Trientasiete/>} />
         <Route path="/38" element={<Trientaocho/>} />
+        <Route path="/39" element={<Trientanueve/>} />
+        <Route path="/40" element={<Cuarenta/>} />
         <Route path="/examen" element={<Examen />} />
         <Route path="/examennivel1" element={<Examennivel1 />} />
         <Route path="/condicionales" element={<Condicionales />} />
@@ -184,6 +190,8 @@ const App = () => {
         <Route path="/enunciado36" element={<Enunciado36/>} />
         <Route path="/enunciado37" element={<Enunciado37/>} />
         <Route path="/enunciado38" element={<Enunciado38/>} />
+        <Route path="/enunciado39" element={<Enunciado39/>} />
+        <Route path="/enunciado40" element={<Enunciado40/>} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
         <Route path="/insignias" element={<Insignias />} /> 
