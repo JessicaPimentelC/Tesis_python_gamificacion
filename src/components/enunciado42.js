@@ -3,7 +3,7 @@ import '../styles/enunciado35.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-const Enunciado40 = ({ score = 0 }) => {
+const Enunciado42 = ({ score = 0 }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ const Enunciado40 = ({ score = 0 }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/40');
+    navigate('/42');
   };
 
   const handleInsigniaClick = () => {
@@ -97,25 +97,19 @@ const Enunciado40 = ({ score = 0 }) => {
               </div>
           <div className="nivel1-card">
           <div className="nivel1-card-header">
-  <span>Cálculo del Promedio de Dos Números
-
+  <span>Captura y Muestra de una Fecha de Nacimiento
 </span>
 </div>
 <div className="nivel1-card-body">
   <p>
-  Con Python, puedes escribir un programa que calcule el promedio de dos números ingresados por el usuario. 
+  En Python, se puede crear un algoritmo que permita al usuario ingresar su fecha de nacimiento en el formato DD/MM/AAAA y mostrarla por pantalla.
 </p>
   <div className="code-box">
     <div className="code-header">Python</div>
     <code>
-      {`\n
-
-num1 = int(input("Ingrese el primer número "))
-num2 = int(input("Ingrese el segundo número "))
-print ("El promedio de los números es: ", (num1+num2)/2)
-
-
-
+      {`
+fecha = input("¿Cuál es tu fecha de nacimiento? (DD/MM/AAAA): ")
+print("Tu fecha de nacimiento es:”,fecha)
 
 `}
     </code>
@@ -132,7 +126,7 @@ print ("El promedio de los números es: ", (num1+num2)/2)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="40.gif" alt="GIF" className="gif-image" />
+                  <img src="42.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -168,4 +162,4 @@ print ("El promedio de los números es: ", (num1+num2)/2)
   );
 };
 
-export default Enunciado40;
+export default Enunciado42;

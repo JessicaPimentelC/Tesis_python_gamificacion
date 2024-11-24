@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/enunciado35.css'; // Asegúrate de que la ruta sea correcta
-import { useNavigate } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import React, { useState, useEffect } from "react";
+import "../styles/enunciado35.css"; // Asegúrate de que la ruta sea correcta
+import { useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
-const Enunciado40 = ({ score = 0 }) => {
+const Enunciado47 = ({ score = 0 }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [currentTime, setCurrentTime] = useState('');
+  const [currentTime, setCurrentTime] = useState("");
   const navigate = useNavigate();
   const [hoveredInsignia, setHoveredInsignia] = useState(null);
 
@@ -34,11 +34,11 @@ const Enunciado40 = ({ score = 0 }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/40');
+    navigate("/47");
   };
 
   const handleInsigniaClick = () => {
-    navigate('/insignias');
+    navigate("/insignias");
   };
 
   const handleMouseEnter = (name) => {
@@ -76,55 +76,57 @@ const Enunciado40 = ({ score = 0 }) => {
                   >
                     <img src={insignia.src} alt={insignia.name} />
                   </button>
-                  {hoveredInsignia === insignia.name && <p className="hovered-insignia">{insignia.name}</p>}
+                  {hoveredInsignia === insignia.name && (
+                    <p className="hovered-insignia">{insignia.name}</p>
+                  )}
                 </div>
               ))}
             </div>
           </div>
           <div className="header-title">
-                <h2>NIVEL 1</h2>
-                <div className="header-status">
-                <span></span>
-              
-                <button className="icon-button" onClick={() => navigate('/dashboard')}>
-                  <img src="colombia.png" alt="Icono Pregunta" />
-                </button>
-                <button className="icon-button">
-                  <img src="persona.png" alt="Icono Perfil" />
-                </button>
-                
-              </div>
-              </div>
+            <h2>NIVEL 1</h2>
+            <div className="header-status">
+              <span></span>
+
+              <button
+                className="icon-button"
+                onClick={() => navigate("/dashboard")}
+              >
+                <img src="colombia.png" alt="Icono Pregunta" />
+              </button>
+              <button className="icon-button">
+                <img src="persona.png" alt="Icono Perfil" />
+              </button>
+            </div>
+          </div>
           <div className="nivel1-card">
-          <div className="nivel1-card-header">
-  <span>Cálculo del Promedio de Dos Números
+            <div className="nivel1-card-header">
+              <span>Cálculo del Área de un Cuadrado en Python
 
 </span>
-</div>
-<div className="nivel1-card-body">
-  <p>
-  Con Python, puedes escribir un programa que calcule el promedio de dos números ingresados por el usuario. 
-</p>
-  <div className="code-box">
-    <div className="code-header">Python</div>
-    <code>
-      {`\n
+            </div>
+            <div className="nivel1-card-body">
+              
 
-num1 = int(input("Ingrese el primer número "))
-num2 = int(input("Ingrese el segundo número "))
-print ("El promedio de los números es: ", (num1+num2)/2)
-
-
-
+              <p> En Python, se puede crear un algoritmo que permita al usuario ingresar la longitud del lado de un cuadrado y calcular su área</p>
+              <div className="code-box">
+                <div className="code-header">Python</div>
+                <code>
+                  {`
+               lado = input("Introduce la longitud del lado del cuadrado: ") 
+               area = float(lado) ** 2 
+print("El área del cuadrado es”, area)
 
 `}
-    </code>
-  </div>
-
+                </code>
+              </div>
 
               {!showGif && (
                 <div className="nivel1-card-button-container">
-                  <button className="nivel1-card-button" onClick={handleShowGif}>
+                  <button
+                    className="nivel1-card-button"
+                    onClick={handleShowGif}
+                  >
                     Ver Simulación
                   </button>
                 </div>
@@ -132,13 +134,16 @@ print ("El promedio de los números es: ", (num1+num2)/2)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="40.gif" alt="GIF" className="gif-image" />
+                  <img src=".gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
               {showContinue && (
                 <div className="nivel1-card-button-container">
-                  <button className="nivel1-card-button" onClick={handleContinueClick}>
+                  <button
+                    className="nivel1-card-button"
+                    onClick={handleContinueClick}
+                  >
                     Continuar
                   </button>
                 </div>
@@ -153,9 +158,10 @@ print ("El promedio de los números es: ", (num1+num2)/2)
           <div className="modal-content">
             <h2>¡Bien hecho avanzando en Python!</h2>
             <p>
-              🌟 ¡Estás progresando muy bien en tu aprendizaje de Python! 🚀 Ahora es el momento de poner en práctica tus
-              conocimientos con un nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta ahora y seguir
-              avanzando.
+              🌟 ¡Estás progresando muy bien en tu aprendizaje de Python! 🚀
+              Ahora es el momento de poner en práctica tus conocimientos con un
+              nuevo ejercicio. Prepárate para aplicar lo que has aprendido hasta
+              ahora y seguir avanzando.
             </p>
             <img src="10.gif" alt="GIF de bienvenida" className="modal-gif" />
             <button className="modal-close-button" onClick={handleCloseModal}>
@@ -168,4 +174,4 @@ print ("El promedio de los números es: ", (num1+num2)/2)
   );
 };
 
-export default Enunciado40;
+export default Enunciado47;

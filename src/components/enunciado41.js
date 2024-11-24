@@ -3,7 +3,7 @@ import '../styles/enunciado35.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-const Enunciado40 = ({ score = 0 }) => {
+const Enunciado41 = ({ score = 0 }) => {
   const [showGif, setShowGif] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ const Enunciado40 = ({ score = 0 }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/40');
+    navigate('/41');
   };
 
   const handleInsigniaClick = () => {
@@ -97,26 +97,19 @@ const Enunciado40 = ({ score = 0 }) => {
               </div>
           <div className="nivel1-card">
           <div className="nivel1-card-header">
-  <span>Cálculo del Promedio de Dos Números
-
-</span>
+  <span>Concatenación de Cadenas de Texto en Python</span>
 </div>
 <div className="nivel1-card-body">
   <p>
-  Con Python, puedes escribir un programa que calcule el promedio de dos números ingresados por el usuario. 
+  Con Python, es sencillo crear un programa que permita al usuario ingresar dos cadenas de texto y luego imprimir ambas concatenadas. Este ejercicio demuestra cómo trabajar con cadenas y manipularlas de manera eficiente. ¡Explora cómo Python simplifica el manejo de texto!
 </p>
   <div className="code-box">
     <div className="code-header">Python</div>
     <code>
-      {`\n
-
-num1 = int(input("Ingrese el primer número "))
-num2 = int(input("Ingrese el segundo número "))
-print ("El promedio de los números es: ", (num1+num2)/2)
-
-
-
-
+      {`
+cadena1 = input(“hola”)
+cadena2 = input(“mundo”)
+print (cadena1, cadena2)
 `}
     </code>
   </div>
@@ -132,7 +125,7 @@ print ("El promedio de los números es: ", (num1+num2)/2)
 
               {showGif && (
                 <div className="gif-container">
-                  <img src="40.gif" alt="GIF" className="gif-image" />
+                  <img src="41.gif" alt="GIF" className="gif-image" />
                 </div>
               )}
 
@@ -168,4 +161,4 @@ print ("El promedio de los números es: ", (num1+num2)/2)
   );
 };
 
-export default Enunciado40;
+export default Enunciado41;

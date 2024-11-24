@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import PinguinoModal from "./PinguinoModal";
 import Mapa from "./Mapa";
 
-const Cuarenta = () => {
+const Cuarentaocho = () => {
   const [flippedCards, setFlippedCards] = useState([]); // Tarjetas volteadas
   const [matchedPairs, setMatchedPairs] = useState([]); // Pairs emparejados
   const [isCorrect, setIsCorrect] = useState(null); // Estado para verificar si es correcto
@@ -15,12 +15,12 @@ const Cuarenta = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const cards = [
-    { id: 1, value: "num1", pairId: 1 },
-    { id: 2, value: "num2", pairId: 2 },
-    { id: 3, value: "=", pairId: 3 },
-    { id: 4, value: "=", pairId: 3 },
-    { id: 5, value: "/ 2", pairId: 2 },
-    { id: 6, value: "(num1 + num2)", pairId: 1 }, // Par para el "="
+    { id: 1, value: "work", pairId: 1 },
+    { id: 2, value: "work", pairId: 2 },
+    { id: 3, value: "float", pairId: 3 },
+    { id: 4, value: "float", pairId: 3 },
+    { id: 5, value: "if", pairId: 2 },
+    { id: 6, value: "if", pairId: 1 }, // Par para el "="
   ];
 
   const handleCardClick = (card) => {
@@ -35,7 +35,8 @@ const Cuarenta = () => {
       if (firstCard.pairId === card.pairId) {
         setMatchedPairs([...matchedPairs, firstCard.id, card.id]);
         setFlippedCards([]); // Restablecer las cartas volteadas
-        if (card.value === "=") {  // Verifica si el signo es "="
+        if (card.value === "=") {
+          // Verifica si el signo es "="
           setIsCorrect(true);
         }
       } else {
@@ -54,7 +55,7 @@ const Cuarenta = () => {
 
   const handleNext = () => {
     if (isCorrect) {
-      navigate("/enunciado41"); // Cambia "/otro-modulo" a la ruta deseada
+      navigate("/enunciado49"); // Cambia "/otro-modulo" a la ruta deseada
     }
   };
 
@@ -80,7 +81,8 @@ const Cuarenta = () => {
   };
 
   const handleVerify = () => {
-    if (matchedPairs.includes(3)) { // Si el signo "=" está emparejado correctamente
+    if (matchedPairs.includes(3)) {
+      // Si el signo "=" está emparejado correctamente
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
@@ -94,7 +96,7 @@ const Cuarenta = () => {
         <div className="content">
           <div className="white-background">
             <div className="header">
-            <div className="icons-container">
+              <div className="icons-container">
                 {[
                   { src: "tres.png", name: "Insignia 1" },
                   { src: "bombillo.png", name: "Insignia 2" },
@@ -119,35 +121,41 @@ const Cuarenta = () => {
               </div>
             </div>
             <div className="header-title">
-                <h2>NIVEL 1</h2>
-                <div className="header-status">
+              <h2>NIVEL 1</h2>
+              <div className="header-status">
                 <span></span>
                 <button className="icon-button">
                   <img src="informacion.png" alt="Icono Moneda" />
                 </button>
-                <button className="icon-button" onClick={() => navigate('/dashboard')}>
+                <button
+                  className="icon-button"
+                  onClick={() => navigate("/dashboard")}
+                >
                   <img src="colombia.png" alt="Icono Pregunta" />
                 </button>
                 <button className="icon-button">
                   <img src="persona.png" alt="Icono Perfil" />
                 </button>
-                
               </div>
-              </div>
+            </div>
             <div className="nivel1-card">
               <div className="nivel1-card-header">
-                <span>EJERCICIO PROMEDIO</span>
+                <span>Cálculo del Perímetro de un Rectángulo en Python
+
+</span>
               </div>
               <div className="nivel1-card-body-ejer1">
-                <p>Encuentra la pareja relacionada con el cálculo del promedio en Python para que el ejerccio sea el correcto .</p>
+                <p>Encuentra la pareja relacionada.</p>
                 <div className="code-box">
                   <div className="code-header">Python</div>
                   <div className="code-content">
                     <pre>
                       <code>
-                        num1 ___ int(input("Ingrese el primer número ")){"\n"}
-                        num2 ____ int(input("Ingrese el segundo número ")){"\n"}
-                        print("El promedio de los números es: ", (num1+num2)/2){"\n"}
+                        base = input("Introduce la base del rectángulo: "){"\n"}
+                        altura = input("Introduce la altura del rectángulo: "){"\n"}
+                        perimetro = 2 * (______(base) + ______(altura)) {"\n"}
+                        print("El perimetro del rectangulo es”, perimetro){"\n"}
+                        
                       </code>
                     </pre>
                   </div>
@@ -159,24 +167,34 @@ const Cuarenta = () => {
                       className={`card ${isCardFlipped(card) ? "flipped" : ""}`}
                       onClick={() => handleCardClick(card)}
                     >
-                      {isCardFlipped(card) ? <span>{card.value}</span> : <span>?</span>}
+                      {isCardFlipped(card) ? (
+                        <span>{card.value}</span>
+                      ) : (
+                        <span>?</span>
+                      )}
                     </div>
                   ))}
                 </div>
 
                 <div className="verify-container">
-      {isCorrect === true && <p className="result correct">¡Correcto! El signo es "="</p>}
-      {isCorrect === false && <p className="incorrect-message">¡Inténtalo de nuevo!</p>}
-      <button className="next-button" onClick={handleVerify}>
-        Verificar
-      </button>
-      <button
-        className={`nivel1-card-button next-button ${isCorrect ? "show" : ""}`}
-        onClick={handleNext}
-        disabled={isCorrect === null || !isCorrect} // Desactiva el botón hasta que sea correcto
-      >
-        Continuar
-      </button>
+                  {isCorrect === true && (
+                    <p className="result correct">¡Correcto! El signo es "="</p>
+                  )}
+                  {isCorrect === false && (
+                    <p className="incorrect-message">¡Inténtalo de nuevo!</p>
+                  )}
+                  <button className="next-button" onClick={handleVerify}>
+                    Verificar
+                  </button>
+                  <button
+                    className={`nivel1-card-button next-button ${
+                      isCorrect ? "show" : ""
+                    }`}
+                    onClick={handleNext}
+                    disabled={isCorrect === null || !isCorrect} // Desactiva el botón hasta que sea correcto
+                  >
+                    Continuar
+                  </button>
                 </div>
               </div>
             </div>
@@ -187,4 +205,4 @@ const Cuarenta = () => {
   );
 };
 
-export default Cuarenta;
+export default Cuarentaocho;

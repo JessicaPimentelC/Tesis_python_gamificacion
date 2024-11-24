@@ -51,6 +51,16 @@ import Enunciado37 from './components/enunciado37';
 import Enunciado38 from './components/enunciado38';
 import Enunciado39 from './components/enunciado39';
 import Enunciado40 from './components/enunciado40';
+import Enunciado41 from './components/enunciado41';
+import Enunciado42 from './components/enunciado42';
+import Enunciado43 from './components/enunciado43';
+import Enunciado44 from './components/enunciado44';
+import Enunciado45 from './components/enunciado45';
+import Enunciado46 from './components/enunciado46';
+import Enunciado47 from './components/enunciado47';
+import Enunciado48 from './components/enunciado48';
+import Enunciado49 from './components/enunciado49';
+import Enunciado50 from './components/enunciado50';
 import Dos from './components/2';
 import Tres from './components/3';
 import Cuatro from './components/4';
@@ -90,6 +100,16 @@ import Trientasiete from './components/37';
 import Trientaocho from './components/38';
 import Trientanueve from './components/39';
 import Cuarenta from './components/40';
+import Cuarentauno from './components/41';
+import Cuarentados from './components/42';
+import Cuarentatres from './components/43';
+import Cuarentacuatro from './components/44';
+import Cuarentacinco from './components/45';
+import Cuarentaseis from './components/46';
+import Cuarentasiete from './components/47';
+import Cuarentaocho from './components/48';
+import Cuarentanueve from './components/49';
+import Cuarentacincuenta from './components/50';
 import Uno from './components/1';
 import Foro from './components/foro';
 import Sidebar from './components/Sidebar'; 
@@ -151,6 +171,16 @@ const App = () => {
         <Route path="/38" element={<Trientaocho/>} />
         <Route path="/39" element={<Trientanueve/>} />
         <Route path="/40" element={<Cuarenta/>} />
+        <Route path="/41" element={<Cuarentauno/>} />
+        <Route path="/42" element={<Cuarentados/>} />
+        <Route path="/43" element={<Cuarentatres/>} />
+        <Route path="/44" element={<Cuarentacuatro/>} />
+        <Route path="/45" element={<Cuarentacinco/>} />
+        <Route path="/46" element={<Cuarentaseis/>} />
+        <Route path="/47" element={<Cuarentasiete/>} />
+        <Route path="/48" element={<Cuarentaocho/>} />
+        <Route path="/49" element={<Cuarentanueve/>} />
+        <Route path="/50" element={<Cuarentacincuenta/>} />
         <Route path="/examen" element={<Examen />} />
         <Route path="/examennivel1" element={<Examennivel1 />} />
         <Route path="/condicionales" element={<Condicionales />} />
@@ -192,6 +222,16 @@ const App = () => {
         <Route path="/enunciado38" element={<Enunciado38/>} />
         <Route path="/enunciado39" element={<Enunciado39/>} />
         <Route path="/enunciado40" element={<Enunciado40/>} />
+        <Route path="/enunciado41" element={<Enunciado41/>} />
+        <Route path="/enunciado42" element={<Enunciado42/>} />
+        <Route path="/enunciado43" element={<Enunciado43/>} />
+        <Route path="/enunciado44" element={<Enunciado44/>} />
+        <Route path="/enunciado45" element={<Enunciado45/>} />
+        <Route path="/enunciado46" element={<Enunciado46/>} />
+        <Route path="/enunciado47" element={<Enunciado47/>} />
+        <Route path="/enunciado48" element={<Enunciado48/>} />
+        <Route path="/enunciado49" element={<Enunciado49/>} />
+        <Route path="/enunciado50" element={<Enunciado50/>} />
         <Route path="/foro" element={<Foro />} />
         <Route path="/positions" exact element={<Positions />} />
         <Route path="/insignias" element={<Insignias />} /> 

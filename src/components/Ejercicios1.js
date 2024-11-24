@@ -23,7 +23,7 @@ const Ejercicios1 = ({ toggleView }) => {
     setShowConfirmation(true);
   
     // Rediriges a enunciado3.js
-    navigate('/enunciado3');
+    navigate('/1');
   };
   const handleCloseModal = () => {
     setShowModal(false);
